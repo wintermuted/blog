@@ -2,7 +2,7 @@
 layout: post
 title:  "Pair-programming at Jama Software"
 date:   2016-12-30 09:57:46 -0700
-categories: software programming pair-programming
+categories: software programming pair-programming agile xp
 ---
 
 Over the past two years Jama Software has taken steps to make pair-programming a greater part of our engineering culture.  Our product-development organization produces software according to the [Agile Software Development](https://www.agilealliance.org/agile101/) framework of [Scrum](https://www.scrumalliance.org/why-scrum), with regular iterations, and self-organizing teams.   
