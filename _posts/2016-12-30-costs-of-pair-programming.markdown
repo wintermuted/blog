@@ -84,3 +84,9 @@ Pair-programming, at least in the case of Jama, was a way to push us towards a c
 For many engineers & software engineering organizations, pair-programming is a novel way of working that turns the commonplace individual-contributor mode of working on its head.
 
 As I explained above, adopting it as a practice is not without it's challenges.  If you are still convinced after reading this post that it is something you would like to try, do so on as small of a scale as possible.  You might first try pair-programming on an individual level with a fellow team-member, and then branch out by trying it at a scrum-team level.  If you are feeling very confident, you might even try [mob-programming](http://mobprogramming.org/), an approach that involves the entire team.
+
+***
+
+A version of this [post](https://www.jamasoftware.com/blog/costs-challenges-and-common-pitfalls-of-pair-programming/) was originally published on the [Jama Software Developer Insights Blog](https://www.jamasoftware.com/blog/category/developer-insights/) on January 18th, 2017.
+
+Jama Software is the developer of Jama Product Delivery Platform, a collaborative web-based application designed to help companies manage projects that relate to the development and introduction of products.

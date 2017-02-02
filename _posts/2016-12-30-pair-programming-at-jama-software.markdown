@@ -55,3 +55,9 @@ Pair-programming has also provided our engineering organization with a variety o
 At Jama Software we have gained many benefits from pair-programming, but that doesn't mean that it is an easy task to adopt it as a practice.  For many software organizations, adopting an Agile Software Development methodology over a traditional waterfall project management approach can be a tough transition.  Pair-programming is no different, and benefits from having a well-established Agile culture within an organization.  For us, pair-programming was a ground-up initiative, but it also took the support and trust of our product and engineering leadership team.  Without this support, it would not have been possible.  
 
 Is your team ready to try out pair-programming?  Look out for an upcoming blog post about some of the costs & common-pitfalls associated with the practice.
+
+***
+
+A version of this [post](https://www.jamasoftware.com/blog/pair-programming-why-we-do-it/) was originally published on the [Jama Software Developer Insights Blog](https://www.jamasoftware.com/blog/category/developer-insights/) on January 4th, 2017.
+
+Jama Software is the developer of Jama Product Delivery Platform, a collaborative web-based application designed to help companies manage projects that relate to the development and introduction of products.
