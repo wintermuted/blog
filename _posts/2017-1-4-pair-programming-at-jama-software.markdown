@@ -1,15 +1,19 @@
 ---
 layout: post
 title:  "Pair-programming at Jama Software"
-date:   2016-12-30 09:57:46 -0700
-categories: software programming pair-programming
+date:   2017-1-4 09:57:46 -0700
+categories:
+- agile software development
+- pair-programming
+- XP
+- extreme programming
 ---
 
 Over the past two years Jama Software has taken steps to make pair-programming a greater part of our engineering culture.  Our product-development organization produces software according to the [Agile Software Development](https://www.agilealliance.org/agile101/) framework of [Scrum](https://www.scrumalliance.org/why-scrum), with regular iterations, and self-organizing teams.   
+<!--description-->
 
 Within the agile principle of incremental refinement, we have continued to adopt practices that help us produce quality software.  The adoption of pair-programming emerged from from the ground-up, through initiative of individual contributors within the engineering team, but also enjoyed support from product & engineering leadership.  
 
-<!--description-->
 
 Today pair-programming, test-driven development, read-by-refactoring, continuous integration, and self-organizing teams are an important part of our development efforts.  It has also found its way into our larger engineering culture, becoming part of the  [hiring](http://www.jamasoftware.com/blog/jamas-hiring-process-the-technical-interview/), and on-boarding processes.  Several [self-organizing](http://www.jamasoftware.com/blog/self-selecting-agile-teams/) teams in the engineering organization that have adopted pair-programming in their team working agreement, especially across [feature-development teams](https://less.works/less/structure/feature-teams.html).
 
