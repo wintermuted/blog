@@ -2,6 +2,8 @@
 layout: post
 title:  "Costs, challenges, and common pitfalls of pair-programming"
 date:   2017-1-18 09:57:46 -0700
+location: "Portland"
+author: "Jameson Nyeholt"
 categories:
 - pair-programming
 - agile software development

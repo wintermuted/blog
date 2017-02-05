@@ -2,6 +2,8 @@
 layout: post
 title:  "Pair-programming at Jama Software"
 date:   2017-1-4 09:57:46 -0700
+location: "Portland"
+author: "Jameson Nyeholt"
 categories:
 - agile software development
 - pair-programming

@@ -2,6 +2,8 @@
 layout: post
 title:  "The Clean Coder, Pt.1 - lightning talk summary & slides"
 date:   2017-2-4 09:57:46 -0700
+author: "Jameson Nyeholt"
+location: "Portland"
 categories:
   - programming
   - software craftsmanship
