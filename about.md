@@ -15,3 +15,5 @@ I am a big proponent of [software craftsmanship](http://manifesto.softwarecrafts
 ### Normal human things
 
 In my free time, you can find me enjoying the outdoors via camping, surfing, hiking, traveling or on long road-trips with my wife [Rachel](http://www.rachelthaidesign.info/).  During colder months I tend to immerse myself in board games, Legos, and building [Gunpla](https://www.gunpla101.com/) models.
+
+<img src="{{site.baseurl}}/assets/img/couple.jpg" />
