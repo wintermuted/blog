@@ -5,7 +5,29 @@ layout: default
 
   <header class="artilce_header">
     <h1 class="artilce_title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="artilce_meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    <p class="artilce_meta">
+
+      {% if page.date %}
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%d %B %Y, %A" }}
+      </time>
+      {% endif %}
+
+      <!-- {% if page.location %}
+      <div data-icon="ei-location"></div>
+      <a href=https://www.google.com/maps/place/{{page.location}}">{{ page.location }}</a>
+      {% endif %} -->
+
+      {% if page.author %}
+      •
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">{{ page.author }}</span>
+      </span>
+      {% endif %}
+
+
+
+    </p>
   </header>
 
   <div class="article-content" itemprop="articleBody">
@@ -14,9 +36,19 @@ layout: default
 
   <footer class="article-footer">
 
+    {% for category in page.categories %}
+    <a href="{{site.baseurl}}/archive#{{category}}">
+      <data data-icon="ei-archive"></data>
+      {{category}}
+    </a>
+    {% endfor %}
+
+    <hr/>
+
+<!--
   {% include share.html %}
 
-  <hr/>
+  <hr/> -->
 
   {% include author.html %}
 
