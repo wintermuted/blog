@@ -9,6 +9,7 @@ Below is a list of books that I've read and believe are great resources for any 
 ## Books
 
 **Agile Software Development**
+
 - [User Story Mapping](http://jpattonassociates.com/user-story-mapping/) - Jeff Patton
 - [Agile Software Development: Principles, Patterns, and Practices](https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445) - Robert C. Martin
 - [The Art of Agile Development: Pragmatic Guide to Agile Software Development](https://www.amazon.com/Art-Agile-Development-Pragmatic-Software/dp/0596527675) - James Shore
@@ -17,12 +18,14 @@ Below is a list of books that I've read and believe are great resources for any 
 - [The Mythical Man Month: Essays on Software Engineering](https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959) - Fredick P. Brooks Jr.
 
 **Software Craftsmanship**
+
 - [The Clean Coder: A Code of Conduct for Professional Programmers](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073) - Robert C. Martin
 - [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) - Robert C. Martin
 - [The Pragmatic Programmer: From Journeyman to Master](https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X) - Andrew Hunt
 - [The Software Craftsman: Professionalism, Pragmatism, Pride](https://www.amazon.com/Software-Craftsman-Professionalism-Pragmatism-Robert/dp/0134052501/) - Sandro Mancuso
 
 **Software Engineering**
+
 - [Javascript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
 - [Refactoring: Improving the Design of Existing Code](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672) - Martin Fowler
 - [Test Driven Development: By Example](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530) - Kent Beck
