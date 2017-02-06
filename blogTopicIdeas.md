@@ -13,4 +13,4 @@
 - Building a Gundam model
 - Introduction to Extreme Programming
 - Code Retreats
-- Software Heirarchy of Needs
+- Software Hierarchy of Needs
