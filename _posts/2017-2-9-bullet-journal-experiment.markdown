@@ -26,7 +26,7 @@ When I completed my degree, my note-taking and task-management activities took a
 
 ## Enter Bullet Journal
 
-Several weeks ago a colleague of mine at Jama introduced me to the [Bullet Journal](http://bulletjournal.com/) system after noticing that I had been carrying around a [Leuchtturm1917](https://www.leuchtturm1917.us/notebooks/) notebook (yes, also nowhere near full) for note-taking at meetings.  Bullet Journal gives itself the tagline of being "the analog system for the digital age," which seemed as though it was being marketed towards individuals with the class of problem I have had.  The system was created by [Ryder Carroll](http://www.rydercarroll.com/), a digital product designer based out of Brookyln.
+Several weeks ago a [colleague](http://toddlemoine.net/) of mine at Jama introduced me to the [Bullet Journal](http://bulletjournal.com/) system after noticing that I had been carrying around a [Leuchtturm1917](https://www.leuchtturm1917.us/notebooks/) notebook (yes, also nowhere near full) for note-taking at meetings.  Bullet Journal gives itself the tagline of being "the analog system for the digital age," which seemed as though it was being marketed towards individuals with the class of problem I have had.  The system was created by [Ryder Carroll](http://www.rydercarroll.com/), a digital product designer based out of Brookyln.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fm15cmYU0IM" frameborder="0" allowfullscreen></iframe>
 
