@@ -14,3 +14,5 @@
 - Introduction to Extreme Programming
 - Code Retreats
 - Software Hierarchy of Needs
+- TDD with webpack
+- self-taught programmer journey
