@@ -4,13 +4,13 @@ title: About
 permalink: /about/
 ---
 
-I'm currently living and working in beautiful Portland, Oregon.  My current gig is at [Jama Software](http://www.jamasoftware.com), where I am a Software Engineer & also serve as a Scrum Master for feature-development teams.  
+I live and work in beautiful Portland, Oregon.  I grew up in southern California.  My current gig is at [Jama Software](http://www.jamasoftware.com), where I am a Software Engineer & also serve as a Scrum Master for feature-development teams.  
 
-I do a lot of development in [ECMAScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (recruiters, see Javascript) and mingle with Product Managers. In my experience as a software engineer, I have programmed using ECMAScript, Java, Python & Scala, and have developed user-interfaces, REST end-points, and build tooling.
+I do a lot of development in [ECMAScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (technical recruiters, see Javascript) and mingle with Product Managers. In my experience as a Software Engineer, I have programmed using ECMAScript, Java, Python & Scala, and have had the privilege of developing user-interfaces, REST end-points, and build tooling.  My favorite libraries are lodash & React.
 
-### My Modus Operandi
+### Modus Operandi
 
-I am a big proponent of [software craftsmanship](http://manifesto.softwarecraftsmanship.org/) and [agile methodologies](http://agilemanifesto.org/).  I enjoy working in environments that support Extreme Programming practices like TDD and pair-programming.  I geek out on process optimization.  I love learning new techniques and skills.
+I am a big proponent of [software craftsmanship](http://manifesto.softwarecraftsmanship.org/) and [agile methodologies](http://agilemanifesto.org/).  I enjoy working in environments that support Extreme Programming practices like TDD and pair-programming.  I geek out on process optimization and functional programming.  I love learning new techniques and skills.
 
 ### Normal human things
 
