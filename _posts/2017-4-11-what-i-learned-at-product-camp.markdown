@@ -25,7 +25,7 @@ One of the more interesting talks that I attended was on the Agile Fluency model
 
 The Agile Fluency model was developed by Diana Larson and James Shore, another luminary in the local software development industry.  The model is used to describe the stages that a team goes through as they develop fluency with Agile Software development.  The model describes four distinct stages that a team goes through as they move along in their understanding and integration into Agile Software Development methodologies.
 
-In order to describe fluency, the "star" model was used
+In order to describe fluency, the "star" model is used
 
 
 
