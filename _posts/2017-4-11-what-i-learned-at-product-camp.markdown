@@ -16,7 +16,7 @@ categories:
 
 Last month I attended [Product Camp Portland](https://twitter.com/PDXProductCamp) for the first time.  I had heard about [Product Camp](http://www.productcamp.org/) a few times since I began working at Jama over two years ago - an occurrence that I can attribute to the strong product culture we have - but had never had much interest in attending.  Many of my colleagues had attended (not necessarily on the engineering side of the house) and one had even been nominated for best talk a few years ago.  For the sake of learning and curiosity, this year I decided to attend.
 
-## Background & Prior Art
+# Background & Prior Art
 
 Over the past year or so, I became more interested in [Product Management](http://www.mindtheproduct.com/2011/10/what-exactly-is-a-product-manager/) via the experience I gained at Jama working as the [ScrumMaster](https://www.mountaingoatsoftware.com/agile/scrum/roles/scrummaster) for my team. At Jama, we do not have any individuals that are fully-resourced as ScrumMasters; instead an engineer per team takes on this role, and splits their time between engineering work and ensuring that things run smoothly from a process stand-point.  This often involves working closely with product and engineering managers to estimate, plan, and deliver features, in addition to ensuring that our team is getting all the information, resources, and help that we need to be successful.
 
@@ -24,7 +24,7 @@ Yet another layer deeper, my recent interest in Product Management draws from in
 
 Even after becoming a [Certified Scrum Master](https://www.scrumalliance.org/certifications/practitioners/certified-scrummaster-csm) and acting as one for the better chunk of a year, I realized I knew very little about the day-to-day life of a Product Manager outside of my interaction with them as it relates to executing on software development.  I figured it was probably high-time that I take off my engineering hat for a day and pretend I was a Product Manager, both for the sake of empathy towards my product-development peers and my own professional growth.
 
-## The Conference
+# The Conference
 
 On March 4th, I showed up at the [Eliot Center](http://eliotcenterportland.org/) in Downtown Portland, where this year's conference was being held. During my day at Product Camp I didn't learn much about the nuts and bolts of what it takes to be a great Product Manager, but I did get the opportunity to learn a few things about the Product Management perspective on creating software.  
 
@@ -54,45 +54,46 @@ During the session I attended, we went through the different steps of the model,
 
 > Below I've outlined the basics of the tiers, the content of which is heavily sourced from the original article and related publications:
 
-### One Star Teams: Create Business Value
+## One Star Teams: Create Business Value
 
 A one-star fluency team is an organization that practices the fundamentals of Agile and focuses on delivering business value, while the broader organization understands and benefits from the insights they gain from the process.  The teams focus on the value delivered to stakeholders & customers, rather than solely technical architecture, typically articulated through user-stories.  
 
->- **Benefit**: Greater visibility into teams' work; ability to redirect.
->- **Investment**: Team development and work process design.
->- **Core Metric**: Team regularly reports progress from a business value perspective.
+- **Benefit**: Greater visibility into teams' work; ability to redirect.
+- **Investment**: Team development and work process design.
+- **Core Metric**: Team regularly reports progress from a business value perspective.
 
 > **Practices:** [Scrum](https://www.scrumalliance.org/why-scrum) or [Kanban](https://www.versionone.com/what-is-kanban/), [backlogs](https://www.agilealliance.org/glossary/backlog/), [retrospectives](https://www.mountaingoatsoftware.com/agile/scrum/meetings/sprint-retrospective), [iterations](https://www.agilealliance.org/glossary/iteration/), [Sprints](https://www.mountaingoatsoftware.com/agile/scrum/meetings/sprint-planning-meeting), and [kanban boards](https://leankit.com/learn/kanban/kanban-board/).
 
-### Two-Star Teams: Deliver on Market's Cadence
+## Two-Star Teams: Deliver on Market's Cadence
 
-A two-star fluency organization has made major investments in building the software development skills of the team at the initial cost of decreased productivity, but the benefit of increased productivity & higher quality following the initial investment.  Two-star teams are able to ship at market cadence, and on will.  
+A two-star fluency organization has made major investments in building the software development skills of the team at the initial cost of decreased productivity, but the benefit of increased productivity & higher quality following the initial investment.  Two-star teams are able to ship at market cadence, and on will.  Two star teams adhere to the philosophies of Extreme Programming, Software Craftsmanship, and DevOps.
 
->- **Benefit**: Low defects and high productivity.
->- **Investment**: Lowered productivity during technical skill development.
->- **Core Metric**: Team ships on market cadence.
+- **Benefit**: Low defects and high productivity.
+- **Investment**: Lowered productivity during technical skill development.
+- **Core Metric**: Team ships on market cadence.
 
 > **Practices:** [Extreme Programming](http://www.extremeprogramming.org/), [continuous integration](https://www.thoughtworks.com/continuous-integration), [test-driven development](https://www.agilealliance.org/glossary/tdd/), [pair-programming](https://www.agilealliance.org/glossary/pairing/), and [collective code ownership](https://www.agilealliance.org/glossary/collective-ownership/).
 
-### Three-Star Teams: Optimize Value
+## Three-Star Teams: Optimize Value
 
-A three-star team is one that has achieved the ideal of agile; rapid product-development that is responsive to change, business experts being involved as full-time contributors, and an improved ability to serve the needs of the business.  
+A three-star team is one that has achieved the ideal of agile; rapid product-development that is responsive to change, business experts being involved as full-time contributors, and an improved ability to serve the needs of the business.  These incorporate business experts (such as product managers, business analysts, and quality assurance analysts) as full-time team members, rather than as external stakeholders.  Managers are capable of working across the organization to remove obstacles.
 
->- **Benefit**: Higher value deliveries and better product decisions.
->- **Investment**: Social capital expended on incorporating business expertise into team.
->- **Core Metric**: Team provides concrete business metrics.
+- **Benefit**: Higher value deliveries and better product decisions.
+- **Investment**: Social capital expended on incorporating business expertise into team.
+- **Core Metric**: Team provides concrete business metrics.
 
 > **Practices:** [Lean Software Development](http://www.allaboutagile.com/7-key-principles-of-lean-software-development-2/), [Agile chartering](https://www.agilealliance.org/glossary/project-chartering/), embedded product management teams, [customer discovery](https://steveblank.com/tag/customer-discovery/), and [adaptive planning](https://www.scrumalliance.org/community/articles/2010/february/how-to-sustain-adaptive-planning).
 
-### Four-Star Teams: Optimize the System
+## Four-Star Teams: Optimize the System
 
 A four-star team is referred to as the future of Agile; tight collaboration with other portions of the business, "...whole-system thinking and a willingness to experiment."  These teams make use of "...advanced management theories and innovative product development methods.  This is kept almost deliberately opaque, as Larsen and Shore claim to have observed only very few teams that achieve this, most of which happen smaller teams.
 
->- **Benefit**: Alignment with organizational goals; synergistic effects.
->- **Investment**: Significant effort in establishing organizational culture; inventing new practices.
->- **Core Metric**: Team reports how its actions impact the overall organization.
+- **Benefit**: Alignment with organizational goals; synergistic effects.
+- **Investment**: Significant effort in establishing organizational culture; inventing new practices.
+- **Core Metric**: Team reports how its actions impact the overall organization.
 
 > **Practices:** [Agile portfolio management](http://www.scaledagileframework.com/program-portfolio-management/), [systems thinking](https://www.oreilly.com/ideas/the-critical-role-of-systems-thinking-in-software-development), [value stream analysis](https://en.wikipedia.org/wiki/Value_stream_mapping), whole system planning, intact teams, [open book management](https://en.wikipedia.org/wiki/Open-book_management), [radical self-organization](http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1066&context=managementfacpub)
+
 
 Below is a helpful, powerpoint slide-worthy chart that I shamelessly copied from the original post.  It can be used to quickly illustrate what I described above:
 
@@ -104,11 +105,13 @@ Below is a helpful, powerpoint slide-worthy chart that I shamelessly copied from
 | 3 | Higher value deliveries and better product decisions. | Social capital expended on incorporating business expertise into team. | Team provides concrete business metrics. | 1-5 years | 5% |
 | 4 | Alignment with organizational goals; synergistic effects. | Significant effort in establishing organizational culture; inventing new practices. | Team reports how its actions impact the overall organization. | unknown | very few |
 
-## Where does Jama fit in the model?
+# Where does Jama fit in the model?
 
-After learning about the Agile Fluency Model I began to wonder where our product-development organization currently falls within the framework.  After reading through the examples of practices used in the first three levels, I began to see our organization did a little bit of everything, but also quite a few areas in which we were lacking.  
+After learning about the Agile Fluency Model I began to wonder where Jama's product-development organization currently falls within the framework.  After reading through the examples of practices used in the first three levels, I began to see our organization did a little bit of everything, but also quite a few areas in which we were lacking.  Where I think we most comfortably fit in, is as an organization whom has attained two-star fluency, with aspirations to be a three-star organization.
 
-## Conclusion
+When I arrived at Jama, Agile practices were well under way. During my tenure at Jama I have seen the fluency of the team grow as a two-star organization; the organization has made a series of investments in developing the software development skills of the team.  To this end, we have invested in refactoring workshops, a focus on test-driven development, pair-programming, collective-code ownership and emphasis on DevOps culture.  I mention that Jama has aspirations to be a three-star organization, because we have already adopted some of the 
+
+# Conclusion
 
 My conclusion will go here
 
@@ -116,3 +119,4 @@ My conclusion will go here
 > Sources:
 > - [Your Path Through Agile Fluency](https://martinfowler.com/articles/agileFluency.html); Larsen, Shore; August 2012
 > - [Agile Fluency: Finding Agile That's Fit-for-Purpose](https://www.infoq.com/articles/agile-fluency-fit-purpose); Larsen; November 2013
+> - [AgileFluency.org](http://www.agilefluency.org/); Larsen, Shore; 2016
