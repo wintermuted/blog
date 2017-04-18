@@ -1,17 +1,19 @@
 ---
 layout: post
 title:  "What I Learned at Product Camp: Agile Fluency at Jama Software"
-date:   2017-4-10 08:00:46 -0700
+date:   2017-4-17 08:00:46 -0700
 author: "Jameson Nyeholt"
 location: "Downtown Portland"
 categories:
   - Product Management
-  - ProductCamp PDX
+  - Product Camp PDX
   - Agile Software Development
   - Conferences
   - Agile Fluency Model
   - Diana Larsen
   - James Shore
+  - Jama Software
+  - Martin Fowler
 ---
 
 Last month I attended [Product Camp Portland](https://twitter.com/PDXProductCamp) for the first time.  I had heard about the conference a few times since I began working at Jama over two years ago - an occurrence that I can attribute to the strong product culture we have - but had never had much interest in attending.  Many of my colleagues had attended (not necessarily on the engineering side of the house) and some had even been nominated for best talk a few years ago.  For the sake of learning and curiosity, this year I decided to attend.
