@@ -32,7 +32,7 @@
 }
 
 .box {
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 /* Grid
@@ -313,9 +313,9 @@ label > .label-body {
 
 
 /* Lists
-–––––––––––––––––––––––––––––––––––––––––––––––––– 
+––––––––––––––––––––––––––––––––––––––––––––––––––
 ul {
-  list-style: circle inside; 
+  list-style: circle inside;
 }
 ol {
   list-style: decimal inside; }
@@ -364,9 +364,27 @@ th:last-child,
 td:last-child {
   padding-right: 0; }
 
+table.tight-table {
+  word-wrap: normal;
+  margin-bottom: 25px;
+  th,
+  td {
+    font-size: 11px;
+    padding: 3px 5px;
+    text-align: left !important;
+    border-bottom: 1px solid #E1E1E1;
+  }
+  th:first-child,
+  td:first-child {
+    padding-left: 0; }
+  th:last-child,
+  td:last-child {
+    padding-right: 0; }
+}
+
 
 /* Spacing
-–––––––––––––––––––––––––––––––––––––––––––––––––– 
+––––––––––––––––––––––––––––––––––––––––––––––––––
 button,
 .button {
   margin-bottom: 1rem; }
@@ -428,8 +446,8 @@ hr {
   display: table;
   clear: both; }
 
-  
-/* Images 
+
+/* Images
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 img {
@@ -437,7 +455,7 @@ img {
     vertical-align: middle;
 }
 
-/* blockquote */ 
+/* blockquote */
 
 blockquote {
   margin: 1.5rem 0;
@@ -447,4 +465,4 @@ blockquote {
   line-height: 1.8rem;
   border-left: 3px solid #D0E5F2;
   font-size: 1.3rem;
-} 
+}
