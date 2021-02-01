@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Reading List
+title: Software Reading List
 permalink: /reading-list/
 ---
 

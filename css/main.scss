@@ -7,7 +7,7 @@
 
 // Our variables
 $base-font-family:  Helvetica, "Helvetica Neue", Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-size:   12px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
@@ -30,6 +30,11 @@ $content-width:    800px;
 
 $on-palm:          550px;
 $on-laptop:        780px;
+
+.icon {
+  width: 16px;
+  height: 24px;
+}
 
 
 
