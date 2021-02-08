@@ -5,7 +5,8 @@ date:   2017-1-4 09:57:46 -0700
 location: "Portland"
 author: "Jameson Nyeholt"
 permalink: /:categories/:year/:month/:day/:title.html
-categories:
+category: software engineering
+tags:
 - agile software development
 - pair-programming
 - XP
