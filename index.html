@@ -15,7 +15,7 @@ title: Blog | Jameson Nyeholt | Technologist
                         <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
                         {% if post.location %}
                         <span class="author-location">
-                        <div data-icon="ei-location"></div>
+                        <i class="fas fa-map-marker-alt"></i>
                         <a href=https://www.google.com/maps/place/{{post.location}}" class="post_date">{{ post.location }}</a>
                     </span>
                         {% endif %}
@@ -32,7 +32,7 @@ title: Blog | Jameson Nyeholt | Technologist
 
     <div class="pagination older-post">
         <a href="./archive">
-            <data data-icon="ei-arrow-right"></data>
+            <i class="fas fa-archive"></i>
             Archive
         </a>
     </div>

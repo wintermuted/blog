@@ -42,17 +42,13 @@ layout: default
                 <footer class="article-footer">
                     {% for category in page.categories %}
                     <a href="{{site.baseurl}}/archive#{{category}}">
-                        <data data-icon="ei-archive"></data>
+                        <i class="fas fa-archive"></i>
                         {{category}}
                     </a>
                     {% endfor %}
                     <hr/>
-                    <!--
-                      {% include share.html %}
-                      <hr/> -->
                     {% include author.html %}
                 </footer>
-                {% include dq.html %}
             </article>
         </div>
         <div class="col-4">
