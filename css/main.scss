@@ -3,72 +3,80 @@
 ---
 @charset "utf-8";
 
+$fa-font-path: "../webfonts";
 
 
-// Our variables
-$base-font-family:  Helvetica, "Helvetica Neue", Arial, sans-serif;
-$base-font-size:   12px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-$font-weight-light: 100;
-$font-weight-normal: 400;
-$font-weight-bold: 600;
+@import "./fontawesome/fontawesome.scss";
+@import "./fontawesome/solid.scss";
+@import "./fontawesome/brands.scss";
+@import "bootstrap/scss/bootstrap";
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: #b1b1b1;
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          550px;
-$on-laptop:        780px;
-
-.icon {
-  width: 16px;
-  height: 24px;
+body {
+  p {
+    font-size: 16px;
+  }
 }
 
+h3.post_title {
+  font-size: 18px;
+}
 
+h1.article-title {
+  font-size: 32px;
+}
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
+h1.post-title {
+  font-size: 32px;
+}
+
+a {
+  color: #90a079;
+}
+
+a:hover {
+  color: #90a079;
+}
+
+.post {
+  h1.article-title {
+    font-size: 32px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .article-content {
+    h1 {
+      font-size: 18px;
     }
+  }
 }
 
-.dont-break-out {
-
-  /* Careful, this breaks the word wherever it is without a hyphen */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-
-  /* Adds a hyphen where the word breaks */
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-
+aside.sidebar {
+  h4 {
+    font-size: 18px;
+  }
 }
 
-@import
-        "normalize",
-        "base",
-        "layout",
-        "color",
-        "syntax-highlighting"
-;
+a.post_date {
+  color: black;
+}
+
+h3.post_title {
+  a {
+
+  }
+}
+
+.archive {
+  h2 {
+    font-size: 32px;
+  }
+
+  .archive_list {
+    h2 {
+      font-size: 18px;
+    }
+  }
+}

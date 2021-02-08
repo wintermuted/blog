@@ -1,65 +1,39 @@
 ---
 layout: default
-title: Blog | Jameson Nyeholt | Software Engineer & Scrum Master
+title: Blog | Jameson Nyeholt | Technologist
 ---
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            {% for post in site.posts limit:10%}
+            <div class="row">
+                <article class="col">
+                    <header class="post_header">
+                        <h3 class="post_title">
+                            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h3>
+                        <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
+                        {% if post.location %}
+                        <span class="author-location">
+                        <div data-icon="ei-location"></div>
+                        <a href=https://www.google.com/maps/place/{{post.location}}" class="post_date">{{ post.location }}</a>
+                    </span>
+                        {% endif %}
+                    </header>
+                    <hr/>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-4">
+            {% include sidebar.html %}
+        </div>
+    </div>
 
-<div class="home">
-  <div class="post-list">
-
-    {% for post in site.posts limit:10%}
-
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
-        <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
-        {% if post.location %}
-        <span class="author-location">
-          <div data-icon="ei-location"></div>
-          <a href=https://www.google.com/maps/place/{{post.location}}" class="post_date">{{ post.location }}</a>
-        </span>
-        {% endif %}
-      </header>
-      <div class="post_excerpt">
-        <p>
-          <!-- {% if post.description %}
-          {{ post.description}}
-          {% else %}
-          {{ post.excerpt }}
-          {% endif %} -->
-          <!-- <a class="read-more" href="{{ post.url | prepend: site.baseurl }}"> »  </a> -->
-        </p>
-      </div>
-      <footer class="post_meta">
-
-
-
-
-        <!-- {% for category in post.categories %}
-        <a href="{{"/category/" | append: category | prepend: site.baseurl }}">
-          <data data-icon="ei-archive"></data>
-          {{category}}</a>
-        {% endfor %} -->
-
-        <!-- {% if post.author %}
-        <span class="author_meta">
-          <img src="{{site.baseurl}}/assets/img/{{post.author}}.jpg"></img>
-          <span>Jameson Nyeholt</span>
-        </span>
-        {% endif %}
-
-        <span class="readmore">
-          <a href="{{ post.url | prepend: site.baseurl }}"><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </span> -->
-
-        <!-- <p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p> -->
-
-      </footer>
-      <hr/>
-    </article>
-    {% endfor %}
-
-    <div class="pagination older-post"><a href="./archive"><data data-icon="ei-arrow-right"></data> Archive  </a></div>
-  </div>
+    <div class="pagination older-post">
+        <a href="./archive">
+            <data data-icon="ei-arrow-right"></data>
+            Archive
+        </a>
+    </div>
 </div>
