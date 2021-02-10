@@ -22,3 +22,7 @@ disqus_shortname: advantxgarde
 excerpt_separator: <!--description-->
 
 permalink: /:year/:month/:day/:title.html
+
+sass:
+  sass_dir: _sass
+  style: compressed
