@@ -1,15 +1,21 @@
 @charset "utf-8";
-
 $fa-font-path: "../webfonts";
-
 @import "./fontawesome/fontawesome.scss";
 @import "./fontawesome/solid.scss";
 @import "./fontawesome/brands.scss";
-//@import "bootstrap/scss/bootstrap";
+
+$dark-gray: #343a40;
 
 body {
   p {
     font-size: 16px;
+  }
+
+  a {
+    color: #90a079;
+    &:hover {
+      color: #90a079;
+    }
   }
 }
 
@@ -25,13 +31,6 @@ h1.post-title {
   font-size: 32px;
 }
 
-a {
-  color: #90a079;
-}
-
-a:hover {
-  color: #90a079;
-}
 
 .post {
   h1.article-title {
@@ -44,7 +43,27 @@ a:hover {
 
   .article-content {
     h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
       font-size: 18px;
+    }
+  }
+}
+
+.posts_index {
+  .post_header {
+    .post_meta {
+      font-size: 14px;
+      color: rgba($dark-gray, 0.8);
+      a.post_date {
+        color: rgba($dark-gray, 0.8);
+      }
     }
   }
 }
@@ -55,15 +74,8 @@ aside.sidebar {
   }
 }
 
-a.post_date {
-  color: black;
-}
 
-h3.post_title {
-  a {
 
-  }
-}
 
 .archive {
   h1 {
@@ -79,8 +91,4 @@ h3.post_title {
       font-size: 18px;
     }
   }
-}
-
-.archive {
-
 }

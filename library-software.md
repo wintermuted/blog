@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Software Reading List
-permalink: /reading-list/
+title: Library: Software Engineering
+permalink: /library/software-engineering/
 ---
 
 Below is a list of books that I've read and believe are great resources for any software development professional.  I discovered a lot of these books as recommendations from colleagues, through references within the books themselves, and from the helpful suggestions of Amazon.com.

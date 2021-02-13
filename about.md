@@ -1,19 +1,23 @@
 ---
-layout: page
-title: About
+layout: page 
+title: About 
 permalink: /about/
 ---
 
-I live and work in beautiful Portland, Oregon.  I grew up in southern California.  My current gig is at [Jama Software](http://www.jamasoftware.com), where I am a Software Engineer & also serve as a Scrum Master for feature-development teams.  
+I am a Senior Software Engineer at [Xandr](https://www.xandr.com), an advertising & analytics division
+of [WarnerMedia](https://www.warnermedia.com/us). I lead a team focused on building products for businesses managing
+advertising for publishers.
 
-I do a lot of development in [ECMAScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (technical recruiters, see Javascript) and mingle with Product Managers. In my experience as a Software Engineer, I have programmed using ECMAScript, Java, Python & Scala, and have had the privilege of developing user-interfaces, REST end-points, and build tooling.  My favorite libraries are lodash & React.
+I live and work in Portland, Oregon, where I have been located since 2013. Prior to relocating to the Pacific Northwest,
+I lived in southern California.
 
-### Modus Operandi
+[Philosophy](/about/philosophy)
 
-I am a big proponent of [software craftsmanship](http://manifesto.softwarecraftsmanship.org/) and [agile methodologies](http://agilemanifesto.org/).  I enjoy working in environments that support Extreme Programming practices like TDD and pair-programming.  I geek out on process optimization and functional programming.  I love learning new techniques and skills.
+## Mission
 
-### Normal human things
+I see my primary mission as attempting to leave things in a better state than I found them, and to do so in a way
+uplifts all those involved. I am an average person with average means, and though I know I won't necessarily change the
+world, I think it's important to have a positive impact upon my community and those in it.
 
-In my free time, you can find me enjoying the outdoors via camping, surfing, hiking, traveling or on long road-trips with my wife [Rachel](http://www.rachelthaidesign.info/).  During colder months I tend to immerse myself in board games, Legos, and building [Gunpla](https://www.gunpla101.com/) models.
-
-<img src="{{site.baseurl}}/assets/img/couple.jpg" />
+In my professional life, this mission sees action in the way I approach problem solving and collaborating with others in
+shared endeavors.
