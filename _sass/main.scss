@@ -74,9 +74,6 @@ aside.sidebar {
   }
 }
 
-
-
-
 .archive {
   h1 {
     font-size: 32px;
@@ -90,5 +87,41 @@ aside.sidebar {
     h3 {
       font-size: 18px;
     }
+  }
+}
+
+.global-footer {
+  margin-top: 100px;
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+$dark-theme-background: #2b2b2b;
+$dark-theme-text: #acacac;
+$dark-theme-navbar: #3c3f40;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: $dark-theme-background !important;
+    color: $dark-theme-text !important;
+    hr {
+      border: 1px solid rgba($dark-theme-text, 0.1)
+    }
+    .post_meta {
+      color: $dark-theme-text !important;
+      a {
+        color: $dark-theme-text !important;
+      }
+    }
+
+    .card {
+      background-color: $dark-theme-background;
+      border: 1px solid rgba($dark-theme-text, 0.1);
+    }
+  }
+
+  .navbar {
+    background: $dark-theme-navbar !important;
   }
 }

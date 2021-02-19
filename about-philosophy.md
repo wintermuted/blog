@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: page-about
 title: About > Philosophy
 permalink: /about/philosophy
 ---
+
+Having a [philosophy of life](https://en.wikipedia.org/wiki/Philosophy_of_life) is an important thing to me.  Below are 
+some things I believe in that guide the way I approach my personal and professional life.
 
 ## The Golden Mean - Don't let perfect be the enemy of good
 

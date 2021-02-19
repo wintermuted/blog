@@ -1,7 +1,11 @@
 ---
 layout: page
-title: Library: Software Engineering
+title: Software Engineering
 permalink: /library/software-engineering/
+---
+
+# Library > Software Engineering 
+
 ---
 
 Below is a list of books that I've read and believe are great resources for any software development professional.  I discovered a lot of these books as recommendations from colleagues, through references within the books themselves, and from the helpful suggestions of Amazon.com.

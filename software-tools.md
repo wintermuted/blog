@@ -6,15 +6,19 @@ permalink: /building-software/tools
 This page include a curated list of tools I use and recommend.  I attempt to use open-source tools when possible, and 
 high-quality proprietary software when reasonable.
 
-## Unix
+## <i class="fas fa-terminal"></i> Unix
 - [Oh my Zsh](https://ohmyz.sh) - Oh My Zsh is an open-source, community-driven framework for managing your Zsh 
   configuration.
+  
+---
 
-## macOS
+## <i class="fab fa-apple"></i> macOS
 
 - [iTerm2](https://iterm2.com) - A terminal replacement for macOS.
 
-## ECMAScript ecosystem
+---
+
+## <i class="fab fa-js-square"></i> ECMAScript ecosystem
 
 **Language supersets**
 - [Typescript](https://www.typescriptlang.org) - An open-source language that builds upon Javascript and adds static type definitions.
