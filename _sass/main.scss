@@ -1,15 +1,21 @@
 @charset "utf-8";
-
 $fa-font-path: "../webfonts";
-
 @import "./fontawesome/fontawesome.scss";
 @import "./fontawesome/solid.scss";
 @import "./fontawesome/brands.scss";
-//@import "bootstrap/scss/bootstrap";
+
+$dark-gray: #343a40;
 
 body {
   p {
     font-size: 16px;
+  }
+
+  a {
+    color: #90a079;
+    &:hover {
+      color: #90a079;
+    }
   }
 }
 
@@ -25,13 +31,6 @@ h1.post-title {
   font-size: 32px;
 }
 
-a {
-  color: #90a079;
-}
-
-a:hover {
-  color: #90a079;
-}
 
 .post {
   h1.article-title {
@@ -44,7 +43,27 @@ a:hover {
 
   .article-content {
     h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
       font-size: 18px;
+    }
+  }
+}
+
+.posts_index {
+  .post_header {
+    .post_meta {
+      font-size: 14px;
+      color: rgba($dark-gray, 0.8);
+      a.post_date {
+        color: rgba($dark-gray, 0.8);
+      }
     }
   }
 }
@@ -52,16 +71,6 @@ a:hover {
 aside.sidebar {
   h4 {
     font-size: 18px;
-  }
-}
-
-a.post_date {
-  color: black;
-}
-
-h3.post_title {
-  a {
-
   }
 }
 
@@ -81,6 +90,38 @@ h3.post_title {
   }
 }
 
-.archive {
+.global-footer {
+  margin-top: 100px;
+  ul {
+    margin-bottom: 0;
+  }
+}
 
+$dark-theme-background: #2b2b2b;
+$dark-theme-text: #acacac;
+$dark-theme-navbar: #3c3f40;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: $dark-theme-background !important;
+    color: $dark-theme-text !important;
+    hr {
+      border: 1px solid rgba($dark-theme-text, 0.1)
+    }
+    .post_meta {
+      color: $dark-theme-text !important;
+      a {
+        color: $dark-theme-text !important;
+      }
+    }
+
+    .card {
+      background-color: $dark-theme-background;
+      border: 1px solid rgba($dark-theme-text, 0.1);
+    }
+  }
+
+  .navbar {
+    background: $dark-theme-navbar !important;
+  }
 }

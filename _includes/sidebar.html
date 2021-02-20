@@ -1,7 +1,35 @@
 
 <aside class="sidebar">
-    <h4>Study</h4>
     <ul class="list-unstyled">
-        <li><a href="{{ "/reading-list" | prepend: site.baseurl }}"> Software Reading List</a></li>
+        <li>
+            <i class="fas fa-rss-square"></i>
+            <a href="{{ "/weblog" | prepend: site.baseurl }}">Weblog</a>
+        </li>
+<!--        <li>-->
+<!--            <i class="fas fa-passport"></i>-->
+<!--            <a href="{{ "/travelouge" | prepend: site.baseurl }}">Travelogue</a>-->
+<!--        </li>-->
+        <li>
+            <i class="fas fa-list-alt"></i>
+            <a href="{{ "/changelog" | prepend: site.baseurl }}">Change log</a>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled">
+        <li>
+            <i class="fas fa-book"></i>
+            <a href="{{ "/library" | prepend: site.baseurl }}"> Library</a>
+        </li>
+        <li>
+            <i class="fas fa-link"></i>
+            <a href="{{ "/links" | prepend: site.baseurl }}"> Links</a>
+        </li>
+
+        <li>
+            <i class="fas fa-archive"></i>
+            <a href="{{ "/archive" | prepend: site.baseurl }}">
+                Archive
+            </a>
+        </li>
     </ul>
 </aside>
