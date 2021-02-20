@@ -20,11 +20,26 @@ functionality.
 
 ## Summary of changes
 
-**Structural**
+### Structural
 * jamesonnyeholt.com is now completely built via [Jekyll](https://jekyllrb.com), a static site generation tool.  
   Previously I maintained a homepage written in [React](https://reactjs.org), and a separate Jekyll blog.
 
-**Design**
+### Design
 * Dark Theme - This site will update to a dark-theme when that setting is detected.  This was implemented using the 
   `@media (prefers-color-scheme: dark)` CSS rule.  [Read More](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+
+### Features
+
+* **Weblog**
+  * The [Weblog]({% link weblog.html %}) now has a distinct [Changelog]({% link changelog.html %}) section that will 
+  include a list of change to the site.  Like this one!
+  * The Weblog also includes a [Library]({% link library.md %}) & [Links]({% link links.md %}) section that includes an 
+  index of books, articles, and websites that I think are interesting.
+* **Wiki**
+  * The website now features a [Wiki]({% link wiki.md %}) that I will begin using as a 
+  [personal wiki](https://en.wikipedia.org/wiki/Personal_wiki) to document things I've learned.
+* **About**
+  * I've updated the [About]({% link about.md %}) section to include my personal [Mission]({% link about-mission.md %}) and 
+  [Philosophy]({% link about-philosophy.md %}), and a page listing the technology [Stack]({% link about-philosophy.md %}) 
+  used to built the website.
   
