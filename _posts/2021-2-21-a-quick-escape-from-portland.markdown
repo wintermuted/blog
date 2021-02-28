@@ -62,6 +62,8 @@ Unfortunately, by Sunday night the weather had evolved into [freezing rain](http
 
 The culmination of snow and ice over the weekend led to exactly that, toppling numerous trees around the region, which subsequently took down nearby powerlines, which led to a series of power outages in the region that left more than [150,000 people](https://apnews.com/article/portland-power-outages-oregon-fd52ad7b5b7e4d693ab58428f7bc1c3c), including ourselves, without power for a number of days.  This occurred at the same time as the much more severe weather and power outages effecting Texas.
 
+### Power outage
+
 Our power went out on Sunday evening, and did not end up coming back on until midday Tuesday.  Our neighbors across the street in Southwest Portland draw power from a different aerial than ours, and were without power for a few days prior to the ice storm that eventually did the city in.  Both myself and my partner were aware of coworkers and friends-of-friends who were without power for much longer. 
 
 With the power being out, things started to become quite cold, and the food in our refrigerator started to warm up and our freezer started to defrost.  Fortunately, we have a fireplace in our home that we were able to use to keep ourselves warm at night, and a good collection of camping gear that we were able to use to put to good use.  On Monday morning we woke up still without power, so we decided to take out some of our gear to make coffee and breakfast on our front porch.
@@ -76,4 +78,52 @@ With the power being out, things started to become quite cold, and the food in o
 
 ## Out to the coast
 
-By Monday night both of our phones stopped working, and by Tuesday morning needing to get back to work, and still not having power or reliable internet access, we decided to take a cue from our neighbor and head out of Portland to the Oregon Coast.  We decided to head out to Pacific City, a favourite destination of ours.
+By Monday night both of our mobile phones stopped working, and by Tuesday morning needing to get back to work, and still not having power or reliable internet access, we decided to take a cue from our neighbor and head out of Portland to the Oregon Coast.  We decided to head out to [Pacific City](https://en.wikipedia.org/wiki/Pacific_City,_Oregon), a favourite destination of ours.
+
+We traveled on [Oregon Route 6](https://en.wikipedia.org/wiki/Oregon_Route_6) to reach Pacific City.  This route takes you from the [Willamette Valley](https://en.wikipedia.org/wiki/Willamette_Valley), where Portland is located, across the [Northern Oregon Coast Range](https://en.wikipedia.org/wiki/Northern_Oregon_Coast_Range) of mountains to the coast.  The trip typically takes us between 1 1/2 to 2 hours to complete.
+
+As we travelled along the highway we were able to clearly see the devastation the storm had also wreaked in the [Tillamook State Forest](https://en.wikipedia.org/wiki/Tillamook_State_Forest).  From the highway you could see that numerous trees had fallen down, large limbs had cracked, and some trees had split in two.  This seemed to have mostly impacted the [Alder](https://en.wikipedia.org/wiki/Alnus_rubra) (*Alnus rubra*) trees that grow alongside the fir trees in the forest.
+
+As we crossed through the coastal range, it was clear that some parts of the highway were starting to slide out, though not bad enough to make drivng dangerous at the time.
+
+## Reflections
+
+As a result of our experience over this weekend, and the impromtu roadtrip that it concluded with, I realized a few things our present situation of living and working entirely at home for nearly a year.
+
+### Novelty is a necessity & can be a privelege
+
+The weekend was filled with quite a bit of stress, but it was also filled with novelty which served as a welcome break to the monotony that has come with working from home for nearly a year.  #Though losing power was an inconvenience, we both enjoyed the fact that it forced us to get away from our computers and mobile devices and instead spend time in front of the fire / and lighting candles to see our way around at night.
+
+Despite enjoying the change of pace for a few days, we became tired enough to be ready for a change of situation, especially since we had no idea when our power would return.  We had the privelege of being able to take a short trip outside of town, which we were greatful to have.
+
+### Our dependence on electricity
+
+Another reflection was that our lifestyle & livelihoods depend heavily upon a steady source of electricity.  This was of course self-obvious, but it was bleakly apparent with the extended lack of access to that resource.  Our power had never been out longer than 6 hours previously.  We are not adequately prepared for a situation where our power is out for multiple days, as it was in this instance.  
+
+Without access to electricity that we draw from the municipal grid, we are unable to heat or cool our home, run our refrigerators & freezers, charge devices, or utilize our internet. Once we've reached the threshold of a day, we have the additional worry about food chilled in our refrigerator spoiling, and the frozen food (primarily meats) in our freezer defrosting.  
+
+Given that it is winter, we also needed to be concerned about heating.  Fortunately our home has a workable fireplace that was an available option and winters in Portland are fairly mild.  However, after a few days of use this was also a problem, as it was negatively impacting the air quality of our pre-war home, which was having a negative impact on our lungs.
+
+#### Learnings
+
+Our dependence on electricity is an integral part of the professions we have chosen, but also part of the society we live in.  Without this resource we are unable to perform many of the activities we take for granted.  This experience provided an opportunity for us to examine our preparedness and resilence in these situations.
+
+When disruptions to the public electricity grid occur, we can either adapt to the situation or prepare for the possibility of it by ensuring that we have continued access to electricity in some form.
+
+##### Adapting
+
+Adapting to the situation was easy, as we were reasonably prepared for it.  Over the years we've collected a healthy amount of camping gear, and as a result we had many helpful tools that allowed to cook food and light our house at night with battery-powered camping lamps.
+
+##### Preparing
+
+In the event of another long period of outage, another route is to provide an electricity source of our own to power our home or auxillary power to devices.  
+
+Accompishing this would likely mean making an investment in a fuel-powered generator, battery backup system, or solar power, and upgrading our electrical system of our home.  Any of these options would require a large monetary investment.
+
+##### Changing
+
+A third, but more difficult option is for us to alter our relationship with electricity.  Given how entrenched we are in depending upon electricity, this is no small feat, and therefore something we will not be able to accompish in one fell swoop.  
+
+Despite the daunting challenge, it is a fun problem solving exercise to engage in.  With it we will need to examine how we use electricity; what is essential and what is not; what alternatives are available.  I'm looking forward to learning more about this and finding novel solutions to it.
+
+
