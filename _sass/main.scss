@@ -7,7 +7,7 @@ $fa-font-path: "../webfonts";
 $dark-gray: #343a40;
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  // font-family: 'Open Sans', sans-serif;
   p {
     font-size: 16px;
   }
@@ -19,9 +19,9 @@ body {
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Recursive', sans-serif;
-  }
+  // h1, h2, h3, h4, h5, h6 {
+  //   font-family: 'Recursive', sans-serif;
+  // }
 }
 
 h3.post_title {
