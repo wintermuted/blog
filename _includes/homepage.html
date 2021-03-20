@@ -1,24 +1,8 @@
 <br/>
-<div class="container">
+<div class="container homepage">
     <div class="row">
-<!--        <div class="col-sm-12 col-md-4 col-lg-3">-->
-<!--            <div class="card">-->
-<!--                <img src="assets/img/headshot.jpg" class="card-img-top" alt="Profile">-->
-<!--                <div class="card-body">-->
-<!--                    <h5 class="card-title">Jameson Nyeholt</h5>-->
-<!--                    <span class="text-muted card-subtitle">Senior Software Engineer</span>-->
-<!--                    <p class="card-text">-->
-<!--                        Portland, Oregon USA</br>-->
-<!--                        pronouns: <a href="">he/him</a></br>-->
-<!--                        <a href="mailto:jnyeholt@hey.com">-->
-<!--                            jnyeholt@hey.com-->
-<!--                        </a>-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
         <div class="col">
-            <h4>Status</h4>
+            <h2>Status</h2>
             <p class="lead">
                 I'm currently leading a team at <a href="https://www.xandr.com">Xandr</a> that builds workflows for
                 digital advertising publishers. During the COVID-19 pandemic I've been focused on a few different programming, music, and woodworking projects.
@@ -27,7 +11,7 @@
             <p class="lead">
             </p>
             <hr />
-            <h4>Current projects</h4>
+            <h2>Current projects</h2>
             <span class="badge bg-dark">Alpha</span>
             <strong>
                 <a href="https://github.com/Super-Cascadia/trimet-arrivals">Trimet Arrivals</a>
@@ -40,6 +24,70 @@
                 <a href="https://github.com/Super-Cascadia/super-cascadia-rpg">Super Cascadia RPG</a>
             </strong>
             <span> - A platform for building browser-based JRPG's.</span>
+            <hr />
+            <!-- <h4>Latest Post</h4>
+            {% assign sorted-posts = site.posts %}
+            {% for post in sorted-posts limit:1%}
+                <h3 class="post_title">
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                </h3>
+            {% endfor %} -->
+        </div>
+    </div>
+    <div class="row weblog-content">
+        <div class="col-md-4">
+            {% assign sorted-posts = site.posts | where: "category", "journal" %}
+            <h2>Journal</h3>
+            <ul class="list-unstyled">
+            {% for post in sorted-posts limit:3%}
+                <li>
+                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            <h2>Essays</h4>
+            <ul class="list-unstyled">
+            {% assign sorted-posts = site.posts | where: "category", "essay" 
+                %}
+                {% for post in sorted-posts limit:3%}
+                    <li>
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h2>Talks</h4>
+            <ul class="list-unstyled">
+            {% assign sorted-posts = site.posts | where: "category", "presentation" 
+                %}
+                {% for post in sorted-posts limit:3%}
+                    <li>
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Travelouge</h2>
+            {% assign sorted-posts = site.posts | where: "categories", "travelouge" %}
+            <ul class="list-unstyled">
+            {% for post in sorted-posts limit:6 %}
+                <li>
+                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Changelog</h2>
+            {% assign sorted-posts = site.posts | where: "category","changelog" %}
+            <ul class="list-unstyled">
+            {% for post in sorted-posts limit:6%}
+                <li>
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                </li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 </div>

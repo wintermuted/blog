@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-9">
-            {% assign sorted-posts = site.posts | where: "categories","changelog" %}
+            {% assign sorted-posts = site.posts | where: "category","essay" %}
             {% for post in sorted-posts limit:10%}
             <div class="row">
                 <article class="posts_index col">
@@ -20,7 +20,6 @@
                     </span>
                         {% endif %}
                     </header>
-                    <hr/>
                 </article>
             </div>
             {% endfor %}

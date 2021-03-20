@@ -2,38 +2,32 @@
 layout: default
 ---
 </br>
-<div class="container">
+<div class="container post-body">
     <div class="row">
-        <div class="col">
+        <div class="col-md-9 col-sm-12">
             <h1 class="article-title" itemprop="name headline">{{ page.title }}</h1>
-            <hr/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-sm-12">
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-                <header class="artilce_header">
-
-                    <p class="artilce_meta">
-                        {% if page.date %}
+            <header class="article-header">
+                <p class="artilce_meta">
+                    {% if page.date %}
+                        <i class="fas fa-calendar"></i>
                         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
                             {{ page.date | date: "%d %B %Y, %A" }}
                         </time>
-                        {% endif %}
-
-                        <!-- {% if page.location %}
-                        <div data-icon="ei-location"></div>
-                        <a href=https://www.google.com/maps/place/{{page.location}}">{{ page.location }}</a>
-                        {% endif %} -->
-
-                        {% if page.author %}
-                        •
+                    {% endif %}
+                    {% if page.location %}
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a>{{ page.location }}</a>
+                    {% endif %}
+                    {% if page.author %}
+                        <i class="fas fa-user-alt"></i>
                         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                             <span itemprop="name">{{ page.author }}</span>
                         </span>
-                        {% endif %}
-                    </p>
-                </header>
+                    {% endif %}
+                </p>
+            </header>
+            <hr/>
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
                 <div class="article-content" itemprop="articleBody">
                     {{ page.content }}
@@ -50,7 +44,7 @@ layout: default
                 </footer>
             </article>
         </div>
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-3 col-sm-12">
             {% include sidebar.html %}
         </div>
     </div>

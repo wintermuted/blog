@@ -5,27 +5,59 @@ $fa-font-path: "../webfonts";
 @import "./fontawesome/brands.scss";
 
 $dark-gray: #343a40;
+$black: #000;
+$green: #90a079;
+$white: #FFF;
+$dark-theme-background: #111111;
+$dark-theme-text: #cecece;
+$dark-theme-navbar: rgb(22, 27, 34);
 
 body {
   // font-family: 'Open Sans', sans-serif;
+  color: $black;
+
+  .badge.bg-dark {
+    color: $white;
+  }
+
   p {
     font-size: 16px;
   }
 
   a {
-    color: #90a079;
+    text-decoration: underline;
+    color: $black;
     &:hover {
-      color: #90a079;
+      text-decoration: none;
     }
   }
 
-  // h1, h2, h3, h4, h5, h6 {
-  //   font-family: 'Recursive', sans-serif;
-  // }
+  .sidebar {
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }  
+  
+  }
+
+  nav.navbar {
+    .navbar-brand {
+      text-decoration: none;
+    }
+    
+    li.nav-item {
+      .navbar-brand, a {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 h3.post_title {
   font-size: 18px;
+  margin-bottom: 0rem !important;
 }
 
 h1.article-title {
@@ -80,14 +112,46 @@ h1.post-title {
   }
 }
 
+.homepage {
+  .weblog-content {
+  ul {
+      li {
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
 .posts_index {
+  margin-bottom: 16px;
   .post_header {
     .post_meta {
-      font-size: 14px;
+      font-size: 12px;
       color: rgba($dark-gray, 0.8);
       a.post_date {
         color: rgba($dark-gray, 0.8);
       }
+
+      i.fa-archive {
+        margin-left: 10px;
+      }
+
+      span.author-location {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.post-body {
+  .article-header {
+    .fa-map-marker-alt {
+      margin-left: 10px;
+    }
+    .fa-user-alt {
+      margin-left: 10px;
     }
   }
 }
@@ -115,23 +179,36 @@ aside.sidebar {
 }
 
 .global-footer {
-  margin-top: 100px;
+  margin-top: 25px;
   ul {
     margin-bottom: 0;
   }
 }
 
-$dark-theme-background: #2b2b2b;
-$dark-theme-text: #acacac;
-$dark-theme-navbar: #3c3f40;
-
 @media (prefers-color-scheme: dark) {
   body {
     background: $dark-theme-background !important;
     color: $dark-theme-text !important;
+
+    .navbar {
+      background: $dark-theme-navbar !important;
+      .nav-link {
+        color: white;
+      }
+    }
+
     hr {
       border: 1px solid rgba($dark-theme-text, 0.1)
     }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $white;
+      }
+    }
+
     .post_meta {
       color: $dark-theme-text !important;
       a {
@@ -145,7 +222,5 @@ $dark-theme-navbar: #3c3f40;
     }
   }
 
-  .navbar {
-    background: $dark-theme-navbar !important;
-  }
+  
 }

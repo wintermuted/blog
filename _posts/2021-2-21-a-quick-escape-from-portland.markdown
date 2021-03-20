@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Travelouge: Year of the Ox"
+title:  "Lunar New Year & the Oregon Coast"
 date:   2021-2-20 09:57:46 -0700
 location: "NW Oregon"
 author: "Jameson Nyeholt"

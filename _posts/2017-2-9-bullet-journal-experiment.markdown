@@ -5,7 +5,7 @@ date:   2017-2-9 08:00:46 -0700
 author: "Jameson Nyeholt"
 location: "Downtown Portland"
 permalink: /:categories/:year/:month/:day/:title.html
-category: productivity
+category: journal
 tags:
   - Bullet Journal
   - GTD

@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "What I Learned at Product Camp: Agile Fluency at Jama Software"
+title:  "Agile Fluency at Jama Software"
 date:   2017-4-17 08:00:46 -0700
 author: "Jameson Nyeholt"
 location: "Downtown Portland"
-category: software engineering
+category: journal
 tags:
   - Product Management
   - Product Camp PDX
