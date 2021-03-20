@@ -34,8 +34,6 @@ I've spent most of my career working for enterprise software companies in the Sa
 My primary technical focus tends to be front-end web engineering; I occasionally spend some time writing backend services, 
 but my primary passion is in building great user experiences for complex tasks.
 
-
-
 In the present era of my career I spend a majority of my time providing technical and team leadership to my colleagues.  To 
 this end I'm often spending more time helping scale tools and organizational processes than I am implementing user stories.
 

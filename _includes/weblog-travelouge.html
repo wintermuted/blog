@@ -1,0 +1,31 @@
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-9">
+            {% assign sorted-posts = site.posts | where: "categories","travelouge" %}
+            {% for post in sorted-posts limit:10%}
+            <div class="row">
+                <article class="posts_index col">
+                    <header class="post_header">
+                        <h3 class="post_title">
+                            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h3>
+                        <span class="post_meta">
+                                                    <i class="fas fa-calendar"></i>
+                        <time class="post_date">{{ post.date | date: "%d %B %Y, %A" }}</time>
+                        {% if post.location %}
+                        <span class="author-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a class="post_date" href=https://www.google.com/maps/place/{{post.location}}">{{ post.location }}</a>
+                        </span>
+                    </span>
+                        {% endif %}
+                    </header>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-12 col-md-3">
+            {% include sidebar.html %}
+        </div>
+    </div>
+</div>
