@@ -2,6 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-9">
+            <h1>Journal</h1>
+            <p class="lead">News & updates about life events.</p>
             {% assign sorted-posts = site.posts | where: "category","journal" %}
             {% for post in sorted-posts limit:10%}
             <div class="row">

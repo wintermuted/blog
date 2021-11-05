@@ -2,6 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-9">
+            <h1>Essays</h1>
+            <p class="lead">Essays on specific topics that interest me personally & professionally.</p>
             {% assign sorted-posts = site.posts | where: "category","essay" %}
             {% for post in sorted-posts limit:10%}
             <div class="row">
