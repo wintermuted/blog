@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Changelog: 28/10/2021"
-date:   2021-10-28 09:00:00 -0700
+title:  "Changelog: 04/11/2021"
+date:   2021-11-04 09:00:00 -0700
 author: "Jameson Nyeholt"
 permalink: /:categories/:year/:month/:day/:title.html
 type: changelog
