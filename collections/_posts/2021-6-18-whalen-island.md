@@ -13,6 +13,42 @@ tags:
 - fishing
 ---
 
-1. [Introduction]()
+## Night 1
 
-## Introduction
+![d](/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/beach-driftwood.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/camp-firepit.jpeg)
+
+## Fishing on the Estuary
+
+![d](/assets/img/posts/2021/may/whalen-island/whalen-island-estuary.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/rachel-fishing2.jpeg)
+
+## D&D & Sand Shrimping
+
+![d](/assets/img/posts/2021/may/whalen-island/d&d.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/rachel-sand-crab.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/sand-shrimps.jpeg)
+
+## Dusk Activities
+
+![d](/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/whalen-island-hill.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/rachel&Jameson.jpeg)
+
+![d](/assets/img/posts/2021/may/whalen-island/whalen-island-clouds.jpeg)
+
+## Shorecasting
+
+![d](/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing.JPG)
+
+![d](/assets/img/posts/2021/may/whalen-island/rachel-shorecasting.jpeg)
