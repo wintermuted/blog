@@ -1,0 +1,55 @@
+</br>
+<div class="container archive">
+  <div class="row">
+    <div class="col">
+      <h1>
+        <i class="fas fa-archive"></i>
+        <span>Archive</span>
+      </h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-9">
+      <h2>Categories</h2>
+      <section class="archive_list">
+        {% for category in site.categories %}
+          <div class="category-name">
+            <h3 id="{{ category | first }}">{{ category | first }}</h3>
+          </div>
+          {% for post in category.last %}
+          <div class="post_title">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+            <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+          </div>
+          {% endfor %}
+        <hr />
+        {% endfor %}
+      </section>
+
+      <!-- <h2>Locations</h2>
+      <section class="archive_list">
+        {% for location in site.location %}
+          <div class="category-name">
+            <h3 id="{{ category }}">{{ category }}</h3>
+          </div>
+        <hr />
+        {% endfor %}
+      </section> -->
+
+      <h1>Tags</h1>
+      {% assign tags = site.tags | sort %}
+      {% for tag in tags %}
+      <span class="site-tag">
+          <a href="/tag/{{ tag | first | slugify }}/"
+              style="font-size: {{ tag | last | size  |  times: 10 | plus: 80  }}%">
+                  {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+          </a>
+      </span>
+      {% endfor %}
+    </div>
+    <div class="col-sm-12 col-md-3">
+      {% include sidebar.html %}
+    </div>
+  </div>
+</div>
