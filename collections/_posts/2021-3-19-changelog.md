@@ -6,6 +6,10 @@ author: "Jameson Nyeholt"
 permalink: /:categories/:year/:month/:day/:title.html
 type: changelog
 category: changelog
+tags:
+- layout improvements
+- styling improvements
+- organization improvements
 ---
 
 ## Summary of changes

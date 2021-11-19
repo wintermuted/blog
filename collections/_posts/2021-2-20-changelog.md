@@ -6,6 +6,12 @@ author: "Jameson Nyeholt"
 permalink: /:categories/:year/:month/:day/:title.html
 type: changelog
 category: changelog
+tags:
+- layout improvements
+- styling improvements
+- organization improvements
+- build improvements
+- new pages
 ---
 
 I've recently been making major updates to the structure of this website.  

@@ -1,8 +1,18 @@
 <br/>
 <div class="container">
     <div class="row">
+        <div class="col">
+          <h1>
+            <i class="fas fa-rss-square"></i>
+            <span>Weblog</span>
+          </h1>
+          <hr/>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-sm-12 col-md-9">
-            {% for post in site.posts limit:10%}
+            <p class="lead">All weblog posts</p>
+            {% for post in site.posts%}
             <div class="row">
                 <article class="posts_index col">
                     <header class="post_header">
