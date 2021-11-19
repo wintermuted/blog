@@ -13,7 +13,7 @@
         <div class="col-sm-12 col-md-9">
             <p class="lead">Presentations & Talks given for work.</p>
             {% assign sorted-posts = site.posts | where: "category","presentation" %}
-            {% for post in sorted-posts limit:10%}
+            {% for post in sorted-posts%}
             <div class="row">
                 <article class="posts_index col">
                     <header class="post_header">

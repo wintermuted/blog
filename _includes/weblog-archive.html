@@ -11,6 +11,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-9">
+      <p class="lead">All weblog posts organized by Category & Tag cloud.</p>
       <h2>Categories</h2>
       <section class="archive_list">
         {% for category in site.categories %}
@@ -19,23 +20,13 @@
           </div>
           {% for post in category.last %}
           <div class="post_title">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
             <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
           </div>
           {% endfor %}
         <hr />
         {% endfor %}
       </section>
-
-      <!-- <h2>Locations</h2>
-      <section class="archive_list">
-        {% for location in site.location %}
-          <div class="category-name">
-            <h3 id="{{ category }}">{{ category }}</h3>
-          </div>
-        <hr />
-        {% endfor %}
-      </section> -->
 
       <h1>Tags</h1>
       {% assign tags = site.tags | sort %}

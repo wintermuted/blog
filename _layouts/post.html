@@ -39,11 +39,21 @@ layout: default
                 </div>
 
                 <footer class="article-footer">
+                    <h5>Category</h5>
+                    <i class="fas fa-archive"></i>
                     {% for category in page.categories %}
                     <a href="{{site.baseurl}}/archive#{{category}}">
-                        <i class="fas fa-archive"></i>
                         {{category}}
                     </a>
+                    {% endfor %}
+                    <hr/>
+                    <h4>Tags</h4>
+                    {% for tag in page.tags %}
+                    <div class="post_title">
+                        <a href="/tag/{{ tag | slugify }}">
+                            {{ tag | replace:'-', ' ' }}
+                        </a>
+                    </div>
                     {% endfor %}
                     <hr/>
                 </footer>
