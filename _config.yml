@@ -28,7 +28,7 @@ sass:
   style: compressed
 
 tag_page_layout: tag_page
-tag_page_dir: tag
+tag_page_dir: tags
 
 collections_dir: collections
 

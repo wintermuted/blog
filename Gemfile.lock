@@ -50,7 +50,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    libv8 (3.16.14.19)
+    libv8 (3.16.14.19-x86_64-darwin-18)
     liquid (4.0.3)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -64,8 +64,7 @@ GEM
     nuggets (1.6.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (3.1.1)
-    rb-fsevent (0.10.4)
+    public_suffix (4.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -83,7 +82,7 @@ GEM
     unicode-display_width (1.8.0)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-18
 
 DEPENDENCIES
   jekyll (~> 4.2.1)
@@ -98,4 +97,4 @@ RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   2.2.7
+   2.2.31
