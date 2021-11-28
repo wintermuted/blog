@@ -2,12 +2,27 @@
 layout: default
 ---
 
-<h1>Archive of posts with {{ page.type }} '{{ page.title }}'</h1>
-<ul class="posts">
-  {% for post in page.posts %}
-    <li>
-      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+</br>
+<div class="container archive">
+  <div class="row">
+    <div class="col">
+      <h1>
+        <i class="fas fa-archive"></i>
+        <span>Tag: {{ page.title }}</span>
+      </h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul class="posts">
+        {% for post in page.posts %}
+          <li>
+            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

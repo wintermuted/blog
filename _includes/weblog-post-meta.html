@@ -10,7 +10,7 @@
   <h4>Tags</h4>
   {% for tag in page.tags %}
   <div class="post_title">
-      <a href="/tags/{{ tag | slugify }}">
+      <a href="/tag/{{ tag | slugify }}">
           {{ tag | replace:'-', ' ' }}
       </a>
   </div>
