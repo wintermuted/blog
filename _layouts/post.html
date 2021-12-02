@@ -15,16 +15,20 @@ layout: default
                             {{ page.date | date: "%d %B %Y, %A" }}
                         </time>
                     {% endif %}
-                    {% if page.location %}
-                        <i class="fas fa-map-marker-alt"></i>
-                        <a>{{ page.location }}</a>
-                    {% endif %}
                     {% if page.author %}
                         <i class="fas fa-user-alt"></i>
                         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                             <span itemprop="name">{{ page.author }}</span>
                         </span>
                     {% endif %}
+                    {% if page.location %}
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a>{{ page.location }}</a>
+                    {% endif %}
+                    <i class="fas fa-folder"></i>
+                    <a href="{{site.baseurl}}/category/{{page.category}}"">
+                        {{page.category}}
+                    </a>
                 </p>
             </header>
             <hr/>

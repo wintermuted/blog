@@ -17,10 +17,11 @@ layout: default
       <article class="post">
         <div class="article-content">
           {% for post in page.posts %}
-          <div class="post_title">
+            <div class="post_title">
               <a href="{{ post.url | prepend: site.baseurl }}">
                 {{ post.title }}
               </a> 
+              -
               <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
             </div>
           {% endfor %}
@@ -31,5 +32,9 @@ layout: default
     <div class="col-sm-12 col-md-3">
       {% include sidebar.html %}
     </div>
+  </div>
+  <div class="row">
+    <h1>Tags</h1>
+    {% include tag-cloud.html %}
   </div>
 </div>

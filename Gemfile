@@ -23,7 +23,6 @@ gem 'therubyracer'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.15.1"
-   gem 'jekyll-tagging'
    gem 'jekyll-timeago', '~> 0.13.1'
    gem 'jekyll-archives'
 end

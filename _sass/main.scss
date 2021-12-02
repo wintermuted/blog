@@ -139,7 +139,7 @@ h1.post-title {
         color: rgba($dark-gray, 0.8);
       }
 
-      i.fa-archive {
+      i.fa-archive, i.fa-folder {
         margin-left: 10px;
       }
 
@@ -156,6 +156,9 @@ h1.post-title {
       margin-left: 10px;
     }
     .fa-user-alt {
+      margin-left: 10px;
+    }
+    .fa-folder {
       margin-left: 10px;
     }
   }
