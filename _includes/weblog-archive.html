@@ -12,32 +12,23 @@
   <div class="row">
     <div class="col-sm-12 col-md-9">
       <p class="lead">All weblog posts organized by Category & Tag cloud.</p>
-      <h2>Categories</h2>
+      <h2>
+        <i class="fas fa-folder"></i>
+        All Categories
+      </h2>
       <section class="archive_list">
         {% for category in site.categories %}
           <div class="category-name">
-            <h3 id="{{ category | first }}">{{ category | first }}</h3>
+            <a href="{{site.baseurl}}/category/{{category | first}}">{{category | first }}</a>
           </div>
-          {% for post in category.last %}
-          <div class="post_title">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
-            <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
-          </div>
-          {% endfor %}
-        <hr />
         {% endfor %}
       </section>
-
-      <h1>Tags</h1>
-      {% assign tags = site.tags | sort %}
-      {% for tag in tags %}
-      <span class="site-tag">
-          <a href="/tag/{{ tag | first | slugify }}/"
-              style="font-size: {{ tag | last | size  |  times: 10 | plus: 80  }}%">
-                  {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
-          </a>
-      </span>
-      {% endfor %}
+      <hr />
+      <h2>
+        <i class="fas fa-tags"></i>
+        Tag Cloud
+      </h2>
+      {% include tag-cloud.html %}
     </div>
     <div class="col-sm-12 col-md-3">
       {% include sidebar.html %}
