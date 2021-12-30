@@ -7,7 +7,7 @@ topic: software-engineering
 permalink: /wiki/software-engineering
 ---
 <p class="lead">
-    Software engineering is the systematic application of engineering approaches to the development of software.  I've been working in the software development industry professional since 2012, with amatuer experience going back to the early 'aughts.  In this wiki I've documented some of my learnings.
+    Software engineering is the systematic application of engineering approaches to the development of software.  I've been working in the software development industry professionally since 2012, with amatuer experience going back to the early 'aughts.  In this wiki I've documented some of my learnings.
 </p>
 
 <div class="row">

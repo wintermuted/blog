@@ -8,8 +8,13 @@ on:
 jobs:
   github-pages:
     runs-on: ubuntu-latest
+    pre_build_commands:
+      # - apk --update add imagemagick
+      # - apk add  libarchive-tools 
+      - apk --no-cache add vips-tools
     steps:
       - uses: actions/checkout@v2
-      - uses: helaili/jekyll-action@v2
+      - uses: helaili/jekyll-action@2.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+        
