@@ -14,58 +14,35 @@ tags:
 - fishing
 - cascades
 - fly fishing
+- pacific northwest
+- photolouge
+- spring
 ---
-
 ## Suttle Lake & Lodge
-
-![d](/assets/img/posts/2021/may/suttle-lodge/bags.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/sophie.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/suttle-lake.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rachel-casting.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/cabin-fire.jpeg)
-
+{% picture /assets/img/posts/2021/may/suttle-lodge/bags.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/sophie.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/suttle-lake.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rachel-casting.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/cabin-fire.jpeg %}
 ## Blacke Butte
-
-![d](/assets/img/posts/2021/may/suttle-lodge/mountain-sign.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/three-sisters.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/viewpoint.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/sophie-hot.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/down-mountain-view.jpeg)
-
+{% picture /assets/img/posts/2021/may/suttle-lodge/mountain-sign.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/three-sisters.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/viewpoint.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/sophie-hot.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/down-mountain-view.jpeg %}
 ## Metolius River Flyfishing
-
-![d](/assets/img/posts/2021/may/suttle-lodge/head-of-metolius.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rachel-sophie.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/women-fishing.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rachel-fishing.JPG)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/metolius-trees.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rick-cassie.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie.jpeg)
-
+{% picture /assets/img/posts/2021/may/suttle-lodge/head-of-metolius.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rachel-sophie.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/women-fishing.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rachel-fishing.JPG %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/metolius-trees.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rick-cassie.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/down-mountain-view.jpeg %}
 ## Alpaca Farm
-
-![d](/assets/img/posts/2021/may/suttle-lodge/alpaca-birth.jpeg)
-
-![d](/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding.JPG)
+{% picture /assets/img/posts/2021/may/suttle-lodge/alpaca-birth.jpeg %}
+{% picture /assets/img/posts/2021/may/suttle-lodge/alpaca-feeding.JPG %}

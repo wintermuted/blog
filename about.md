@@ -8,7 +8,7 @@ permalink: /about/
 Hello, I'm Jameson, and I am an American software engineer based in Portland, Oregon.
 </p>
 
-## Current status
+## Current gig
 
 I am a Senior Software Engineer at [Xandr](https://www.xandr.com), an advertising & analytics division
 of [WarnerMedia](https://www.warnermedia.com/us). I lead a team focused on building products for businesses managing

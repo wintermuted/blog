@@ -11,7 +11,7 @@ tags:
   - productivity
 ---
 
-<img src="{{site.baseurl}}/assets/img/bulletJournal.jpg" />
+{% picture /assets/img/bulletJournal.jpg %}
 
 For a long time I've had a love affair with the idea of taking notes & managing tasks within a notebook.  There is some romantic appeal to carrying around a hardbound notebook, presumably filled with introspective notes and grand ideas.  Today I have probably a dozen notebooks, that despite the austere intentions that went with their purchase, are nowhere near full.
 

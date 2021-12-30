@@ -44,6 +44,8 @@ jekyll-archives:
 collections:
   software_development:
     output: true
+  cascadia:
+    output: true
   category:
     output: false
   tag: 

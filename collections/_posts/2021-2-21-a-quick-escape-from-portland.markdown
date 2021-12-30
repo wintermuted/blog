@@ -13,6 +13,8 @@ tags:
 - lunar new year
 - weather
 - winter
+- pacific northwest
+- photolouge
 ---
 
 1. [Introduction](#introduction)

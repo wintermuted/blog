@@ -1,6 +1,8 @@
 ---
 title: Functional Programming
 topic: programming
+hub: software-engineering
+hub-label: Software Engineering
 layout: page-wiki
 ---
 

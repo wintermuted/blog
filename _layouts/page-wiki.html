@@ -6,6 +6,13 @@ layout: default
   <div class="row">
     <div class="col">
       <header class="post-header">
+        <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/wiki">Wiki</a></li>
+            <li class="breadcrumb-item"><a href="/wiki/{{ page.hub }}/">{{ page.hub-label }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+          </ol>
+        </nav>
         <h1 class="post-title">{{ page.title }}</h1>
       </header>
       <hr/>

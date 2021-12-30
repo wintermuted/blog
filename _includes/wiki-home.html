@@ -1,66 +1,19 @@
-<h2>Software Engineering</h2>
-
-<p class="lead">
-  Software engineering is the systematic application of engineering approaches to the development of software.
-</p>
 
 <div class="row">
-  <div class="col-md-4">
-    {% assign sorted-posts = site.software_development | where: "topic","programming" %}
-      <h3>Programming</h3>
-      <ul class="list-unstyled">
-      {% for post in sorted-posts%}
-          <li>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-          </li>
-    {% endfor %}
+  <div class="col-md-12">
+    <p class="lead">
+      This is a <a href="https://en.wikipedia.org/wiki/Personal_wiki">personal wiki</a> that I use to organize research, learnings & experiences to share with others.  
+    </p>
+    <h2>Main Hubs</h2>
+    <ul class="list-unstyled">
+      <li>
+        <i class="fas fa-book"></i>
+        <a href="{{ "/wiki/cascadia" | prepend: site.baseurl }}">Cascadia</a>
+      </li>
+      <li>
+        <i class="fas fa-book"></i>
+        <a href="{{ "/wiki/software-engineering" | prepend: site.baseurl }}">Software Engineering</a>
+      </li>
     </ul>
   </div>
-
-  <div class="col-md-4">
-    {% assign sorted-posts = site.software_development | where: "topic","software design" %}
-    <h3>Design</h3>
-    <ul class="list-unstyled">
-      {% for post in sorted-posts%}
-          <li>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-          </li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-md-4">
-    {% assign sorted-posts = site.software_development | where: "topic","tools" %}
-    <h3>Tools</h3>
-    <ul class="list-unstyled">
-      {% for post in sorted-posts%}
-          <li>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-          </li>
-    {% endfor %}
-    </ul>
-  </div>
-
-  <!-- <div class="col-md-3">
-    {% assign sorted-posts = site.software_development | where: "topic","quality" %}
-    <h3>Quality</h3>
-    <ul class="list-unstyled">
-      {% for post in sorted-posts%}
-          <li>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-          </li>
-      {% endfor %}
-    </ul>
-  </div> -->
-
 </div>
-
-<!-- <hr/>
-
-<h2>Outdoors</h2>
-
-<h3>Foraging</h3>
-
-<h3>Camping</h3>
-
-<h3>Wildcrafting</h3> -->

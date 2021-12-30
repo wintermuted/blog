@@ -8,10 +8,15 @@ permalink: /:categories/:year/:month/:day/:title.html
 category: travelouge
 tags:
 - botanical gardens
+- gardens
 - walking
 - oregon
 - willamette valley
 - residential architecture
+- architecture
+- pacific northwest
+- photolouge
+- spring
 ---
 
 1. [Introduction](#introduction)
@@ -31,42 +36,53 @@ Below you can find a few pictures from our trip.
 
 ## The Oregon Garden
 
-![Picture a wood sculture shaped like a man.](/assets/img/posts/2021/apr/oregon-garden/wicker.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/wicker.jpeg %}
+
 *This thing looks suspiciously like it's from the Wicker Man*
 
-![Picture of a small door embedded in a shed](/assets/img/posts/2021/apr/oregon-garden/door.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/door.jpeg %}
+
 *A little hobbit door that I may or may not have climbed through.*
 
-![Picture of an eco roof](/assets/img/posts/2021/apr/oregon-garden/eco-roof.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/eco-roof.jpeg %}
+
 *A neat eco-roof demonstration*
 
-![Picture of small confiers in a stone planter with labels.](/assets/img/posts/2021/apr/oregon-garden/planter.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/planter.jpeg %}
+
 *Conifer planters.*
 
-![Picture of stone monoliths surrrounded by conifer trees](/assets/img/posts/2021/apr/oregon-garden/stones.jpeg)
-*Stone monoliths and more conifers.*
+{% picture /assets/img/posts/2021/apr/oregon-garden/stones.jpeg %}
 
+*Stone monoliths and more conifers.*
 ## The Gordon House
 
-![Wide view of the Gordon House](/assets/img/posts/2021/apr/oregon-garden/house_1.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/house_1.jpeg %}
+
 *Gordon House approach.*
 
-![Detailed view of windows](/assets/img/posts/2021/apr/oregon-garden/house_2.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/house_2.jpeg %}
+
 *Second story window details.*
 
-![Wide view of the Gordon House with Oak trees in the background](/assets/img/posts/2021/apr/oregon-garden/house_3.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/house_3.jpeg %}
+
 *Wide shot with oak trees*
 
-![Close up view of the Gordon House with a woman in the foreground](/assets/img/posts/2021/apr/oregon-garden/house_4.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/house_4.jpeg %}
+
 *Rachel takes a closer look.*
 
-![Close up view of the first story windows of the Gordon House](/assets/img/posts/2021/apr/oregon-garden/house_5.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/house_5.jpeg %}
+
 *First story window details.*
 
 ## Silverton
 
-![Picture of woman looking off of bridge towards a creek](/assets/img/posts/2021/apr/oregon-garden/rachel.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/rachel.jpeg %}
+
 *Rachel takes a look from the Silver Creek Bridge.*
 
-![Picture of a creek between buildings and an embankement](/assets/img/posts/2021/apr/oregon-garden/river.jpeg)
+{% picture /assets/img/posts/2021/apr/oregon-garden/river.jpeg %}
+
 *Silver Creek.*

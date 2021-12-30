@@ -2,6 +2,8 @@
 layout: page-wiki 
 title: Unix / MacOS
 topic: tools
+hub: software-engineering
+hub-label: Software Engineering
 permalink: /building-software/unix-tools
 ---
 
