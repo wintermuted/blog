@@ -12,7 +12,7 @@ tags:
 - pair-programming
 ---
 
-<img src="{{site.baseurl}}/assets/img/pair-programming.jpg" />
+{% picture /assets/img/pair-programming.jpg %}
 
 Over the past two years Jama Software has taken steps to make pair-programming a greater part of our engineering culture.  Our product-development organization produces software according to the [Agile Software Development](https://www.agilealliance.org/agile101/) framework of [Scrum](https://www.scrumalliance.org/why-scrum), with regular iterations, and self-organizing teams.   
 <!--description-->

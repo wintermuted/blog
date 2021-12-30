@@ -2,6 +2,8 @@
 layout: page-wiki 
 title: ECMAScript Ecosystem
 topic: tools
+hub: software-engineering
+hub-label: Software Engineering
 permalink: /building-software/ecmascript-tools
 ---
 

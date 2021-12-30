@@ -2,6 +2,8 @@
 layout: page-wiki
 title: SOLID software design principles
 topic: software design
+hub: software-engineering
+hub-label: Software Engineering
 permalink: /building-software/architecture
 ---
 

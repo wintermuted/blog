@@ -1,6 +1,8 @@
 ---
 title: Refactoring
 topic: programming
+hub: software-engineering
+hub-label: Software Engineering
 layout: page-wiki
 ---
 Refactoring is the process of restructuring existing code without changing it's external behavior.  This is a process that is performed with the primary purpose of restructuring code to make it easier to understand and maintain.
