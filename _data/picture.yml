@@ -3,9 +3,35 @@ media_queries:
 
 presets:
   default:
-    widths: [400, 600, 900, 1200]
+    widths: [400, 600, 900, 1200, 1400]
     formats: [webp, original]
     sizes:
       mobile: 80vw
-    size: 500px
+    size: 700px
+    link_source: false
+    attributes:
+      img: 'class="img-fluid img-thumbnail"'
+      picture: 'class="even-cooler"'
+  # This is an example of how you would create a 'multiplier' based srcset; useful when an image
+  # will always be the same size on all screens (icons, graphics, thumbnails, etc), but you'd like
+  # to supply higher resolution images to devices with higher pixel ratios.
+  thumbnail:
+    base_width: 270 # How wide the 1x image should be.
+    pixel_ratios: [1, 1.5, 2] # Which multipliers to target.
+    fallback_width: 270 # The default is 800, which is probably too big.
+    formats: [webp, original]
     link_source: true
+    crop: '1:1'
+    attributes:
+      picture: 'class="thumbnail"'
+      img: 'class="rounded"'
+  thumbnailGIF:
+    base_width: 270 # How wide the 1x image should be.
+    pixel_ratios: [1] # Which multipliers to target.
+    fallback_width: 270 # The default is 800, which is probably too big.
+    formats: [original]
+    link_source: true
+    crop: '1:1'
+    attributes:
+      picture: 'class="thumbnail"'
+      img: 'class="rounded"'

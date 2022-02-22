@@ -21,7 +21,7 @@ disqus_shortname: advantxgarde
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
 
-permalink: /:year/:month/:day/:title.html
+permalink: /weblog/:categories/:year/:month/:day/:title.html
 
 sass:
   sass_dir: _sass
@@ -40,9 +40,16 @@ jekyll-archives:
     day: day-archive
     category: category-archive
     tag: tag-archive
+  permalinks:
+    year: '/weblog/year/:year/'
+    month: '/weblog/month/:year-:month/'
+    tag: '/weblog/tag/:name/'
+    category: '/weblog/category/:name/'
 
 collections:
   software_development:
+    output: true
+  miscellaneous:
     output: true
   cascadia:
     output: true
