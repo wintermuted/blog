@@ -53,3 +53,6 @@ Martin Fowler's Refactoring microsite contains a catalog of the potential refact
 
 ## Additional Reading
 - [Refactoring.com](https://refactoring.com) - A microsite for Martin Fowler's Refactoring book
+
+## Books
+- [Refactoring: Improving the Design of Existing Code](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672) - Martin Fowler

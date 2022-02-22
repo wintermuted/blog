@@ -3,7 +3,6 @@ layout: post
 title:  "Changelog: 20/02/2021"
 date:   2021-2-20 09:00:00 -0700
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
 type: changelog
 category: changelog
 tags:
@@ -36,9 +35,9 @@ functionality.
 ### Features
 
 * **Weblog**
-  * The [Weblog]({% link weblog.html %}) now has a distinct [Changelog]({% link changelog.html %}) section that will 
+  * The [Weblog]({% link weblog.html %}) now has a distinct ~~Changelog~~ section that will 
   include a list of change to the site.  Like this one!
-  * The Weblog also includes a [Library]({% link library.md %}) & [Links]({% link links.md %}) section that includes an 
+  * The Weblog also includes a ~~Library~~ & ~~Links~~ section that includes an 
   index of books, articles, and websites that I think are interesting.
 * **Wiki**
   * The website now features a [Wiki]({% link wiki.md %}) that I will begin using as a 

@@ -3,7 +3,6 @@ layout: post
 title:  "Changelog: 19/11/2021"
 date:   2021-11-19 09:00:00 -0700
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
 type: changelog
 category: changelog
 tags:

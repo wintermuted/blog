@@ -4,14 +4,13 @@ title:  "Costs & challenges of pair-programming"
 date:   2017-1-18 09:57:46 -0700
 location: "Portland"
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
 category: essay
 tags:
 - pair-programming
 - agile
 - software development
 ---
-In my [prior blog post](http://jamesonnyeholt.com/blog/agile%20software%20development/pair-programming/xp/extreme%20programming/2017/01/04/pair-programming-at-jama-software.html) about [pair-programming](https://www.agilealliance.org/glossary/pairing/), I introduced the concept and explained why Jama Software adopted it as a practice in our engineering group.  While we have seen many benefits from pair-programming, the practice may not be appropriate for every organization or team, and also does not come without costs and challenges.  
+In my [prior blog post](/weblog/essay/2017/01/04/pair-programming-at-jama-software.html) about [pair-programming](https://www.agilealliance.org/glossary/pairing/), I introduced the concept and explained why Jama Software adopted it as a practice in our engineering group.  While we have seen many benefits from pair-programming, the practice may not be appropriate for every organization or team, and also does not come without costs and challenges.  
 <!--description-->
 
 In the year or more that we have had teams utilizing pair-programming, we have become familiar with the costs and challenges.  This has been helpful for learning how to adjust to the practice on an individual and team-level and ensure that its application has been successful.

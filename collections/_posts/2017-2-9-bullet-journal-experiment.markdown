@@ -4,11 +4,14 @@ title:  "Experimenting with the Bullet Journal system"
 date:   2017-2-9 08:00:46 -0700
 author: "Jameson Nyeholt"
 location: "Downtown Portland"
-permalink: /:categories/:year/:month/:day/:title.html
 category: journal
 tags:
   - GTD
   - productivity
+  - journaling
+  - notetaking
+  - task management
+  - notebooks
 ---
 
 {% picture /assets/img/bulletJournal.jpg %}

@@ -24,4 +24,7 @@ A class should only have a single responsibility, that is, only changes to one p
 
 ### Dependency inversion principle
 
-###One should "depend upon abstractions, [not] concretions."
+"One should "depend upon abstractions, [not] concretions."
+## Books
+
+* [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) - Erich Gamma, Richard Helm, Ralph Jonson, John Vlissides
