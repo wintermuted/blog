@@ -7,6 +7,12 @@ permalink: /about/philosophy
 Having a [philosophy of life](https://en.wikipedia.org/wiki/Philosophy_of_life) is an important thing to me.  Below are 
 some things I believe in that guide the way I approach my personal and professional life.
 
+- [Golden Mean](#the-golden-mean---dont-let-perfect-be-the-enemy-of-good)
+- [Kaizen](#kaizen--continuous-improvement)
+- [Sustainable Design](#sustainable-design--development)
+
+----
+
 ## The Golden Mean - Don't let perfect be the enemy of good
 
 Achieving perfection is often impossible with any complex task, and effort beyond what is actually necessary in
@@ -17,6 +23,8 @@ initially benefit from the fruits of our labour.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good)
 
+----
+
 ## Kaizen ~ Continuous Improvement
 
 _Kaizen_ is a concept referring to the process of continuous, incremental improvements to a system. I see Kaizen as
@@ -25,6 +33,8 @@ if desired. Improving it is most effective when it is an iterative process that 
 analysis of the choices and circumstances that led to its current state.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Kaizen)
+
+----
 
 ## Sustainable Design & Development
 
