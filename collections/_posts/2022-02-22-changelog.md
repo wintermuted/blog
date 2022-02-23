@@ -21,3 +21,7 @@ tags:
 - Update homepage design to be more simplistic.
 - Update About page content
 - Update top-nav bar to highlight active menu navigation.
+
+## Pull Request
+
+[https://github.com/wintermuted/blog/pull/35](https://github.com/wintermuted/blog/pull/35)
