@@ -9,7 +9,6 @@ layout: default
         <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/wiki">Wiki</a></li>
-            <li class="breadcrumb-item"><a href="/wiki/{{ page.hub }}/">{{ page.hub-label }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
           </ol>
         </nav>
@@ -19,15 +18,12 @@ layout: default
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-9">
+    <div class="col-sm-12">
       <article class="post">
         <div class="article-content">
           {{ content }}
         </div>
       </article>
-    </div>
-    <div class="col-sm-12 col-md-3">
-      {% include sidebar-wiki.html %}
     </div>
   </div>
 </div>

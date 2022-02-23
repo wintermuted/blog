@@ -14,23 +14,50 @@ layout: default
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-9">
+    <div class="col-sm-12 col-md-9 post_list">
+        <h2>Blog Posts</h2>
+        <ul class="list-unstyled posts">
         {% for post in page.posts %}
-            <div class="post_title">
-              <a href="{{ post.url | prepend: site.baseurl }}">
-                {{ post.title }}
-              </a> 
-              -
+          <li class="post_title">
+            {% if post.category == 'journal' %}
+            <i class="fas fa-journal-whills"></i>
+            {% elsif post.category == 'essay' %}
+            <i class="fas fa-file-alt"></i>
+            {% elsif post.category == 'essay' %}
+            <i class="fas fa-file-alt"></i>
+            {% elsif post.category == 'hiking' %}
+            <i class="fas fa-hiking"></i>
+            {% elsif post.category == 'foraging' %}
+            <i class="fas fa-leaf"></i>
+            {% elsif post.category == 'camping' %}
+            <i class="fas fa-campground"></i>
+            {% elsif post.category == 'talks' %}
+            <i class="fas fa-chalkboard"></i>
+            {% elsif post.category == 'travelogue' %}
+            <i class="fas fa-passport"></i>
+            {% elsif post.category == 'changelog' %}
+            <i class="fas fa-list-alt"></i>
+            {% else %}
+            <i class="fas fa-folder"></i>
+            {% endif %}
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.title }}
+            </a> 
+            -
+            <small class="text-muted">
               <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
-            </div>
+            </small>
+          </li>
         {% endfor %}
-      <hr>
+        </ul>
 
-      <h2>
-        <i class="fas fa-tags"></i>
-        Tag Cloud
-      </h2>
-      {% include tag-cloud.html %}
+        <hr />
+
+        <h2>
+          <i class="fas fa-tags"></i>
+          Tag Cloud
+        </h2>
+        {% include tag-cloud.html %}
 
     </div>
     <div class="col-sm-12 col-md-3">

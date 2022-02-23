@@ -34,13 +34,16 @@ body {
   }
 
   .sidebar {
+    p, a, time, h5 {
+      font-size: 14px !important;
+    }
+
     a {
       text-decoration: none;
       &:hover {
         text-decoration: underline !important;
       }
     }  
-  
   }
 
   .navbar-toggler-icon {
@@ -56,6 +59,42 @@ body {
       .navbar-brand, a {
         text-decoration: none;
       }
+
+      a {
+        color: rgba(255,255,255,.5);
+      }
+
+      &.active {
+        a {
+          color: #FFF;
+        }
+      }
+
+      &:hover {
+        a {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+.post_list {
+  .posts {
+    li {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    i {
+      height: 20px;
+      width: 20px;
+      margin-right: 5px;
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline !important;
+      }
     }
   }
 }
@@ -65,18 +104,10 @@ h3.post_title {
   margin-bottom: 0rem !important;
 }
 
-h1.article-title {
-  font-size: 32px;
-}
-
-h1.post-title {
-  font-size: 32px;
-}
-
 
 .post {
-  h1.article-title {
-    font-size: 32px;
+  picture.thumbnail img {
+    margin-bottom: 5px;
   }
 
   // img {
@@ -95,30 +126,30 @@ h1.post-title {
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: bold;
-    }
+    // h1 {
+    //   font-size: 28px;
+    //   font-weight: bold;
+    // }
 
-    h2 {
-      font-size: 24px;
-      font-weight: bold;
-    }
+    // h2 {
+    //   font-size: 24px;
+    //   font-weight: bold;
+    // }
 
-    h3 {
-      font-size: 18px;
-      font-weight: bold;
-    }
+    // h3 {
+    //   font-size: 18px;
+    //   font-weight: bold;
+    // }
 
-    h4 {
-      font-size: 16px;
-      font-weight: bold;
-    }
+    // h4 {
+    //   font-size: 16px;
+    //   font-weight: bold;
+    // }
 
-    h5 {
-      font-size: 16px;
-      font-weight: bold;
-    }
+    // h5 {
+    //   font-size: 16px;
+    //   font-weight: bold;
+    // }
   }
 }
 
@@ -252,4 +283,14 @@ aside.sidebar {
   }
 
   
+}
+
+.site-tag {
+  a {
+    line-height: 24px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
 }

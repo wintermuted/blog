@@ -7,35 +7,85 @@ layout: default
   <div class="row">
     <div class="col">
       <h1>
-        <i class="fas fa-folder"></i>
+        {% if page.title == 'journal' %}
+          <i class="fas fa-journal-whills"></i>
+        {% elsif page.title == 'essay' %}
+          <i class="fas fa-file-alt"></i>
+        {% elsif page.title == 'essay' %}
+          <i class="fas fa-file-alt"></i>
+        {% elsif page.title == 'hiking' %}
+          <i class="fas fa-hiking"></i>
+        {% elsif page.title == 'foraging' %}
+          <i class="fas fa-leaf"></i>
+        {% elsif page.title == 'camping' %}
+          <i class="fas fa-campground"></i>
+        {% elsif page.title == 'talks' %}
+          <i class="fas fa-chalkboard"></i>
+        {% elsif page.title == 'travelogue' %}
+          <i class="fas fa-passport"></i>
+        {% elsif page.title == 'changelog' %}
+          <i class="fas fa-list-alt"></i>
+        {% else %}
+          <i class="fas fa-folder"></i>
+        {% endif %}
         <span>Category: {{ page.title }}</span>
       </h1>
       <hr/>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-9">
-      {% for post in page.posts %}
-            <div class="post_title">
+    <div class="col-sm-12 col-md-9 post_list">
+        {% if page.title == 'journal' %}
+          <p class="lead">News & updates about life events.</p>
+        {% elsif page.title == 'essay' %}
+          <p class="lead">Essays on specific topics that interest me personally & professionally.</p>
+        {% elsif page.title == 'talks' %}
+          <p class="lead">Presentations & Talks given for work.</p>
+        {% elsif page.title == 'camping' %}
+          <p class="lead">Camping trips in Cascadia and beyond. Learn more in the <a href="/wiki/cascadia">wiki.</a></p>
+        {% elsif page.title == 'foraging' %}
+        {% elsif page.title == 'hiking' %}
+        {% elsif page.title == 'travelogue' %}
+          <p class="lead">Small & big trips in America and across the world.</p>
+        {% elsif page.title == 'changelog' %}
+          <p class="lead">A record of changes to this website.</p>
+        {% else %}
+          <p class="lead">Some blog posts.</p>
+        {% endif %}
+        <ul class="list-unstyled posts">
+        {% for post in page.posts %}
+            <li class="post_title">
+              {% if post.category == 'journal' %}
+              <i class="fas fa-journal-whills"></i>
+              {% elsif post.category == 'essay' %}
+              <i class="fas fa-file-alt"></i>
+              {% elsif post.category == 'essay' %}
+              <i class="fas fa-file-alt"></i>
+              {% elsif post.category == 'hiking' %}
+              <i class="fas fa-hiking"></i>
+              {% elsif post.category == 'foraging' %}
+              <i class="fas fa-leaf"></i>
+              {% elsif post.category == 'camping' %}
+              <i class="fas fa-campground"></i>
+              {% elsif post.category == 'talks' %}
+              <i class="fas fa-chalkboard"></i>
+              {% elsif post.category == 'travelogue' %}
+              <i class="fas fa-passport"></i>
+              {% elsif post.category == 'changelog' %}
+              <i class="fas fa-list-alt"></i>
+              {% else %}
+              <i class="fas fa-folder"></i>
+              {% endif %}
               <a href="{{ post.url | prepend: site.baseurl }}">
                 {{ post.title }}
               </a> 
               -
-              <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
-            </div>
-        {% endfor %}
-        <hr />
-        <h2>
-          <i class="fas fa-folder"></i>
-          All Categories
-        </h2>
-        <section class="archive_list">
-          {% for category in site.categories %}
-            <div class="category-name">
-              <a href="{{site.baseurl}}/category/{{category | first}}">{{category | first }}</a>
-            </div>
+              <small class="text-muted">
+                <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+              </small>
+            </li>
           {% endfor %}
-        </section>
+        </ul>
     </div>
     <div class="col-sm-12 col-md-3">
       {% include sidebar.html %}
