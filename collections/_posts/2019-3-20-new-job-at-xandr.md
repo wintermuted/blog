@@ -4,7 +4,6 @@ title:  "I now work at Xandr, Inc."
 date:   2019-3-20 09:57:46 -0700
 location: "Portland, OR"
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
 category: journal
 tags:
 - career updates

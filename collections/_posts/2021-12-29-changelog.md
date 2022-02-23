@@ -3,7 +3,6 @@ layout: post
 title:  "Changelog: 29/12/2021"
 date:   2021-12-29 09:00:00 -0700
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
 type: changelog
 category: changelog
 tags:
@@ -40,7 +39,7 @@ tags:
     * [The Oregon Garden](/travelouge/2021/04/23/the-oregon-garden.html)
     * [Lunar New Year & the Oregon Coast](/travelouge/2021/02/20/a-quick-escape-from-portland.html)
     * [Experimenting with the Bullet Journal system](/journal/2017/02/09/bullet-journal-experiment.html)
-    * [Pair-programming at Jama Software](0/essay/2017/01/04/pair-programming-at-jama-software.html)
+    * [Pair-programming at Jama Software](/essay/2017/01/04/pair-programming-at-jama-software.html)
 
 ### Wiki
 #### New Articles:

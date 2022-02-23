@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <header class="post-header">
+        <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/wiki">Wiki</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+          </ol>
+        </nav>
+        <h1 class="post-title">{{ page.title }}</h1>
+      </header>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <article class="post">
+        <div class="article-content">
+          {{ content }}
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

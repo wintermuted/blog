@@ -4,8 +4,7 @@ title:  "Lunar New Year & the Oregon Coast"
 date:   2021-2-20 09:57:46 -0700
 location: "NW Oregon"
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
-category: travelouge
+category: travelogue
 tags:
 - oregon
 - oregon coast
@@ -15,6 +14,9 @@ tags:
 - winter
 - pacific northwest
 - photolouge
+- cascadia bioregion
+- america
+- rachel
 ---
 
 1. [Introduction](#introduction)
@@ -45,14 +47,9 @@ Since moving to Portland we've alternated between traveling to Los Angeles to ce
 
 There are various activities associated with Lunar New Year, but one the most important parts for my partner is the foods we eat.  The morning of Lunar New Year we eat a vegetarian meal to give the animals a break.  In the evening we eat a bigger meal that typically includes crab, fish, and pork.
 
-![Picture of red bean bun](/assets/img/posts/2021/feb/lunar-new-year/bun.jpeg)
-*Red bean bun on Friday morning.  Yum yum.*
-
-![Picture of cantonese vegetarian breakfast in a bowl](/assets/img/posts/2021/feb/lunar-new-year/lunar-breakfast.jpeg)
-*Breakfast on Lunar New Year is vegetarian, to give the animals a break.*
-
-![Picture of a multi-course Cantonese dinner.](/assets/img/posts/2021/feb/lunar-new-year/lunar-new-year-food.jpeg)
-*Rachel spent nearly the whole day of Saturday cooking the wonderful dishes you see here.*
+{% picture thumbnail /assets/img/posts/2021/feb/lunar-new-year/bun.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/lunar-new-year/lunar-breakfast.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/lunar-new-year/lunar-new-year-food.jpeg --a data-lightbox="lightbox1" %}
 
 ----
 
@@ -66,11 +63,8 @@ By Saturday morning we had enough snow to allow us to go snowshoeing around the 
 
 Sophie is a big fan of the snow, and had a fun time exploring and walking around our neightborhood.
 
-![Picture of man snowshoeing across a covered pedestrian bridge.](/assets/img/posts/2021/feb/snowstorm/bridge-snow.jpeg)
-*We walked to the nearby park & natural area near our house.*
-
-![Picture of dog looking up at caretakers in snow, with snowshoes in foreground.](/assets/img/posts/2021/feb/snowstorm/snophie.JPG)
-*Sophie takes a break from rolling around in the snow.*
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/bridge-snow.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/snophie.JPG --a data-lightbox="lightbox1" %}
 
 ----
 
@@ -86,19 +80,11 @@ Our power went out on Sunday evening, and did not end up coming back on until mi
 
 With the power being out, things started to become quite cold, and the food in our refrigerator started to warm up and our freezer started to defrost.  Fortunately, we have a fireplace in our home that we were able to use to keep ourselves warm at night, and a good collection of camping gear that we were able to use to put to good use.  On Monday morning we woke up still without power, so we decided to take out some of our gear to make coffee and breakfast on our front porch.
 
-![Picture of ground beans, a mortar, and a pestel](/assets/img/posts/2021/feb/snowstorm/coffee-beans.jpeg)
-
-![Picture of a French-press coffee maker on a table.](/assets/img/posts/2021/feb/snowstorm/french-press-outside.jpeg)
-
-*Without use of our electricity, Rachel decided to hand-grid our coffee beans with a motar and pestel.  Me might need to add a hand-grinder to our collection :)*
-
-![Picture of a man cooking on a camping stove outside.](/assets/img/posts/2021/feb/snowstorm/cooking-outside.jpeg)
-
-![Picture of Kimchi friend rice being cooked on a camping stove.](/assets/img/posts/2021/feb/snowstorm/cooking.jpeg)
-
-![Picture of a burrito being wrapped.](/assets/img/posts/2021/feb/snowstorm/burrito-wrapping.jpeg)
-
-*We made [Kimchi](https://en.wikipedia.org/wiki/Kimchi) fried rice & chicken breakfast burritos with leftovers.*
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/coffee-beans.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/french-press-outside.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/cooking-outside.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/cooking.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/snowstorm/burrito-wrapping.jpeg --a data-lightbox="lightbox1" %}
 
 ----
 
@@ -124,13 +110,10 @@ Once we were out of the coastal range, the mountains opened up to the Tillamook 
 
 We arrived at Cape Kiwanda around midday and checked-in with the inn.  We were scheduled for work that day, so we spent most of the next two days working from our room at the inn.  We punctuated our days with some walks out to the beach, and ended up returning home on Thursday.
 
-![Picture of the Cape Kiwanda haystack rock after sunsent.](/assets/img/posts/2021/feb/oregon-coast/kiwanda-haystack.JPG)
-
-![Picture of a man walking a dog down the beach.](/assets/img/posts/2021/feb/oregon-coast/walking-sophie.jpeg)
-
-![Picture of a dog looking through a hole in the driftwood.](/assets/img/posts/2021/feb/oregon-coast/sophie-driftwood.jpeg)
-
-![Picture of the Cape Kiwanda haystack rock and driftwood in foreground.](/assets/img/posts/2021/feb/oregon-coast/wood_haystack.jpeg)
+{% picture thumbnail /assets/img/posts/2021/feb/oregon-coast/kiwanda-haystack.JPG --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/oregon-coast/walking-sophie.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/oregon-coast/sophie-driftwood.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/feb/oregon-coast/wood_haystack.jpeg --a data-lightbox="lightbox1" %}
 
 ----
 

@@ -1,13 +1,13 @@
 ---
 layout: page-wiki 
-title: ECMAScript Ecosystem
-topic: tools
+title: ECMAScript
+topic: programming
 hub: software-engineering
 hub-label: Software Engineering
 permalink: /building-software/ecmascript-tools
 ---
 
-<i class="fab fa-js-square"></i> ECMAScript ecosystem
+## Tools
 
 **Language supersets**
 - [Typescript](https://www.typescriptlang.org) - An open-source language that builds upon Javascript and adds static type definitions.
@@ -39,3 +39,7 @@ permalink: /building-software/ecmascript-tools
 - [babel]()
 - [eslint](https://eslint.org)
 - [prettier](https://prettier.io)
+
+## Books
+
+- [Javascript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford

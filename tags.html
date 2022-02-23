@@ -1,0 +1,26 @@
+---
+layout: default
+title: Tags
+permalink: /weblog/tags
+---
+
+</br>
+<div class="container archive">
+  <div class="row">
+    <div class="col">
+      <h1>
+        <i class="fas fa-tag"></i>
+        <span>{{ page.title }}</span>
+      </h1>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-9">
+        {% include tag-cloud.html %}
+    </div>
+    <div class="col-sm-12 col-md-3">
+      {% include sidebar.html %}
+    </div>
+  </div>
+</div>

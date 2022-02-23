@@ -4,8 +4,7 @@ title:  "The Clean Coder - lightning book review"
 date:   2017-2-4 09:57:46 -0700
 author: "Jameson Nyeholt"
 location: "Portland"
-permalink: /:categories/:year/:month/:day/:title.html
-category: presentation
+category: talks
 tags:
   - agile
   - software development

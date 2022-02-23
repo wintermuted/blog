@@ -1,5 +1,6 @@
 
 <aside class="sidebar">
+    <!-- <h4>Categories</h4> -->
     <ul class="list-unstyled">
         <li>
             <i class="fas fa-rss-square"></i>
@@ -7,42 +8,47 @@
         </li>
         <li>
             <i class="fas fa-journal-whills"></i>
-            <a href="{{ "/journal" | prepend: site.baseurl }}">Journal</a>
+            <a href="{{ "/weblog/category/journal" | prepend: site.baseurl }}">Journal</a>
         </li>
         <li>
             <i class="fas fa-file-alt"></i>
-            <a href="{{ "/essays" | prepend: site.baseurl }}">Essays</a>
+            <a href="{{ "/weblog/category/essay" | prepend: site.baseurl }}">Essays</a>
         </li>
         <li>
             <i class="fas fa-chalkboard"></i>
-            <a href="{{ "/talks" | prepend: site.baseurl }}">Talks</a>
+            <a href="{{ "/weblog/category/talks" | prepend: site.baseurl }}">Talks</a>
         </li>
+
+        <hr/>
+        <h4>Outdoor Adventures</h4>
+
         <li>
             <i class="fas fa-passport"></i>
-            <a href="{{ "/travelouge" | prepend: site.baseurl }}">Travelogue</a>
+            <a href="{{ "/weblog/category/travelogue" | prepend: site.baseurl }}">Travelougue</a>
+        </li>
+        <li>
+            <i class="fas fa-hiking"></i>
+            <a href="{{ "/weblog/category/hiking" | prepend: site.baseurl }}">Hiking</a>
+        </li>
+        <li>
+            <i class="fas fa-leaf"></i>
+            <a href="{{ "/weblog/category/foraging" | prepend: site.baseurl }}">Foraging</a>
+        </li>
+        <li>
+            <i class="fas fa-campground"></i>
+            <a href="{{ "/weblog/category/camping" | prepend: site.baseurl }}">Camping</a>
+        </li>
+
+        <hr/>
+        <h4>Meta</h4>
+
+        <li>
+            <i class="fas fa-tag"></i>
+            <a href="{{ "/weblog/tags" | prepend: site.baseurl }}">Tags</a>
         </li>
         <li>
             <i class="fas fa-list-alt"></i>
-            <a href="{{ "/changelog" | prepend: site.baseurl }}">Changelog</a>
-        </li>
-        <li>
-            <i class="fas fa-archive"></i>
-            <a href="{{ "/archive" | prepend: site.baseurl }}">
-                Archive
-            </a>
-        </li>
-    </ul>
-
-    <hr />
-
-    <ul class="list-unstyled">
-        <li>
-            <i class="fas fa-book"></i>
-            <a href="{{ "/library" | prepend: site.baseurl }}"> Library</a>
-        </li>
-        <li>
-            <i class="fas fa-link"></i>
-            <a href="{{ "/links" | prepend: site.baseurl }}"> Links</a>
+            <a href="{{ "/weblog/category/changelog" | prepend: site.baseurl }}">Changelog</a>
         </li>
     </ul>
 </aside>

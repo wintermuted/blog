@@ -1,11 +1,12 @@
 
 <aside class="sidebar">
-    <h4>{{ page.topic }}</h4>
+    <h4>Topic: {{ page.topic }}</h4>
 
     {% assign sorted-posts = site.software_development | where: "topic",{page.topic} %}
     <ul class="list-unstyled">
         {% for post in sorted-posts%}
             <li>
+                <i class="fas fa-book"></i>
                 <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
             </li>
         {% endfor %}

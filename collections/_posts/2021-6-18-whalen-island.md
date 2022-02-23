@@ -1,62 +1,64 @@
 ---
 layout: post
-title:  "Whalen Island Camping Trip June 2021"
+title:  "Whalen Island Camping Trip - Jun '21"
 date:   2021-6-18 00:00:00 -0700
 location: "Tillamook County, OR"
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
-category: travelouge
+category: camping
 tags:
+- america
 - camping
+- cascadia bioregion
+- fishing
+- friends
 - oregon coast
 - oregon
-- fishing
 - pacific northwest
 - photolouge
 - videolouge
 - nature
 - spring
-- state park
+- state parks
+- oregon state parks
 - estuary
-- friends
+- rachel
 - whalen island
 - tillamook
+- shellfish
 ---
 
-For Rachel's birthday, we again headed out to [Whalen Island](/wiki/cascadia/camping/whalen-island) with some friends to celebrate.
+We visited Whalen Island in June with some close friends.  They were excited to give their new van a test drive and take their daughter on her first camping trip, while we wanted to catch some crab.  Unfortunately, the tides did not work in our favor.  Regardless, we had a great time.
 
-----
-
-1. [Video Log](#video-log)
-2. [Night](#night)
-3. [Fishing on the Estuary](#fishing-on-the-estuary)
-4. [D&D & Sand Shrimping](#d--d--sand-shrimping)
-5. [Dusk Activities](#dusk-activities)
-6. [Shorecasting](#shorecasting)
-
-----
-
-## Video Log
+## Video
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/655771621?h=0e687afafe&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Whalen Island June 2021"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-## Night 
-{% picture /assets/img/posts/2021/may/whalen-island/sunset-beach-sophie.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/beach-driftwood.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/camp-firepit.jpeg %}
-## Fishing on the Estuary
-{% picture /assets/img/posts/2021/may/whalen-island/whalen-island-estuary.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/rachel-fishing2.jpeg %}
-## D&D & Sand Shrimping
-{% picture /assets/img/posts/2021/may/whalen-island/d&d.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/rachel-sand-crab.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/sand-shrimps.jpeg %}
-## Dusk Activities
-{% picture /assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/whalen-island-hill.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/rachel&Jameson.jpeg %}
-{% picture /assets/img/posts/2021/may/whalen-island/whalen-island-clouds.jpeg %}
-## Shorecasting
-{% picture /assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing.JPG %}
-{% picture /assets/img/posts/2021/may/whalen-island/rachel-shorecasting.jpeg %}
+## Photos
+
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/sunset-beach-sophie.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/beach-driftwood.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/camp-firepit.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/whalen-island-estuary.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/rachel-fishing2.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/d&d.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/rachel-sand-crab.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/sand-shrimps.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/whalen-island-hill.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/rachel&Jameson.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/whalen-island-clouds.jpeg --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing.JPG --a data-lightbox="lightbox1"  %}
+{% picture thumbnail /assets/img/posts/2021/may/whalen-island/rachel-shorecasting.jpeg --a data-lightbox="lightbox1"  %}
+
+## Related Weblog posts
+
+<ul>
+{% assign sorted-posts = site.posts | where: "tags", "whalen island" 
+    %}
+    {% for post in sorted-posts limit:5%}
+        <li>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+        </li>
+    {% endfor %}
+</ul>
