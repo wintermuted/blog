@@ -4,7 +4,6 @@ title:  "Draft: Planning for Novelty"
 date:   2021-3-20 00:00:00 -0700
 location: "Portland"
 author: "Jameson Nyeholt"
-permalink: /:categories/:year/:month/:day/:title.html
 category: essay
 tags:
 - COVID-19

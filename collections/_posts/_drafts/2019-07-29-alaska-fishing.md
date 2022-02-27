@@ -1,0 +1,68 @@
+---
+title: "Sea fishing in Southern Alaska"
+layout: post
+date:   2019-07-29 00:00:00 -0700
+location: "Southern Alaska"
+author: "Jameson Nyeholt"
+category: travelogue
+tags:
+- alaska
+- southern alaska
+- pacific northwest
+- fishing
+- ocean fishing
+- boreal bioregion
+- halinut
+- photolougue
+- america
+- family
+- summer
+- grandparents
+---
+
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/juneau.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/americaisland.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight_coastline.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/stream.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/library.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/lounge.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/buckhunt.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/grandpa.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/marina.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/ontheboat.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/rods.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/rods2.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/boatonwater.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/selfie.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/coastline.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/whales1.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/baitfish.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/whale2.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/whale3.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/grandpa_boat.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/halibut.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/rod.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/sealions_buoy.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/grandpa_halibut.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/coast.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/cleaning_fish.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/frog.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/plane.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/cargo.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/safety_meeting.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight1.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight2.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight3.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight4.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight5.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight6.jpeg --a data-lightbox="lightbox1" %}
+{% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/flight_volcano.jpeg --a data-lightbox="lightbox1" %}
+
+
+
+
+
+
+
+
+
