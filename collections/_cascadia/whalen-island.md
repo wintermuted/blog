@@ -2,6 +2,7 @@
 layout: page-wiki 
 title: Whalen Island - Tillamook, Oregon
 hub: cascadia
+hub-label: Cascadia
 topic: camping
 permalink: /wiki/cascadia/camping/whalen-island
 ---
@@ -108,7 +109,7 @@ The estuary envirornment hosts a number of different shellfish.  Purple Varnish 
 - [Cape Kiwanda State Natural Area](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=130)
 - [Bob Straub State Park](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=133)
 
-## Weblog Entries
+## Related Weblog posts
 
 <ul>
 {% assign sorted-posts = site.posts | where: "tags", "whalen island" 
