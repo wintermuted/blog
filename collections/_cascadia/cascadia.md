@@ -1,5 +1,5 @@
 ---
-layout: page-wiki 
+layout: page-wiki-hub 
 title: Cascadia
 topic: cascadia
 hub: cascadia
