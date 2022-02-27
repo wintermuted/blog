@@ -61,18 +61,13 @@ body {
       }
 
       a {
-        color: rgba(255,255,255,.5);
-      }
-
-      &.active {
-        a {
-          color: #FFF;
+        color: $dark-gray;
+        &.active {
+          color: $black;
+  
         }
-      }
-
-      &:hover {
-        a {
-          color: #FFF;
+        &:hover {
+          color: $black;
         }
       }
     }
@@ -103,7 +98,6 @@ h3.post_title {
   font-size: 18px;
   margin-bottom: 0rem !important;
 }
-
 
 .post {
   picture.thumbnail img {
@@ -229,60 +223,68 @@ aside.sidebar {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: $dark-theme-background !important;
-    color: $dark-theme-text !important;
 
-    .navbar {
-      background: $dark-theme-navbar !important;
-      .nav-link {
-        color: white;
-        // background-color: #FFF;
-      }
+body[data-theme="dark"] {
+  background: $dark-theme-background !important;
+  color: $dark-theme-text !important;
 
-      .navbar-toggler {
-        color: rgba(255,255,255,.5);
-        border-color: rgba(255,255,255,.1);
+  nav.navbar {
+    background: $dark-theme-navbar !important;
 
-        .navbar-toggler-icon {
-          color: white;
+    li.nav-item {
+      a.nav-link {
+        color: rgb(108, 117, 125);
+        &.active {
+          color: #FFF;
+        }
+        &:hover {
+          color: #FFF;
         }
       }
-    }
-
-    nav.navbar-dark {
-      ol.breadcrumb {
-        background-color: #343a40 !important;
+      .navbar-brand, a {
+        text-decoration: none;
       }
     }
 
-    hr {
-      border: 1px solid rgba($dark-theme-text, 0.1)
-    }
+    .navbar-toggler {
+      color: rgba(255,255,255,.5);
+      border-color: rgba(255,255,255,.1);
 
-    a {
-      color: $white;
-      &:hover {
-        text-decoration: none !important;
-        color: $white;
+      .navbar-toggler-icon {
+        color: white;
       }
-    }
-
-    .post_meta {
-      color: $dark-theme-text !important;
-      a {
-        color: $dark-theme-text !important;
-      }
-    }
-
-    .card {
-      background-color: $dark-theme-background;
-      border: 1px solid rgba($dark-theme-text, 0.1);
     }
   }
 
-  
+  nav.navbar-dark {
+    ol.breadcrumb {
+      background-color: #343a40 !important;
+    }
+  }
+
+  hr {
+    border: 1px solid rgba($dark-theme-text, 0.1)
+  }
+
+  a {
+    color: $white;
+    &:hover {
+      text-decoration: none !important;
+      color: $white;
+    }
+  }
+
+  .post_meta {
+    color: $dark-theme-text !important;
+    a {
+      color: $dark-theme-text !important;
+    }
+  }
+
+  .card {
+    background-color: $dark-theme-background;
+    border: 1px solid rgba($dark-theme-text, 0.1);
+  }
 }
 
 .site-tag {
