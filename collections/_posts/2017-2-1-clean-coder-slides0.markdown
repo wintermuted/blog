@@ -8,6 +8,11 @@ category: talks
 tags:
   - agile
   - software development
+  - clean code
+  - book
+  - slides
+  - Robert C. Martin
+  - professionalism
 ---
 <iframe src="https://docs.google.com/presentation/d/15gP39mOVI02TwiKrRWseVYBojt3oMGnNz6Hww9VW-Og/embed?start=false&loop=true&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
