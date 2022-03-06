@@ -10,8 +10,8 @@ Hello, I'm Jameson Nyeholt, and I live in Portland, Oregon.
 
 <p class="lead">
 I currently work in at <a href="https://www.xandr.com">Xandr, Inc.</a> as a Senior Software Engineer.<br/>
-In my free time I like to spend time with my family exploring the <a href="/wiki/cascadia/">Pacific Northwest</a>.<br/>
-When I'm not doing that, I have some hobbies, which includes maintaing this weblog.
+I spend my free time with my family exploring the <a href="/wiki/cascadia/">Pacific Northwest</a>.<br/>
+When I'm not doing that, I have some hobbies, which includes maintaining this weblog.
 </p>
 
 <!-- <p class="lead">
