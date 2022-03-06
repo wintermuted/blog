@@ -1,47 +1,58 @@
 <aside class="sidebar">
     <p>
         {% if page.date %}
-            <i class="fas fa-calendar"></i>
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                {{ page.date | date: "%d %B %Y, %A" }}
-            </time>
+            <small class="text-muted">
+                <i class="fas fa-calendar"></i>
+                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                    {{ page.date | date: "%d %B %Y, %A" }}
+                </time>
+            </small>
         {% endif %}
         <br />
         {% if page.location %}
+        <small class="text-muted">
             <i class="fas fa-map-marker-alt"></i>
             <a>{{ page.location }}</a>
+        </small>
         {% endif %}
         <br />
         {% if page.author %}
+        <small class="text-muted">
             <i class="fas fa-user-alt"></i>
-            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                <span itemprop="name">{{ page.author }}</span>
-            </span>
+            <a href="/about">
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name">{{ page.author }}</span>
+                </span>
+            </a>
+        </small>
         {% endif %}
     </p>
     <hr />
     <!-- {% include post-navigation-side.html %}
     <hr /> -->
-    <h5>Category</h5>
+    <h5 class="text-muted">Category</h5>
     <ul class="list-unstyled">
         {% for category in page.categories %}
             <li>
-                <i class="fas fa-folder"></i>
-                <a href="{{site.baseurl}}/weblog/category/{{category}}">
-                    {{category}}
-                </a>
+                <small class="text-muted">
+                    <i class="fas fa-folder"></i>
+                    <a href="{{site.baseurl}}/weblog/category/{{category}}">
+                        {{category}}
+                    </a>
+                </small>
             </li>
         {% endfor %}
     </ul>
-
-    <h5>Tags</h5>
+    <h5 class="text-muted">Tags</h5>
     <ul class="list-unstyled">
         {% for tag in page.tags %}
             <li>
-                <i class="fas fa-tag"></i>
-                <a href="/weblog/tag/{{ tag | slugify }}">
-                    {{ tag | replace:'-', ' ' }}
-                </a>
+                <small class="text-muted">
+                    <i class="fas fa-tag"></i>
+                    <a href="/weblog/tag/{{ tag | slugify }}">
+                        {{ tag | replace:'-', ' ' }}
+                    </a>
+                </small>
             </li>
         {% endfor %}
     </ul>

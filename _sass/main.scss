@@ -103,47 +103,11 @@ h3.post_title {
   picture.thumbnail img {
     margin-bottom: 5px;
   }
-
-  // img {
-  //   // width: 100%;
-  //   // max-width: 500px;
-  // }
-
   .article-content {
-    // p {
-    //   font-size: 16px;
-    //   line-height: 28px;
-    // }
-
     img.float-right {
       margin-left: 20px;
       margin-bottom: 20px;
     }
-
-    // h1 {
-    //   font-size: 28px;
-    //   font-weight: bold;
-    // }
-
-    // h2 {
-    //   font-size: 24px;
-    //   font-weight: bold;
-    // }
-
-    // h3 {
-    //   font-size: 18px;
-    //   font-weight: bold;
-    // }
-
-    // h4 {
-    //   font-size: 16px;
-    //   font-weight: bold;
-    // }
-
-    // h5 {
-    //   font-size: 16px;
-    //   font-weight: bold;
-    // }
   }
 }
 
@@ -226,7 +190,41 @@ aside.sidebar {
 
 body[data-theme="dark"] {
   background: $dark-theme-background !important;
-  color: $dark-theme-text !important;
+  color: rgb(173, 186, 199) !important;
+  
+  .body-content {
+    a {
+      color: rgb(83, 155, 245);;
+      // font-weight: bold;
+      &:hover {
+        color: rgb(43, 116, 137);
+        text-decoration: underline;
+      }
+      &:visited {
+        color: rgb(43, 116, 137);
+      }
+    }
+  }
+
+  aside.sidebar {
+    small.text-muted {
+      &.active {
+        color: white !important;
+        a {
+          color: white !important;
+        }
+      }
+      a {
+        color: #6c757d !important;  
+      }
+      &:hover {
+        color: white !important;
+        a {
+          color: white !important;
+        }
+      }
+    }
+  }
 
   nav.navbar {
     background: $dark-theme-navbar !important;
@@ -268,8 +266,8 @@ body[data-theme="dark"] {
 
   a {
     color: $white;
+    text-decoration: none;
     &:hover {
-      text-decoration: none !important;
       color: $white;
     }
   }
@@ -293,6 +291,22 @@ body[data-theme="dark"] {
     text-decoration: none;
     &:hover {
       text-decoration: underline !important;
+    }
+  }
+}
+
+@media (max-width: 575.98px) { 
+  .post_list {
+    .posts {
+      li.post_title {
+        font-size: 12px;
+        line-height: 24px;
+      }
+      i {
+        height: 10px;
+        width: 10px;
+        margin-right: 5px;
+      }
     }
   }
 }
