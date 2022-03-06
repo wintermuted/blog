@@ -17,20 +17,20 @@
     {% endif %}
     <div class="float-left">
         <a class="equalize" href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
-            <div>
+            <small class="text-muted">
                 <span> ← Newer : </span>
                 <span> {{next.title}}</span>
-            </div>
+            </small>
         </a>
     </div>
 
 
     <div class="float-right">
         <a class="equalize" href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
-            <div>
+            <small class="text-muted">
                 <span> {{previous.title}} </span>
                 <span> : Older →</span>
-            </div>
+            </small>
         </a>
     </div>
 </section>

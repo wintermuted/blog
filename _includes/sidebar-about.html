@@ -1,27 +1,89 @@
+{% assign current = page.url | downcase | split: '/' %}
+
+<!-- Current: {{ current }}<br/>
+Current 1: {{ current[1] }}<br/>
+Current 2: {{ current[2] }}<br/>
+Current 3: {{ current[3] }}<br/> -->
 
 <aside class="sidebar">
     <ul class="list-unstyled">
-        <li>
-            <i class="fas fa-user"></i>
-            <a href="{{ "/about" | prepend: site.baseurl }}">About Me</a>
-        </li>
-        <li>
-            <i class="fas fa-id-card-alt"></i>
-            <a href="{{ "/about/professional-background" | prepend: site.baseurl }}">CV</a>
-        </li>
+        {% if current[1] == 'about' and current[2] == nil %}
+            <li class="active">
+                <small>
+                    <i class="fas fa-user"></i>
+                    <a href="{{ "/about" | prepend: site.baseurl }}">About Me</a>
+                </small>
+            </li>
+        {% else %}
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-user"></i>
+                    <a href="{{ "/about" | prepend: site.baseurl }}">About Me</a>
+                </small>
+            </li>
+        {% endif %}
+        {% if current[2] == 'professional-background' %}
+            <li>
+                <small>
+                    <i class="fas fa-id-card-alt"></i>
+                    <a href="{{ "/about/professional-background" | prepend: site.baseurl }}">CV</a>
+                </small>
+            </li>
+        {% else %}
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-id-card-alt"></i>
+                    <a href="{{ "/about/professional-background" | prepend: site.baseurl }}">CV</a>
+                </small>
+            </li>
+        {% endif %}
         <!-- <hr /> -->
-        <li>
-            <i class="fas fa-bullseye"></i>
-            <a href="{{ "/about/mission" | prepend: site.baseurl }}">Mission</a>
-        </li>
-        <li>
-            <i class="fas fa-brain"></i>
-            <a href="{{ "/about/philosophy" | prepend: site.baseurl }}">Philosphy</a>
-        </li>
+        {% if current[2] == 'mission' %}
+            <li>
+                <small>
+                    <i class="fas fa-bullseye"></i>
+                    <a href="{{ "/about/mission" | prepend: site.baseurl }}">Mission</a>
+                </small>
+            </li>
+        {% else %}
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-bullseye"></i>
+                    <a href="{{ "/about/mission" | prepend: site.baseurl }}">Mission</a>
+                </small>
+            </li>
+        {% endif %}
+        {% if current[2] == 'philosophy' %}
+            <li>
+                <small>
+                    <i class="fas fa-brain"></i>
+                    <a href="{{ "/about/philosophy" | prepend: site.baseurl }}">Philosphy</a>
+                </small>
+            </li>
+        {% else %}
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-brain"></i>
+                    <a href="{{ "/about/philosophy" | prepend: site.baseurl }}">Philosphy</a>
+                </small>
+            </li>
+        {% endif %}
         <!-- <hr /> -->
-        <li>
-            <i class="fas fa-toolbox"></i>
-            <a href="{{ "/about/website" | prepend: site.baseurl }}">About this site</a>
-        </li>
+        {% if current[2] == 'website' %}
+            <li>
+                <small>
+                    <i class="fas fa-toolbox"></i>
+                    <a href="{{ "/about/website" | prepend: site.baseurl }}">About this site</a>
+                </small>
+            </li>
+        {% else %}
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-toolbox"></i>
+                    <a href="{{ "/about/website" | prepend: site.baseurl }}">About this site</a>
+                </small>
+            </li>
+        {% endif %}
+        
     </ul>
 </aside>
