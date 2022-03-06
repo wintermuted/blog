@@ -26,12 +26,13 @@ tags:
 - sophie
 - dog adventures
 - seaside
+- wildcraft
 ---
 
 ## Rachel's Birthday Weekend '18 - Part I  
 
 <p class="lead">
-To celebrate Rachel's birthday this year, we decided to spend a long weekend foraging, crabbing, and camping out on the Oregon Coast with friends.  We started the weekend in Tillamook National Forest, foraging for mushrooms in a spot that Rachel had learned from a foraging class she had taken earlier through Wildcraft.
+To celebrate Rachel's birthday this year, we decided to spend a long weekend foraging, crabbing, and camping out on the Oregon Coast with friends.  We started the weekend in Tillamook National Forest, foraging for mushrooms in a spot that Rachel had learned from a foraging class she had taken earlier through <a href="https://wildcraftstudioschool.com">Wildcraft</a>.
 </p>
 
 Following our foraging trip, we headed over to [Seaside](https://en.wikipedia.org/wiki/Seaside,_Oregon) to spend the night at [Ashore Hotel](https://adrifthospitality.com/places/#Ashore) before heading to [Ecola State park for some hiking](/weblog/hiking/2018/09/21/rachel-birthday-ecola-hiking.html).
