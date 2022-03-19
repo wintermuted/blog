@@ -5,7 +5,7 @@ permalink: /about
 --- 
 
 <p class="lead">
-Hello, I'm Jameson Nyeholt, and I live in Portland, Oregon.
+Hello, I'm Jameson Nyeholt, and I live in <a href="/wiki/cascadia/portland-metro/portland">Portland, Oregon</a>.
 </p>
 
 <p class="lead">

@@ -27,7 +27,30 @@ I've lived in this region since 2013 with my partner in Portland, Oregon.  The b
 
 ## Wiki
 
-### North Oregon Coast
+*Political Subdivisions*
+{% assign sorted-posts = site.cascadia | where: "topic","political-subdivision" %}
+<ul class="list-unstyled">
+  {% for post in sorted-posts%}
+    <li>
+      <i class="fas fa-book"></i>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+    </li>
+{% endfor %}
+</ul>
+
+
+*Portland Metro*
+{% assign sorted-posts = site.cascadia | where: "topic","portland-metro" %}
+<ul class="list-unstyled">
+  {% for post in sorted-posts%}
+    <li>
+      <i class="fas fa-book"></i>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+    </li>
+{% endfor %}
+</ul>
+
+*North Oregon Coast*
 
 {% assign sorted-posts = site.cascadia | where: "topic","camping" %}
 <ul class="list-unstyled">
