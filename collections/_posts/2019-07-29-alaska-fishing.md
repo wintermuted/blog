@@ -10,15 +10,21 @@ tags:
 - southern alaska
 - pacific northwest
 - fishing
+- ocean
+- sea
+- fish
 - ocean fishing
 - boreal bioregion
-- halinut
-- photolougue
+- halibut
+- photolougue  
 - america
 - family
 - summer
 - grandparents
+- grandfather
 ---
+
+In July I had an opportunity to go on a fishing trip with my grandfather in Alaska near [Gustavus](https://en.wikipedia.org/wiki/Gustavus%2C_Alaska).  To travel there I caught a flight from Portland, to [Seattle](https://en.wikipedia.org/wiki/Seattle), to [Juneau](https://en.wikipedia.org/wiki/Juneau,_Alaska), followed by a short charter flight to Gustavus.  My grandfather enjoys making a trip up to Alaska once every year or so, primarily to catch fish to bring home to eat later.  We spent a few days our on a charter boat alongside a family from Wyoming and caught our fair share of [Halibut](https://en.wikipedia.org/wiki/Halibut).
 
 {% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/juneau.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/americaisland.jpeg --a data-lightbox="lightbox1" %}
