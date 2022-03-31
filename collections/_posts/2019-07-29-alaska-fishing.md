@@ -12,12 +12,13 @@ tags:
 - fishing
 - ocean fishing
 - boreal bioregion
-- halinut
+- halibut
 - photolougue
 - america
 - family
 - summer
 - grandparents
+- grandfather
 ---
 
 {% picture thumbnail /assets/img/posts/2019/july/alaska-seafishing/juneau.jpeg --a data-lightbox="lightbox1" %}
