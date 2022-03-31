@@ -23,8 +23,9 @@ tags:
 - mushrooming
 ---
 
-## October 14th
+We made some trips out to the Tillamook National Forest to search for mushrooms with friends this fall.  Below are some photos of what we saw and found along the way. 
 
+## October 14th
 {% picture thumbnail /assets/img/posts/2018/oct/mushrooming-with-katie/rachel1.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2018/oct/mushrooming-with-katie/rachel2.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2018/oct/mushrooming-with-katie/mushroom_detail.jpeg --a data-lightbox="lightbox1" %}
