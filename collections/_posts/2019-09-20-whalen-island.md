@@ -5,6 +5,7 @@ date:   2019-09-22 00:00:00 -0700
 location: "Tillamook County, Oregon"
 author: "Jameson Nyeholt"
 category: camping
+image: /assets/img/posts/2019/sep/whalen-island/mudflats4.jpeg
 tags:
 - oregon
 - oregon coast
@@ -31,7 +32,7 @@ tags:
 - rachel
 ---
 
-We camped again at [Whalen Island](/wiki/cascadia/camping/whalen-island) with friends to celebrate my partner's birthday.  During the trip we found some mushrooms and had the opportunity to try out the camping smoker from [snow peak](https://www.snowpeak.com/products/smoke-meister-mokumo) that I got for her.  
+We camped again at [Whalen Island](/wiki/cascadia/camping/whalen-island) with friends to celebrate my partner's birthday. <!--more-->  During the trip we found some mushrooms and had the opportunity to try out the camping smoker from [snow peak](https://www.snowpeak.com/products/smoke-meister-mokumo) that I got for her.  
 
 {% picture thumbnail /assets/img/posts/2019/sep/whalen-island/mushroom2.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2019/sep/whalen-island/smoker.jpeg --a data-lightbox="lightbox1" %}

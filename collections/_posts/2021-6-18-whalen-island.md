@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Whalen Island Camping Trip - Jun '21"
+title:  "Whalen Island Camping Summer '21"
 date:   2021-6-18 00:00:00 -0700
 location: "Tillamook County, OR"
 author: "Jameson Nyeholt"
 category: camping
+image: /assets/img/posts/2021/may/whalen-island/camp-firepit.jpeg
 tags:
 - america
 - camping
@@ -27,7 +28,7 @@ tags:
 - shellfish
 ---
 
-We visited [Whalen Island](/wiki/cascadia/camping/whalen-island) in June with some close friends.  They were excited to give their new van a test drive and take their daughter on her first camping trip, while we wanted to catch some crab.  Unfortunately, the tides did not work in our favor.  Regardless, we had a great time.
+We visited [Whalen Island](/wiki/cascadia/camping/whalen-island) in June with some close friends. <!--more-->  They were excited to give their new van a test drive and take their daughter on her first camping trip, while we wanted to catch some crab.  Unfortunately, the tides did not work in our favor.  Regardless, we had a great time.
 
 ## Video
 

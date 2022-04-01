@@ -4,7 +4,8 @@ title:  "Lunar New Year & the Oregon Coast"
 date:   2021-2-20 09:57:46 -0700
 location: "NW Oregon"
 author: "Jameson Nyeholt"
-category: travelogue
+category: roadtrip
+image: /assets/img/posts/2021/feb/lunar-new-year/bun.jpeg
 tags:
 - oregon
 - oregon coast
@@ -18,6 +19,8 @@ tags:
 - america
 - rachel
 ---
+
+<!--more-->
 
 1. [Introduction](#introduction)
 1. [Lunar New Year](#Lunar-New-Year)

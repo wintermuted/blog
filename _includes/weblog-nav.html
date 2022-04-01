@@ -1,0 +1,49 @@
+{% assign current = page.url | downcase | split: '/' %}
+
+<!-- Current: {{ current }}
+Current 1: {{ current[1] }}
+Current 2: {{ current[2] }}
+Current 3: {{ current[3] }} -->
+
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    {% if current[1] == 'weblog' %}
+      <a class="nav-link active" href="/weblog">
+        <i class="fas fa-bars"></i>
+        Simple
+      </a>
+    {% else %}
+      <a class="nav-link" href="/weblog">
+        <i class="fas fa-bars"></i>
+        Simple
+      </a>
+    {% endif %}
+  </li>
+  <li class="nav-item">
+    {% if current[1] == 'weblog-gallery' %}
+      <a class="nav-link active" href="/weblog-gallery">
+        <i class="fas fa-images"></i>
+        Gallery
+      </a>
+    {% else %}
+      <a class="nav-link" href="/weblog-gallery">
+        <i class="fas fa-images"></i>
+        Gallery
+      </a>
+    {% endif %}
+  </li>
+  <li class="nav-item">
+    {% if current[1] == 'weblog-summary' %}
+      <a class="nav-link active" href="/weblog-summary">
+        <i class="fas fa-newspaper"></i>
+        Summary
+      </a>
+    {% else %}
+      <a class="nav-link" href="/weblog-summary">
+        <i class="fas fa-newspaper"></i>
+        Summary
+      </a>
+    {% endif %}
+  </li>
+</ul>
+<br />

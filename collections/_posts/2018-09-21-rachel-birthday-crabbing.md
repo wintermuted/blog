@@ -5,6 +5,7 @@ date:   2018-09-21 09:57:46 -0700
 location: "Nehalem River Estuary"
 author: "Jameson Nyeholt"
 category: foraging
+image: /assets/img/posts/2018/sep/nehalem/jetty4.jpeg
 tags:
 - hiking
 - rachel
@@ -30,7 +31,7 @@ tags:
 
 ## Rachel's Birthday Weekend '18 - Part III  
 
-Following our [hike in Ecola State Park](/weblog/hiking/2018/09/21/rachel-birthday-ecola-hiking.html), we drove south from Cannon Beach down the Nehalem River to Jetty Fishery, where we rented a boat and some crabpots to go crabbing.  Despite our best efforts, we did not catch a single crab that was legal, and had to returrn our catch.  
+Following our [hike in Ecola State Park](/weblog/hiking/2018/09/21/rachel-birthday-ecola-hiking.html), we drove south from Cannon Beach down the Nehalem River to Jetty Fishery, where we rented a boat and some crabpots to go crabbing. <!--more-->  Despite our best efforts, we did not catch a single crab that was legal, and had to returrn our catch.  
 
 Fortunately, we were able to purchase some crabs, mussels, and oysters to take with us to the final destination in Rachel's Birthday weekend, the [campground at Whalen Island](/weblog/camping/2018/09/23/whalen-island-2018.html).
 

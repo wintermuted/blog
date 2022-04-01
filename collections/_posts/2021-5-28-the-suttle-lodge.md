@@ -5,6 +5,7 @@ date:   2021-5-28 00:00:00 -0700
 location: "Sisters, OR"
 author: "Jameson Nyeholt"
 category: hiking
+image: /assets/img/posts/2021/may/suttle-lodge/head-of-metolius.jpeg
 tags:
 - hiking
 - central oregon
@@ -25,6 +26,8 @@ tags:
 - river
 - mountains
 ---
+
+<!--more-->
 
 {% picture thumbnail /assets/img/posts/2021/may/suttle-lodge/bags.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/may/suttle-lodge/sophie.jpeg --a data-lightbox="lightbox1" %}

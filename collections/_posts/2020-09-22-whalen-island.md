@@ -5,6 +5,7 @@ date:   2020-09-22 00:00:00 -0700
 location: "Tillamook County, Oregon"
 author: "Jameson Nyeholt"
 category: camping
+image: /assets/img/posts/2020/sep/whalen-island/tacoma.jpeg
 tags:
 - oregon
 - oregon coast
@@ -30,6 +31,8 @@ tags:
 ---
 
 To celebrate Rachel's Birthday we again went to [Whalen Island](/wiki/cascadia/camping/whalen-island), per tradition.  We were joined by many friends and had a chance to go crabbing, fishing, and clamming while we were there.
+
+<!--more-->
 
 This was a special year for the trip, because it was also the first time we were able to take out the boat that Rachel had found for us on craigslist.
 

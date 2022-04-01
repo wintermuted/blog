@@ -5,6 +5,7 @@ date:   2021-7-24 00:00:00 -0700
 location: "Columbia River Gorge, WA"
 author: "Jameson Nyeholt"
 category: hiking
+image: /assets/img/posts/2021/jul/arch-cape/tree-cliff.jpeg
 tags:
 - hiking
 - river
@@ -23,6 +24,10 @@ tags:
 - dog adventures
 - sophie
 ---
+
+Arch Cape is a hiking trail on the Washington side of the Columbia River Gorge.
+
+<!--more-->
 
 {% picture thumbnail /assets/img/posts/2021/jul/arch-cape/tree-cliff.jpeg --a data-lightbox="lightbox1"   %}
 {% picture thumbnail /assets/img/posts/2021/jul/arch-cape/hiking-trail.jpeg --a data-lightbox="lightbox1"  %}

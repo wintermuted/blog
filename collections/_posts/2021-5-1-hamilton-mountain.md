@@ -5,6 +5,7 @@ date:   2021-5-01 00:00:00 -0700
 location: "Columbia River Gorge, WA"
 author: "Jameson Nyeholt"
 category: hiking
+image: /assets/img/posts/2021/may/hamilton-mountain/cliff-face.jpeg
 tags:
 - hiking
 - washington
@@ -20,6 +21,8 @@ tags:
 - dog adventures
 - rachel
 ---
+
+<!--more-->
 
 {% picture thumbnail /assets/img/posts/2021/may/hamilton-mountain/waterfall-forest.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/may/hamilton-mountain/waterfall-forest-2.jpeg --a data-lightbox="lightbox1" %}

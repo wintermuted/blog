@@ -14,9 +14,10 @@ tags:
   - Robert C. Martin
   - professionalism
 ---
-<iframe src="https://docs.google.com/presentation/d/15gP39mOVI02TwiKrRWseVYBojt3oMGnNz6Hww9VW-Og/embed?start=false&loop=true&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-Several months ago I gave a lightning-talk at [Jama Software](https://www.jamasoftware.com/) about **["The Clean Coder: A Code of Conduct for Professional Programmers"](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)**, a book on professionalism for software engineers by [Robert C. Martin](https://sites.google.com/site/unclebobconsultingllc/) (Uncle Bob) that is a follow up to his classic book **["Clean Code: A Handbook of Agile Software Craftsmanship"](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)**.  
+Several months ago I gave a lightning-talk at [Jama Software](https://www.jamasoftware.com/) about **["The Clean Coder: A Code of Conduct for Professional Programmers"](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)**, a book on professionalism for software engineers by [Robert C. Martin](https://sites.google.com/site/unclebobconsultingllc/) (Uncle Bob) that is a follow up to his classic book **["Clean Code: A Handbook of Agile Software Craftsmanship"](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)**.  <!--more-->
+
+<iframe src="https://docs.google.com/presentation/d/15gP39mOVI02TwiKrRWseVYBojt3oMGnNz6Hww9VW-Og/embed?start=false&loop=true&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 <!--description-->
 At Jama, our engineering group holds [lightning talks](https://en.wikipedia.org/wiki/Lightning_talk) once per [sprint](https://www.agilealliance.org/glossary/iteration/)  (every 2 weeks), where anyone in the organization invited to present on any topic (though they usually have a technical bent) for four minutes and forty seconds.  This event serves as a great way to share individual areas of continuous learning.  Given these constraints, this lightning talk just served to introduce the main premise of the book, and underscore one part that I thought was particularly useful and salient to my fellow software engineers.

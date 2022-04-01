@@ -1,0 +1,87 @@
+<br/>
+<div class="container" id="weblog-gallery">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      {% include weblog-nav.html %}
+      <div class="row row-cols-1 row-cols-md-3">
+        {% assign posts = site.posts | where_exp:"post", "post.category != 'changelog'" %}
+        {% for post in posts %}
+          <div class="col mb-4">
+            <div class="card h-100">
+              {% if post.image %}
+                <div>
+                  <a href="{{ post.url | prepend: site.baseurl }}">
+                    {% picture gallery_thumbnail {{ post.image } %}
+                  </a>
+                  <div class="overlay">
+                    {% if post.category == 'journal' %}
+                      <i class="fas fa-journal-whills"></i>
+                      {% elsif post.category == 'essay' %}
+                      <i class="fas fa-file-alt"></i>
+                      {% elsif post.category == 'essay' %}
+                      <i class="fas fa-file-alt"></i>
+                      {% elsif post.category == 'hiking' %}
+                      <i class="fas fa-hiking"></i>
+                      {% elsif post.category == 'foraging' %}
+                      <i class="fas fa-leaf"></i>
+                      {% elsif post.category == 'camping' %}
+                      <i class="fas fa-campground"></i>
+                      {% elsif post.category == 'talks' %}
+                      <i class="fas fa-chalkboard"></i>
+                      {% elsif post.category == 'travelogue' %}
+                      <i class="fas fa-passport"></i>
+                      {% elsif post.category == 'roadtrip' %}
+                      <i class="fas fa-car-side"></i>
+                      {% elsif post.category == 'changelog' %}
+                      <i class="fas fa-list-alt"></i>
+                      {% else %}
+                      <i class="fas fa-folder"></i>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+              <div class="card-body">
+                <h6 class="card-title">
+                  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                </h6>
+                {% if post.image == nil %}
+                  <p class="card-text">{{post.excerpt}}</p>
+                {% endif %}
+                <p class="card-text">
+                  <small class="text-muted">
+                    <i class="fas fa-calendar"></i>
+                    <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+                  </small>
+                  {% if post.location %}
+                    </br>
+                    <small class="text-muted">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a>{{ post.location }}</a>
+                    </small>
+                  {% endif %}
+                  {% if post.author %}
+                    <br />
+                    <small class="text-muted">
+                        <i class="fas fa-user-alt"></i>
+                        <a href="/about">
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <span itemprop="name">{{ post.author }}</span>
+                            </span>
+                        </a>
+                    </small>
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12">
+      {% include sidebar.html %}
+    </div>
+  </div>
+
+</div>
+
+

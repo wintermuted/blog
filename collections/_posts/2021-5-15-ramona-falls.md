@@ -5,6 +5,7 @@ date:   2021-5-15 00:00:00 -0700
 location: "Mt. Hood National Forest, OR"
 author: "Jameson Nyeholt"
 category: hiking
+image: /assets/img/posts/2021/may/ramona-falls/mt-hood.jpeg
 tags:
 - hiking
 - mt. hood national forest
@@ -21,6 +22,8 @@ tags:
 - forest
 - mountains
 ---
+
+<!--more-->
 
 {% picture thumbnail /assets/img/posts/2021/may/ramona-falls/ramona-falls-sign.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/may/ramona-falls/mt-hood.jpeg --a data-lightbox="lightbox1" %}
