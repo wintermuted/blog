@@ -29,6 +29,8 @@ sass:
 
 collections_dir: collections
 
+excerpt_separator: <!--more-->
+
 plugins:
   - jekyll-archives
 

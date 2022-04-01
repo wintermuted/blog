@@ -5,6 +5,7 @@ date:   2021-4-23 00:00:00 -0700
 location: "Silverton, OR"
 author: "Jameson Nyeholt"
 category: hiking
+image: /assets/img/posts/2021/apr/oregon-garden/house_2.jpeg
 tags:
 - botanical gardens
 - gardens
@@ -21,7 +22,7 @@ tags:
 - rachel
 ---
 
-As Portland began to emerge from Winter, it was now warm enough to more reliably venture outside for recreation.  Rachel and I had been experiencing a bit of cabin fever, and decided to both take Friday off from work to visit [The Oregon Garden](https://www.oregongarden.org/).  The location contains 20 specialty gardens spread across 80 acres of land in Silverton, in the Willamette Valley.  The garden is pet friendly, so we were able to take Sophie along with us throughout our entire stay.  
+As Portland began to emerge from Winter, it was now warm enough to more reliably venture outside for recreation. <!--more-->  Rachel and I had been experiencing a bit of cabin fever, and decided to both take Friday off from work to visit [The Oregon Garden](https://www.oregongarden.org/).  The location contains 20 specialty gardens spread across 80 acres of land in Silverton, in the Willamette Valley.  The garden is pet friendly, so we were able to take Sophie along with us throughout our entire stay.  
 
 While there we were able to visit [The Gordon House](http://thegordonhouse.org/), which is the only house designed by American architect [Frank Lloyd Wright](https://en.wikipedia.org/wiki/Frank_Lloyd_Wright) to have been built in Oregon.  I've long been a fan of Wright's architecture, and it was exciting to finally visit the structure and see it first hand.
 

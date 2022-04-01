@@ -5,6 +5,7 @@ date:   2019-12-29 00:00:00 -0700
 location: "Joshua Tree National Park, California"
 author: "Jameson Nyeholt"
 category: roadtrip
+image: /assets/img/posts/2019/dec/joshua_tree/snow_joshua_tree.jpeg
 tags:
 - joshua tree national park
 - national park
@@ -21,7 +22,9 @@ tags:
 - rachel
 ---
 
-To celebrate our marriage anniversary, we decided to visit [Joshua Tree National Park](https://www.nps.gov/jotr/index.htm) for two nights while in Southern California to visit family for the winter holidays
+To celebrate our marriage anniversary, we decided to visit [Joshua Tree National Park](https://www.nps.gov/jotr/index.htm) for two nights while in Southern California to visit family for the winter holidays.
+
+<!--more-->
 
 Rachel and I have visited Joshua Tree several times before during the time when we lived in Southern California, but this was our first time back to the park since both moving to Portland, Oregon.  
 
