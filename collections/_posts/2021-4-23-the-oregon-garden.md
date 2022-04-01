@@ -4,7 +4,7 @@ title:  "The Oregon Garden"
 date:   2021-4-23 00:00:00 -0700
 location: "Silverton, OR"
 author: "Jameson Nyeholt"
-category: travelogue
+category: hiking
 tags:
 - botanical gardens
 - gardens

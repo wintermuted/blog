@@ -4,7 +4,7 @@ layout: post
 date:   2019-12-29 00:00:00 -0700
 location: "Joshua Tree National Park, California"
 author: "Jameson Nyeholt"
-category: travelogue
+category: roadtrip
 tags:
 - joshua tree national park
 - national park

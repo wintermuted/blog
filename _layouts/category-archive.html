@@ -23,6 +23,8 @@ layout: default
           <i class="fas fa-chalkboard"></i>
         {% elsif page.title == 'travelogue' %}
           <i class="fas fa-passport"></i>
+        {% elsif page.title == 'roadtrip' %}
+        <i class="fas fa-car-side"></i>
         {% elsif page.title == 'changelog' %}
           <i class="fas fa-list-alt"></i>
         {% else %}
@@ -46,6 +48,7 @@ layout: default
         {% elsif page.title == 'foraging' %}
         {% elsif page.title == 'hiking' %}
         {% elsif page.title == 'travelogue' %}
+        {% elsif post.category == 'roadtrip' %}
           <p class="lead">Small & big trips in America and across the world.</p>
         {% elsif page.title == 'changelog' %}
           <p class="lead">A record of changes to this website.</p>
@@ -71,6 +74,8 @@ layout: default
               <i class="fas fa-chalkboard"></i>
               {% elsif post.category == 'travelogue' %}
               <i class="fas fa-passport"></i>
+              {% elsif post.category == 'roadtrip' %}
+              <i class="fas fa-car-side"></i>
               {% elsif post.category == 'changelog' %}
               <i class="fas fa-list-alt"></i>
               {% else %}

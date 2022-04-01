@@ -1,6 +1,6 @@
 <br/>
 <div class="container" id="weblog">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col">
           <h1>
             <i class="fas fa-rss-square"></i>
@@ -8,10 +8,10 @@
           </h1>
           <hr/>
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-sm-12 col-md-9 post_list">
-            <p class="lead">All weblog posts</p>
+            <!-- <p class="lead">All weblog posts</p> -->
 
             {% assign posts = site.posts 
                 | where_exp:"post", "post.category != 'changelog'" %}
@@ -34,6 +34,8 @@
                 <i class="fas fa-chalkboard"></i>
                 {% elsif post.category == 'travelogue' %}
                 <i class="fas fa-passport"></i>
+                {% elsif post.category == 'roadtrip' %}
+                <i class="fas fa-car-side"></i>
                 {% elsif post.category == 'changelog' %}
                 <i class="fas fa-list-alt"></i>
                 {% else %}
@@ -55,3 +57,5 @@
         </div>
     </div>
 </div>
+
+

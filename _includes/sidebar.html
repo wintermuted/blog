@@ -8,7 +8,7 @@ Current 3: {{ current[3] }} -->
 <aside class="sidebar">
     <!-- <h4>Categories</h4> -->
     <ul class="list-unstyled">
-        <li>
+        <!-- <li>
             {% if current[1] == 'weblog' and current[3] == nil %}
                 <small class="text-muted active">
                     <i class="fas fa-rss-square"></i>
@@ -21,7 +21,7 @@ Current 3: {{ current[3] }} -->
                 </small>
             {% endif %}
         </li>
-        <hr />
+        <hr /> -->
         <h4 class="text-muted">Work</h4>
         <li>
             {% if current[3] == 'journal' %}
@@ -64,7 +64,7 @@ Current 3: {{ current[3] }} -->
         </li>
 
         <hr/>
-        <h4 class="text-muted">Outdoor Adventures</h4>
+        <h4 class="text-muted">Adventures</h4>
 
         <li>
             {% if current[3] == 'travelogue' %}
@@ -76,6 +76,20 @@ Current 3: {{ current[3] }} -->
                 <small class="text-muted">
                     <i class="fas fa-passport"></i>
                     <a href="{{ "/weblog/category/travelogue" | prepend: site.baseurl }}">Travelougue</a>
+                </small>
+            {% endif %}
+        </li>
+
+        <li>
+            {% if current[3] == 'roadtrip' %}
+                <small class="text-muted active">
+                    <i class="fas fa-car-side"></i>
+                    <a href="{{ "/weblog/category/roadtrip" | prepend: site.baseurl }}">Roadtrip</a>
+                </small>
+            {% else %}
+                <small class="text-muted">
+                    <i class="fas fa-car-side"></i>
+                    <a href="{{ "/weblog/category/roadtrip" | prepend: site.baseurl }}">Roadtrip</a>
                 </small>
             {% endif %}
         </li>
