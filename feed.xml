@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jameson Nyeholt</title>
+    <description>Jameson Nyeholt's weblog.
+</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 01 Apr 2022 00:07:01 +0000</pubDate>
+    <lastBuildDate>Fri, 01 Apr 2022 00:07:01 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Changelog: 22/02/2022</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add images to assets for upcoming posts&lt;/li&gt;
+  &lt;li&gt;Update meta data in posts&lt;/li&gt;
+  &lt;li&gt;Update permalinks for posts &amp;amp; archive pages&lt;/li&gt;
+  &lt;li&gt;Update posts to use Jeykll new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-picture-tag&lt;/code&gt; presets&lt;/li&gt;
+  &lt;li&gt;Update blog layout and improve general UX.&lt;/li&gt;
+  &lt;li&gt;Update homepage design to be more simplistic.&lt;/li&gt;
+  &lt;li&gt;Update About page content&lt;/li&gt;
+  &lt;li&gt;Update top-nav bar to highlight active menu navigation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pull-request&quot;&gt;Pull Request&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/wintermuted/blog/pull/35&quot;&gt;https://github.com/wintermuted/blog/pull/35&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Feb 2022 16:00:00 +0000</pubDate>
+        <link>/weblog/changelog/2022/02/22/changelog.html</link>
+        <guid isPermaLink="true">/weblog/changelog/2022/02/22/changelog.html</guid>
+        
+        <category>layout-updates</category>
+        
+        <category>wiki</category>
+        
+        <category>weblog</category>
+        
+        <category>Cascadia</category>
+        
+        
+        <category>changelog</category>
+        
+      </item>
+    
+      <item>
+        <title>Changelog: 29/12/2021</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;a href=&quot;/wiki&quot;&gt;Wiki&lt;/a&gt; was reorganized to include a main page and two initial hubs covering &lt;a href=&quot;/wiki/cascadia&quot;&gt;Cascadia&lt;/a&gt; &amp;amp; &lt;a href=&quot;/wiki/software-engineering&quot;&gt;Software Engineering&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Several new retroactive posts were added.&lt;/li&gt;
+  &lt;li&gt;All articles containing images were migrated to using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll_picture_tag&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;all-changes&quot;&gt;All Changes&lt;/h2&gt;
+
+&lt;h3 id=&quot;general-changes&quot;&gt;General Changes&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The homepage status section was updated to indicate that I am currently on paternity leave.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;weblog&quot;&gt;Weblog&lt;/h3&gt;
+&lt;h4 id=&quot;new-posts&quot;&gt;New Posts:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/travelouge/2021/07/24/arch-cape-hike.html&quot;&gt;Arch Cape Hike&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/travelouge/2021/09/20/rachel-birthday-foraging.html&quot;&gt;Tillamook Forest Foraging&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/travelouge/2020/09/22/whalen-island.html&quot;&gt;Whalen Island Camping Trip Sep 2020&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;updated-posts&quot;&gt;Updated Posts:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bug Fixes
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/changelog/2021/12/02/changelog.html&quot;&gt;Changelog: 02-12-2021&lt;/a&gt; - Correct the date format&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updates to article tags &amp;amp; migrate image tags to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll_picture_tag&lt;/code&gt; in the following posts:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/travelouge/2021/06/18/whalen-island.html&quot;&gt;Whalen Island Camping Trip June 2021&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/travelouge/2021/05/28/the-suttle-lodge.html&quot;&gt;The Suttle Lodge&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/travelouge/2021/05/15/ramona-falls.html&quot;&gt;Ramona Falls Hike&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/travelouge/2021/05/01/hamilton-mountain.html&quot;&gt;Hamilton Mountain Hike&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/travelouge/2021/04/23/the-oregon-garden.html&quot;&gt;The Oregon Garden&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/travelouge/2021/02/20/a-quick-escape-from-portland.html&quot;&gt;Lunar New Year &amp;amp; the Oregon Coast&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/journal/2017/02/09/bullet-journal-experiment.html&quot;&gt;Experimenting with the Bullet Journal system&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/essay/2017/01/04/pair-programming-at-jama-software.html&quot;&gt;Pair-programming at Jama Software&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;wiki&quot;&gt;Wiki&lt;/h3&gt;
+&lt;h4 id=&quot;new-articles&quot;&gt;New Articles:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/wiki/cascadia/&quot;&gt;Cascadia Hub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/wiki/cascadia/camping/whalen-island&quot;&gt;Whalen Island - Tillamook, Oregon&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/wiki/software-engineering&quot;&gt;Software Engineering Hub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;wiki-improvements&quot;&gt;Wiki Improvements&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Breadcrumb navigation was added to the Wiki.&lt;/li&gt;
+  &lt;li&gt;Links to articles are prefixed with an article icon.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;infrastructure-updates&quot;&gt;Infrastructure Updates&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Images are now embedded via the &lt;a href=&quot;https://github.com/rbuchberger/jekyll_picture_tag&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll_picture_tag&lt;/code&gt;&lt;/a&gt; plugin&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll-admin&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll_admin&lt;/code&gt;&lt;/a&gt; was added as a dependency to provide a UI for managing the site.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 29 Dec 2021 16:00:00 +0000</pubDate>
+        <link>/weblog/changelog/2021/12/29/changelog.html</link>
+        <guid isPermaLink="true">/weblog/changelog/2021/12/29/changelog.html</guid>
+        
+        <category>layout-updates</category>
+        
+        <category>wiki</category>
+        
+        <category>weblog</category>
+        
+        <category>Cascadia</category>
+        
+        
+        <category>changelog</category>
+        
+      </item>
+    
+      <item>
+        <title>Changelog: 02/12/2021</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Updates to the hosting setup for the website.&lt;/li&gt;
+  &lt;li&gt;Improvements &amp;amp; Bug Fixes for Weblog Categories &amp;amp; Tags.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;infrastructure-changes&quot;&gt;Infrastructure Changes&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Change hosting from &lt;a href=&quot;https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages&quot;&gt;Github Pages&lt;/a&gt; to &lt;a href=&quot;https://www.netlify.com&quot;&gt;Netlify&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Domain changed from &lt;a href=&quot;http://www.jamesonnyeholt.com&quot;&gt;jamesonnyeholt.com&lt;/a&gt; to &lt;a href=&quot;http://www.jnyeholt.dev&quot;&gt;jnyeholt.dev&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;SSL enabled.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;weblog&quot;&gt;Weblog&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Migrate from &lt;a href=&quot;https://github.com/pattex/jekyll-tagging&quot;&gt;jekyll-tagging&lt;/a&gt; to &lt;a href=&quot;https://github.com/jekyll/jekyll-archives&quot;&gt;jekyll-archives&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Overhauled the Tags and Categories structure.&lt;/li&gt;
+  &lt;li&gt;Fixed bug in the archive page where Jekyll frontmatter was being rendered on the &lt;a href=&quot;/archive&quot;&gt;Archive&lt;/a&gt; page.&lt;/li&gt;
+  &lt;li&gt;Tagging now works in the deployed environment.  Despite a lot of thrash attempting to get it to work with Github Pages, I ended up settling on moving hosting providers.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 02 Dec 2021 16:00:00 +0000</pubDate>
+        <link>/weblog/changelog/2021/12/02/changelog.html</link>
+        <guid isPermaLink="true">/weblog/changelog/2021/12/02/changelog.html</guid>
+        
+        <category>bug-fixes</category>
+        
+        <category>infrastructure-updates</category>
+        
+        <category>layout-updates</category>
+        
+        <category>hosting-updates</category>
+        
+        <category>jeykll</category>
+        
+        <category>jeykll-plugins</category>
+        
+        
+        <category>changelog</category>
+        
+      </item>
+    
+      <item>
+        <title>Changelog: 19/11/2021</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improvements to the weblog layout and organization.&lt;/li&gt;
+  &lt;li&gt;Some styling improvements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;weblog&quot;&gt;Weblog&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Weblogs category pages now have the same layouts.&lt;/li&gt;
+  &lt;li&gt;The tag cloud on the &lt;a href=&quot;/archive&quot;&gt;Archive&lt;/a&gt; page now correctly links to individual tag pages.  Tag Pages include a list of all posts&lt;/li&gt;
+  &lt;li&gt;Weblog posts include tags at bottom of post page.&lt;/li&gt;
+  &lt;li&gt;Mobile navigation button is now visible.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 19 Nov 2021 16:00:00 +0000</pubDate>
+        <link>/weblog/changelog/2021/11/19/changelog.html</link>
+        <guid isPermaLink="true">/weblog/changelog/2021/11/19/changelog.html</guid>
+        
+        <category>layout improvements</category>
+        
+        <category>styling improvements</category>
+        
+        <category>organization improvements</category>
+        
+        
+        <category>changelog</category>
+        
+      </item>
+    
+      <item>
+        <title>Changelog: 04/11/2021</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New retroactive weblog entries.&lt;/li&gt;
+  &lt;li&gt;Wiki gets a new layout, and some new articles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;weblog&quot;&gt;Weblog&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Journal: &lt;a href=&quot;/weblog/journal/2019/03/20/new-job-at-xandr.html&quot;&gt;I now work at Xandr, Inc.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Travelouge: &lt;a href=&quot;/weblog/hiking/2021/05/15/ramona-falls.html&quot;&gt;Ramona Falls Hike&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Travelogue: &lt;a href=&quot;/weblog/hiking/2021/05/01/hamilton-mountain.html&quot;&gt;Hamilton Mountain&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wiki&quot;&gt;Wiki&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;New layout for the wiki in preparation for more content.&lt;/li&gt;
+  &lt;li&gt;Article: &lt;a href=&quot;/software_development/functional-programming&quot;&gt;Functional Programming&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Article: &lt;a href=&quot;/software_development/refactoring&quot;&gt;Refactoring&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Article: &lt;a href=&quot;/building-software/architecture&quot;&gt;SOLID Software Design Principles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 04 Nov 2021 16:00:00 +0000</pubDate>
+        <link>/weblog/changelog/2021/11/04/changelog.html</link>
+        <guid isPermaLink="true">/weblog/changelog/2021/11/04/changelog.html</guid>
+        
+        <category>layout improvements</category>
+        
+        <category>new weblog entries</category>
+        
+        <category>new wiki posts</category>
+        
+        
+        <category>changelog</category>
+        
+      </item>
+    
+      <item>
+        <title>Rachel's Birthday Mushroom Foraging - Sep '21</title>
+        <description>&lt;p&gt;Every September for the past several years we have gone camping at &lt;a href=&quot;/wiki/cascadia/camping/whalen-island&quot;&gt;Whalen Island&lt;/a&gt; on the Oregon Coast to celebrate Rachel’s Birthday.  This year we decided to cancel this trip due to inclement weather and the prospect of sleeping on the ground with Rachel heavily pregnant.&lt;/p&gt;
+
+&lt;p&gt;With the camping trip cancelled, Rachel decided she wanted to try to fit in one more mushroom foraging trip before the year was over with.  We ended up exploring some areas we had tried in some prior years, and found quite a few things, though it was clear we were about a week or so too early.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-270-09e94ecda.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-405.0-09e94ecda.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-540-09e94ecda.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-270-9daa6b75d.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-405.0-9daa6b75d.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-540-9daa6b75d.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-270-9daa6b75d.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-270-185169599.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-405.0-185169599.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-540-185169599.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-270-259b221c4.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-405.0-259b221c4.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-540-259b221c4.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter-270-259b221c4.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-270-c99b6e8d0.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-405.0-c99b6e8d0.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-540-c99b6e8d0.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-270-647ecebea.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-405.0-647ecebea.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-540-647ecebea.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-hallow-tree-270-647ecebea.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-270-d572ddd0e.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-405.0-d572ddd0e.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-540-d572ddd0e.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-270-5af398a5c.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-405.0-5af398a5c.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-540-5af398a5c.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom1-270-5af398a5c.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-270-36a2db046.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-405.0-36a2db046.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-540-36a2db046.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-270-bb63b3f40.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-405.0-bb63b3f40.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-540-bb63b3f40.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2-270-bb63b3f40.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-270-5b6b70b51.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-405.0-5b6b70b51.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-540-5b6b70b51.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-270-99e2b11d1.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-405.0-99e2b11d1.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-540-99e2b11d1.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2a-270-99e2b11d1.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-270-cace0790c.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-405.0-cace0790c.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-540-cace0790c.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-270-b45de5321.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-405.0-b45de5321.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-540-b45de5321.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom2c-270-b45de5321.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-270-fa37a6cd4.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-405.0-fa37a6cd4.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-540-fa37a6cd4.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-270-0ee19d5f7.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-405.0-0ee19d5f7.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-540-0ee19d5f7.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-cup-270-0ee19d5f7.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-270-5a37d9411.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-405.0-5a37d9411.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-540-5a37d9411.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-270-256d8eed4.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-405.0-256d8eed4.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-540-256d8eed4.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-270-256d8eed4.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-270-f25fe37fe.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-405.0-f25fe37fe.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-540-f25fe37fe.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-270-8f7ecf68a.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-405.0-8f7ecf68a.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-540-8f7ecf68a.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf-2-270-8f7ecf68a.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-270-eb8b25c69.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-405.0-eb8b25c69.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-540-eb8b25c69.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-270-0a12eff25.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-405.0-0a12eff25.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-540-0a12eff25.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-shelf3-270-0a12eff25.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-270-8ae755d51.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-405.0-8ae755d51.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-540-8ae755d51.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-270-b98bb3ad0.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-405.0-b98bb3ad0.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-540-b98bb3ad0.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/log-hidden-270-b98bb3ad0.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-270-5346a6a59.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-405.0-5346a6a59.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-540-5346a6a59.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-270-1d86c2856.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-405.0-1d86c2856.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-540-1d86c2856.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/rachel-forest-270-1d86c2856.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-270-95ca66c15.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-405.0-95ca66c15.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-540-95ca66c15.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-270-84cc59aab.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-405.0-84cc59aab.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-540-84cc59aab.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-log-white-270-84cc59aab.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-270-f76f420f6.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-405.0-f76f420f6.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-540-f76f420f6.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-270-f07fcc50b.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-405.0-f07fcc50b.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-540-f07fcc50b.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/creek-bridge-270-f07fcc50b.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-270-85214b549.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-405.0-85214b549.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-540-85214b549.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-270-c22c158f2.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-405.0-c22c158f2.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-540-c22c158f2.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/river-bridge-couple-270-c22c158f2.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-270-1f21b8752.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-405.0-1f21b8752.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-540-1f21b8752.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-270-ed64aabb9.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-405.0-ed64aabb9.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-540-ed64aabb9.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-log-270-ed64aabb9.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-270-dc4aa03c8.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-405.0-dc4aa03c8.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-540-dc4aa03c8.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-270-f6bd72970.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-405.0-f6bd72970.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-540-f6bd72970.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/jameson-mushroom-270-f6bd72970.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-270-09f0db5fd.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-405.0-09f0db5fd.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-540-09f0db5fd.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-270-3e31ff52a.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-405.0-3e31ff52a.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-540-3e31ff52a.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-jameson-270-3e31ff52a.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-270-f1826e2b2.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-405.0-f1826e2b2.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-540-f1826e2b2.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-270-af1426dc8.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-405.0-af1426dc8.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-540-af1426dc8.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-270-af1426dc8.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-270-e48c36897.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-405.0-e48c36897.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-540-e48c36897.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-270-45ab0d7aa.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-405.0-45ab0d7aa.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-540-45ab0d7aa.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel2-270-45ab0d7aa.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-270-42cd2986b.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-405.0-42cd2986b.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-540-42cd2986b.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-270-3327f43d5.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-405.0-3327f43d5.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-540-3327f43d5.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-white-270-3327f43d5.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-270-df401a46c.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-405.0-df401a46c.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-540-df401a46c.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-270-7f201b964.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-405.0-7f201b964.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-540-7f201b964.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/algae-rachel-270-7f201b964.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-270-f8b238ff9.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-405.0-f8b238ff9.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-540-f8b238ff9.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-270-e0927172f.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-405.0-e0927172f.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-540-e0927172f.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-ground-270-e0927172f.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-270-e1b805959.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-405.0-e1b805959.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-540-e1b805959.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-270-b60606619.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-405.0-b60606619.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-540-b60606619.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-puffball-270-b60606619.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-270-44d9d27f0.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-405.0-44d9d27f0.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-540-44d9d27f0.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-270-bb2e6280d.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-405.0-bb2e6280d.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-540-bb2e6280d.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning-270-bb2e6280d.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-270-19d5bef2a.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-405.0-19d5bef2a.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-540-19d5bef2a.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-270-de16d8101.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-405.0-de16d8101.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-540-de16d8101.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning2-270-de16d8101.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-270-4b6239130.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-405.0-4b6239130.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-540-4b6239130.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-270-4809ad02c.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-405.0-4809ad02c.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-540-4809ad02c.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel4-270-4809ad02c.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-270-5cfbae098.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-405.0-5cfbae098.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-540-5cfbae098.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-270-34af8bb27.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-405.0-34af8bb27.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-540-34af8bb27.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster-rachel-cleaning4-270-34af8bb27.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-270-198bcbdc9.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-405.0-198bcbdc9.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-540-198bcbdc9.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-270-8cde1f5d4.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-405.0-8cde1f5d4.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-540-8cde1f5d4.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-chantrelle-rachel-270-8cde1f5d4.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-270-5f72cd657.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-405.0-5f72cd657.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-540-5f72cd657.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-270-8466230cd.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-405.0-8466230cd.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-540-8466230cd.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-rachel-baby-270-8466230cd.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-270-027963b39.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-405.0-027963b39.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-540-027963b39.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-270-35d75b194.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-405.0-35d75b194.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-540-35d75b194.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-moss-270-35d75b194.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-270-b6c5b764c.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-405.0-b6c5b764c.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-540-b6c5b764c.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-270-3aab4f74b.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-405.0-3aab4f74b.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-540-3aab4f74b.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-2-270-3aab4f74b.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-270-57337d965.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-405.0-57337d965.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-540-57337d965.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-270-8188ae0a8.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-405.0-8188ae0a8.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-540-8188ae0a8.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-black-forest-floor-270-8188ae0a8.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-270-1030976de.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-405.0-1030976de.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-540-1030976de.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-270-60ea94981.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-405.0-60ea94981.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-540-60ea94981.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/spider-fern-270-60ea94981.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-270-acde26e44.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-405.0-acde26e44.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-540-acde26e44.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-270-42900f92e.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-405.0-42900f92e.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-540-42900f92e.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/forest-canopy-270-42900f92e.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/truck.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-270-2604385fd.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-405.0-2604385fd.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-540-2604385fd.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-270-8bf22bfad.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-405.0-8bf22bfad.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-540-8bf22bfad.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/truck-270-8bf22bfad.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-270-1ee9b349d.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-405.0-1ee9b349d.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-540-1ee9b349d.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-270-d5e3dc018.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-405.0-d5e3dc018.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-540-d5e3dc018.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-fern-270-d5e3dc018.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-270-7ebac7049.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-405.0-7ebac7049.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-540-7ebac7049.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-270-7fcb6411c.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-405.0-7fcb6411c.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-540-7fcb6411c.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-2-270-7fcb6411c.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-270-ed833c976.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-405.0-ed833c976.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-540-ed833c976.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-270-75962aa06.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-405.0-75962aa06.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-540-75962aa06.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3-270-75962aa06.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-270-41d905633.webp 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-405.0-41d905633.webp 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-540-41d905633.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-270-f2987b1f1.jpeg 1.0x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-405.0-f2987b1f1.jpeg 1.5x, /generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-540-f2987b1f1.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug-270-f2987b1f1.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;some-of-the-mushrooms-we-found&quot;&gt;Some of the mushrooms we found&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Hypomyces_lactifluorum&quot;&gt;Hypomyces lactifluorum (Wikipedia)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Marchantiophyta&quot;&gt;Marchantiophyta (Wikipedia)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Chanterelle&quot;&gt;Chantrelle (Wikipedia)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Nidulariaceae&quot;&gt;Nidulariaceae (Wikipedia)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 20 Sep 2021 07:00:00 +0000</pubDate>
+        <link>/weblog/foraging/2021/09/20/rachel-birthday-foraging.html</link>
+        <guid isPermaLink="true">/weblog/foraging/2021/09/20/rachel-birthday-foraging.html</guid>
+        
+        <category>oregon</category>
+        
+        <category>hiking</category>
+        
+        <category>foraging</category>
+        
+        <category>mountains</category>
+        
+        <category>oregon coast</category>
+        
+        <category>forest</category>
+        
+        <category>tillamook national forest</category>
+        
+        <category>mushrooming</category>
+        
+        <category>pacific northwest</category>
+        
+        <category>photolouge</category>
+        
+        <category>nature</category>
+        
+        <category>summer</category>
+        
+        <category>fungi</category>
+        
+        <category>tillamook</category>
+        
+        <category>cascadia bioregion</category>
+        
+        <category>america</category>
+        
+        <category>roadtrip</category>
+        
+        <category>rachel</category>
+        
+        <category>opinel</category>
+        
+        <category>forest</category>
+        
+        
+        <category>foraging</category>
+        
+      </item>
+    
+      <item>
+        <title>Arch Cape Hike</title>
+        <description>&lt;p&gt;&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/tree-cliff.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-270-67c503a54.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-405.0-67c503a54.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-540-67c503a54.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-270-1bf8a94a9.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-405.0-1bf8a94a9.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-540-1bf8a94a9.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/tree-cliff-270-1bf8a94a9.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/hiking-trail.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-270-c3a47c68d.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-405.0-c3a47c68d.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-540-c3a47c68d.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-270-7a982adf1.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-405.0-7a982adf1.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-540-7a982adf1.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/hiking-trail-270-7a982adf1.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/gorge.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-270-62ab41769.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-405.0-62ab41769.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-540-62ab41769.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-270-9bf0bd5df.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-405.0-9bf0bd5df.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-540-9bf0bd5df.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-270-9bf0bd5df.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/gorge-rock.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-270-16f613fb4.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-405.0-16f613fb4.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-540-16f613fb4.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-270-f2c87dcca.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-405.0-f2c87dcca.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-540-f2c87dcca.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-270-f2c87dcca.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/field.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/field-270-eb5bfb916.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/field-405.0-eb5bfb916.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/field-540-eb5bfb916.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/field-270-d4ef5a900.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/field-405.0-d4ef5a900.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/field-540-d4ef5a900.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/field-270-d4ef5a900.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/waterfall.JPG&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/waterfall-270-5918b321c.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/waterfall-405.0-5918b321c.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/waterfall-540-5918b321c.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/waterfall-270-e97965779.jpg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/waterfall-405.0-e97965779.jpg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/waterfall-540-e97965779.jpg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/waterfall-270-e97965779.jpg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/rachel.JPG&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/rachel-270-fed652003.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/rachel-405.0-fed652003.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/rachel-540-fed652003.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/rachel-270-66edfb034.jpg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/rachel-405.0-66edfb034.jpg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/rachel-540-66edfb034.jpg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/rachel-270-66edfb034.jpg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/gorge-basalt.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-270-8cf8a5de6.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-405.0-8cf8a5de6.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-540-8cf8a5de6.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-270-dd3d9eb06.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-405.0-dd3d9eb06.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-540-dd3d9eb06.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-basalt-270-dd3d9eb06.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/rick.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/rick-270-e7669d76a.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/rick-405.0-e7669d76a.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/rick-540-e7669d76a.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/rick-270-f530351d1.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/rick-405.0-f530351d1.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/rick-540-f530351d1.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/rick-270-f530351d1.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/mushrooms.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/mushrooms-270-bcdfb3636.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/mushrooms-405.0-bcdfb3636.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/mushrooms-540-bcdfb3636.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/mushrooms-270-21e221a99.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/mushrooms-405.0-21e221a99.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/mushrooms-540-21e221a99.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/mushrooms-270-21e221a99.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/gorge-rock-2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-270-5c412f7a9.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-405.0-5c412f7a9.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-540-5c412f7a9.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-270-439638290.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-405.0-439638290.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-540-439638290.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-rock-2-270-439638290.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/gorge-highway.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-270-dffbf4162.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-405.0-dffbf4162.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-540-dffbf4162.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-270-bf496c095.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-405.0-bf496c095.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-540-bf496c095.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/gorge-highway-270-bf496c095.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/jul/arch-cape/field-highway.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/field-highway-270-262777d00.webp 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/field-highway-405.0-262777d00.webp 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/field-highway-540-262777d00.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/jul/arch-cape/field-highway-270-0d551404a.jpeg 1.0x, /generated/assets/img/posts/2021/jul/arch-cape/field-highway-405.0-0d551404a.jpeg 1.5x, /generated/assets/img/posts/2021/jul/arch-cape/field-highway-540-0d551404a.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/jul/arch-cape/field-highway-270-0d551404a.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 24 Jul 2021 07:00:00 +0000</pubDate>
+        <link>/weblog/hiking/2021/07/24/arch-cape-hike.html</link>
+        <guid isPermaLink="true">/weblog/hiking/2021/07/24/arch-cape-hike.html</guid>
+        
+        <category>hiking</category>
+        
+        <category>river</category>
+        
+        <category>columbia river</category>
+        
+        <category>columbia river gorge</category>
+        
+        <category>washington</category>
+        
+        <category>pacific northwest</category>
+        
+        <category>photologue</category>
+        
+        <category>nature</category>
+        
+        <category>summer</category>
+        
+        <category>cascadia bioregion</category>
+        
+        <category>america</category>
+        
+        <category>friends</category>
+        
+        <category>rachel</category>
+        
+        <category>forest</category>
+        
+        <category>dog adventures</category>
+        
+        <category>sophie</category>
+        
+        
+        <category>hiking</category>
+        
+      </item>
+    
+      <item>
+        <title>Whalen Island Camping Trip - Jun '21</title>
+        <description>&lt;p&gt;We visited &lt;a href=&quot;/wiki/cascadia/camping/whalen-island&quot;&gt;Whalen Island&lt;/a&gt; in June with some close friends.  They were excited to give their new van a test drive and take their daughter on her first camping trip, while we wanted to catch some crab.  Unfortunately, the tides did not work in our favor.  Regardless, we had a great time.&lt;/p&gt;
+
+&lt;h2 id=&quot;video&quot;&gt;Video&lt;/h2&gt;
+
+&lt;div style=&quot;padding:56.25% 0 0 0;position:relative;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/655771621?h=0e687afafe&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot;position:absolute;top:0;left:0;width:100%;height:100%;&quot; title=&quot;Whalen Island June 2021&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;script src=&quot;https://player.vimeo.com/api/player.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;photos&quot;&gt;Photos&lt;/h2&gt;
+
+&lt;p&gt;&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-270-832954049.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-405.0-832954049.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-540-832954049.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-270-3f20cb964.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-405.0-3f20cb964.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-540-3f20cb964.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/sunset-beach-sophie-270-3f20cb964.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/beach-driftwood.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-270-54ffc797f.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-405.0-54ffc797f.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-540-54ffc797f.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-270-754026c74.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-405.0-754026c74.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-540-754026c74.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/beach-driftwood-270-754026c74.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/camp-firepit.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/camp-firepit-270-d9959c2cc.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/camp-firepit-405.0-d9959c2cc.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/camp-firepit-540-d9959c2cc.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/camp-firepit-270-256ea6901.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/camp-firepit-405.0-256ea6901.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/camp-firepit-540-256ea6901.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/camp-firepit-270-256ea6901.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/whalen-island-estuary.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-270-ac4fdf3e9.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-405.0-ac4fdf3e9.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-540-ac4fdf3e9.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-270-60970b5f0.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-405.0-60970b5f0.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-540-60970b5f0.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-estuary-270-60970b5f0.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-270-6f04385ac.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-405.0-6f04385ac.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-540-6f04385ac.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-270-c55447842.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-405.0-c55447842.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-540-c55447842.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-fish-prepping2-270-c55447842.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/rachel-fishing2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-270-d5d658a92.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-405.0-d5d658a92.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-540-d5d658a92.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-270-1ea0fcf2b.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-405.0-1ea0fcf2b.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-540-1ea0fcf2b.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-fishing2-270-1ea0fcf2b.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/d&amp;d.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/d&amp;d-270-600ada714.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/d&amp;d-405.0-600ada714.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/d&amp;d-540-600ada714.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/d&amp;d-270-5fcc402c6.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/d&amp;d-405.0-5fcc402c6.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/d&amp;d-540-5fcc402c6.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/d&amp;d-270-5fcc402c6.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/rachel-sand-crab.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-270-1b1bfa1f3.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-405.0-1b1bfa1f3.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-540-1b1bfa1f3.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-270-65ffea42e.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-405.0-65ffea42e.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-540-65ffea42e.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-sand-crab-270-65ffea42e.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/sand-shrimps.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-270-59126e3cc.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-405.0-59126e3cc.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-540-59126e3cc.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-270-407078f53.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-405.0-407078f53.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-540-407078f53.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/sand-shrimps-270-407078f53.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-270-d29603c66.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-405.0-d29603c66.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-540-d29603c66.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-270-cb16df703.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-405.0-cb16df703.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-540-cb16df703.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-golden-hour-270-cb16df703.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/whalen-island-hill.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-270-3e34b6c0e.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-405.0-3e34b6c0e.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-540-3e34b6c0e.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-270-85fed97f9.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-405.0-85fed97f9.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-540-85fed97f9.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-hill-270-85fed97f9.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-270-94b3e5d81.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-405.0-94b3e5d81.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-540-94b3e5d81.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-270-9652a86e2.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-405.0-9652a86e2.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-540-9652a86e2.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel&amp;Jameson-270-9652a86e2.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/whalen-island-clouds.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-270-4b00cef93.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-405.0-4b00cef93.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-540-4b00cef93.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-270-0204e7940.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-405.0-0204e7940.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-540-0204e7940.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/whalen-island-clouds-270-0204e7940.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing.JPG&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-270-0d9d32211.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-405.0-0d9d32211.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-540-0d9d32211.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-270-f8be246cd.jpg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-405.0-f8be246cd.jpg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-540-f8be246cd.jpg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-sophie-fishing-270-f8be246cd.jpg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/whalen-island/rachel-shorecasting.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-270-d40afb727.webp 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-405.0-d40afb727.webp 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-540-d40afb727.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-270-56e408500.jpeg 1.0x, /generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-405.0-56e408500.jpeg 1.5x, /generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-540-56e408500.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/whalen-island/rachel-shorecasting-270-56e408500.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;related-weblog-posts&quot;&gt;Related Weblog posts&lt;/h2&gt;
+
+&lt;ul&gt;
+
+    
+        &lt;li&gt;
+        &lt;a href=&quot;/weblog/camping/2021/06/18/whalen-island.html&quot;&gt;Whalen Island Camping Trip - Jun '21&lt;/a&gt;
+        &lt;/li&gt;
+    
+        &lt;li&gt;
+        &lt;a href=&quot;/weblog/camping/2020/09/22/whalen-island.html&quot;&gt;Whalen Island Camping Trip - Sep '20&lt;/a&gt;
+        &lt;/li&gt;
+    
+        &lt;li&gt;
+        &lt;a href=&quot;/weblog/camping/2019/09/22/whalen-island.html&quot;&gt;Whalen Island Camping Trip - Sep '19&lt;/a&gt;
+        &lt;/li&gt;
+    
+        &lt;li&gt;
+        &lt;a href=&quot;/weblog/camping/2018/09/23/whalen-island-2018.html&quot;&gt;Whalen Island Camping Trip - Sep '18&lt;/a&gt;
+        &lt;/li&gt;
+    
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 18 Jun 2021 07:00:00 +0000</pubDate>
+        <link>/weblog/camping/2021/06/18/whalen-island.html</link>
+        <guid isPermaLink="true">/weblog/camping/2021/06/18/whalen-island.html</guid>
+        
+        <category>america</category>
+        
+        <category>camping</category>
+        
+        <category>cascadia bioregion</category>
+        
+        <category>fishing</category>
+        
+        <category>friends</category>
+        
+        <category>oregon coast</category>
+        
+        <category>oregon</category>
+        
+        <category>pacific northwest</category>
+        
+        <category>photolouge</category>
+        
+        <category>videolouge</category>
+        
+        <category>nature</category>
+        
+        <category>spring</category>
+        
+        <category>state parks</category>
+        
+        <category>oregon state parks</category>
+        
+        <category>estuary</category>
+        
+        <category>rachel</category>
+        
+        <category>whalen island</category>
+        
+        <category>tillamook</category>
+        
+        <category>shellfish</category>
+        
+        
+        <category>camping</category>
+        
+      </item>
+    
+      <item>
+        <title>The Suttle Lodge &amp; Black Butte Hike</title>
+        <description>&lt;p&gt;&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/bags.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/bags-270-eb030de57.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/bags-405.0-eb030de57.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/bags-540-eb030de57.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/bags-270-1b1abf8d2.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/bags-405.0-1b1abf8d2.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/bags-540-1b1abf8d2.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/bags-270-1b1abf8d2.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/sophie.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/sophie-270-c1caf3137.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-405.0-c1caf3137.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-540-c1caf3137.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/sophie-270-791f1d280.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-405.0-791f1d280.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-540-791f1d280.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/sophie-270-791f1d280.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-270-3cd6194ca.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-405.0-3cd6194ca.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-540-3cd6194ca.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-270-d39704e16.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-405.0-d39704e16.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-540-d39704e16.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lodge-boathouse-270-d39704e16.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/suttle-lake.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-270-2e53fad9b.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-405.0-2e53fad9b.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-540-2e53fad9b.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-270-bb39c805e.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-405.0-bb39c805e.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-540-bb39c805e.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-270-bb39c805e.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-270-f77d63cd7.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-405.0-f77d63cd7.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-540-f77d63cd7.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-270-b889c35c3.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-405.0-b889c35c3.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-540-b889c35c3.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/suttle-lake-from-dock-270-b889c35c3.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rachel-casting.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-270-ad826b916.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-405.0-ad826b916.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-540-ad826b916.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-270-df17b849f.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-405.0-df17b849f.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-540-df17b849f.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-casting-270-df17b849f.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/cabin-fire.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-270-8da462a91.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-405.0-8da462a91.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-540-8da462a91.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-270-7dca8fd8a.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-405.0-7dca8fd8a.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-540-7dca8fd8a.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/cabin-fire-270-7dca8fd8a.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/mountain-sign.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-270-0606b75ff.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-405.0-0606b75ff.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-540-0606b75ff.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-270-af45948a0.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-405.0-af45948a0.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-540-af45948a0.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/mountain-sign-270-af45948a0.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/three-sisters.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-270-10f331c81.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-405.0-10f331c81.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-540-10f331c81.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-270-7a76ae7b1.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-405.0-7a76ae7b1.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-540-7a76ae7b1.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/three-sisters-270-7a76ae7b1.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/viewpoint.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-270-9507a0592.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-405.0-9507a0592.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-540-9507a0592.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-270-531d12964.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-405.0-531d12964.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-540-531d12964.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/viewpoint-270-531d12964.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/sophie-hot.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-270-1edae21a4.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-405.0-1edae21a4.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-540-1edae21a4.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-270-99804284a.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-405.0-99804284a.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-540-99804284a.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/sophie-hot-270-99804284a.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/down-mountain-view.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-270-425ed0ef0.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-405.0-425ed0ef0.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-540-425ed0ef0.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-270-456b6b3f3.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-405.0-456b6b3f3.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-540-456b6b3f3.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-270-456b6b3f3.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/head-of-metolius.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-270-0df77ad25.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-405.0-0df77ad25.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-540-0df77ad25.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-270-28e8ea77c.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-405.0-28e8ea77c.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-540-28e8ea77c.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/head-of-metolius-270-28e8ea77c.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rachel-sophie.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-270-a0e8a92e0.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-405.0-a0e8a92e0.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-540-a0e8a92e0.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-270-3c174545b.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-405.0-3c174545b.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-540-3c174545b.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-sophie-270-3c174545b.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/women-fishing.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-270-f85131d38.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-405.0-f85131d38.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-540-f85131d38.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-270-c423d55b4.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-405.0-c423d55b4.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-540-c423d55b4.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/women-fishing-270-c423d55b4.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rachel-fishing.JPG&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-270-9dd77e1fe.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-405.0-9dd77e1fe.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-540-9dd77e1fe.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-270-f229162c1.jpg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-405.0-f229162c1.jpg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-540-f229162c1.jpg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-270-f229162c1.jpg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/metolius-trees.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-270-cfa98ecaf.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-405.0-cfa98ecaf.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-540-cfa98ecaf.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-270-a10dccff0.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-405.0-a10dccff0.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-540-a10dccff0.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/metolius-trees-270-a10dccff0.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-270-45dbf0877.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-405.0-45dbf0877.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-540-45dbf0877.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-270-db16405c8.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-405.0-db16405c8.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-540-db16405c8.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fisherwoman-270-db16405c8.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-270-86104d728.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-405.0-86104d728.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-540-86104d728.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-270-821e9d2b9.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-405.0-821e9d2b9.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-540-821e9d2b9.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-fishing-trees-270-821e9d2b9.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rick-cassie.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-270-d5abb9401.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-405.0-d5abb9401.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-540-d5abb9401.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-270-569f8f2cc.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-405.0-569f8f2cc.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-540-569f8f2cc.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rick-cassie-270-569f8f2cc.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-270-92ff15eee.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-405.0-92ff15eee.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-540-92ff15eee.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-270-706fc2f92.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-405.0-706fc2f92.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-540-706fc2f92.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/rachel-rick-sophie-270-706fc2f92.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/down-mountain-view.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-270-425ed0ef0.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-405.0-425ed0ef0.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-540-425ed0ef0.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-270-456b6b3f3.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-405.0-456b6b3f3.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-540-456b6b3f3.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/down-mountain-view-270-456b6b3f3.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/alpaca-birth.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-270-d04e27213.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-405.0-d04e27213.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-540-d04e27213.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-270-90a652b12.jpeg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-405.0-90a652b12.jpeg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-540-90a652b12.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/alpaca-birth-270-90a652b12.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding.JPG&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-270-e3fcac493.webp 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-405.0-e3fcac493.webp 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-540-e3fcac493.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-270-efb48a8f6.jpg 1.0x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-405.0-efb48a8f6.jpg 1.5x, /generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-540-efb48a8f6.jpg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/suttle-lodge/alpaca-feeding-270-efb48a8f6.jpg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 28 May 2021 07:00:00 +0000</pubDate>
+        <link>/weblog/hiking/2021/05/28/the-suttle-lodge.html</link>
+        <guid isPermaLink="true">/weblog/hiking/2021/05/28/the-suttle-lodge.html</guid>
+        
+        <category>hiking</category>
+        
+        <category>central oregon</category>
+        
+        <category>oregon</category>
+        
+        <category>sisters</category>
+        
+        <category>fishing</category>
+        
+        <category>cascades</category>
+        
+        <category>fly fishing</category>
+        
+        <category>pacific northwest</category>
+        
+        <category>photolouge</category>
+        
+        <category>spring</category>
+        
+        <category>cascadia bioregion</category>
+        
+        <category>america</category>
+        
+        <category>friends</category>
+        
+        <category>rachel</category>
+        
+        <category>dogs</category>
+        
+        <category>lake</category>
+        
+        <category>river</category>
+        
+        <category>mountains</category>
+        
+        
+        <category>hiking</category>
+        
+      </item>
+    
+      <item>
+        <title>Ramona Falls Hike</title>
+        <description>&lt;p&gt;&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-270-4e539e61a.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-405.0-4e539e61a.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-540-4e539e61a.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-270-5b12a196f.jpeg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-405.0-5b12a196f.jpeg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-540-5b12a196f.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-sign-270-5b12a196f.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/mt-hood.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/mt-hood-270-27ab1b2de.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/mt-hood-405.0-27ab1b2de.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/mt-hood-540-27ab1b2de.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/mt-hood-270-a811929b1.jpeg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/mt-hood-405.0-a811929b1.jpeg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/mt-hood-540-a811929b1.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/mt-hood-270-a811929b1.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/ramona-falls.JPG&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-270-d87d3630a.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-405.0-d87d3630a.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-540-d87d3630a.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-270-5917b8786.jpg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-405.0-5917b8786.jpg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-540-5917b8786.jpg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-270-5917b8786.jpg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/ramona-falls-2.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-270-ac8646dfe.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-405.0-ac8646dfe.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-540-ac8646dfe.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-270-fe0dd95a8.jpeg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-405.0-fe0dd95a8.jpeg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-540-fe0dd95a8.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-2-270-fe0dd95a8.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-270-f3d7886b0.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-405.0-f3d7886b0.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-540-f3d7886b0.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-270-2e2ff196d.jpeg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-405.0-2e2ff196d.jpeg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-540-2e2ff196d.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-bridge-270-2e2ff196d.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-270-3f8ce005a.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-405.0-3f8ce005a.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-540-3f8ce005a.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-270-d54218fff.jpeg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-405.0-d54218fff.jpeg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-540-d54218fff.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/ramona-falls-creek-270-d54218fff.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;
+&lt;a data-lightbox=&quot;lightbox1&quot; href=&quot;/assets/img/posts/2021/may/ramona-falls/cliffs.jpeg&quot;&gt;&lt;picture class=&quot;thumbnail&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/cliffs-270-093023299.webp 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/cliffs-405.0-093023299.webp 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/cliffs-540-093023299.webp 2.0x&quot; type=&quot;image/webp&quot;&gt;&lt;source srcset=&quot;/generated/assets/img/posts/2021/may/ramona-falls/cliffs-270-a0ec23f1a.jpeg 1.0x, /generated/assets/img/posts/2021/may/ramona-falls/cliffs-405.0-a0ec23f1a.jpeg 1.5x, /generated/assets/img/posts/2021/may/ramona-falls/cliffs-540-a0ec23f1a.jpeg 2.0x&quot; type=&quot;image/jpeg&quot;&gt;&lt;img class=&quot;rounded&quot; src=&quot;/generated/assets/img/posts/2021/may/ramona-falls/cliffs-270-a0ec23f1a.jpeg&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 15 May 2021 07:00:00 +0000</pubDate>
+        <link>/weblog/hiking/2021/05/15/ramona-falls.html</link>
+        <guid isPermaLink="true">/weblog/hiking/2021/05/15/ramona-falls.html</guid>
+        
+        <category>hiking</category>
+        
+        <category>mt. hood national forest</category>
+        
+        <category>oregon</category>
+        
+        <category>waterfalls</category>
+        
+        <category>photolouge</category>
+        
+        <category>spring</category>
+        
+        <category>america</category>
+        
+        <category>cascadia bioregion</category>
+        
+        <category>friends</category>
+        
+        <category>rachel</category>
+        
+        <category>pacific northwest</category>
+        
+        <category>cascade mountains</category>
+        
+        <category>forest</category>
+        
+        <category>mountains</category>
+        
+        
+        <category>hiking</category>
+        
+      </item>
+    
+  </channel>
+</rss>
