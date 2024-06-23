@@ -11,41 +11,75 @@
               {% if post.image %}
                 <div>
                   <a href="{{ post.url | prepend: site.baseurl }}">
-                    {% picture gallery_thumbnail {{ post.image } %}
+                    {% picture gallery_thumbnail {{ post.image }} %}
                   </a>
                   <div class="overlay">
+                    <div>
                     {% if post.category == 'journal' %}
-                      <i class="fas fa-journal-whills"></i>
+                      <i class="fas fa-journal-whills"></i> <span>Journal</span>
                       {% elsif post.category == 'essay' %}
-                      <i class="fas fa-file-alt"></i>
-                      {% elsif post.category == 'essay' %}
-                      <i class="fas fa-file-alt"></i>
+                      <i class="fas fa-file-alt"></i> <span>Essay</span>
                       {% elsif post.category == 'hiking' %}
-                      <i class="fas fa-hiking"></i>
+                      <i class="fas fa-hiking"></i> <span>Hiking</span>
                       {% elsif post.category == 'foraging' %}
-                      <i class="fas fa-leaf"></i>
+                      <i class="fas fa-leaf"></i> <span>Foraging</span>
                       {% elsif post.category == 'camping' %}
-                      <i class="fas fa-campground"></i>
+                      <i class="fas fa-campground"></i> <span>Camping</span>
                       {% elsif post.category == 'talks' %}
-                      <i class="fas fa-chalkboard"></i>
+                      <i class="fas fa-chalkboard"></i> <span>Talks</span>
                       {% elsif post.category == 'travelogue' %}
-                      <i class="fas fa-passport"></i>
+                      <i class="fas fa-passport"></i> <span>Travelogue</span>
                       {% elsif post.category == 'roadtrip' %}
-                      <i class="fas fa-car-side"></i>
+                      <i class="fas fa-car-side"></i> <span>Roadtrip</span>
                       {% elsif post.category == 'changelog' %}
-                      <i class="fas fa-list-alt"></i>
+                      <i class="fas fa-list-alt"></i> <span>Changelog</span>
                       {% else %}
                       <i class="fas fa-folder"></i>
                     {% endif %}
+                    </div>
+                    <br />
                   </div>
                 </div>
               {% endif %}
+              {% if post.image == nil %}
+                  <div class="card-header">
+                    <h5>
+                    {% if post.category == 'journal' %}
+                    <i class="fas fa-journal-whills"></i> Journal
+                    {% elsif post.category == 'essay' %}
+                    <i class="fas fa-file-alt"></i>
+                    {% elsif post.category == 'essay' %}
+                    <i class="fas fa-file-alt"></i>
+                    {% elsif post.category == 'hiking' %}
+                    <i class="fas fa-hiking"></i>
+                    {% elsif post.category == 'foraging' %}
+                    <i class="fas fa-leaf"></i> Foraging
+                    {% elsif post.category == 'camping' %}
+                    <i class="fas fa-campground"></i>
+                    {% elsif post.category == 'talks' %}
+                    <i class="fas fa-chalkboard"></i>
+                    {% elsif post.category == 'travelogue' %}
+                    <i class="fas fa-passport"></i>
+                    {% elsif post.category == 'roadtrip' %}
+                    <i class="fas fa-car-side"></i>
+                    {% elsif post.category == 'changelog' %}
+                    <i class="fas fa-list-alt"></i>
+                    {% else %}
+                    <i class="fas fa-folder"></i>
+                    {% endif %}
+                  </h5>
+                </div>
+              {% endif %}
               <div class="card-body">
-                <h6 class="card-title">
-                  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h6>
-                {% if post.image == nil %}
-                  <p class="card-text">{{post.excerpt}}</p>
+                {% if post.image %}
+                  <h6 class="card-title">
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                  </h6>
+                {% else %}
+                  <h6 class="card-title">
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                  </h6>
+                  {{post.excerpt}}
                 {% endif %}
                 <p class="card-text">
                   <small class="text-muted">

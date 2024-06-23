@@ -14,15 +14,38 @@ $dark-theme-text: #cecece;
 $dark-theme-navbar: rgb(22, 27, 34);
 
 body {
-  // font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  font-family: 'Roboto Mono', monospace;
   color: $black;
+
+  .lead {
+    font-size: 1.0rem;
+  }
+
+  h1 {
+    font-size: 2.0rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 
   .badge.bg-dark {
     color: $white;
   }
 
-  a {
+  .navbar-brand {
     color: $black;
+  }
+
+  .navbar-brand, .nav-pills, .sidebar-weblog {
+    a {
+      color: $black;
+    }
+  }
+
+  a {
+    color: #aaa;
     &:hover {
       text-decoration: underline;
     }
@@ -105,14 +128,33 @@ ul.nav.nav-pills {
 }
 
 #weblog-gallery {
+  .card-header {
+    h5 {
+      margin-bottom: 0px;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+    }
+  }
   .overlay {
-    padding: 1.25rem;
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
     position: absolute;
     top: 0px;
     left: 0px;
+    > div {
+      display: inline-flex;
+    }
     i {
-      color: white;
       font-size: 32px;
+      line-height: 32px;
+    }
+    span {
+      margin-left: 0.5rem;
+      font-size: 18px;
+      line-height: 32px;
+    }
+    i, span {
+      color: white;
       text-shadow: 2px 2px 4px rgba(0,0,0, 0.5);
     }
   }
@@ -122,7 +164,7 @@ ul.nav.nav-pills {
   .posts {
     li {
       font-size: 18px;
-      line-height: 28px;
+      line-height: 24px;
     }
     i {
       height: 20px;
