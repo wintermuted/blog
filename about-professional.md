@@ -7,7 +7,7 @@ permalink: /about/professional-background
 ## Summary
 
 <p class="lead">
-I have 10 years of experience as a <strong>Software Engineer</strong>.  During my career I have worked for several different software product companies in this capacity.  I've had the opportunity to lead numerous projects, serve as the architect for new product offerings and lead & grow teams of software engineers.
+I have 12+ years of experience as a <strong>Software Engineer</strong>.  During my career I have worked for several different software product companies in this capacity.  I've had the opportunity to lead numerous projects, serve as the architect for new product offerings and lead & grow teams of software engineers.
 </p>
 
 <p class="lead">
@@ -22,9 +22,7 @@ In recent years, my role has shifted from senior engineer to a team leader.  Wit
 
 ## Current role
 
-I am a **Senior Software Engineer** at [Xandr](https://www.xandr.com), an advertising & analytics division
-of [WarnerMedia](https://www.warnermedia.com/us). I lead a team focused on building products for businesses managing
-advertising for publishers.
+I am a **Principal Software Engineer** at [Microsoft Advertising](https://about.ads.microsoft.com/en-us), where I work in the Programmtic Advertisiting business.
 
 As a team leader I'm responsible for providing technical leadership, ensuring we deliver on our roadmap commitments, and helping team members achieve their professional development goals.
 

@@ -25,6 +25,26 @@ presets:
     attributes:
       picture: 'class="thumbnail"'
       img: 'class="rounded"'
+  gallery_thumbnail:
+    base_width: 253 # How wide the 1x image should be.
+    pixel_ratios: [1, 1.5, 2] # Which multipliers to target.
+    fallback_width: 253 # The default is 800, which is probably too big.
+    formats: [webp, original]
+    link_source: true
+    crop: '4:3'
+    attributes:
+      picture: 'class="card-image-top"'
+      img: 'class="card-image-top"'
+  summary_thumbnail:
+    base_width: 855 # How wide the 1x image should be.
+    pixel_ratios: [1, 1.5, 2] # Which multipliers to target.
+    fallback_width: 270 # The default is 800, which is probably too big.
+    formats: [webp, original]
+    link_source: true
+    crop: '16:6 center'
+    attributes:
+      picture: 'class="card-image-top"'
+      img: 'class="card-image-top"'
   thumbnailGIF:
     base_width: 270 # How wide the 1x image should be.
     pixel_ratios: [1] # Which multipliers to target.

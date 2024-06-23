@@ -1,7 +1,7 @@
 ---
 layout: wiki-home 
 title: Wiki
-permalink: /wiki/
+permalink: /wiki
 ---
 
 {% include wiki-home.html %}

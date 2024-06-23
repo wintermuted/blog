@@ -5,15 +5,18 @@ date:   2017-1-4 09:57:46 -0700
 location: "Portland"
 author: "Jameson Nyeholt"
 category: essay
+image: /assets/img/pair-programming.jpg
 tags:
 - software development
 - agile
 - pair-programming
 ---
 
+
+Over the past two years Jama Software has taken steps to make pair-programming a greater part of our engineering culture. <!--more-->  Our product-development organization produces software according to the [Agile Software Development](https://www.agilealliance.org/agile101/) framework of [Scrum](https://www.scrumalliance.org/why-scrum), with regular iterations, and self-organizing teams.   
+
 {% picture /assets/img/pair-programming.jpg %}
 
-Over the past two years Jama Software has taken steps to make pair-programming a greater part of our engineering culture.  Our product-development organization produces software according to the [Agile Software Development](https://www.agilealliance.org/agile101/) framework of [Scrum](https://www.scrumalliance.org/why-scrum), with regular iterations, and self-organizing teams.   
 <!--description-->
 
 Within the agile principle of incremental refinement, we have continued to adopt practices that help us produce quality software.  The adoption of pair-programming emerged from from the ground-up, through initiative of individual contributors within the engineering team, but also enjoyed support from product & engineering leadership.  
