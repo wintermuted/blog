@@ -21,6 +21,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cache-
 
+      - name: Install libvips
+        run: sudo apt-get install -y libvips
+
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.6.0
         with:

@@ -15,6 +15,7 @@ gem "jekyll", "~> 4.2.1"
 gem "minima", "~> 2.0"
 gem 'jekyll-autoprefixer'
 gem "mini_racer"
+gem "ruby-vips"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
