@@ -5,6 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (9.8.6.5)
       execjs
+    base64 (0.2.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.9)
     em-websocket (0.5.3)
@@ -32,6 +33,10 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
+    jekyll-admin (0.11.1)
+      jekyll (>= 3.7, < 5.0)
+      sinatra (>= 1.4)
+      sinatra-contrib (>= 1.4)
     jekyll-archives (2.2.1)
       jekyll (>= 3.6, < 5.0)
     jekyll-autoprefixer (1.0.2)
@@ -57,8 +62,8 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    libv8 (3.16.14.19-x86_64-darwin-18)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8-node (16.19.0.1-x86_64-darwin)
+    libv8-node (16.19.0.1-x86_64-linux)
     liquid (4.0.3)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -68,33 +73,51 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.1115)
     mini_i18n (0.8.0)
+    mini_racer (0.6.4)
+      libv8-node (~> 16.19.0.0)
     minima (2.5.1)
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
+    multi_json (1.15.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
     objective_elements (1.1.2)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.6)
+    rack (2.2.9)
+    rack-protection (3.2.0)
+      base64 (>= 0.1.0)
+      rack (~> 2.2, >= 2.2.4)
     rainbow (3.0.0)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    ref (2.0.0)
     rexml (3.2.8)
       strscan (>= 3.0.9)
     rouge (3.26.1)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
+    ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sinatra (3.2.0)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.2.0)
+      tilt (~> 2.0)
+    sinatra-contrib (3.2.0)
+      multi_json (>= 0.0.2)
+      mustermann (~> 3.0)
+      rack-protection (= 3.2.0)
+      sinatra (= 3.2.0)
+      tilt (~> 2.0)
     strscan (3.1.0)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
+    tilt (2.4.0)
     unicode-display_width (1.8.0)
 
 PLATFORMS
@@ -103,16 +126,17 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.2.1)
+  jekyll-admin
   jekyll-archives
   jekyll-autoprefixer
   jekyll-feed (~> 0.15.1)
   jekyll-timeago (~> 0.13.1)
   jekyll_picture_tag (~> 2.0.3)
+  mini_racer
   minima (~> 2.0)
-  therubyracer
 
 RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   2.2.31
+   2.4.22
