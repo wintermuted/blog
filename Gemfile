@@ -15,7 +15,6 @@ gem "jekyll", "~> 4.2.1"
 gem "minima", "~> 2.0"
 gem 'jekyll-autoprefixer'
 gem "mini_racer"
-# gem "ruby-vips"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -23,5 +22,5 @@ group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.15.1"
    gem 'jekyll-timeago', '~> 0.13.1'
    gem 'jekyll-archives'
-   gem 'jekyll_picture_tag', '~> 2.1.0'
+   gem 'jekyll_picture_tag', '~> 2.0.3'
 end
