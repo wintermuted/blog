@@ -25,7 +25,7 @@ Today pair-programming, test-driven development, read-by-refactoring, continuous
 
 In many ways, pair-programming is one of the best techniques we have in our arsenal to fight the war against technical debt within our software.  Technical debt emerges inevitably within a software systems for myriad reasons.  Unmitigated, technical debt can cause development efforts to slow to a crawl, thereby delaying the release of valuable features to customers and endangering the viability of the business.  
 
-# What is pair-programming?
+## What is pair-programming?
 
 [Pair-programming](https://www.agilealliance.org/glossary/pairing/) is a technique in Agile Software Development where two engineers share a single workstation.  In this technique, one engineer is the *driver*, whom has control of the mouse and keyboard to write the code, while the other serves as the *navigator*, reviewing the code that the other is writing while providing tactical and analytical feedback.  This pair will trade-off on these roles at regular intervals, giving each other equal chance to both execute on the work or direct it.
 
@@ -33,7 +33,7 @@ Pairs are typically formed between two individuals on the same [scrum team](http
 
 The ultimate goal of pair-programming is to provide a means to achieve better quality in software, while providing many secondary benefits that improve the ability of a team to continue delivering useful features to customers.
 
-# Why we adopted pair-programming
+## Why we adopted pair-programming
 
 As Jama scaled from a small startup to a venture-backed company with numerous customers, the engineering team also grew in order to support feature development and platform-scaling efforts.  Communication, coordination, and understanding the software became more difficult with the additional headcount and the corresponding increase of modifications to the codebase.  Jama had previously done well with a strong culture of individual contributors and safeguards such as code reviews, unit tests, and continuous integration.  However, we began to realize that the development practices that had worked for a smaller team with a simpler feature-set would not scale as we continued to grow.
 
@@ -47,7 +47,7 @@ The result of this is a scenario where only a few individuals within your initia
 
 Having a situation within your organization where a singular person is essential to it's continued progress is an immense liability, and makes it difficult to scale the product-development organization.  You can always choose to onboard an engineer unfamiliar with the code later on, but much of the context of the program is lost, even to the original author, and the same benefits will not be realized.
 
-# Benefits of pair-programming
+## Benefits of pair-programming
 
 For Jama, pair-programming was our solution to this immediate problem of having accumulated technical silos.  By utilizing pair-programming, we were able to steer ourselves closer to a model of "collective-code ownership", where more individuals had expertise in a particular area of the our systems.  In doing so, we lowered the risk associated with the long-term maintenance of Jama's software.  This is one of the obvious and primary benefits to pair-programming; the diffusion of knowledge.
 
@@ -60,7 +60,7 @@ Pair-programming has also provided our engineering organization with a variety o
 - **Mentoring & Learning**: Pair-programming provides a good laboratory scenario for junior engineers to receive mentoring from senior engineers, and for senior engineers to develop mentoring skills.  It also provides an opportunity for engineers of similar skill levels to trade ideas drawing from their differing experiences.
 - **Flexibility**: Better flexibility from interruptions: one developer can leave the pair to provide short-term help to an external issue (like a service outage) while the other developer continues working.
 
-# Is pair-programming right for you?
+## Is pair-programming right for you?
 
 At Jama Software we have gained many benefits from pair-programming, but that doesn't mean that it is an easy task to adopt it as a practice.  For many software organizations, adopting an Agile Software Development methodology over a traditional waterfall project management approach can be a tough transition.  Pair-programming is no different, and benefits from having a well-established Agile culture within an organization.  For us, pair-programming was a ground-up initiative, but it also took the support and trust of our product and engineering leadership team.  Without this support, it would not have been possible.  
 
