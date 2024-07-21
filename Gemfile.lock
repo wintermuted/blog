@@ -100,7 +100,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll (~> 4.2.1)
+  jekyll (~> 4.0)
   jekyll-archives
   jekyll-autoprefixer
   jekyll-feed (~> 0.15.1)
