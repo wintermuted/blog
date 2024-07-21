@@ -13,6 +13,11 @@ $dark-theme-background: #111111;
 $dark-theme-text: #cecece;
 $dark-theme-navbar: rgb(22, 27, 34);
 
+.post_list nav {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 body {
   font-size: 1rem;
   font-family: 'Roboto Mono', monospace;
