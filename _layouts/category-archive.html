@@ -46,15 +46,17 @@ layout: default
         {% elsif page.title == 'camping' %}
           <p class="lead">Camping trips in Cascadia and beyond. Learn more in the <a href="/wiki/cascadia">wiki.</a></p>
         {% elsif page.title == 'foraging' %}
+          <p class="lead">Foraging for edibles in the Pacific Northwest</p>
         {% elsif page.title == 'hiking' %}
+          <p class="lead">Hiking, walks, etc.</p>
         {% elsif page.title == 'travelogue' %}
-          <p class="lead">Small & big trips in America and across the world.</p>
-        {% elsif post.category == 'roadtrip' %}
-          <p class="lead">Small & big trips in America and across the world.</p>
+          <p class="lead">Trips by plane in America and across the world.</p>
+        {% elsif page.title == 'roadtrip' %}
+          <p class="lead">Travels by car in America and acrosss the world.</p>
         {% elsif page.title == 'changelog' %}
           <p class="lead">A record of changes to this website.</p>
         {% else %}
-          <p class="lead">Some blog posts.</p>
+          <p class="lead">Some blog posts about {{page.title}}</p>
         {% endif %}
         <ul class="list-unstyled posts">
         {% for post in page.posts %}

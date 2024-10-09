@@ -26,6 +26,7 @@ tags:
 - dog adventures
 - sophie
 - cannon beach
+- photos
 ---
 
 ## Rachel's Birthday Weekend '18 - Part II  

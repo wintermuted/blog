@@ -18,9 +18,7 @@ tags:
 - camping
 ---
 
+<!--more--> 
+
 ## Mountain
 {% picture /assets/img/posts/2019/june/trifecta/mountain.jpeg %}
-
-
-
-
