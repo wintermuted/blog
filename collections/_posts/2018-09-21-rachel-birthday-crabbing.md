@@ -27,6 +27,7 @@ tags:
 - rachel birthday 2018
 - birthday
 - shellfish
+- photos
 ---
 
 ## Rachel's Birthday Weekend '18 - Part III  

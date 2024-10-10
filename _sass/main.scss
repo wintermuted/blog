@@ -21,6 +21,8 @@ $dark-theme-navbar: rgb(22, 27, 34);
 body {
   font-size: 1rem;
   font-family: 'Roboto Mono', monospace;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: $black;
 
   p, li {
@@ -84,7 +86,7 @@ body {
 
   .sidebar {
     p, a, time, h5 {
-      font-size: 0.75rem !important;
+      font-size: 1rem !important;
     }
 
     a {
@@ -123,17 +125,27 @@ body {
   }
 }
 
-ul.nav.nav-pills {
+ul.nav {
+  .nav-item {
+    &:first-child {
+      .nav-link {
+        padding-left: 0 !important;
+      }
+    }
+  }
+  
   .nav-item {
     .nav-link {
+      background-color: none !important;
+      // background-color: #f8f9fa !important;
+      padding: 0.5rem;
       &.active {
-        color: $white;
-        background-color: $dark-gray;
+        color: $dark-gray;
+        // background-color: #f8f9fa !important;
       }
-
       &:hover {
-        color: $white;
-        background-color: $dark-gray;
+        color: $dark-gray;
+        background-color: none !important;
       }
     }
   }

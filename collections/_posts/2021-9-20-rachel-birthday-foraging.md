@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Birthday Mushroom Foraging"
+title:  "Fall Mushroom Foraging in the Oregon Coastal Range"
 date:   2021-9-20 00:00:00 -0700
 location: "Tilamook National Forest, Oregon"
 author: "Jameson Nyeholt"

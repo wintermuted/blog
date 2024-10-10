@@ -28,6 +28,7 @@ tags:
 - dog adventures
 - seaside
 - wildcraft
+- photos
 ---
 
 ## Rachel's Birthday Weekend '18 - Part I  

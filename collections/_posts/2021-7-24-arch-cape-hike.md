@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Arch Cape Hike"
+title:  "Arch Cape, Washington Hike"
 date:   2021-7-24 00:00:00 -0700
 location: "Columbia River Gorge, WA"
 author: "Jameson Nyeholt"

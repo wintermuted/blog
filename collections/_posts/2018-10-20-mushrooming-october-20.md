@@ -22,6 +22,7 @@ tags:
 - rachel
 - opinel
 - mushrooming
+- photos
 ---
 
 We made some trips out to the Tillamook National Forest to search for mushrooms with friends this fall. <!--more-->  Below are some photos of what we saw and found along the way. 
