@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mushrooming with Friends - Oct '18"
+title:  "Mushroom foraging with Friends in Tillamook National Forest"
 date:   2018-10-20 09:57:46 -0700
 location: "Tillamook National Forest"
 author: "Jameson Nyeholt"

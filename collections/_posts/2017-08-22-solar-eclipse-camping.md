@@ -1,7 +1,7 @@
 ---
 title: "Total Solar Eclipse in Oregon"
 layout: post
-date:   2018-08-19 00:00:00 -0700
+date:   2017-08-19 00:00:00 -0700
 location: "Columbia River Gorge & Central Oregon"
 author: "Jameson Nyeholt"
 category: camping

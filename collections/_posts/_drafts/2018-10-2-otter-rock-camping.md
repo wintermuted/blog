@@ -22,7 +22,6 @@ tags:
 - central oregon coast
 ---
 
-----
-
 ## Smoker
+
 {% picture /assets/img/posts/2019/sep/whalen-island/mushroom2.jpeg %}
