@@ -17,6 +17,7 @@ tags:
 - grandparents
 - grandfather
 - family
+- forest
 ---
 
 {% picture thumbnail /assets/img/posts/2017/july/alaska/1.jpeg --a data-lightbox="lightbox1" %}

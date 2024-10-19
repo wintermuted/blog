@@ -24,6 +24,8 @@ tags:
 - oregon state parks
 - the sun
 - the moon
+- river
+- high desert
 ---
 
 {% picture thumbnail /assets/img/posts/2017/aug/eclipse/1.jpeg --a data-lightbox="lightbox1" %}
