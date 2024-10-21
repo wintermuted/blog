@@ -25,6 +25,8 @@ tags:
 - puntareanas
 ---
 
+<!--description-->
+
 {% picture thumbnail /assets/img/posts/2019/april/costa-rica/1.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2019/april/costa-rica/2.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2019/april/costa-rica/3.jpeg --a data-lightbox="lightbox1" %}

@@ -20,7 +20,7 @@ tags:
 - rachel
 ---
 
-<!--more-->
+<!--description-->
 
 1. [Introduction](#introduction)
 1. [Lunar New Year](#Lunar-New-Year)

@@ -24,7 +24,7 @@ tags:
 
 To celebrate our marriage anniversary, we decided to visit [Joshua Tree National Park](https://www.nps.gov/jotr/index.htm) for two nights while in Southern California to visit family for the winter holidays.
 
-<!--more-->
+<!--description-->
 
 Rachel and I have visited Joshua Tree several times before during the time when we lived in Southern California, but this was our first time back to the park since both moving to Portland, Oregon.  
 

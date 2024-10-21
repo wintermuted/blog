@@ -22,7 +22,7 @@ tags:
 - rachel
 ---
 
-<!--more-->
+<!--description-->
 
 {% picture thumbnail /assets/img/posts/2021/may/hamilton-mountain/waterfall-forest.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/may/hamilton-mountain/waterfall-forest-2.jpeg --a data-lightbox="lightbox1" %}

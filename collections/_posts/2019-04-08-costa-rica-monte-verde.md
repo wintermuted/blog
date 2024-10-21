@@ -25,6 +25,8 @@ tags:
 - roadtrip
 ---
 
+<!--description-->
+
 {% picture thumbnail /assets/img/posts/2019/april/costa-rica/81.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2019/april/costa-rica/82.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2019/april/costa-rica/83.jpeg --a data-lightbox="lightbox1" %}

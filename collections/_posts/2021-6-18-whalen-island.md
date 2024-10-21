@@ -28,7 +28,7 @@ tags:
 - shellfish
 ---
 
-We visited [Whalen Island](/wiki/cascadia/camping/whalen-island) in June with some close friends. <!--more-->  They were excited to give their new van a test drive and take their daughter on her first camping trip, while we wanted to catch some crab.  Unfortunately, the tides did not work in our favor.  Regardless, we had a great time.
+We visited [Whalen Island](/wiki/cascadia/camping/whalen-island) in June with some close friends. <!--description-->  They were excited to give their new van a test drive and take their daughter on her first camping trip, while we wanted to catch some crab.  Unfortunately, the tides did not work in our favor.  Regardless, we had a great time.
 
 ## Video
 

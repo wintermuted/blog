@@ -20,6 +20,8 @@ tags:
 - forest
 ---
 
+<!--description-->
+
 {% picture thumbnail /assets/img/posts/2017/july/alaska/1.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2017/july/alaska/2.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2017/july/alaska/3.jpeg --a data-lightbox="lightbox1" %}

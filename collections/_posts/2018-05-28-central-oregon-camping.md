@@ -28,7 +28,7 @@ tags:
 - high desert
 ---
 
-Rachel and I headed out for an impromptu camping trip for Memorial Day weekend.  We didn't have any plans with anyone and decided to head out to see the Painted Hills and John Day in central Oregon.  We didn't have a camp site booked, and decided to try to go camping on BLM land.  It turned out that our friends were in Bend visiting family, so we decided drive up with them and camp and in the National Forest outside of town.  It turned out to be an awesome weekend and one of our favorite camping trips.
+Rachel and I headed out for an impromptu camping trip for Memorial Day weekend.  We didn't have any plans with anyone and decided to head out to see the Painted Hills and John Day in central Oregon.  Since we didn't have a camp site booked, and decided to try to go camping on BLM land.  <!--description--> It turned out that our friends were in Bend visiting family, so we decided drive up with them and camp and in the National Forest outside of town.  It turned out to be an awesome weekend and one of our favorite camping trips.
 
 {% picture thumbnail /assets/img/posts/2018/may/central-oregon/1.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2018/may/central-oregon/3.jpeg --a data-lightbox="lightbox1" %}

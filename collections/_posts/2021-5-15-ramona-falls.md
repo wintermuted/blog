@@ -23,7 +23,7 @@ tags:
 - mountains
 ---
 
-<!--more-->
+<!--description-->
 
 {% picture thumbnail /assets/img/posts/2021/may/ramona-falls/ramona-falls-sign.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/may/ramona-falls/mt-hood.jpeg --a data-lightbox="lightbox1" %}

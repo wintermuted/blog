@@ -31,7 +31,7 @@ tags:
 
 ## Rachel's Birthday Weekend '18 - Part II  
 
-Following our [foraging adventure in Tillamook National Forest](/weblog/foraging/2018/09/20/rachel-birthday-foraging.html) and our night in Seaside, we headed south to [Ecola State Park](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=136) to do some hiking. <!--more-->  After we wrapped up our hike in Ecola, we drove further south to [Jetty Fishery on the Nehalem River](/weblog/foraging/2018/09/21/rachel-birthday-crabbing.html) to do some crabbing.
+Following our [foraging adventure in Tillamook National Forest](/weblog/foraging/2018/09/20/rachel-birthday-foraging.html) and our night in Seaside, we headed south to [Ecola State Park](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=136) to do some hiking. <!--description--> After we wrapped up our hike in Ecola, we drove further south to [Jetty Fishery on the Nehalem River](/weblog/foraging/2018/09/21/rachel-birthday-crabbing.html) to do some crabbing.
 
 {% picture thumbnail /assets/img/posts/2018/sep/ecola/ecola1.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2018/sep/ecola/ecola2.jpeg --a data-lightbox="lightbox1" %}
