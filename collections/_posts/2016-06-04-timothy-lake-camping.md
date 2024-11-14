@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Camping at Timothy Lake
+location: Timothy Lake, Oregon
 date: 2016-06-04 06:17
 category: camping
 author: Jameson Nyeholt
@@ -18,6 +19,7 @@ tags:
 - rachel
 - friends
 - camping with friends
+- america
 ---
 
 [Timothy Lake Website](https://www.fs.usda.gov/recarea/mthood/recreation/camping-cabins/recarea/?recid=53392&actid=29)
