@@ -1,0 +1,1216 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jameson Nyeholt</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <style>
+      /* ul.keywords {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+} */
+ul.keywords,
+ul.courses {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    display: inline-block;
+    margin: 2px 2px 2px 0;
+    padding: 5px 5px 5px;
+    font-size: 0.9rem;
+    line-height: 1;
+    border: var(--pico-border-width) var(--pico-primary-border);
+    border-radius: var(--pico-border-radius);
+    /* white-space: nowrap; */
+
+    @media not print {
+      color: var(--pico-primary-inverse);
+      background-color: var(--pico-primary-background);
+      border-style: solid;
+    }
+  }
+}
+
+.layout {
+  grid-column-gap: var(--pico-grid-column-gap);
+  grid-row-gap: var(--pico-grid-row-gap);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* bootstrap small breakpoint */
+@media (min-width: 768px), print {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    gap: 0px 20px;
+    grid-auto-flow: row;
+  }
+}
+
+.timeline > div {
+  position: relative;
+}
+
+/* .timeline > div:not(:last-child) {
+  padding-bottom: 1rem;
+} */
+
+.timeline > div:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: -15px;
+  width: 2px;
+  height: 100%;
+  background: var(--pico-primary-background);
+  box-sizing: unset;
+}
+
+.timeline > div:not(:only-child)::after {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: -20px;
+  width: 8px;
+  height: 8px;
+  background: var(--pico-primary-background);
+  border: 2px solid var(--pico-background-color);
+  border-radius: 50%;
+  box-sizing: unset;
+}
+
+.profile-icon svg {
+  height: 1rem;
+  margin-right: var(--pico-spacing);
+}
+
+.highlights {
+  font-size: 0.95rem;
+}
+
+h3 {
+  border-bottom: 1px solid var(--pico-color);
+}
+
+.dated-header {
+  display: flex;
+  justify-content: space-between;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+  }
+  /* align-items: center; */
+}
+.dotted-hr {
+  border-top: 1px dashed var(--pico-muted-border-color);
+}
+
+.cert {
+  font-size: 0.75em;
+}
+
+.print-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+/* bootstrap small breakpoint */
+@media (min-width: 768px) {
+  .print-button {
+    bottom: auto;
+    top: 20px;
+  }
+}
+
+@media print {
+  :root {
+    font-size: 13;
+    --pico-font-family-sans-serif: Inter, system-ui, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, Helvetica, Arial, 'Helvetica Neue', sans-serif,
+      var(--pico-font-family-emoji);
+    --pico-font-size: 87.5%;
+    /* Original: 100% */
+    --pico-line-height: 1.25;
+    /* Original: 1.5 */
+    --pico-form-element-spacing-vertical: 0.5rem;
+    /* Original: 1rem */
+    --pico-form-element-spacing-horizontal: 1rem;
+    /* Original: 1.25rem */
+    --pico-border-radius: 0.375rem;
+    /* Original: 0.25rem */
+    --pico-typography-spacing-vertical: 0.5rem;
+    /* Original: 1rem */
+    --pico-spacing: 0.5rem;
+    /* Original: 1rem */
+  }
+
+  @media (min-width: 576px) {
+    :root {
+      --pico-font-size: 87.5%;
+      /* Original: 106.25% */
+    }
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --pico-font-size: 87.5%;
+      /* Original: 112.5% */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --pico-font-size: 87.5%;
+      /* Original: 118.75% */
+    }
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --pico-font-size: 87.5%;
+      /* Original: 125% */
+    }
+  }
+
+  @media (min-width: 1536px) {
+    :root {
+      --pico-font-size: 87.5%;
+      /* Original: 131.25% */
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    --pico-font-weight: 500;
+    /* Original: 700 */
+  }
+
+  h1 {
+    --pico-font-size: 2rem;
+    --pico-line-height: 1.125;
+    --pico-typography-spacing-top: 3rem;
+  }
+
+  h2 {
+    --pico-font-size: 1.5rem;
+    --pico-line-height: 1.175;
+    --pico-typography-spacing-top: 2.25rem;
+  }
+
+  h3 {
+    --pico-font-size: 1.25rem;
+    --pico-line-height: 1.2;
+    --pico-typography-spacing-top: 1.874rem;
+  }
+
+  h4 {
+    --pico-font-size: 1.125rem;
+    --pico-line-height: 1.225;
+    --pico-typography-spacing-top: 1.6875rem;
+  }
+
+  h5 {
+    --pico-font-size: 1rem;
+    --pico-line-height: 1.25;
+    --pico-typography-spacing-top: 1.5rem;
+  }
+
+  h6 {
+    --pico-font-size: 1rem;
+    --pico-line-height: 1.25;
+    --pico-typography-spacing-top: 1.5rem;
+  }
+
+  article {
+    border: 1px solid var(--pico-muted-border-color);
+    /* Original doesn't have a border */
+    border-radius: calc(var(--pico-border-radius) * 2);
+    /* Original: var(--pico-border-radius) */
+  }
+
+  article > footer {
+    border-radius: calc(var(--pico-border-radius) * 2);
+    /* Original: var(--pico-border-radius) */
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  ul.keywords,
+  ul.courses {
+    li {
+      color: var(--pico-color);
+      border-style: dashed;
+      /* white-space: nowrap; */
+    }
+  }
+
+  body > main {
+    padding-block: 0;
+  }
+
+  .page-break {
+    /* margin-top: 30px; */
+    page-break-inside: avoid;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h1>Jameson Nyeholt</h1>
+      <h2>Software Engineering Leader in Ad Tech</h2>
+    </header>
+
+    <main class="container">
+      <div class="layout">
+        <aside>
+          <section>
+            <h3>About</h3>
+            <address>
+          
+              <div>
+                <span class="profile-icon"><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+          >
+              <path
+                  fill="currentColor"
+                  d="M12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7m0 2a5 5 0 0 0-5 5c0 1 0 3 5 9.71C17 12 17 10 17 9a5 5 0 0 0-5-5"
+              />
+          </svg> </span>
+                Portland
+                US
+              </div>
+              <div>
+                <span class="profile-icon"><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+          >
+              <path
+                  fill="currentColor"
+                  d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z"
+              />
+          </svg></span>
+                <a href="mailto:jnyeholt@hey.com">jnyeholt@hey.com</a>
+              </div>
+              <div>
+                <span class="profile-icon"><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+          >
+              <path
+                  fill="currentColor"
+                  d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79zm9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75zM7.5 3H4c-.55 0-1 .45-1 1c0 9.39 7.61 17 17 17c.55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1c-1.24 0-2.45-.2-3.57-.57a.8.8 0 0 0-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.15 15.15 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1"
+              />
+          </svg> </span>
+                <a href="tel:(909) 753-9621">(909) 753-9621</a>
+              </div>
+              <div>
+                <span class="profile-icon"><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+          >
+              <path
+                  fill="currentColor"
+                  d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"
+              />
+          </svg> </span>
+                <a href="http://www.jnyeholt.dev">http://www.jnyeholt.dev</a>
+              </div>
+            </address>
+          
+            <div>
+              <div>
+                <span class="profile-icon"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+          
+                <a href="https://www.github.com/wintermuted" target="_blank">
+                  wintermuted
+                </a>
+              </div>
+              <div>
+                <span class="profile-icon"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+          
+                <a href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
+                  jwnyeholt
+                </a>
+              </div>
+            </div>
+          </section>
+          <section id="skills">
+            <h3>Skills</h3>
+            <div>
+              <div>
+                <h4>
+                  Programming Languages
+                </h4>
+                <ul class="keywords">
+                  <li>TypeScript</li>
+                  <li>Javascript</li>
+                  <li>PHP</li>
+                  <li>Bash</li>
+                  <li>Java</li>
+                  <li>Scala</li>
+                  <li>Ruby</li>
+                  <li>Python</li>
+                  <li>Lua</li>
+                  <li>Swift</li>
+                </ul>
+              </div>
+              <div>
+                <h4>
+                  Databases
+                </h4>
+                <ul class="keywords">
+                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
+                  <li>MariaDB</li>
+                  <li>MongoDB</li>
+                </ul>
+              </div>
+              <div>
+                <h4>
+                  Deployment &amp; CI/CD Infrastructure
+                </h4>
+                <ul class="keywords">
+                  <li>Kubernetes</li>
+                  <li>Docker</li>
+                  <li>Helm</li>
+                  <li>Spinnaker</li>
+                  <li>Docker</li>
+                  <li>Artifactory</li>
+                  <li>Concourse CI</li>
+                  <li>Promotheus</li>
+                </ul>
+              </div>
+              <div>
+                <h4>
+                  Software Paradigms &amp; Patterns
+                </h4>
+                <ul class="keywords">
+                  <li>Functional Programming</li>
+                  <li>Object Oriented Programming</li>
+                  <li>Test Driven Development</li>
+                  <li>Refactoring</li>
+                  <li>Microservices</li>
+                  <li>Monorepos</li>
+                </ul>
+              </div>
+              <div>
+                <h4>
+                  Frontend &amp; Node.js Technologies
+                </h4>
+                <ul class="keywords">
+                  <li>React.js</li>
+                  <li>Node.js</li>
+                  <li>Angular.js</li>
+                  <li>CSS3</li>
+                  <li>HTML5</li>
+                  <li>LESS</li>
+                  <li>Redux</li>
+                  <li>Webpack</li>
+                  <li>GraphQL</li>
+                  <li>Express.js</li>
+                  <li>Ext.js</li>
+                  <li>Hapi.js</li>
+                  <li>Lerna</li>
+                  <li>Babel</li>
+                  <li>Jest</li>
+                  <li>Enzyme</li>
+                  <li>Cypress</li>
+                  <li>Jasmine</li>
+                  <li>Karma</li>
+                  <li>SASS</li>
+                  <li>Lodash</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section id="languages">
+            <h4>Languages</h4>
+          
+            <ul class="keywords">
+              <li>
+                English <em>(Native speaker)</em>
+              </li>
+              <li>
+                Spanish <em>(Elementary Proficiency)</em>
+              </li>
+            </ul>
+          </section>
+        </aside>
+        <div>
+          <section>
+            <h3>Summary</h3>
+            <p>I am an experienced full-stack Software Engineer with over 12 years of experience in the software industry leading &amp; managing technical projects and teams.  My most recent roles have focused on Ad Tech, where I have led the development of UI and API features within a microservices architecture for the Microsoft Monetize SSP &amp; Adserver platforms.  I have a strong background in both front-end and back-end development, and have experience working with a variety of programming languages and technologies.  I pride myself in my ability to rapidly learn new technologies and adapt to new environments, and I am always looking for new challenges to tackle—whether it be at a startup or a large corporation.  At Xandr, and now at Microsoft, I have cultivated a reputation as a collaborative team leader, who follows a practical approach to problem-solving and is dedicated to delivering high-quality software solutions.</p>
+          </section>
+          <section class="section">
+            <header>
+              <h3 class="section-title">Experience</h3>
+            </header>
+          
+            <section id="work">
+              <header class="page-break">
+                <h4>
+                  <a target="_blank" href="https://about.ads.microsoft.com/en">Microsoft Advertising</a>
+          
+                  <small class="location">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="work-location">(Remote) Portland, Oregon, United States</span>
+                  </small>
+                </h4>
+              </header>
+          
+              <div class="timeline">
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-0"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Principal Software Engineer</h5>
+                      <em class="date">
+                        <span class="startDate">Mar 2023</span>
+                        <span class="endDate">- Current</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Ad Tech</li>
+                      <li class="page-break">SSP</li>
+                      <li class="page-break">Ad Server</li>
+                      <li class="page-break">Microservices</li>
+                      <li class="page-break">Kubernetes</li>
+                      <li class="page-break">Azure DevOps</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">PHP</li>
+                      <li class="page-break">MariaDB</li>
+                      <li class="page-break">Node.js</li>
+                      <li class="page-break">TypeScript</li>
+                      <li class="page-break">React.js</li>
+                      <li class="page-break">Monorepos</li>
+                      <li class="page-break">Data Engineering</li>
+                      <li class="page-break">Object Oriented Programming</li>
+                      <li class="page-break">Full Stack Development</li>
+                    </ul>
+          
+                    <div class="summary">I serve as the technical lead for a team of 10 engineers, developing product features for the Monetize SSP &amp; Ads Server in a Director-level individual contributor role. I play a key role in maintaining and enhancing the quality of the broader technical platform. My responsibilities alternate between independent and team work; I can be found leading engineering squads to deliver valuable features, independently resolving outages, improving developer tooling, and removing obstacles to progress. I collaborate closely with Product Management, UX Designers, and Data Engineering to ensure we deliver product features that positively impact our revenue goals.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Acted as the technical architect and team leader for the development of the Monetize Unified Reporting UI, a new product enabling customers to view their revenue and performance data through a single reporting interface. Served as the primary technical architect, active individual contributor, and project management lead for the UI team.</li>
+                      <li class="page-break">Led the transition of Monetize UI applications from Xandr&#x27;s anx-react to Microsoft&#x27;s Fluent UI React component library, a new design system developed by Microsoft.</li>
+                      <li class="page-break">Improved MSN News intra-article ad placements, adding the capability to traffic more ads via news articles.</li>
+                      <li class="page-break">Authored a new REST API to support the bulk migration of Deal objects from V1 to V2 for customer&#x27;s active campaigns.</li>
+                      <li class="page-break">Led the migration of Monetize application single-tenant and monorepositories from Bitbucket &amp; Concourse CI to Azure DevOps &amp; Azure Pipelines.</li>
+                      <li class="page-break">Regularly presented project updates to senior product and engineering leadership.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-1"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Senior Software Engineering Manager</h5>
+                      <em class="date">
+                        <span class="startDate">Jun 2022</span>
+                        <span class="endDate">- Feb 2023</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Ad Tech</li>
+                      <li class="page-break">SSP</li>
+                      <li class="page-break">Ad Server</li>
+                      <li class="page-break">Node.js</li>
+                      <li class="page-break">TypeScript</li>
+                      <li class="page-break">React.js</li>
+                      <li class="page-break">Microservices</li>
+                      <li class="page-break">GraphQL</li>
+                      <li class="page-break">Instrumentation &amp; Monitoring</li>
+                      <li class="page-break">Engineering Management</li>
+                      <li class="page-break">PostgreSQL</li>
+                      <li class="page-break">Full Stack Development</li>
+                      <li class="page-break">Monorepos</li>
+                    </ul>
+          
+                    <div class="summary">Following Microsoft&#x27;s acquistion of Xandr, I continued my role in this position, before transitioning to a full-time individual contributor role as a Principal Software Engineer, completing a move that had been in progress since 2021.  While in this role, I took on various projects aimed at improving the resilience of the Monetize UI Platform and exploring new technologies to improve the reliability and performance of the platform.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Significantly improved the performance of the Monetize Sellers Monitoring Workflow UI item detail page, reducing the time to load the page by 50%, by refactoring API usage to optimize data fetching &amp; lazily load data.</li>
+                      <li class="page-break">Improved instrumentation &amp; observability of the Monetize UI platform by adding modifying and adding signals and dashboards in Grafana, allowing for better monitoring of the platform&#x27;s health.</li>
+                      <li class="page-break">Served as a technical leader for the Monetize UI Experience V-Team, a cross-functional team of engineers focused on improving the reliability and performance of the Monetize UI platform and providing stewardship for the UI codebase during our transition to Microsoft systems and processes.</li>
+                      <li class="page-break">Architected and implemented POCs for new customer-facing features, before handing off to the appropriate engineering team for implementation.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+              </div>
+          
+              <hr class="dotted-hr" />
+              <header class="page-break">
+                <h4>
+                  <a target="_blank" href="http://www.xandr.com">Xandr</a>
+          
+                  <small class="location">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="work-location">Portland, Oregon, United States</span>
+                  </small>
+                </h4>
+              </header>
+          
+              <div class="timeline">
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-0"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Senior Software Engineer, Team Lead</h5>
+                      <em class="date">
+                        <span class="startDate">Jul 2020</span>
+                        <span class="endDate">- May 2022</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Ad Tech</li>
+                      <li class="page-break">SSP</li>
+                      <li class="page-break">Ad Server</li>
+                      <li class="page-break">Engineering Management</li>
+                      <li class="page-break">Technical Leadership</li>
+                      <li class="page-break">Full Stack Development</li>
+                      <li class="page-break">Microservices</li>
+                      <li class="page-break">Node.js</li>
+                      <li class="page-break">React.js</li>
+                      <li class="page-break">TypeScript</li>
+                      <li class="page-break">PostgreSQL</li>
+                      <li class="page-break">GraphQL</li>
+                      <li class="page-break">Kubernetes</li>
+                      <li class="page-break">Object Oriented Programming</li>
+                      <li class="page-break">Functional Programming</li>
+                      <li class="page-break">Lerna</li>
+                      <li class="page-break">Monorepos</li>
+                      <li class="page-break">Concourse CI</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Test Driven Development</li>
+                    </ul>
+          
+                    <div class="summary">As a Senior Software Engineer and Team Lead at Xandr, I led a team of 6 engineers in developing ad campaign object monitoring, analysis, and troubleshooting tools for Ad Publishers using the Xandr Monetize platform.  Our responsibilities covered the improvement and maintenance several core workflow applications used by customers.  In this role, I collaborated closely with Product Management, UX Designers, and Data Engineering to ensure the delivery of a product that precisely met our customers&#x27; needs. My responsibilities included overseeing the entire development lifecycle, from initial concept through to deployment, ensuring high-quality code, and fostering a collaborative and productive team environment.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Led the delivery of the Monetize Sellers Monitoring Workflow UI (SMW), a new offering that allowed customers an improved interface for monitoring the health of their advertising inventory, including Line Items, Deals, Insertion Orders, and Advertisers.  Acted as the primary technical architect, an active individual contributor, and project management lead for the UI team.</li>
+                      <li class="page-break">Refactored an existing codebase to use a monorepo structure, allowing for easier code sharing between two applications.</li>
+                      <li class="page-break">Interviewed, hired, and onboarded new engineers to the team.</li>
+                      <li class="page-break">Managed the performance and career development of the engineers, promoting two engineers to the career step.</li>
+                      <li class="page-break">Mentored junior engineers, providing guidance on best practices and code reviews.</li>
+                      <li class="page-break">Managed the team&#x27;s sprint planning, backlog grooming, and daily standups.</li>
+                      <li class="page-break">Regularly present project updates to senior product and engineering leadership.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-1"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Software Engineer II</h5>
+                      <em class="date">
+                        <span class="startDate">Mar 2019</span>
+                        <span class="endDate">- Jun 2020</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Ad Tech</li>
+                      <li class="page-break">Node.js</li>
+                      <li class="page-break">TypeScript</li>
+                      <li class="page-break">Javascript</li>
+                      <li class="page-break">Scala</li>
+                      <li class="page-break">React.js</li>
+                      <li class="page-break">GraphQL</li>
+                      <li class="page-break">Full Stack Development</li>
+                      <li class="page-break">Microservices</li>
+                      <li class="page-break">Object Oriented Programming</li>
+                      <li class="page-break">Functional Programming</li>
+                      <li class="page-break">Concourse CI</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Kubernetes</li>
+                      <li class="page-break">PostgreSQL</li>
+                      <li class="page-break">Lerna</li>
+                      <li class="page-break">Monorepos</li>
+                      <li class="page-break">TDD</li>
+                      <li class="page-break">Jest</li>
+                      <li class="page-break">Enzyme</li>
+                    </ul>
+          
+                    <div class="summary">As a Software Engineer II at Xandr, I worked on a team of engineers developing features for the Xandr Monetize SSP &amp; Adserver platforms, developing features that enabled publishers to efficiently manage their advertising inventory and maximize revenue. In this role, I collaborated with Product Management, UX Designers, and Data Engineering to deliver a product that meets our customers&#x27; needs. My responsibilities included developing new features, improving existing code, and ensuring the quality of the codebase.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Introduced TypeScript to the Monetize UI codebase, leading to a reduction in runtime errors and improved code quality.</li>
+                      <li class="page-break">Pioneered the use of a monorepo structure in the Monetize UI codebase using Lerna.js, allowing for easier code sharing between projects.</li>
+                      <li class="page-break">Partnered with the Build &amp; Delivery Team to specify and implement features supporting monorepos in our internally developed CI/CD Concourse pipeline framework.</li>
+                      <li class="page-break">Led the development of a new features that enabled customers to more easily view the performance of their advertising inventory.</li>
+                      <li class="page-break">Mentored junior engineers and interns, providing guidance on best practices and code reviews.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+              </div>
+          
+              <hr class="dotted-hr" />
+              <header class="page-break">
+                <h4>
+                  <a target="_blank" href="https://www.jamasoftware.com">Jama Software</a>
+          
+                  <small class="location">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="work-location">Portland, Oregon, United States</span>
+                  </small>
+                </h4>
+              </header>
+          
+              <div class="timeline">
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-0"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Senior Software Engineer</h5>
+                      <em class="date">
+                        <span class="startDate">Apr 2018</span>
+                        <span class="endDate">- Feb 2019</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Java</li>
+                      <li class="page-break">Ruby</li>
+                      <li class="page-break">Ruby on Rails</li>
+                      <li class="page-break">Python</li>
+                      <li class="page-break">Node.js</li>
+                      <li class="page-break">Javascript</li>
+                      <li class="page-break">React.js</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Object Oriented Programming</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Ext.js</li>
+                      <li class="page-break">Maven</li>
+                      <li class="page-break">Jersey</li>
+                      <li class="page-break">Spring Framework</li>
+                      <li class="page-break">SASS</li>
+                      <li class="page-break">JUnit</li>
+                      <li class="page-break">Webpack</li>
+                      <li class="page-break">JIRA</li>
+                      <li class="page-break">Pair Programming</li>
+                      <li class="page-break">Agile Methodologies</li>
+                    </ul>
+          
+                    <div class="summary">As a Senior Software Engineer at Jama Software, I worked on a team of engineers developing features for the Jama Analyze &amp; Jama Connect platforms, providing leadership and technical guidance to the team.  In this role, I collaborated with Product Management, UX Designers, and Data Engineering to deliver a product that meets our customers&#x27; needs. My responsibilities included developing new features, improving existing code, and ensuring the quality of the codebase.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Integrated the Jama Analyze (formerly Notion.io) platform with the Jama Connect platform, allowing customers to view data from their Jama Connect projects in the Jama Analyze platform.</li>
+                      <li class="page-break">Worked alongside a team to develop features that improved ease of use in managing data, managing test steps, viewing system health, and navigating rule-based item relationships.</li>
+                      <li class="page-break">Embedded with the newly acquired Notion.io team</li>
+                      <li class="page-break">Led Jama&#x27;s Agile program, coordinating our 6 week planning cycle and weekly Scrum of Scrums.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-1"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Software Engineer II</h5>
+                      <em class="date">
+                        <span class="startDate">Jan 2015</span>
+                        <span class="endDate">- Mar 2018</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Java</li>
+                      <li class="page-break">Javascript</li>
+                      <li class="page-break">React.js</li>
+                      <li class="page-break">Node.js</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Ruby</li>
+                      <li class="page-break">Ruby on Rails</li>
+                      <li class="page-break">Python</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Ext.js</li>
+                      <li class="page-break">Maven</li>
+                      <li class="page-break">Jersey</li>
+                      <li class="page-break">Spring Framework</li>
+                      <li class="page-break">SASS</li>
+                      <li class="page-break">JUnit</li>
+                      <li class="page-break">TeamCity</li>
+                      <li class="page-break">Object Oriented Programming</li>
+                      <li class="page-break">Functional Programming</li>
+                    </ul>
+          
+                    <div class="summary">At Jama I worked with a cross-functional team of software engineers developing features for the Jama Connect platform, a SOC2 compliant requirements and traceability platform used by Apple, SpaceX, and a variety of aerospace and medical device technology companies.  At Jama I worked on both the front-end and backend, programming in Javascript &amp; Java to deliver features that improved the usability and performance of the platform.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Worked alongside a team to develop features that improved ease of use in managing data, managing test steps, viewing system health, and navigating rule-based item relationships.</li>
+                      <li class="page-break">Acted as Scrum Master for the team, leading sprint planning, backlog grooming, and daily standups.</li>
+                      <li class="page-break">Contributed to projects in both a frontend and backend capacity.</li>
+                      <li class="page-break">Contributed as a regular participant in the Front End Guild establishing standards and contributing to discussion towards technology adoption.</li>
+                      <li class="page-break">Led efforts in developing internal dashboards to measure build health and code quality.</li>
+                      <li class="page-break">Mentored junior engineers and interns, providing guidance on best practices and code reviews.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+              </div>
+          
+              <hr class="dotted-hr" />
+              <header class="page-break">
+                <h4>
+                  <a target="_blank" href="https://www.snapflow.com">Snapflow</a>
+          
+                  <small class="location">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="work-location">Portland, Oregon, United States</span>
+                  </small>
+                </h4>
+              </header>
+          
+              <div class="timeline">
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-0"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Software Engineer</h5>
+                      <em class="date">
+                        <span class="startDate">Apr 2013</span>
+                        <span class="endDate">- Dec 2014</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Angular.js</li>
+                      <li class="page-break">Javascript</li>
+                      <li class="page-break">PHP</li>
+                      <li class="page-break">Scala</li>
+                      <li class="page-break">.NET</li>
+                      <li class="page-break">C#</li>
+                      <li class="page-break">SASS</li>
+                      <li class="page-break">LESS</li>
+                      <li class="page-break">Jasmine</li>
+                      <li class="page-break">Karma</li>
+                      <li class="page-break">Docker</li>
+                      <li class="page-break">Yeoman</li>
+                    </ul>
+          
+                    <div class="summary">At Snapflow, I contributed to the development of a single-page web application using the Angular.js framework, leveraging RESTful APIs to create complex user interfaces for Snapflow&#x27;s workflow building service. Although the company is now defunct, my efforts were instrumental in navigating these challenging times.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Maintained steady progress of our UI development capacity following the departure of senior engineers, ensuring project continuity and stability.</li>
+                      <li class="page-break">Played a key role in the technical screening and interviewing of candidates for both the Portland-based team and a near-shore team in Mexico, contributing to the successful hiring of top talent.</li>
+                      <li class="page-break">Created comprehensive materials for the technical screening of candidates, enhancing the efficiency and effectiveness of the recruitment process.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+              </div>
+          
+              <hr class="dotted-hr" />
+              <header class="page-break">
+                <h4>
+                  <a target="_blank" href="https://www.10thdegree.com">10th Degree</a>
+          
+                  <small class="location">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="work-location">Lake Forest, California, United States</span>
+                  </small>
+                </h4>
+              </header>
+          
+              <div class="timeline">
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-0"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Front End Developer</h5>
+                      <em class="date">
+                        <span class="startDate">Jun 2012</span>
+                        <span class="endDate">- Mar 2013</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">Javascript</li>
+                      <li class="page-break">HTML5</li>
+                      <li class="page-break">CSS3</li>
+                      <li class="page-break">jQuery</li>
+                      <li class="page-break">Orchard Project</li>
+                      <li class="page-break">LESS</li>
+                    </ul>
+          
+                    <div class="summary">At 10th Degree, I developed websites for automotive dealerships and various other clients, focusing on SEM and SEO optimization to effectively advertise their businesses.  This was my first role in the industry, where I spent less than a year before joining a startup in Portland, Oregon.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                    <ul class="highlights">
+                      <li class="page-break">Intervied candidates for development internships at the company.</li>
+                      <li class="page-break">Developed multiple new websites for a local automotive dealerships.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+              </div>
+          
+              <hr class="dotted-hr" />
+              <header class="page-break">
+                <h4>
+                  Contract Web Developer
+          
+                  <small class="location">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="work-location">California, United States</span>
+                  </small>
+                </h4>
+              </header>
+          
+              <div class="timeline">
+                <div>
+                  <div class="page-break">
+                    <label for="work-item-0"></label>
+          
+                    <header class="dated-header">
+                      <h5 class="position">Web Developer</h5>
+                      <em class="date">
+                        <span class="startDate">Jun 2007</span>
+                        <span class="endDate">- May 2012</span>
+                      </em>
+                    </header>
+          
+                    <ul class="keywords">
+                      <li class="page-break">PHP</li>
+                      <li class="page-break">Javascript</li>
+                      <li class="page-break">HTML</li>
+                      <li class="page-break">CSS</li>
+                      <li class="page-break">SEO</li>
+                      <li class="page-break">SEM</li>
+                      <li class="page-break">Wordpress</li>
+                    </ul>
+          
+                    <div class="summary">I worked as a freelance web developer during my undergraduate studies, developing websites for small businesses and non-profits in Southern California.  I focused on developing websites that were easy to maintain and update, and that were optimized for search engine visibility.  It was during this time that I developed a passion for programming and decided to pursue a career in the software industry.</div>
+                  </div>
+          
+                  <div class="item" id="work-item">
+                  </div>
+                </div>
+          
+              </div>
+          
+            </section>
+          </section>
+          <div>
+            <h3>Education</h3>
+          
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Core77 Third Wave Design Conference
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Oct 2019</span>
+                  <span class="endDate"> - Oct 2019</span>
+                </em>
+              </header>
+          
+              <p>
+                Conference, 
+          
+                Design Thinking
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Agile Open Northwest
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Apr 2018</span>
+                  <span class="endDate"> - Apr 2018</span>
+                </em>
+              </header>
+          
+              <p>
+          
+                Agile Methodologies
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  ProductCampPDX 2017
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Sep 2017</span>
+                  <span class="endDate"> - Sep 2017</span>
+                </em>
+              </header>
+          
+              <p>
+                Conference, 
+          
+                Product Management
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Certified Scrum Master Training
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Oct 2017</span>
+                  <span class="endDate"> - Oct 2017</span>
+                </em>
+              </header>
+          
+              <p>
+                Certification, 
+          
+                Agile Methodologies
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Legacy Code Workshop with Industrial Logic
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">May 2016</span>
+                  <span class="endDate"> - May 2016</span>
+                </em>
+              </header>
+          
+              <p>
+                Workshop, 
+          
+                Software Engineering
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  OSCON
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">May 2015</span>
+                  <span class="endDate"> - May 2015</span>
+                </em>
+              </header>
+          
+              <p>
+                Convention, 
+          
+                Software Engineering
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Thinkful
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Oct 2014</span>
+                  <span class="endDate"> - Feb 2015</span>
+                </em>
+              </header>
+          
+              <p>
+                Online Course, 
+          
+                Programming in Swift for iOS
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  PNW Scala Conference
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Nov 2014</span>
+                  <span class="endDate"> - Nov 2014</span>
+                </em>
+              </header>
+          
+              <p>
+                Conference, 
+          
+                Programming
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Webvisions Conference PDX
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Nov 2014</span>
+                  <span class="endDate"> - Nov 2014</span>
+                </em>
+              </header>
+          
+              <p>
+                Conference, 
+          
+                Web Design &amp; Development
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  Edward Tufte Seminar - Presenting Data &amp; Information
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Aug 2014</span>
+                  <span class="endDate"> - Aug 2014</span>
+                </em>
+              </header>
+          
+              <p>
+                Seminar, 
+          
+                Information Design
+              </p>
+          
+            </div>
+          
+            <div class="item ">
+              <header class="dated-header">
+                <h5>
+                  California State University, Long Beach
+          
+                </h5>
+          
+          
+                <em class="italic pull-right">
+                  <span class="startDate">Aug 2007</span>
+                  <span class="endDate"> - May 2012</span>
+                </em>
+              </header>
+          
+              <p>
+                Bachelor of Arts, Honors, 
+          
+                Political Science
+              </p>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <button
+      id="print-button"
+      class="print-button no-print"
+      title="This page is optimized for printing"
+      onclick="window.print()"
+    >
+      Print me!
+    </button>
+  </body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Costs & challenges of pair-programming</title>
+  <meta name="description" content="In my prior blog post about pair-programming, I introduced the concept and explained why Jama Software adopted it as a practice in our engineering group.">
+
+  <!-- JS -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'imageFadeDuration': 200,
+      'fadeDuration': 200,
+      'wrapAround': true
+    })
+  </script>
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <link rel="canonical" href="/weblog/essay/2017/01/18/costs-of-pair-programming.html">
+
+  <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/feed.xml">
+</head>
+
+    <body>
+        
+
+<!-- Current: weblogessay20170118costs-of-pair-programming.html
+Current 1: weblog -->
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-md sticky-top bg-light">
+            <a class="navbar-brand" href="/">
+                <img src="/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
+                jnyeholt
+            </a>
+            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto">
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                    
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link active" href="/weblog">Weblog</a>
+                        </li>
+                    
+                    <!-- 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/projects">Projects</a>
+                        </li>
+                    
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/wiki">Wiki</a>
+                        </li>
+                     -->
+                    <!-- 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/wiki/links">Links</a>
+                        </li>
+                     -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/resume" target="_blank">CV</a>
+                    </li>
+                    
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <!-- <span>LinkedIN</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/wintermuted" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <!-- <span>Github</span> -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        </br>
+
+<div class="container post-body">
+    <div class="row"> 
+        <div class="col">
+            <h1 class="article-title" itemprop="name headline">Costs & challenges of pair-programming</h1>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 col-sm-12">
+            <!-- <section id="more-work">
+    
+
+    
+    <div class="float-left">
+        <a class="equalize" href="/weblog/talks/2017/02/04/clean-coder-slides0.html" title="next Post: The Clean Coder - lightning book review">
+            <small class="text-muted">
+                <span> ← Newer : </span>
+                <span> The Clean Coder - lightning book review</span>
+            </small>
+        </a>
+    </div>
+
+
+    <div class="float-right">
+        <a class="equalize" href="/weblog/essay/2017/01/04/pair-programming-at-jama-software.html" title="Previous Post: Pair-programming at Jama Software">
+            <small class="text-muted">
+                <span> Pair-programming at Jama Software </span>
+                <span> : Older →</span>
+            </small>
+        </a>
+    </div>
+</section>
+            <br />
+            <hr /> -->
+            <article class="body-content post" itemscope itemtype="http://schema.org/BlogPosting">
+                <div class="article-content" itemprop="articleBody">
+                    <p>In my <a href="/weblog/essay/2017/01/04/pair-programming-at-jama-software.html">prior blog post</a> about <a href="https://www.agilealliance.org/glossary/pairing/">pair-programming</a>, I introduced the concept and explained why Jama Software adopted it as a practice in our engineering group. <!--description-->  While we have seen many benefits from pair-programming, the practice may not be appropriate for every organization or team, and also does not come without costs and challenges.</p>
+
+<p>In the year or more that we have had teams utilizing pair-programming, we have become familiar with the costs and challenges.  This has been helpful for learning how to adjust to the practice on an individual and team-level and ensure that its application has been successful.</p>
+
+<h2 id="costs">Costs</h2>
+
+<p>At first glance, pair-programming appears to be an incredibly inefficient use of expensive software engineering talent.  Organizations that have no experience with pair-programming will often be initially skeptical for the obvious fact that two engineers are working on the same task.  The apparent overhead of pair-programming tends to be the primary factor in push-back from engineering management when pair-programming is being considered for adoption.</p>
+
+<p>It is indisputable that pair-programming adds an overhead to development efforts by increasing the man-hours required.  However, assuming that pair-programming doubles the cost is a reductive misconception that equates programming with time typing on the keyboard; ignoring the analytical aspects of it.</p>
+
+<p>Empirical studies have yet to quantify the exact costs or benefits of systematic pair programming as compared to individualized work.  The most commonly cited statistic indicates that it can add a <a href="http://www.cs.utexas.edu/users/mckinley/305j/pair-hcs-2006.pdf">15% increase</a> to the time it takes to complete a task over an individual developer working on it.</p>
+
+<p>Our experience has shown that this additional cost is minimal in comparison to the benefits it provides our teams; better quality, better understanding of the code, and lower risk.  It is these benefits that allow us to become more agile in the long-term.  In this sense, pair-programming is a strategic investment in the software and the team charged with improving and maintaining it.  Despite increasing the time to complete a task, pair-programming also aids in <a href="https://collaboration.csc.ncsu.edu/laurie/Papers/XPSardinia.PDF">reducing the count of bugs</a> not caught during the development process, and improving the extensibility of the system over time.</p>
+
+<p>Pair-programming, just like any other <a href="https://www.agilealliance.org/agile101/">Agile Software Development</a> technique, is one that should be applied to the appropriate situation.  While pair-programming provides a great way to ensure better design in the codebase and lower the risk associated with having one person responsible for a system, it is not the right instrument for every task.</p>
+
+<p>Poorly applied pair-programming leads to the worst-case outcome of doubling the time needed to complete a task.  In order to use pair-programming effectively within your organization, it is important to be cognizant of situations where it is unnecessary and can be an unproductive use of knowledge workers.</p>
+
+<h2 id="challenges--common-pitfalls">Challenges &amp; common pitfalls</h2>
+
+<p>There exist some common situations &amp; indicators of non-performance for pair-programming that are important to bear in mind.  Being mindful of these circumstances can help identify necessary adjustments to make pair-programming more successful within your organization.</p>
+
+<h3 id="situational-issues">Situational issues</h3>
+
+<p><strong>Pair-programming is NOT the right tool for every task</strong></p>
+
+<p>When a task is simple enough, such as a dev-chore, a defect writeup, or a spike, pair-programming is not always appropriate.  Adopting pair-programming in all cases is not efficient and can severely limit the productivity of a team and increase the costs of development efforts exponentially.  When a Scrum team discusses new development work, is it important to identify whether or not pair-programming would be beneficial for a particular task.  Being dogmatic in applying pair-programming is never appropriate.  A good rule of thumb is that pair-programming is best applied to production code that needs to be maintained.</p>
+
+<p><strong>Pair-programming is NOT right for everyone</strong></p>
+
+<p>Pair-programming is an activity that takes place outside of the comfort level of some engineers, and it cannot be forced upon them.  Deciding to engage in pair-programming needs to be a mutual decision of the <a href="https://www.mountaingoatsoftware.com/agile/scrum/roles/team">scrum team</a>, and the practice needs to be open to criticism within <a href="https://www.mountaingoatsoftware.com/agile/scrum/sprint-retrospective">Sprint Retrospectives</a> for potential refinement.  It is best to gradually introduce the practice, as with every Agile concept, for those who are tentative on the idea.</p>
+
+<p>There can also exist other issues within a team that make pair-programming a difficult undertaking.  Pair-programming puts two engineers in very close contact with one another, and can be problematic if relationship issues, or personal hygiene issues are present.</p>
+
+<p><strong>Remote pair-programming</strong></p>
+
+<p>Pair-programming benefits immensely from team members being co-located.  When teams do not share the same workspace, difficulties such as delays in coordination, the integration of technical tools, internet connection speeds, and the possible need for additional technology to support pairing are introduced.  Remote pairing can add immensely to the existing overhead cost of pair-programming.</p>
+
+<h3 id="indicators-of-non-performance">Indicators of non-performance</h3>
+
+<p><strong>Lack of engagement</strong></p>
+
+<p>Both engineers must be actively engaged throughout the pairing session in order to gain the benefits of pair-programming.  To mitigate potential distractions, some pairs agree to not check their phones or emails during the session, leaving that for breaks.  Many also use the <a href="http://cirillocompany.de/pages/pomodoro-technique">Pomodoro Technique</a>, to ensure that energized work and breaks take place at regular intervals during a pairing session.</p>
+
+<p><strong>Silence</strong></p>
+
+<p>If the driver is silently typing code without consulting the navigator, or the navigator is not providing insights, then something is awry. Pair-programming is about active and candid analysis of the existing code and all new modifications being made to it.  This is best performed through conversation.</p>
+
+<p><strong>“Watch the Master”</strong></p>
+
+<p>“Watch the Master” is a scenario that often occurs when one person in the pair is more experienced that the other.  A common situation for this phenomena is a senior engineer working with a novice engineer.  The senior engineer may skip what they think to be unnecessary explanation, while the novice engineer may feel to timid to ask questions or challenge the approach taken, deferring to the senior member of the pair.  This is similar to the aforementioned problem of silent disengagement, and does not provide the benefits of mentoring that pair-programming provides.</p>
+
+<h3 id="side-effects">Side-effects</h3>
+
+<p><strong>Loss of Confidence</strong></p>
+
+<p>When first being introduced to pair-programming, some engineers feel that they lack the same understanding of their work than what is produced when they work as individuals.  This is a circumstance that is especially common for the novice programmer in a senior-novice pair.</p>
+
+<p>It is important within a pair-programming setting for each participant to be honest about their understanding before moving onto the next major phase.  This loss of confidence is in many ways a side-effect of pair-programming’s primary effect of reducing strong code-ownership in favor of collective code-ownership.</p>
+
+<p>Lack of confidence can also indicate of a lack of trust for their counterpart in a pair.  As individuals work together, it takes time for trust and mutual confidence to build.  Pair-programming can be a great exercise for improving rapport between team members, but it takes time and effort.</p>
+
+<p><strong>Lack of code-ownership</strong></p>
+
+<p>Related to the loss of confidence one might have about pair-programming is the perspective that it erodes code-ownership over implemented features.  <a href="https://martinfowler.com/bliki/CodeOwnership.html">Code-ownership</a> is a nuanced concept, that has both meaning to engineerings and managers.</p>
+
+<p>Code-ownership can be a source of pride for the engineer who implemented a feature as an individual contributor.  For managers, knowing the sole point-person for a portion of the code base is is useful when trying to put out fires.  Letting go of these landmarks in favor of a team-focused ownership concept can be a tough cultural change for an engineering group.</p>
+
+<p>Two engineers being responsible for the code output of a user story may at first glance seem as though it reduces accountability and responsibility.    Reducing accountability or responsibility is NOT one of the goals of pair-programming; instead it is a tool to increase accountability of the entire team by moving the needle towards collective code-ownership.</p>
+
+<p>Pair-programming, at least in the case of Jama, was a way to push us towards a culture of collective code-ownership, where every member of the team feels both responsible and capable of contributing towards the progression of the software, rather than particular individuals.  Having one engineer too tightly coupled to code they have written in the past is an organizational anti-pattern and a risk to the business.</p>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>For many engineers &amp; software engineering organizations, pair-programming is a novel way of working that turns the commonplace individual-contributor mode of working on its head.</p>
+
+<p>As I explained above, adopting it as a practice is not without it’s challenges.  If you are still convinced after reading this post that it is something you would like to try, do so on as small of a scale as possible.  You might first try pair-programming on an individual level with a fellow team-member, and then branch out by trying it at a scrum-team level.  If you are feeling very confident, you might even try <a href="http://mobprogramming.org/">mob-programming</a>, an approach that involves the entire team.</p>
+
+<hr />
+
+<p>A version of this <a href="https://www.jamasoftware.com/blog/costs-challenges-and-common-pitfalls-of-pair-programming/">post</a> was originally published on the <a href="https://www.jamasoftware.com/blog/category/developer-insights/">Jama Software Developer Insights Blog</a> on January 18th, 2017.</p>
+
+<p>Jama Software is the developer of Jama Product Delivery Platform, a collaborative web-based application designed to help companies manage projects that relate to the development and introduction of products.</p>
+
+                </div>
+            </article>
+            <hr />
+            <section id="more-work">
+    
+
+    
+    <div class="float-left">
+        <a class="equalize" href="/weblog/talks/2017/02/04/clean-coder-slides0.html" title="next Post: The Clean Coder - lightning book review">
+            <small class="text-muted">
+                <span> ← Newer : </span>
+                <span> The Clean Coder - lightning book review</span>
+            </small>
+        </a>
+    </div>
+
+
+    <div class="float-right">
+        <a class="equalize" href="/weblog/essay/2017/01/04/pair-programming-at-jama-software.html" title="Previous Post: Pair-programming at Jama Software">
+            <small class="text-muted">
+                <span> Pair-programming at Jama Software </span>
+                <span> : Older →</span>
+            </small>
+        </a>
+    </div>
+</section>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <aside class="sidebar">
+    <p>
+        
+            <small class="text-muted">
+                <i class="fas fa-calendar"></i>
+                <time datetime="2017-01-18T16:57:46+00:00" itemprop="datePublished">
+                    18 January 2017, Wednesday
+                </time>
+            </small>
+        
+        <br />
+        
+        <small class="text-muted">
+            <i class="fas fa-map-marker-alt"></i>
+            <a>Portland</a>
+        </small>
+        
+        <br />
+        
+        <small class="text-muted">
+            <i class="fas fa-user-alt"></i>
+            <a href="/about">
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name">Jameson Nyeholt</span>
+                </span>
+            </a>
+        </small>
+        
+    </p>
+    <hr />
+    <!-- <nav aria-label="Page navigation example">
+  
+
+  
+  <div>
+      <a class="equalize" href="/weblog/talks/2017/02/04/clean-coder-slides0.html" title="next Post: The Clean Coder - lightning book review">
+          <div>
+              <span> ← Newer : </span><br/>
+              <span> The Clean Coder - lightning book review</span>
+          </div>
+      </a>
+  </div>
+  <div>
+      <a class="equalize" href="/weblog/essay/2017/01/04/pair-programming-at-jama-software.html" title="Previous Post: Pair-programming at Jama Software">
+          <div>
+              <span> Pair-programming at Jama Software </span><br/>
+              <span> : Older →</span>
+          </div>
+      </a>
+  </div>
+</nav>
+
+    <hr /> -->
+    <h5 class="text-muted">Category</h5>
+    <ul class="list-unstyled">
+        
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-folder"></i>
+                    <a href="/weblog/category/essay">
+                        essay
+                    </a>
+                </small>
+            </li>
+        
+    </ul>
+    <h5 class="text-muted">Tags</h5>
+    <ul class="list-unstyled">
+        
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-tag"></i>
+                    <a href="/weblog/tag/pair-programming">
+                        pair programming
+                    </a>
+                </small>
+            </li>
+        
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-tag"></i>
+                    <a href="/weblog/tag/agile">
+                        agile
+                    </a>
+                </small>
+            </li>
+        
+            <li>
+                <small class="text-muted">
+                    <i class="fas fa-tag"></i>
+                    <a href="/weblog/tag/software-development">
+                        software development
+                    </a>
+                </small>
+            </li>
+        
+    </ul>
+    <hr/>
+</aside>
+        </div>
+    </div>
+</div>
+
+        <footer>
+  <div class="container global-footer">
+    <nav class="navbar navbar-light bg-light">
+      <span class="text-muted">
+        <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
+      </span>
+      <ul class="navbar-nav">
+        <li class="nav-item custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+          <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script src="/js/dark-mode.js"></script>
+</footer>
+    </body>
+</html>
