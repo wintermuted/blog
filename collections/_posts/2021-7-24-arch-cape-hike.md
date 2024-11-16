@@ -27,7 +27,7 @@ tags:
 
 Arch Cape is a hiking trail on the Washington side of the Columbia River Gorge.
 
-<!--more-->
+<!--description-->
 
 {% picture thumbnail /assets/img/posts/2021/jul/arch-cape/tree-cliff.jpeg --a data-lightbox="lightbox1"   %}
 {% picture thumbnail /assets/img/posts/2021/jul/arch-cape/hiking-trail.jpeg --a data-lightbox="lightbox1"  %}

@@ -15,7 +15,7 @@ tags:
   - professionalism
 ---
 
-Several months ago I gave a lightning-talk at [Jama Software](https://www.jamasoftware.com/) about **["The Clean Coder: A Code of Conduct for Professional Programmers"](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)**, a book on professionalism for software engineers by [Robert C. Martin](https://sites.google.com/site/unclebobconsultingllc/) (Uncle Bob) that is a follow up to his classic book **["Clean Code: A Handbook of Agile Software Craftsmanship"](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)**.  <!--more-->
+Several months ago I gave a lightning-talk at [Jama Software](https://www.jamasoftware.com/) about **["The Clean Coder: A Code of Conduct for Professional Programmers"](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)**, a book on professionalism for software engineers by [Robert C. Martin](https://sites.google.com/site/unclebobconsultingllc/) (Uncle Bob) that is a follow up to his classic book **["Clean Code: A Handbook of Agile Software Craftsmanship"](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)**.  <!--description-->
 
 <iframe src="https://docs.google.com/presentation/d/15gP39mOVI02TwiKrRWseVYBojt3oMGnNz6Hww9VW-Og/embed?start=false&loop=true&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 

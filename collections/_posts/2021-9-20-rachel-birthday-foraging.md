@@ -26,10 +26,9 @@ tags:
 - roadtrip
 - rachel
 - opinel
-- forest
 ---
 
-Every September for the past several years we have gone camping at [Whalen Island](/wiki/cascadia/camping/whalen-island) on the Oregon Coast to celebrate Rachel's Birthday. <!--more-->  This year we decided to cancel this trip due to inclement weather and the prospect of sleeping on the ground with Rachel heavily pregnant.
+Every September for the past several years we have gone camping at [Whalen Island](/wiki/cascadia/camping/whalen-island) on the Oregon Coast to celebrate Rachel's Birthday. <!--description-->  This year we decided to cancel this trip due to inclement weather and the prospect of sleeping on the ground with Rachel heavily pregnant.
 
 With the camping trip cancelled, Rachel decided she wanted to try to fit in one more mushroom foraging trip before the year was over with.  We ended up exploring some areas we had tried in some prior years, and found quite a few things, though it was clear we were about a week or so too early.
 

@@ -10,6 +10,11 @@ tags:
 - software engineering
 - job update
 - career
+- jama software
+- portland
+- technology
 ---
 
 In 2015 I started a new job at Jama Software as a Software Engineer.
+
+<!--description-->

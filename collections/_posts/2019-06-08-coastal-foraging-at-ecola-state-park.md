@@ -26,9 +26,10 @@ tags:
 - roadtrip
 - rachel
 - summer
+- forest
 ---
 
-We took a class through [Wildcraft](https://wildcraftstudioschool.com) on Coastal [foraging](https://en.wikipedia.org/wiki/Foraging) at [Ecola State Park](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=136). <!--more-->  During the class we had the opportunity to learn how to forage for [seaweed](https://en.wikipedia.org/wiki/Seaweed), [mussels](https://en.wikipedia.org/wiki/Mussel) and other intertidal edibles.  After foraging with our teacher, he demonstrated how to cook what we had foraged as a group, and we had a chance to try it.  It was yummy!
+We took a class through [Wildcraft](https://wildcraftstudioschool.com) on Coastal [foraging](https://en.wikipedia.org/wiki/Foraging) at [Ecola State Park](https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=136). <!--description-->  During the class we had the opportunity to learn how to forage for [seaweed](https://en.wikipedia.org/wiki/Seaweed), [mussels](https://en.wikipedia.org/wiki/Mussel) and other intertidal edibles.  After foraging with our teacher, he demonstrated how to cook what we had foraged as a group, and we had a chance to try it.  It was yummy!
 
 Once the class was over with we took advantage of the low tide before it came back in and gathered some mussels and seaweed for ourselves to take home.
 

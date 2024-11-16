@@ -32,7 +32,7 @@ tags:
 
 To celebrate Rachel's Birthday we again went to [Whalen Island](/wiki/cascadia/camping/whalen-island), per tradition.  We were joined by many friends and had a chance to go crabbing, fishing, and clamming while we were there.
 
-<!--more-->
+<!--description-->
 
 This was a special year for the trip, because it was also the first time we were able to take out the boat that Rachel had found for us on craigslist.
 

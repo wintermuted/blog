@@ -10,6 +10,10 @@ tags:
 - software engineering
 - job update
 - career
+- portland
+- tech
 ---
 
 In 2013 I was hired to work at Snapflow, a software startup based in Portland, Oregon.
+
+<!--description-->

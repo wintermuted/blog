@@ -5,17 +5,14 @@ permalink: /about
 --- 
 
 <p class="lead">
-Hello, I'm Jameson Nyeholt, and I live in Portland, Oregon.
+Hi, I'm Jameson Nyeholt.  I'm a Software Engineer living and working in <a href="https://en.wikipedia.org/wiki/Portland,_Oregon" target="_blank">Portland, Oregon</a>.
 </p>
 
-<p class="lead">
-I currently work in at <a href="https://www.microsoft.com">Microsoft</a> as a Principal Software Engineer.<br/>
-I spend my free time with my family exploring the <a href="/wiki/cascadia/">Pacific Northwest</a>.<br/>
-When I'm not doing that, I have some hobbies, which includes maintaining this weblog.
-</p>
-
-<!-- <p class="lead">
-</p> -->
+💼 I currently work at <a target="_blank" href="https://ads.microsoft.com">Microsoft Advertising</a> as a Principal Software Engineer, where I work on Ad Monetization.  You can read my CV <a target="_blank" href="/resume">here</a>.
+<br/>
+🌲 I spend my free time with my family exploring the outdoors of the Pacific Northwest. Camping, hiking, biking, kayaking, foraging, etc.
+<br/>
+📫 You can reach me via email at <a href="mailto:jnyeholt@hey.com">jnyeholt@hey.com</a>
 
 <img src="/assets/img/family_edited.jpeg" width="100%" height="auto" />
 

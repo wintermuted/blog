@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mushrooming with Friends - Oct '18"
+title:  "Mushroom foraging with Friends in Tillamook National Forest"
 date:   2018-10-20 09:57:46 -0700
 location: "Tillamook National Forest"
 author: "Jameson Nyeholt"
@@ -25,7 +25,7 @@ tags:
 - photos
 ---
 
-We made some trips out to the Tillamook National Forest to search for mushrooms with friends this fall. <!--more-->  Below are some photos of what we saw and found along the way. 
+We made some trips out to the Tillamook National Forest to search for mushrooms with friends this fall. <!--description-->  Below are some photos of what we saw and found along the way. 
 
 ## October 14th
 {% picture thumbnail /assets/img/posts/2018/oct/mushrooming-with-katie/rachel1.jpeg --a data-lightbox="lightbox1" %}

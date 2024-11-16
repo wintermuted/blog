@@ -1,6 +1,6 @@
 ---
 layout: page-wiki-hub
-title: Miscellaneous Links
+title: Links
 permalink: /wiki/links
 ---
 

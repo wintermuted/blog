@@ -4,7 +4,7 @@ layout: post
 date:   2018-08-31 00:00:00 -0700
 location: "Oswald West State Park"
 author: "Jameson Nyeholt"
-category: travelogue
+category: roadtrip
 tags:
 - oregon
 - oregon coast
