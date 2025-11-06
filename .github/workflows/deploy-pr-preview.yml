@@ -51,8 +51,9 @@ jobs:
 
       # Step 4: Build Jekyll site for PR preview
       # Uses a baseurl that includes the PR number for proper asset paths
+      # For GitHub Pages project repos, the baseurl is /<repo-name>/pr-<number>
       - name: Build Jekyll site with PR-specific baseurl
-        run: bundle exec jekyll build --baseurl "/blog/pr-${{ github.event.pull_request.number }}"
+        run: bundle exec jekyll build --baseurl "/${{ github.event.repository.name }}/pr-${{ github.event.pull_request.number }}"
         env:
           JEKYLL_ENV: production
 
