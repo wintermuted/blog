@@ -89,5 +89,8 @@ jobs:
           # Optional: Add CNAME file if using custom domain
           # cname: yourdomain.com
           
+          # Keep existing files to preserve PR preview directories
+          keep_files: true
+          
           # Use orphan commits to keep gh-pages branch lightweight (no history)
           force_orphan: true

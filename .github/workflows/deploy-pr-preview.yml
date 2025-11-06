@@ -1,0 +1,108 @@
+name: Deploy PR Preview
+
+# This workflow deploys pull requests to a nested folder on gh-pages for testing.
+# Each PR gets its own preview URL at: https://<owner>.github.io/<repo>/pr-<number>/
+# The preview is automatically cleaned up when the PR is closed.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# Required permissions to deploy and comment on PRs
+permissions:
+  contents: write  # To push to gh-pages
+  pull-requests: write  # To comment on PR
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the PR branch
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Step 2: Set up Ruby environment
+      # Installs Ruby and sets up bundler with automatic gem caching
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      # Step 3: Install system dependencies required by jekyll_picture_tag
+      # The jekyll_picture_tag plugin requires libvips and related libraries for image processing
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libvips-tools \
+            libvips-dev \
+            liblcms2-dev \
+            libopenjp2-7-dev \
+            libpng-dev \
+            libwebp-dev \
+            libheif-dev \
+            imagemagick \
+            libjxl-dev \
+            libpoppler-glib-dev
+
+      # Step 4: Build Jekyll site for PR preview
+      # Uses a baseurl that includes the PR number for proper asset paths
+      - name: Build Jekyll site with PR-specific baseurl
+        run: bundle exec jekyll build --baseurl "/blog/pr-${{ github.event.pull_request.number }}"
+        env:
+          JEKYLL_ENV: production
+
+      # Step 5: Deploy to nested directory on gh-pages
+      # Each PR gets deployed to pr-<number>/ directory
+      - name: Deploy PR preview to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          keep_files: true  # Don't delete other PR previews or main site
+
+      # Step 6: Comment on PR with preview URL
+      # Creates or updates a comment with the preview link
+      - name: Comment on PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            const previewUrl = `https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-${prNumber}/`;
+            
+            const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\nThis preview will be automatically cleaned up when the PR is closed.`;
+            
+            // Find existing bot comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview deployment ready!')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: body
+              });
+            }
