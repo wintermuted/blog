@@ -37,15 +37,16 @@ jobs:
           fetch-depth: 0  # Fetch all history for proper git operations
 
       # Step 2: Set up Ruby environment
-      # Installs the Ruby version specified in .ruby-version or uses a default
+      # Installs Ruby and sets up bundler with automatic gem caching
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'  # Specify Ruby version
+          ruby-version: '3.2'  # Specify Ruby version (no .ruby-version file in repo)
           bundler-cache: true  # Automatically runs 'bundle install' and caches gems
 
       # Step 3: Install system dependencies required by jekyll_picture_tag
       # The jekyll_picture_tag plugin requires libvips and related libraries for image processing
+      # These are Ubuntu/Debian package names (the existing workflow uses Arch Linux/pacman)
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -88,5 +89,5 @@ jobs:
           # Optional: Add CNAME file if using custom domain
           # cname: yourdomain.com
           
-          # Keep the full git history on gh-pages branch
-          force_orphan: false
+          # Use orphan commits to keep gh-pages branch lightweight (no history)
+          force_orphan: true
