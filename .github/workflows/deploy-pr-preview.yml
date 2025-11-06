@@ -73,7 +73,7 @@ jobs:
         with:
           script: |
             const prNumber = context.issue.number;
-            const previewUrl = `https://wintermuted.github.io/blog/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/pr-${prNumber}/`;
             
             const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\nThis preview will be automatically cleaned up when the PR is closed.`;
             
