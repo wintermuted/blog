@@ -1,0 +1,98 @@
+name: Deploy Jekyll site to GitHub Pages
+
+# This workflow builds a Jekyll site with all required gems and plugins,
+# then deploys the generated static site to the gh-pages branch.
+# This works around GitHub Pages limitations by building with custom plugins
+# and serving the pre-built static content from gh-pages.
+
+on:
+  push:
+    branches:
+      - master  # Only trigger on pushes to master branch, not for every branch
+    # Optionally, you can also add other branches like 'main' if needed:
+    # - main
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write  # Required to push to gh-pages branch
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the repository
+      # This fetches the source code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper git operations
+
+      # Step 2: Set up Ruby environment
+      # Installs the Ruby version specified in .ruby-version or uses a default
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'  # Specify Ruby version
+          bundler-cache: true  # Automatically runs 'bundle install' and caches gems
+
+      # Step 3: Install system dependencies required by jekyll_picture_tag
+      # The jekyll_picture_tag plugin requires libvips and related libraries for image processing
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libvips-tools \
+            libvips-dev \
+            liblcms2-dev \
+            libopenjp2-7-dev \
+            libpng-dev \
+            libwebp-dev \
+            libheif-dev \
+            imagemagick \
+            libjxl-dev \
+            libpoppler-glib-dev
+
+      # Step 4: Install Ruby gems
+      # Install all dependencies specified in the Gemfile
+      # (This is typically cached by ruby/setup-ruby with bundler-cache: true)
+      - name: Install gems
+        run: bundle install
+
+      # Step 5: Build the Jekyll site
+      # Generates the static site in the _site directory
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production  # Set environment to production for optimizations
+
+      # Step 6: Deploy to GitHub Pages
+      # Uses peaceiris/actions-gh-pages to push the _site directory to gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # Use the built-in GITHUB_TOKEN for authentication
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Directory containing the built static site
+          publish_dir: ./_site
+          
+          # Branch to deploy to (GitHub Pages will serve from this branch)
+          publish_branch: gh-pages
+          
+          # Commit message for the deployment
+          commit_message: 'Deploy Jekyll site'
+          
+          # Optional: Add CNAME file if using custom domain
+          # cname: yourdomain.com
+          
+          # Keep the full git history on gh-pages branch
+          force_orphan: false
