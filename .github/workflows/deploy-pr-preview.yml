@@ -51,11 +51,11 @@ jobs:
 
       # Step 4: Build Jekyll site for PR preview
       # Uses a baseurl that includes the PR number for proper asset paths
-      # PR previews are served at https://wintermuted.github.io/blog/pr-<number>/
-      # The main site uses a custom domain (jnyeholt.dev) and has no baseurl,
-      # but PR previews use the default GitHub Pages URL which includes /blog/
+      # If main site uses custom domain, PR previews are at https://customdomain/pr-<number>/
+      # If no custom domain, PR previews are at https://<owner>.github.io/<repo>/pr-<number>/
+      # Since this site uses jnyeholt.dev custom domain, baseurl should be /pr-<number>
       - name: Build Jekyll site with PR-specific baseurl
-        run: bundle exec jekyll build --baseurl "/${{ github.event.repository.name }}/pr-${{ github.event.pull_request.number }}"
+        run: bundle exec jekyll build --baseurl "/pr-${{ github.event.pull_request.number }}"
         env:
           JEKYLL_ENV: production
 
@@ -71,12 +71,14 @@ jobs:
 
       # Step 6: Comment on PR with preview URL
       # Creates or updates a comment with the preview link
+      # PR previews are accessible via the custom domain
       - name: Comment on PR with preview URL
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.issue.number;
-            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/pr-${prNumber}/`;
+            // Use custom domain for PR previews since main site has CNAME
+            const previewUrl = `https://jnyeholt.dev/pr-${prNumber}/`;
             
             const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\nThis preview will be automatically cleaned up when the PR is closed.`;
             
