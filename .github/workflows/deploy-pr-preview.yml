@@ -51,7 +51,9 @@ jobs:
 
       # Step 4: Build Jekyll site for PR preview
       # Uses a baseurl that includes the PR number for proper asset paths
-      # For GitHub Pages project repos, the baseurl is /<repo-name>/pr-<number>
+      # PR previews are served at https://wintermuted.github.io/blog/pr-<number>/
+      # The main site uses a custom domain (jnyeholt.dev) and has no baseurl,
+      # but PR previews use the default GitHub Pages URL which includes /blog/
       - name: Build Jekyll site with PR-specific baseurl
         run: bundle exec jekyll build --baseurl "/${{ github.event.repository.name }}/pr-${{ github.event.pull_request.number }}"
         env:

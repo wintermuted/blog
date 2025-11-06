@@ -64,6 +64,7 @@ jobs:
 
       # Step 4: Build the Jekyll site
       # Generates the static site in the _site directory
+      # No baseurl override needed - site uses custom domain (jnyeholt.dev) served from root
       - name: Build Jekyll site
         run: bundle exec jekyll build
         env:
