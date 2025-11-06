@@ -76,11 +76,11 @@ jobs:
         with:
           script: |
             const prNumber = context.issue.number;
-            // Use custom domain for PR previews since main site has CNAME  
-            // Note: Use without 'www' subdomain
-            const previewUrl = `https://jnyeholt.dev/pr-${prNumber}/`;
+            // Use custom domain for PR previews with www subdomain
+            // The domain redirects non-www to www, so we need to use www
+            const previewUrl = `https://www.jnyeholt.dev/pr-${prNumber}/`;
             
-            const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\n**Note:** Use the URL without \`www.\` prefix. If you get a 404, ensure you're not accessing \`www.jnyeholt.dev\`.\n\nThis preview will be automatically cleaned up when the PR is closed.`;
+            const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\nThis preview will be automatically cleaned up when the PR is closed.`;
             
             // Find existing bot comment
             const { data: comments } = await github.rest.issues.listComments({
