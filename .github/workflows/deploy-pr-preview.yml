@@ -32,7 +32,18 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
-      # Step 3: Install system dependencies required by jekyll_picture_tag
+      # Step 3: Cache generated images
+      # Jekyll Picture Tag generates optimized images in the 'generated/' directory
+      # Cache this directory to avoid regenerating images on every build
+      - name: Cache generated images
+        uses: actions/cache@v4
+        with:
+          path: generated/
+          key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-generated-images-
+
+      # Step 4: Install system dependencies required by jekyll_picture_tag
       # The jekyll_picture_tag plugin requires libvips and related libraries for image processing
       - name: Install system dependencies
         run: |
@@ -49,7 +60,7 @@ jobs:
             libjxl-dev \
             libpoppler-glib-dev
 
-      # Step 4: Build Jekyll site for PR preview
+      # Step 5: Build Jekyll site for PR preview
       # Uses a baseurl that includes the PR number for proper asset paths
       # PR previews are served at https://jnyeholt.dev/pr-<number>/
       # Build with baseurl so internal links work correctly
@@ -58,7 +69,7 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      # Step 5: Deploy to nested directory on gh-pages
+      # Step 6: Deploy to nested directory on gh-pages
       # Each PR gets deployed to pr-<number>/ directory
       - name: Deploy PR preview to gh-pages
         uses: peaceiris/actions-gh-pages@v4
@@ -68,7 +79,7 @@ jobs:
           destination_dir: pr-${{ github.event.pull_request.number }}
           keep_files: true  # Don't delete other PR previews or main site
 
-      # Step 6: Comment on PR with preview URL
+      # Step 7: Comment on PR with preview URL
       # Creates or updates a comment with the preview link
       # PR previews are accessible via the custom domain
       - name: Comment on PR with preview URL

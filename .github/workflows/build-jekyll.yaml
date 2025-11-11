@@ -21,6 +21,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cache-
 
+      # Cache generated images from Jekyll Picture Tag
+      - name: Cache generated images
+        uses: actions/cache@v4
+        with:
+          path: generated/
+          key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-generated-images-
+
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.6.0
         with:
