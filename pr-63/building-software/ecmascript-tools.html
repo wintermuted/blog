@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ECMAScript</title>
+  <meta name="description" content="ToolsLanguage supersets  Typescript - An open-source language that builds upon Javascript and adds static type definitions.General purpose / utility  lodash ...">
+
+  <!-- JS -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'imageFadeDuration': 200,
+      'fadeDuration': 200,
+      'wrapAround': true
+    })
+  </script>
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/pr-63/css/styles.css">
+
+  <link rel="canonical" href="/pr-63/building-software/ecmascript-tools">
+
+  <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/pr-63/feed.xml">
+</head>
+
+    <body>
+        
+
+<!-- Current: building-softwareecmascript-tools
+Current 1: building-software -->
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-md sticky-top bg-light">
+            <a class="navbar-brand" href="/pr-63/">
+                <img src="/pr-63/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
+                jnyeholt
+            </a>
+            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto">
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pr-63/about">About</a>
+                        </li>
+                    
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pr-63/weblog">Weblog</a>
+                        </li>
+                    
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pr-63/projects">Projects</a>
+                        </li>
+                    
+                    <!-- 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pr-63/wiki">Wiki</a>
+                        </li>
+                     -->
+                    <!-- 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pr-63/wiki/links">Links</a>
+                        </li>
+                     -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pr-63/resume" target="_blank">CV</a>
+                    </li>
+                    
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <!-- <span>LinkedIN</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/wintermuted" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <!-- <span>Github</span> -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        <br/>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <header class="post-header">
+        <!-- <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/pr-63/wiki">Wiki</a></li>
+            <li class="breadcrumb-item"><a href="/pr-63/wiki/software-engineering/">Software Engineering</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ECMAScript</li>
+          </ol>
+        </nav> -->
+        <h1 class="post-title">ECMAScript</h1>
+      </header>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-9">
+      <article class="body-content post">
+        <div class="article-content">
+          <h2 id="tools">Tools</h2>
+
+<p><strong>Language supersets</strong></p>
+<ul>
+  <li><a href="https://www.typescriptlang.org">Typescript</a> - An open-source language that builds upon Javascript and adds static type definitions.</li>
+</ul>
+
+<p><strong>General purpose / utility</strong></p>
+
+<ul>
+  <li><a href="https://lodash.com">lodash</a> - A Javascript utility library for functional programming.</li>
+  <li><a href="https://momentjs.com">moment</a> - Parse, validate, manipulate, and display dates and times in JavaScript.</li>
+</ul>
+
+<p><strong>Testing</strong></p>
+
+<ul>
+  <li><a href="https://jestjs.io">jest</a> - JavaScript testing framework
+    <ul>
+      <li><a href="">enzyme</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>User Interface Development</strong></p>
+
+<ul>
+  <li><a href="https://reactjs.org">react</a> - An open-source library for building user interfaces and UI components</li>
+  <li><a href="https://getbootstrap.com">Bootstrap</a> - An open-source framework CSS framework.
+    <ul>
+      <li><a href="https://react-bootstrap.github.io">React Bootstrap</a> - Bootstrap CSS implemented as React components.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>API Frameworks</strong></p>
+<ul>
+  <li><a href="https://hapi.dev">Hapi</a></li>
+</ul>
+
+<p><strong>Tooling</strong></p>
+
+<ul>
+  <li><a href="">lerna</a> - A tool for maintaining multiple NPM packages in the same repository.</li>
+  <li><a href="">husky</a></li>
+  <li><a href="">webpack</a></li>
+  <li><a href="">babel</a></li>
+  <li><a href="https://eslint.org">eslint</a></li>
+  <li><a href="https://prettier.io">prettier</a></li>
+</ul>
+
+<h2 id="books">Books</h2>
+
+<ul>
+  <li><a href="https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742">Javascript: The Good Parts</a> - Douglas Crockford</li>
+</ul>
+
+        </div>
+      </article>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      
+<aside class="sidebar">
+    <h4>Topic: programming</h4>
+
+    
+    <ul class="list-unstyled">
+        
+            <li>
+                <i class="fas fa-book"></i>
+                <a href="/pr-63/building-software/ecmascript-tools">ECMAScript</a>
+            </li>
+        
+            <li>
+                <i class="fas fa-book"></i>
+                <a href="/pr-63/software_development/functional-programming">Functional Programming</a>
+            </li>
+        
+            <li>
+                <i class="fas fa-book"></i>
+                <a href="/pr-63/software_development/refactoring">Refactoring</a>
+            </li>
+        
+    </ul>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+        <footer>
+  <div class="container global-footer">
+    <nav class="navbar navbar-light bg-light">
+      <span class="text-muted">
+        <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
+      </span>
+      <ul class="navbar-nav">
+        <li class="nav-item custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+          <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script src="/pr-63/js/dark-mode.js"></script>
+</footer>
+    </body>
+</html>
