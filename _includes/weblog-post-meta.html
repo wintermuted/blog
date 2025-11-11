@@ -15,7 +15,7 @@
   <div class="post_title">
       <span>
         <i class="fas fa-tag"></i>
-        <a href="/tag/{{ tag | slugify }}">
+        <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}">
               {{ tag | replace:'-', ' ' }}
           </a>
       </span>

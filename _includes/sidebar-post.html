@@ -19,7 +19,7 @@
         {% if page.author %}
         <small class="text-muted">
             <i class="fas fa-user-alt"></i>
-            <a href="/about">
+            <a href="{{ site.baseurl }}/about">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                     <span itemprop="name">{{ page.author }}</span>
                 </span>
@@ -49,7 +49,7 @@
             <li>
                 <small class="text-muted">
                     <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/{{ tag | slugify }}">
+                    <a href="{{ site.baseurl }}/weblog/tag/{{ tag | slugify }}">
                         {{ tag | replace:'-', ' ' }}
                     </a>
                 </small>

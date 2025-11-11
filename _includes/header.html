@@ -6,8 +6,8 @@ Current 1: {{current[1]}} -->
 <header>
     <div class="container">
         <nav class="navbar navbar-expand-md sticky-top bg-light">
-            <a class="navbar-brand" href="/">
-                <img src="/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
+            <a class="navbar-brand" href="{{ site.baseurl }}/">
+                <img src="{{ site.baseurl }}/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
                 jnyeholt
             </a>
             <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
@@ -20,51 +20,51 @@ Current 1: {{current[1]}} -->
                 <ul class="navbar-nav mr-auto">
                     {% if current[1] == 'about' %}
                         <li class="nav-item active">
-                            <a class="nav-link active" href="/about">About</a>
+                            <a class="nav-link active" href="{{ site.baseurl }}/about">About</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
+                            <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
                         </li>
                     {% endif %}
                     {% if current[1] == 'weblog' %}
                         <li class="nav-item active">
-                            <a class="nav-link active" href="/weblog">Weblog</a>
+                            <a class="nav-link active" href="{{ site.baseurl }}/weblog">Weblog</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/weblog">Weblog</a>
+                            <a class="nav-link" href="{{ site.baseurl }}/weblog">Weblog</a>
                         </li>
                     {% endif %}
                     {% if current[1] == "projects" %}
                     <li class="nav-item active">
-                        <a class="nav-link active" href="/projects">Projects</a>
+                        <a class="nav-link" href="{{ site.baseurl }}/projects">Projects</a>
                     </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/projects">Projects</a>
+                            <a class="nav-link" href="{{ site.baseurl }}/projects">Projects</a>
                         </li>
                     {% endif %}
                     <!-- {% if current[1] == 'wiki' %}
                         <li class="nav-item active">
-                            <a class="nav-link active" href="/wiki">Wiki</a>
+                            <a class="nav-link active" href="{{ site.baseurl }}/wiki">Wiki</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/wiki">Wiki</a>
+                            <a class="nav-link" href="{{ site.baseurl }}/wiki">Wiki</a>
                         </li>
                     {% endif %} -->
                     <!-- {% if current[1] == 'wiki/links' %}
                         <li class="nav-item active">
-                            <a class="nav-link active" href="/wiki/links">Links</a>
+                            <a class="nav-link active" href="{{ site.baseurl }}/wiki/links">Links</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/wiki/links">Links</a>
+                            <a class="nav-link" href="{{ site.baseurl }}/wiki/links">Links</a>
                         </li>
                     {% endif %} -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/resume" target="_blank">CV</a>
+                        <a class="nav-link" href="{{ site.baseurl }}/resume" target="_blank">CV</a>
                     </li>
                     
                 </ul>
