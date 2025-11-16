@@ -87,8 +87,8 @@ jobs:
           # Commit message for the deployment
           commit_message: 'Deploy Jekyll site'
           
-          # Optional: Add CNAME file if using custom domain
-          # cname: yourdomain.com
+          # Add CNAME file for custom domain
+          cname: jnyeholt.dev
           
           # Keep existing files to preserve PR preview directories
           keep_files: true

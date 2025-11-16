@@ -15,8 +15,8 @@ Builds and deploys the Jekyll site to GitHub Pages (gh-pages branch) when change
 Creates preview deployments for pull requests, allowing reviewers to see changes before merging.
 
 - **Trigger**: Pull request opened, synchronized, or reopened
-- **Target**: `pr-preview/pr-<number>/` on gh-pages branch
-- **URL**: `https://wintermuted.github.io/blog/pr-preview/pr-<number>/`
+- **Target**: `pr-<number>/` on gh-pages branch
+- **URL**: `https://jnyeholt.dev/pr-<number>/` or `https://www.jnyeholt.dev/pr-<number>/`
 - **Features**:
   - Automatically builds the site with PR-specific baseurl
   - Posts a comment on the PR with the preview URL
@@ -27,7 +27,7 @@ Creates preview deployments for pull requests, allowing reviewers to see changes
 Removes PR preview deployments when pull requests are closed.
 
 - **Trigger**: Pull request closed (merged or unmerged)
-- **Action**: Removes `pr-preview/pr-<number>/` directory from gh-pages
+- **Action**: Removes `pr-<number>/` directory from gh-pages
 - **Features**:
   - Posts a confirmation comment on the PR
   - Only removes the specific PR's preview, not others
@@ -42,7 +42,7 @@ When you open a pull request:
 5. When you push updates, the preview is automatically updated
 6. When the PR is closed, the preview is automatically cleaned up
 
-Preview URLs follow the pattern: `https://wintermuted.github.io/blog/pr-preview/pr-<number>/`
+Preview URLs follow the pattern: `https://jnyeholt.dev/pr-<number>/` (custom domain)
 
 ## Requirements
 
