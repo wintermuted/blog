@@ -67,6 +67,7 @@ jobs:
           publish_dir: ./_site
           destination_dir: pr-${{ github.event.pull_request.number }}
           keep_files: true  # Don't delete other PR previews or main site
+          cname: jnyeholt.dev  # Maintain custom domain configuration
 
       # Step 6: Comment on PR with preview URL
       # Creates or updates a comment with the preview link
