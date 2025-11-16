@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SOLID software design principles</title>
+  <meta name="description" content="SOLIDSingle-responsibility principleA class should only have a single responsibility, that is, only changes to one part of the software’s specification shoul...">
+
+  <!-- JS -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'imageFadeDuration': 200,
+      'fadeDuration': 200,
+      'wrapAround': true
+    })
+  </script>
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/blog/pr-preview/pr-71/css/styles.css">
+
+  <link rel="canonical" href="/blog/pr-preview/pr-71/building-software/architecture">
+
+  <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/blog/pr-preview/pr-71/feed.xml">
+</head>
+
+    <body>
+        
+
+<!-- Current: building-softwarearchitecture
+Current 1: building-software -->
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-md sticky-top bg-light">
+            <a class="navbar-brand" href="/blog/pr-preview/pr-71/">
+                <img src="/blog/pr-preview/pr-71/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
+                jnyeholt
+            </a>
+            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto">
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/pr-preview/pr-71/about">About</a>
+                        </li>
+                    
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/pr-preview/pr-71/weblog">Weblog</a>
+                        </li>
+                    
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/pr-preview/pr-71/projects">Projects</a>
+                        </li>
+                    
+                    <!-- 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/pr-preview/pr-71/wiki">Wiki</a>
+                        </li>
+                     -->
+                    <!-- 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/pr-preview/pr-71/wiki/links">Links</a>
+                        </li>
+                     -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog/pr-preview/pr-71/resume" target="_blank">CV</a>
+                    </li>
+                    
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <!-- <span>LinkedIN</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/wintermuted" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <!-- <span>Github</span> -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        <br/>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <header class="post-header">
+        <!-- <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/pr-preview/pr-71/wiki">Wiki</a></li>
+            <li class="breadcrumb-item"><a href="/blog/pr-preview/pr-71/wiki/software-engineering/">Software Engineering</a></li>
+            <li class="breadcrumb-item active" aria-current="page">SOLID software design principles</li>
+          </ol>
+        </nav> -->
+        <h1 class="post-title">SOLID software design principles</h1>
+      </header>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-9">
+      <article class="body-content post">
+        <div class="article-content">
+          <h2 id="solid">SOLID</h2>
+
+<h3 id="single-responsibility-principle">Single-responsibility principle</h3>
+
+<p>A class should only have a single responsibility, that is, only changes to one part of the software’s specification should be able to affect the specification of the class.</p>
+
+<h3 id="openclosed-principle">Open–closed principle</h3>
+<p>“Software entities … should be open for extension, but closed for modification.”</p>
+
+<h3 id="liskov-substitution-principle">Liskov substitution principle</h3>
+<p>“Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.” See also design by contract.</p>
+
+<h3 id="interface-segregation-principle">Interface segregation principle</h3>
+<p>“Many client-specific interfaces are better than one general-purpose interface.”</p>
+
+<h3 id="dependency-inversion-principle">Dependency inversion principle</h3>
+
+<p>“One should “depend upon abstractions, [not] concretions.”</p>
+<h2 id="books">Books</h2>
+
+<ul>
+  <li><a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns: Elements of Reusable Object-Oriented Software</a> - Erich Gamma, Richard Helm, Ralph Jonson, John Vlissides</li>
+</ul>
+
+        </div>
+      </article>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      
+<aside class="sidebar">
+    <h4>Topic: software design</h4>
+
+    
+    <ul class="list-unstyled">
+        
+            <li>
+                <i class="fas fa-book"></i>
+                <a href="/blog/pr-preview/pr-71/building-software/architecture">SOLID software design principles</a>
+            </li>
+        
+    </ul>
+</aside>
+
+    </div>
+  </div>
+</div>
+
+        <footer>
+  <div class="container global-footer">
+    <nav class="navbar navbar-light bg-light">
+      <span class="text-muted">
+        <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
+      </span>
+      <ul class="navbar-nav">
+        <li class="nav-item custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+          <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script src="/blog/pr-preview/pr-71/js/dark-mode.js"></script>
+</footer>
+    </body>
+</html>
