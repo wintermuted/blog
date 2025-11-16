@@ -1,7 +1,7 @@
 name: Deploy PR Preview
 
 # This workflow deploys pull requests to a nested folder on gh-pages for testing.
-# Each PR gets its own preview URL at: https://<owner>.github.io/<repo>/pr-<number>/
+# Each PR gets its own preview URL at: https://<owner>.github.io/<repo>/pr-preview/pr-<number>/
 # The preview is automatically cleaned up when the PR is closed.
 
 on:
