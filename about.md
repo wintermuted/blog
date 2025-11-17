@@ -1,7 +1,7 @@
 ---
 layout: page-about
 title: About
-permalink: /about
+permalink: /about/
 --- 
 
 <p class="lead">
