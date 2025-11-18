@@ -13,6 +13,11 @@ permissions:
   contents: write  # To push to gh-pages
   pull-requests: write  # To comment on PR
 
+# Prevent concurrent deployments to gh-pages to avoid push conflicts
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
