@@ -1,15 +1,14 @@
 name: Cleanup PR Preview
 
-# This workflow cleans up PR preview deployments from gh-pages when a PR is closed.
-# It removes the pr-<number>/ directory and posts a cleanup confirmation comment.
+# This workflow cleans up PR preview deployments from Surge.sh when a PR is closed.
+# It tears down the Surge.sh deployment and posts a cleanup confirmation comment.
 
 on:
   pull_request:
     types: [closed]
 
-# Required permissions to modify gh-pages and comment on PRs
+# Required permissions to comment on PRs
 permissions:
-  contents: write  # To modify gh-pages branch
   pull-requests: write  # To comment on PR
 
 jobs:
@@ -17,27 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Step 1: Checkout gh-pages branch
-      # We need to checkout gh-pages to remove the PR preview directory
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
+      # Step 1: Install Surge CLI
+      - name: Install Surge
+        run: npm install -g surge
 
-      # Step 2: Remove the PR preview directory
-      # Deletes the pr-<number>/ folder if it exists
-      - name: Remove PR preview directory
+      # Step 2: Remove the PR preview from Surge.sh
+      # Tears down the Surge deployment for this PR
+      - name: Teardown Surge deployment
         run: |
-          if [ -d "pr-${{ github.event.pull_request.number }}" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git rm -rf pr-${{ github.event.pull_request.number }}
-            git commit -m "Clean up preview for PR #${{ github.event.pull_request.number }}"
-            git push
-            echo "✓ Preview cleaned up successfully"
-          else
-            echo "ℹ No preview directory found for PR #${{ github.event.pull_request.number }}"
-          fi
+          surge teardown https://blog-pr-${{ github.event.pull_request.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }} || echo "Preview may have already been removed"
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       # Step 3: Comment on PR to confirm cleanup
       # Posts a comment indicating the preview has been removed
