@@ -1,7 +1,7 @@
 name: Cleanup PR Preview
 
-# This workflow cleans up PR preview deployments from Surge.sh when a PR is closed.
-# It tears down the Surge.sh deployment and posts a cleanup confirmation comment.
+# Netlify automatically removes deploy previews when PRs are closed.
+# This workflow just posts a confirmation comment for visibility.
 
 on:
   pull_request:
@@ -16,26 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Step 1: Install Surge CLI
-      - name: Install Surge
-        run: npm install -g surge
-
-      # Step 2: Remove the PR preview from Surge.sh
-      # Tears down the Surge deployment for this PR
-      - name: Teardown Surge deployment
-        run: |
-          surge teardown https://blog-pr-${{ github.event.pull_request.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }} || echo "Preview may have already been removed"
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-
-      # Step 3: Comment on PR to confirm cleanup
-      # Posts a comment indicating the preview has been removed
+      # Comment on PR to confirm cleanup
+      # Netlify handles the actual cleanup automatically
       - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.issue.number;
-            const body = `🧹 Preview deployment has been cleaned up.`;
+            const body = `🧹 Preview deployment has been automatically cleaned up by Netlify.`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
