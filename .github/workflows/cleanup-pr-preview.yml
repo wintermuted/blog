@@ -1,14 +1,14 @@
 name: Cleanup PR Preview
 
-# Removes PR preview from gh-pages when PRs are closed
+# Netlify automatically removes deploy previews when PRs are closed.
+# This workflow just posts a confirmation comment for visibility.
 
 on:
   pull_request:
     types: [closed]
 
-# Required permissions
+# Required permissions to comment on PRs
 permissions:
-  contents: write  # To modify gh-pages
   pull-requests: write  # To comment on PR
 
 jobs:
@@ -16,36 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Step 1: Checkout gh-pages branch
-      - name: Checkout gh-pages
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-
-      # Step 2: Remove PR preview directory
-      - name: Remove PR preview directory
-        run: |
-          if [ -d "pr-${{ github.event.pull_request.number }}" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git rm -rf pr-${{ github.event.pull_request.number }}
-            git commit -m "Clean up preview for PR #${{ github.event.pull_request.number }}"
-            git push
-            echo "CLEANED=true" >> $GITHUB_ENV
-          else
-            echo "CLEANED=false" >> $GITHUB_ENV
-          fi
-
-      # Step 3: Comment on PR
+      # Comment on PR to confirm cleanup
+      # Netlify handles the actual cleanup automatically
       - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.issue.number;
-            const cleaned = process.env.CLEANED === 'true';
-            const body = cleaned 
-              ? `🧹 Preview deployment has been cleaned up from GitHub Pages.`
-              : `ℹ️ No preview deployment found to clean up.`;
+            const body = `🧹 Preview deployment has been automatically cleaned up by Netlify.`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
