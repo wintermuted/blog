@@ -27,6 +27,10 @@ jobs:
             exit 1
           fi
           echo "✓ Netlify secrets are configured"
+          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+          echo "Site ID starts with: ${NETLIFY_SITE_ID:0:8}..."
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       
       # Step 1: Checkout the PR branch
       - name: Checkout PR branch
@@ -78,6 +82,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from PR #${{ github.event.pull_request.number }}"
           alias: pr-${{ github.event.pull_request.number }}
+          netlify-config-path: ./netlify.toml
+          enable-pull-request-comment: false
+          enable-commit-comment: false
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -136,20 +143,29 @@ jobs:
             let body = `❌ **Preview deployment failed!**\n\n`;
             
             // Check if it's a secrets issue
-            const needsSecrets = !process.env.NETLIFY_AUTH_TOKEN || !process.env.NETLIFY_SITE_ID;
+            const hasAuthToken = !!process.env.NETLIFY_AUTH_TOKEN;
+            const hasSiteId = !!process.env.NETLIFY_SITE_ID;
             
-            if (needsSecrets) {
-              body += `**Issue**: Netlify secrets are not configured.\n\n`;
-              body += `**To fix**:\n`;
+            if (!hasAuthToken || !hasSiteId) {
+              body += `**Issue**: Netlify secrets are missing.\n\n`;
+              if (!hasAuthToken) body += `- Missing: \`NETLIFY_AUTH_TOKEN\`\n`;
+              if (!hasSiteId) body += `- Missing: \`NETLIFY_SITE_ID\`\n`;
+              body += `\n**To fix**:\n`;
               body += `1. Go to [Netlify](https://app.netlify.com/) and create a site\n`;
-              body += `2. Get your Site ID from Site settings\n`;
-              body += `3. Generate a Personal Access Token\n`;
-              body += `4. Add secrets to repository:\n`;
-              body += `   - \`NETLIFY_AUTH_TOKEN\`: your token\n`;
-              body += `   - \`NETLIFY_SITE_ID\`: your site ID\n\n`;
+              body += `2. Get your Site ID from Site settings > General > Site information\n`;
+              body += `3. Generate a Personal Access Token in User settings > Applications\n`;
+              body += `4. Add secrets to repository (Settings > Secrets and variables > Actions)\n\n`;
               body += `See [setup instructions](.github/workflows/README.md) for details.`;
             } else {
-              body += `Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.`;
+              body += `**Common issues**:\n\n`;
+              body += `1. **Site not found**: Verify your \`NETLIFY_SITE_ID\` is correct\n`;
+              body += `   - Go to Netlify Site settings > General > Site information\n`;
+              body += `   - Copy the exact Site ID (looks like: \`abc12345-6789-...\`)\n\n`;
+              body += `2. **Invalid token**: Verify your \`NETLIFY_AUTH_TOKEN\` is valid\n`;
+              body += `   - Generate a new token in User settings > Applications\n`;
+              body += `   - Make sure it's a Personal Access Token, not a Deploy Key\n\n`;
+              body += `3. **Permissions**: Ensure the token has permission to deploy\n\n`;
+              body += `Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.`;
             }
             
             await github.rest.issues.createComment({
