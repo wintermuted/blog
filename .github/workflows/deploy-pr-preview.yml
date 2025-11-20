@@ -1,16 +1,15 @@
 name: Deploy PR Preview
 
-# This workflow deploys pull requests to a nested folder on gh-pages for testing.
-# Each PR gets its own preview URL at: https://<owner>.github.io/<repo>/pr-<number>/
-# The preview is automatically cleaned up when the PR is closed.
+# This workflow deploys PR previews to Netlify to avoid conflicts with the main site.
+# Each PR gets its own preview URL on Netlify with automatic cleanup.
+# Netlify is widely adopted, actively maintained, and has excellent preview support.
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-# Required permissions to deploy and comment on PRs
+# Required permissions to comment on PRs
 permissions:
-  contents: write  # To push to gh-pages
   pull-requests: write  # To comment on PR
 
 jobs:
@@ -18,6 +17,21 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      # Step 0: Check if Netlify secrets are configured
+      - name: Check Netlify secrets
+        run: |
+          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ] || [ -z "${{ secrets.NETLIFY_SITE_ID }}" ]; then
+            echo "::error::Netlify secrets are not configured!"
+            echo "::error::Please add NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID to repository secrets."
+            echo "::error::See .github/workflows/README.md for setup instructions."
+            exit 1
+          fi
+          echo "✓ Netlify secrets are configured"
+          echo "Site ID length: ${#NETLIFY_SITE_ID}"
+          echo "Site ID starts with: ${NETLIFY_SITE_ID:0:8}..."
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      
       # Step 1: Checkout the PR branch
       - name: Checkout PR branch
         uses: actions/checkout@v4
@@ -50,37 +64,51 @@ jobs:
             libpoppler-glib-dev
 
       # Step 4: Build Jekyll site for PR preview
-      # Uses a baseurl that includes the PR number for proper asset paths
-      # PR previews are served at https://jnyeholt.dev/pr-<number>/
-      # Build with baseurl so internal links work correctly
-      - name: Build Jekyll site with PR-specific baseurl
-        run: bundle exec jekyll build --baseurl "/pr-${{ github.event.pull_request.number }}"
+      # Build without baseurl since Netlify serves from root
+      - name: Build Jekyll site for PR preview
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      # Step 5: Deploy to nested directory on gh-pages
-      # Each PR gets deployed to pr-<number>/ directory
-      - name: Deploy PR preview to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Step 5: Deploy to Netlify
+      # Uses the official Netlify CLI to deploy
+      # Each PR gets a unique deploy preview URL
+      - name: Deploy to Netlify
+        id: netlify
+        uses: nwtgck/actions-netlify@v3.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          destination_dir: pr-${{ github.event.pull_request.number }}
-          keep_files: true  # Don't delete other PR previews or main site
+          publish-dir: './_site'
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from PR #${{ github.event.pull_request.number }}"
+          alias: pr-${{ github.event.pull_request.number }}
+          netlify-config-path: ./netlify.toml
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5
 
       # Step 6: Comment on PR with preview URL
       # Creates or updates a comment with the preview link
-      # PR previews are accessible via the custom domain
       - name: Comment on PR with preview URL
+        if: steps.netlify.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.issue.number;
-            // Use custom domain for PR previews with www subdomain
-            // The domain redirects non-www to www, so we need to use www
-            const previewUrl = `https://www.jnyeholt.dev/pr-${prNumber}/`;
+            const deployUrl = `${{ steps.netlify.outputs.deploy-url }}`;
+            const previewUrl = deployUrl || 'URL not available';
             
-            const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\nThis preview will be automatically cleaned up when the PR is closed.`;
+            console.log('Deploy URL from Netlify:', deployUrl);
+            console.log('Preview URL:', previewUrl);
+            
+            if (!deployUrl) {
+              console.log('Warning: Deploy URL is empty!');
+            }
+            
+            const body = `🚀 **Preview deployment ready!**\n\nView your changes at: ${previewUrl}\n\n✨ Powered by Netlify - auto-updates on every commit and auto-deletes when PR is closed.`;
             
             // Find existing bot comment
             const { data: comments } = await github.rest.issues.listComments({
@@ -91,11 +119,12 @@ jobs:
             
             const botComment = comments.find(comment => 
               comment.user.type === 'Bot' && 
-              comment.body.includes('Preview deployment ready!')
+              comment.body.includes('Preview deployment')
             );
             
             if (botComment) {
               // Update existing comment
+              console.log('Updating existing comment:', botComment.id);
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -104,6 +133,7 @@ jobs:
               });
             } else {
               // Create new comment
+              console.log('Creating new comment');
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -111,3 +141,51 @@ jobs:
                 body: body
               });
             }
+            
+            console.log('Comment posted successfully!');
+      
+      # Step 7: Comment on error if deployment failed
+      - name: Comment on deployment failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            
+            let body = `❌ **Preview deployment failed!**\n\n`;
+            
+            // Check if it's a secrets issue
+            const hasAuthToken = !!process.env.NETLIFY_AUTH_TOKEN;
+            const hasSiteId = !!process.env.NETLIFY_SITE_ID;
+            
+            if (!hasAuthToken || !hasSiteId) {
+              body += `**Issue**: Netlify secrets are missing.\n\n`;
+              if (!hasAuthToken) body += `- Missing: \`NETLIFY_AUTH_TOKEN\`\n`;
+              if (!hasSiteId) body += `- Missing: \`NETLIFY_SITE_ID\`\n`;
+              body += `\n**To fix**:\n`;
+              body += `1. Go to [Netlify](https://app.netlify.com/) and create a site\n`;
+              body += `2. Get your Site ID from Site settings > General > Site information\n`;
+              body += `3. Generate a Personal Access Token in User settings > Applications\n`;
+              body += `4. Add secrets to repository (Settings > Secrets and variables > Actions)\n\n`;
+              body += `See [setup instructions](.github/workflows/README.md) for details.`;
+            } else {
+              body += `**Common issues**:\n\n`;
+              body += `1. **Site not found**: Verify your \`NETLIFY_SITE_ID\` is correct\n`;
+              body += `   - Go to Netlify Site settings > General > Site information\n`;
+              body += `   - Copy the exact Site ID (looks like: \`abc12345-6789-...\`)\n\n`;
+              body += `2. **Invalid token**: Verify your \`NETLIFY_AUTH_TOKEN\` is valid\n`;
+              body += `   - Generate a new token in User settings > Applications\n`;
+              body += `   - Make sure it's a Personal Access Token, not a Deploy Key\n\n`;
+              body += `3. **Permissions**: Ensure the token has permission to deploy\n\n`;
+              body += `Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.`;
+            }
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: body
+            });
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

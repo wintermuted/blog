@@ -1,15 +1,14 @@
 name: Cleanup PR Preview
 
-# This workflow cleans up PR preview deployments from gh-pages when a PR is closed.
-# It removes the pr-<number>/ directory and posts a cleanup confirmation comment.
+# Netlify automatically removes deploy previews when PRs are closed.
+# This workflow just posts a confirmation comment for visibility.
 
 on:
   pull_request:
     types: [closed]
 
-# Required permissions to modify gh-pages and comment on PRs
+# Required permissions to comment on PRs
 permissions:
-  contents: write  # To modify gh-pages branch
   pull-requests: write  # To comment on PR
 
 jobs:
@@ -17,36 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Step 1: Checkout gh-pages branch
-      # We need to checkout gh-pages to remove the PR preview directory
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-
-      # Step 2: Remove the PR preview directory
-      # Deletes the pr-<number>/ folder if it exists
-      - name: Remove PR preview directory
-        run: |
-          if [ -d "pr-${{ github.event.pull_request.number }}" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git rm -rf pr-${{ github.event.pull_request.number }}
-            git commit -m "Clean up preview for PR #${{ github.event.pull_request.number }}"
-            git push
-            echo "✓ Preview cleaned up successfully"
-          else
-            echo "ℹ No preview directory found for PR #${{ github.event.pull_request.number }}"
-          fi
-
-      # Step 3: Comment on PR to confirm cleanup
-      # Posts a comment indicating the preview has been removed
+      # Comment on PR to confirm cleanup
+      # Netlify handles the actual cleanup automatically
       - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.issue.number;
-            const body = `🧹 Preview deployment has been cleaned up.`;
+            const body = `🧹 Preview deployment has been automatically cleaned up by Netlify.`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,

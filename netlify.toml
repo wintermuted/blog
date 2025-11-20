@@ -1,0 +1,12 @@
+# Netlify configuration for PR preview deployments
+# This file is only used by PR preview deployments via GitHub Actions
+# The main site continues to deploy to GitHub Pages
+
+[build]
+  # The publish directory is set in the GitHub Actions workflow
+  # This file exists to prevent Netlify from trying to build the site
+  publish = "_site"
+  
+[build.environment]
+  # Environment settings for Netlify
+  NODE_VERSION = "18"
