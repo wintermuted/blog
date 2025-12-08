@@ -44,7 +44,18 @@ jobs:
           ruby-version: '3.2'  # Specify Ruby version (no .ruby-version file in repo)
           bundler-cache: true  # Automatically runs 'bundle install' and caches gems
 
-      # Step 3: Install system dependencies required by jekyll_picture_tag
+      # Step 3: Cache generated images
+      # Jekyll Picture Tag generates optimized images in the 'generated/' directory
+      # Cache this directory to avoid regenerating images on every build
+      - name: Cache generated images
+        uses: actions/cache@v4
+        with:
+          path: generated/
+          key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-generated-images-
+
+      # Step 4: Install system dependencies required by jekyll_picture_tag
       # The jekyll_picture_tag plugin requires libvips and related libraries for image processing
       # These are Ubuntu/Debian package names (the existing workflow uses Arch Linux/pacman)
       - name: Install system dependencies
@@ -62,7 +73,7 @@ jobs:
             libjxl-dev \
             libpoppler-glib-dev
 
-      # Step 4: Build the Jekyll site
+      # Step 5: Build the Jekyll site
       # Generates the static site in the _site directory
       # No baseurl override needed - site uses custom domain (jnyeholt.dev) served from root
       - name: Build Jekyll site
@@ -70,7 +81,7 @@ jobs:
         env:
           JEKYLL_ENV: production  # Set environment to production for optimizations
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       # Uses peaceiris/actions-gh-pages to push the _site directory to gh-pages branch
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

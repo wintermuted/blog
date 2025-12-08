@@ -46,7 +46,18 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
-      # Step 3: Install system dependencies required by jekyll_picture_tag
+      # Step 3: Cache generated images
+      # Jekyll Picture Tag generates optimized images in the 'generated/' directory
+      # Cache this directory to avoid regenerating images on every build
+      - name: Cache generated images
+        uses: actions/cache@v4
+        with:
+          path: generated/
+          key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-generated-images-
+
+      # Step 4: Install system dependencies required by jekyll_picture_tag
       # The jekyll_picture_tag plugin requires libvips and related libraries for image processing
       - name: Install system dependencies
         run: |
@@ -63,14 +74,14 @@ jobs:
             libjxl-dev \
             libpoppler-glib-dev
 
-      # Step 4: Build Jekyll site for PR preview
+      # Step 5: Build Jekyll site for PR preview
       # Build without baseurl since Netlify serves from root
       - name: Build Jekyll site for PR preview
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      # Step 5: Deploy to Netlify
+      # Step 6: Deploy to Netlify
       # Uses the official Netlify CLI to deploy
       # Each PR gets a unique deploy preview URL
       - name: Deploy to Netlify
@@ -90,7 +101,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
-      # Step 6: Comment on PR with preview URL
+      # Step 7: Comment on PR with preview URL
       # Creates or updates a comment with the preview link
       - name: Comment on PR with preview URL
         if: steps.netlify.outcome == 'success'
