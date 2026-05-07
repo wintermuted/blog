@@ -15,7 +15,7 @@
         {% assign last lastPostIndex = site.posts | size | minus: 1 %}
         {% assign next = site.posts[lastPostIndex] %}
     {% endif %}
-    <div class="float-left">
+    <div>
         <a class="equalize" href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
             <small class="text-muted">
                 <span> ← Newer : </span>
@@ -24,8 +24,7 @@
         </a>
     </div>
 
-
-    <div class="float-right">
+    <div>
         <a class="equalize" href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
             <small class="text-muted">
                 <span> {{previous.title}} </span>

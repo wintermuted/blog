@@ -1,0 +1,68 @@
+/* ── Card ─────────────────────────────────────────────────────────────────────
+ * Vendored from @wintermuted/ui-theme v0.18.0
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+.card,
+.wm-card {
+  background: var(--wm-color-surface);
+  border: 1px solid var(--wm-color-border);
+  border-radius: var(--wm-radius-md);
+  box-shadow: var(--wm-shadow-soft);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.card-header,
+.wm-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--wm-color-border);
+}
+
+.card-header h3,
+.card-header h4,
+.wm-card-header h3,
+.wm-card-header h4 {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.card-body,
+.wm-card-body {
+  padding: 1.25rem;
+}
+
+.card-footer,
+.wm-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--wm-color-border);
+  background: var(--wm-color-surface-muted);
+}
+
+.card-accent-info,
+.wm-card-accent-info {
+  border-left: 4px solid var(--wm-color-accent);
+}
+
+.card-accent-success,
+.wm-card-accent-success {
+  border-left: 4px solid var(--wm-color-success);
+}
+
+.card-accent-warning,
+.wm-card-accent-warning {
+  border-left: 4px solid var(--wm-color-warning);
+}
+
+.card-accent-danger,
+.wm-card-accent-danger {
+  border-left: 4px solid var(--wm-color-danger);
+}

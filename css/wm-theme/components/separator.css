@@ -1,0 +1,7 @@
+/* Content separator primitive. Vendored from @wintermuted/ui-theme v0.18.0 */
+
+.wm-separator {
+  border: none;
+  border-top: 1px solid var(--wm-color-border);
+  margin: 1.25rem 0;
+}
