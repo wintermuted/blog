@@ -12,7 +12,7 @@
             As the array index start at zero we substract 1 to the total count,
             we then get the last post index in the site.posts array
         {%endcomment%}
-        {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+        {% assign lastPostIndex = site.posts | size | minus: 1 %}
         {% assign next = site.posts[lastPostIndex] %}
     {% endif %}
     <div>

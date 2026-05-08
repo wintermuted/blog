@@ -28,7 +28,7 @@ button {
   color: inherit;
 }
 
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select,
 textarea {
   width: 100%;
@@ -40,7 +40,7 @@ textarea {
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-input:focus,
+input:not([type="checkbox"]):not([type="radio"]):focus,
 select:focus,
 textarea:focus {
   outline: none;
@@ -48,7 +48,7 @@ textarea:focus {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--wm-color-accent) 12%, transparent);
 }
 
-input::placeholder,
+input:not([type="checkbox"]):not([type="radio"])::placeholder,
 textarea::placeholder {
   color: var(--wm-color-text-faint);
 }
