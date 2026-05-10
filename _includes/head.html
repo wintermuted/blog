@@ -6,13 +6,20 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
   <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
 
   <link rel="stylesheet" href="{{ "/css/wm-theme/tokens.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/base.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/components/card.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/button.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/components/badge.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/components/side-nav.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/layout.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/components/tag.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/components/list.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/wm-theme/components/separator.css" | prepend: site.baseurl }}">

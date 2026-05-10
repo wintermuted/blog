@@ -6,7 +6,7 @@
         {% assign posts = site.posts | where_exp:"post", "post.category != 'changelog'" %}
         {% for post in posts %}
           <div class="row">
-            <div class="card">
+            <div class="card summary-card">
               {% if post.image %}
                 <div>
                   <a href="{{ post.url | prepend: site.baseurl }}">
@@ -41,11 +41,11 @@
                 </div>
               {% endif %}
               <div class="card-body">
-                <h5 class="card-title">
+                <h3 class="summary-card-title">
                   <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h5>
-                <p class="card-text">{{post.excerpt}}</p>
-                <p class="card-text">
+                </h3>
+                <p class="summary-card-excerpt">{{post.excerpt}}</p>
+                <div class="summary-card-meta">
                   <small class="text-muted">
                     <i class="fas fa-calendar"></i>
                     <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
@@ -68,7 +68,7 @@
                       </a>
                   </small>
                 {% endif %}
-                </p>
+                </div>
               </div>
             </div>
           </div>
