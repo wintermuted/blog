@@ -1,57 +1,47 @@
 {% assign current = page.url | downcase | split: '/' %}
 
-<header class="site-header">
-  <div class="container">
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="site-nav-brand" href="{{ site.baseurl }}/">
-        <img src="{{ site.baseurl }}/logo.png" alt="" width="20" height="20">
-        jnyeholt
+<header class="site-header docs-topbar">
+  <div class="docs-topbar-inner">
+    <div class="docs-topbar-brand">
+      <a href="{{ site.baseurl }}/" class="docs-topbar-brand-link">
+        <img src="{{ site.baseurl }}/logo.png" alt="" class="docs-topbar-brand-icon" width="20" height="20">
+        <h1>jnyeholt</h1>
       </a>
-      <ul class="site-nav-links">
-        <li>
-          <a class="docs-topbar-link-devdocs" href="{{ site.baseurl }}/about"
-            {% if current[1] == 'about' %}aria-current="page"{% endif %}>About</a>
-        </li>
-        <li>
-          <a class="docs-topbar-link-devdocs" href="{{ site.baseurl }}/weblog"
-            {% if current[1] == 'weblog' %}aria-current="page"{% endif %}>Weblog</a>
-        </li>
-        <li>
-          <a class="docs-topbar-link-devdocs" href="{{ site.baseurl }}/resume" target="_blank" rel="noopener noreferrer">CV</a>
-        </li>
-        <li>
-          <a class="docs-topbar-link-devdocs" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </li>
-        <li>
-          <a class="docs-topbar-link-devdocs" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-        </li>
-        <li>
-          <label class="dark-mode-toggle dark-mode-toggle-nav btn-pill" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <input type="checkbox" id="darkSwitch" />
-            <span class="theme-toggle-icon" aria-hidden="true">
-              <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
-              </svg>
-              <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2"></path>
-                <path d="M12 20v2"></path>
-                <path d="m4.93 4.93 1.41 1.41"></path>
-                <path d="m17.66 17.66 1.41 1.41"></path>
-                <path d="M2 12h2"></path>
-                <path d="M20 12h2"></path>
-                <path d="m6.34 17.66-1.41 1.41"></path>
-                <path d="m19.07 4.93-1.41 1.41"></path>
-              </svg>
-            </span>
-            <span class="theme-toggle-label">Dark</span>
-          </label>
-        </li>
-      </ul>
+    </div>
+    <nav class="docs-topbar-nav" aria-label="Main navigation">
+      <a class="docs-topbar-link-devdocs" href="{{ site.baseurl }}/about"
+        {% if current[1] == 'about' %}aria-current="page"{% endif %}>About</a>
+      <a class="docs-topbar-link-devdocs" href="{{ site.baseurl }}/weblog"
+        {% if current[1] == 'weblog' %}aria-current="page"{% endif %}>Weblog</a>
+      <a class="docs-topbar-link-devdocs" href="{{ site.baseurl }}/resume" target="_blank" rel="noopener noreferrer">CV</a>
     </nav>
+    <div class="docs-topbar-actions">
+      <a class="docs-topbar-link-secondary" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a class="docs-topbar-link-secondary" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <input type="checkbox" id="darkSwitch" />
+        <span class="theme-toggle-icon" aria-hidden="true">
+          <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+        </span>
+        <span class="theme-toggle-label">Dark</span>
+      </label>
+    </div>
   </div>
 </header>
