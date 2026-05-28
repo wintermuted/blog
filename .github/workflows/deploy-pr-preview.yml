@@ -48,12 +48,12 @@ jobs:
           bundler-cache: true
 
       # Step 3: Cache generated images
-      # Jekyll Picture Tag generates optimized images in the 'generated/' directory
+      # Jekyll Picture Tag generates optimized images in the '_site/generated/' directory
       # Cache this directory to avoid regenerating images on every build
       - name: Cache generated images
         uses: actions/cache@v4
         with:
-          path: generated/
+          path: _site/generated/
           key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
           restore-keys: |
             ${{ runner.os }}-generated-images-
