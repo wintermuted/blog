@@ -12,11 +12,11 @@
             As the array index start at zero we substract 1 to the total count,
             we then get the last post index in the site.posts array
         {%endcomment%}
-        {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+        {% assign lastPostIndex = site.posts | size | minus: 1 %}
         {% assign next = site.posts[lastPostIndex] %}
     {% endif %}
-    <div class="float-left">
-        <a class="equalize" href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
+    <div>
+        <a class="btn btn-secondary-neutral btn-sm post-nav-btn" href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
             <small class="text-muted">
                 <span> ← Newer : </span>
                 <span> {{next.title}}</span>
@@ -24,9 +24,8 @@
         </a>
     </div>
 
-
-    <div class="float-right">
-        <a class="equalize" href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
+    <div>
+        <a class="btn btn-secondary-neutral btn-sm post-nav-btn" href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
             <small class="text-muted">
                 <span> {{previous.title}} </span>
                 <span> : Older →</span>

@@ -12,25 +12,26 @@ on:
 permissions:
   pull-requests: write  # To comment on PR
 
+# Netlify site ID (public identifier – not sensitive)
+env:
+  NETLIFY_SITE_ID: reverent-aryabhata-74e98b
+
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     
     steps:
-      # Step 0: Check if Netlify secrets are configured
-      - name: Check Netlify secrets
+      # Step 0: Check if Netlify auth token secret is configured
+      - name: Check Netlify auth token
         run: |
-          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ] || [ -z "${{ secrets.NETLIFY_SITE_ID }}" ]; then
-            echo "::error::Netlify secrets are not configured!"
-            echo "::error::Please add NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID to repository secrets."
+          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN secret is not configured!"
+            echo "::error::Please add NETLIFY_AUTH_TOKEN to repository secrets."
             echo "::error::See .github/workflows/README.md for setup instructions."
             exit 1
           fi
-          echo "✓ Netlify secrets are configured"
-          echo "Site ID length: ${#NETLIFY_SITE_ID}"
-          echo "Site ID starts with: ${NETLIFY_SITE_ID:0:8}..."
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          echo "✓ Netlify auth token is configured"
+          echo "Using site ID: ${NETLIFY_SITE_ID}"
       
       # Step 1: Checkout the PR branch
       - name: Checkout PR branch
@@ -47,12 +48,12 @@ jobs:
           bundler-cache: true
 
       # Step 3: Cache generated images
-      # Jekyll Picture Tag generates optimized images in the 'generated/' directory
+      # Jekyll Picture Tag generates optimized images in the '_site/generated/' directory
       # Cache this directory to avoid regenerating images on every build
       - name: Cache generated images
         uses: actions/cache@v4
         with:
-          path: generated/
+          path: _site/generated/
           key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
           restore-keys: |
             ${{ runner.os }}-generated-images-
@@ -98,7 +99,6 @@ jobs:
           enable-commit-comment: false
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
       # Step 7: Comment on PR with preview URL
@@ -155,7 +155,7 @@ jobs:
             
             console.log('Comment posted successfully!');
       
-      # Step 7: Comment on error if deployment failed
+      # Step 8: Comment on error if deployment failed
       - name: Comment on deployment failure
         if: failure()
         uses: actions/github-script@v7
@@ -165,29 +165,20 @@ jobs:
             
             let body = `❌ **Preview deployment failed!**\n\n`;
             
-            // Check if it's a secrets issue
             const hasAuthToken = !!process.env.NETLIFY_AUTH_TOKEN;
-            const hasSiteId = !!process.env.NETLIFY_SITE_ID;
             
-            if (!hasAuthToken || !hasSiteId) {
-              body += `**Issue**: Netlify secrets are missing.\n\n`;
-              if (!hasAuthToken) body += `- Missing: \`NETLIFY_AUTH_TOKEN\`\n`;
-              if (!hasSiteId) body += `- Missing: \`NETLIFY_SITE_ID\`\n`;
-              body += `\n**To fix**:\n`;
-              body += `1. Go to [Netlify](https://app.netlify.com/) and create a site\n`;
-              body += `2. Get your Site ID from Site settings > General > Site information\n`;
-              body += `3. Generate a Personal Access Token in User settings > Applications\n`;
-              body += `4. Add secrets to repository (Settings > Secrets and variables > Actions)\n\n`;
+            if (!hasAuthToken) {
+              body += `**Issue**: \`NETLIFY_AUTH_TOKEN\` secret is missing.\n\n`;
+              body += `**To fix**:\n`;
+              body += `1. Generate a Personal Access Token in Netlify User settings > Applications\n`;
+              body += `2. Add it as \`NETLIFY_AUTH_TOKEN\` in repository Settings > Secrets and variables > Actions\n\n`;
               body += `See [setup instructions](.github/workflows/README.md) for details.`;
             } else {
               body += `**Common issues**:\n\n`;
-              body += `1. **Site not found**: Verify your \`NETLIFY_SITE_ID\` is correct\n`;
-              body += `   - Go to Netlify Site settings > General > Site information\n`;
-              body += `   - Copy the exact Site ID (looks like: \`abc12345-6789-...\`)\n\n`;
-              body += `2. **Invalid token**: Verify your \`NETLIFY_AUTH_TOKEN\` is valid\n`;
+              body += `1. **Invalid token**: Verify your \`NETLIFY_AUTH_TOKEN\` is valid\n`;
               body += `   - Generate a new token in User settings > Applications\n`;
               body += `   - Make sure it's a Personal Access Token, not a Deploy Key\n\n`;
-              body += `3. **Permissions**: Ensure the token has permission to deploy\n\n`;
+              body += `2. **Permissions**: Ensure the token has permission to deploy\n\n`;
               body += `Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.`;
             }
             
@@ -199,4 +190,3 @@ jobs:
             });
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

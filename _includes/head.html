@@ -6,32 +6,37 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <!-- JS -->
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+  <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ "/css/wm-theme/tokens.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/base.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/card.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/button.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/badge.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/side-nav.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/layout.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/tag.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/list.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/separator.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/code-block.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/wm-theme/components/gallery.css" | prepend: site.baseurl }}">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Lightbox2 for image galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
-  <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'imageFadeDuration': 200,
-      'fadeDuration': 200,
-      'wrapAround': true
-    })
-  </script>
-
-  <!-- CSS -->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS — site styles -->
 
   <link rel="stylesheet" href="{{ "/css/styles.css" | prepend: site.baseurl }}">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Lightbox2 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
 </head>

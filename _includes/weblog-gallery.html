@@ -72,22 +72,22 @@
               {% endif %}
               <div class="card-body">
                 {% if post.image %}
-                  <h6 class="card-title">
+                  <h4 class="gallery-card-title">
                     <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                  </h6>
+                  </h4>
                 {% else %}
-                  <h6 class="card-title">
+                  <h4 class="gallery-card-title">
                     <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                  </h6>
+                  </h4>
                   {{post.excerpt}}
                 {% endif %}
-                <p class="card-text">
+                <div class="gallery-card-meta">
                   <small class="text-muted">
                     <i class="fas fa-calendar"></i>
                     <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
                   </small>
                   {% if post.location %}
-                    </br>
+                    <br />
                     <small class="text-muted">
                         <i class="fas fa-map-marker-alt"></i>
                         <a>{{ post.location }}</a>
@@ -104,7 +104,7 @@
                         </a>
                     </small>
                   {% endif %}
-                </p>
+                </div>
               </div>
             </div>
           </div>

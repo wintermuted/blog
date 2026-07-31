@@ -21,5 +21,5 @@ This website is built using [open source](https://en.wikipedia.org/wiki/Open_sou
 
 **Tools**
 - This site is built using [Jekyll](https://jekyllrb.com), a static website generator written in [Ruby](https://www.ruby-lang.org/en/).
-- The layout and styling of this website are based upon [Bootstrap](https://getbootstrap.com).
+- The layout and styling of this website are based on [@wintermuted/ui-theme](https://github.com/wintermuted/ui-theme) with blog-specific customizations.
 - The icon assets of this website are sourced from [Font Awesome](https://fontawesome.com)

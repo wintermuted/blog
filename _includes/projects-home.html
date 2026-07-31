@@ -1,92 +1,79 @@
-<div class="row row-cols-1 row-cols-md-2">
+<section class="projects-grid" aria-label="Project list">
     
-    <div class="col mb-4">
-      <div class="card">
-        <img src="{{ site.baseurl }}/assets/img/projects/game-of-life/game-of-life.png" class="card-img-top" alt="...">
+    <article class="project-card-item">
+      <div class="card project-card">
+        <div class="project-card-media">
+          <img src="{{ site.baseurl }}/assets/img/projects/game-of-life/game-of-life.png" class="project-card-image" alt="Game of Life project screenshot">
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Game of Life</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Typescript web application.</h6>
-          <p class="card-text">An implementation of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a> in TypeScript.</p>
+          <h4 class="project-card-title">Game of Life</h4>
+          <p class="project-card-subtitle text-muted">Typescript web application.</p>
+          <p class="project-card-description">An implementation of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a> in TypeScript.</p>
         </div>
         <div class="card-footer">
-          <a href="#" class="card-link">
+          <a href="https://wintermuted.github.io/game-of-life/" class="btn btn-secondary-neutral btn-sm">
             <i class="fas fa-laptop-code"></i>
             Demo
           </a>
-          <a href="https://github.com/wintermuted/game-of-life" class="card-link">
+          <a href="https://github.com/wintermuted/game-of-life" class="btn btn-secondary-neutral btn-sm">
             <i class="fab fa-github"></i>
             Github
           </a>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="col mb-4">
-      <div class="card">
-        <!-- <div class="card-header">Trimet Arrivals</div> -->
-        <img src="{{ site.baseurl }}/assets/img/projects/trimet-arrivals/stops.png" class="card-img-top" alt="...">
-
+    <article class="project-card-item">
+      <div class="card project-card">
+        <div class="project-card-media">
+          <img src="{{ site.baseurl }}/assets/img/projects/wintermuted-ui-theme/wintermuted-ui-theme.png" class="project-card-image" alt="Wintermuted UI Theme project screenshot">
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Trimet Arrivals</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Typescript / React.js web application.</h6>
-          <p class="card-text">
-            A dashboard for displaying arrivals at nearby Trimet Stops. 
-            Makes use of the Trimet API. Built with TypeScript, React, and Redux.
+          <h4 class="project-card-title">Wintermuted UI Theme</h4>
+          <p class="project-card-subtitle text-muted">Design System / CSS Components.</p>
+          <p class="project-card-description">
+            A shared CSS and JavaScript design system package providing design tokens, component styles, and utilities for consistent UI across projects.
           </p>
         </div>
         <div class="card-footer">
-          <a href="#" class="card-link">
+          <a href="https://github.com/wintermuted/ui-theme" class="btn btn-secondary-neutral btn-sm">
+            <i class="fab fa-github"></i>
+            Github
+          </a>
+          <a href="https://www.npmjs.com/@wintermuted/ui-theme" class="btn btn-secondary-neutral btn-sm">
+            <i class="fab fa-npm"></i>
+            NPM
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item">
+      <div class="card project-card">
+        <div class="project-card-media">
+          <img src="{{ site.baseurl }}/assets/img/projects/sub-killer/sub-killer.png" class="project-card-image" alt="Sub Killer project screenshot">
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title">Sub Killer</h4>
+          <p class="project-card-subtitle text-muted">React / TypeScript PWA.</p>
+          <p class="project-card-description">
+            A local-only subscription detection and management tool. Import bank/card CSV exports to identify recurring charges and find cancellation links.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="https://wintermuted.github.io/sub-killer/" class="btn btn-secondary-neutral btn-sm">
             <i class="fas fa-laptop-code"></i>
             Demo
           </a>
-          <a href="https://github.com/Super-Cascadia/trimet-arrivals" class="card-link"> 
+          <a href="https://github.com/wintermuted/sub-killer" class="btn btn-secondary-neutral btn-sm">
             <i class="fab fa-github"></i>
             Github
           </a>
         </div>
       </div>
-    </div>
-
-    <div class="col mb-4">
-      <div class="card">
-        <div class="card-header">Gilded Rose React Env</div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Card title</h5> -->
-          <h6 class="card-subtitle mb-2 text-muted">Typescript / React.js web application</h6>
-          <p class="card-text">
-            A Create React App environment for the Gilded Rose Refactoring Kata. 
-            This was created to be used for technical interviews for Software Engineers to test React & Refactoring skills.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link">
-            <i class="fas fa-laptop-code"></i>
-            Demo
-          </a>
-          <a href="https://github.com/Software-Engineering-Guild/gilded-rose-react-env" class="card-link"> 
-            <i class="fab fa-github"></i>
-            Github
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col mb-4">
-      <div class="card">
-        <div class="card-header">Arduino Weather Station</div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Card title</h5> -->
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-    </div>
+    </article>
   
-</div>
+    </section>
 
 
 

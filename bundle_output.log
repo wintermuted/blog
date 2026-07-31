@@ -1,0 +1,1941 @@
+Your RubyGems version (3.0.3.1) has a bug that prevents `required_ruby_version` from working for Bundler. Any scripts that use `gem install bundler` will break as soon as Bundler drops support for your Ruby version. Please upgrade RubyGems to avoid future breakage and silence this warning by running `gem update --system 3.2.3`
+Fetching gem metadata from https://rubygems.org/..........
+Resolving dependencies...
+Installing mini_racer 0.6.4 with native extensions
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+current directory:
+/Users/jamesonnyeholt/code/blog/vendor/bundle/ruby/2.6.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r
+./siteconf20260509-33991-qghx5j.rb extconf.rb
+checking for -lpthread... yes
+checking for -lobjc... yes
+checking for whether -Wl,--exclude-libs=ALL  is accepted as LDFLAGS... no
+creating Makefile
+
+current directory:
+/Users/jamesonnyeholt/code/blog/vendor/bundle/ruby/2.6.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+make "DESTDIR=" clean
+
+current directory:
+/Users/jamesonnyeholt/code/blog/vendor/bundle/ruby/2.6.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+make "DESTDIR="
+compiling mini_racer_extension.cc
+clang++: warning: argument unused during compilation: '-rdynamic'
+[-Wunused-command-line-argument]
+In file included from mini_racer_extension.cc:2:
+In file included from
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby.h:33:
+In file included from
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2111:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/intern.h:56:19:
+warning: 'register' storage class specifier is deprecated and incompatible with
+C++17 [-Wdeprecated-register]
+   56 | void rb_mem_clear(register VALUE*, register long);
+      |                   ^~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/intern.h:56:36:
+warning: 'register' storage class specifier is deprecated and incompatible with
+C++17 [-Wdeprecated-register]
+   56 | void rb_mem_clear(register VALUE*, register long);
+      |                                    ^~~~~~~~
+mini_racer_extension.cc:57:49: warning: '(' and '{' tokens introducing statement
+expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+   57 |         VALUE cMutex = rb_const_get(rb_cThread, rb_intern("Mutex"));
+      |                                                 ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+mini_racer_extension.cc:57:49: note: '{' token is here
+   57 |         VALUE cMutex = rb_const_get(rb_cThread, rb_intern("Mutex"));
+      |                                                 ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+mini_racer_extension.cc:57:49: warning: '}' and ')' tokens terminating statement
+expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+   57 |         VALUE cMutex = rb_const_get(rb_cThread, rb_intern("Mutex"));
+      |                                                 ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+mini_racer_extension.cc:57:49: note: ')' token is here
+   57 |         VALUE cMutex = rb_const_get(rb_cThread, rb_intern("Mutex"));
+      |                                                 ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+mini_racer_extension.cc:559:47: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+559 |     return rb_funcall(rb_cFailedV8Conversion, rb_intern("new"), 1,
+rb_str_new2(""));
+      |                                               ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:559:47: note: '{' token is here
+559 |     return rb_funcall(rb_cFailedV8Conversion, rb_intern("new"), 1,
+rb_str_new2(""));
+      |                                               ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:559:47: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+559 |     return rb_funcall(rb_cFailedV8Conversion, rb_intern("new"), 1,
+rb_str_new2(""));
+      |                                               ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:559:47: note: ')' token is here
+559 |     return rb_funcall(rb_cFailedV8Conversion, rb_intern("new"), 1,
+rb_str_new2(""));
+      |                                               ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:610:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+610 |           if (rb_funcall(rb_elem, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:610:35: note: '{' token is here
+610 |           if (rb_funcall(rb_elem, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:610:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+610 |           if (rb_funcall(rb_elem, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:610:35: note: ')' token is here
+610 |           if (rb_funcall(rb_elem, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:619:51: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  619 |         return rb_funcall(rb_cJavaScriptFunction, rb_intern("new"), 0);
+      |                                                   ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:619:51: note: '{' token is here
+  619 |         return rb_funcall(rb_cJavaScriptFunction, rb_intern("new"), 0);
+      |                                                   ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:619:51: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  619 |         return rb_funcall(rb_cJavaScriptFunction, rb_intern("new"), 0);
+      |                                                   ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:619:51: note: ')' token is here
+  619 |         return rb_funcall(rb_cJavaScriptFunction, rb_intern("new"), 0);
+      |                                                   ^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:641:59: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+641 |                 return rb_funcall(rb_cFailedV8Conversion,
+rb_intern("new"), 1, rb_str_new2(""));
+|                                                          
+^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:641:59: note: '{' token is here
+641 |                 return rb_funcall(rb_cFailedV8Conversion,
+rb_intern("new"), 1, rb_str_new2(""));
+|                                                          
+^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:641:59: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+641 |                 return rb_funcall(rb_cFailedV8Conversion,
+rb_intern("new"), 1, rb_str_new2(""));
+|                                                          
+^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:641:59: note: ')' token is here
+641 |                 return rb_funcall(rb_cFailedV8Conversion,
+rb_intern("new"), 1, rb_str_new2(""));
+|                                                          
+^~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:736:36: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  736 |         hash_as_array = rb_funcall(value, rb_intern("to_a"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:736:36: note: '{' token is here
+  736 |         hash_as_array = rb_funcall(value, rb_intern("to_a"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:736:36: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  736 |         hash_as_array = rb_funcall(value, rb_intern("to_a"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:736:36: note: ')' token is here
+  736 |         hash_as_array = rb_funcall(value, rb_intern("to_a"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:746:28: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  746 |         value = rb_funcall(value, rb_intern("to_s"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:746:28: note: '{' token is here
+  746 |         value = rb_funcall(value, rb_intern("to_s"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:746:28: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  746 |         value = rb_funcall(value, rb_intern("to_s"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:746:28: note: ')' token is here
+  746 |         value = rb_funcall(value, rb_intern("to_s"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:749:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  749 |         klass = rb_funcall(value, rb_intern("class"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:749:35: note: '{' token is here
+  749 |         klass = rb_funcall(value, rb_intern("class"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:749:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  749 |         klass = rb_funcall(value, rb_intern("class"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:749:35: note: ')' token is here
+  749 |         klass = rb_funcall(value, rb_intern("class"), 0);
+      |                                   ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:754:43: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  754 |                 value = rb_funcall(value, rb_intern("to_time"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:754:43: note: '{' token is here
+  754 |                 value = rb_funcall(value, rb_intern("to_time"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:754:43: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  754 |                 value = rb_funcall(value, rb_intern("to_time"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:754:43: note: ')' token is here
+  754 |                 value = rb_funcall(value, rb_intern("to_time"), 0);
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:756:39: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  756 |             value = rb_funcall(value, rb_intern("to_f"), 0);
+      |                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:756:39: note: '{' token is here
+  756 |             value = rb_funcall(value, rb_intern("to_f"), 0);
+      |                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:756:39: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+  756 |             value = rb_funcall(value, rb_intern("to_f"), 0);
+      |                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:756:39: note: ')' token is here
+  756 |             value = rb_funcall(value, rb_intern("to_f"), 0);
+      |                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1021:56: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1021 |     if (Qnil == rb_cDateTime && rb_funcall(rb_cObject,
+rb_intern("const_defined?"), 1, rb_str_new2("DateTime")) == Qtrue)
+|                                                       
+^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1021:56: note: '{' token is here
+1021 |     if (Qnil == rb_cDateTime && rb_funcall(rb_cObject,
+rb_intern("const_defined?"), 1, rb_str_new2("DateTime")) == Qtrue)
+|                                                       
+^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1021:56: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1021 |     if (Qnil == rb_cDateTime && rb_funcall(rb_cObject,
+rb_intern("const_defined?"), 1, rb_str_new2("DateTime")) == Qtrue)
+|                                                       
+^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1021:56: note: ')' token is here
+1021 |     if (Qnil == rb_cDateTime && rb_funcall(rb_cObject,
+rb_intern("const_defined?"), 1, rb_str_new2("DateTime")) == Qtrue)
+|                                                       
+^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1023:49: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1023 |         rb_cDateTime = rb_const_get(rb_cObject, rb_intern("DateTime"));
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+mini_racer_extension.cc:1023:49: note: '{' token is here
+ 1023 |         rb_cDateTime = rb_const_get(rb_cObject, rb_intern("DateTime"));
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+mini_racer_extension.cc:1023:49: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1023 |         rb_cDateTime = rb_const_get(rb_cObject, rb_intern("DateTime"));
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+mini_racer_extension.cc:1023:49: note: ')' token is here
+ 1023 |         rb_cDateTime = rb_const_get(rb_cObject, rb_intern("DateTime"));
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+mini_racer_extension.cc:1091:55: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1091 |             VALUE rb_str = rb_funcall(ruby_exception, rb_intern("to_s"),
+0);
+      |                                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1091:55: note: '{' token is here
+1091 |             VALUE rb_str = rb_funcall(ruby_exception, rb_intern("to_s"),
+0);
+      |                                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1091:55: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1091 |             VALUE rb_str = rb_funcall(ruby_exception, rb_intern("to_s"),
+0);
+      |                                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1091:55: note: ')' token is here
+1091 |             VALUE rb_str = rb_funcall(ruby_exception, rb_intern("to_s"),
+0);
+      |                                                       ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1109:40: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1109 |             ret = rb_funcall(rb_mJSON, rb_intern("parse"), 1,
+json_string);
+      |                                        ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1109:40: note: '{' token is here
+1109 |             ret = rb_funcall(rb_mJSON, rb_intern("parse"), 1,
+json_string);
+      |                                        ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1109:40: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1109 |             ret = rb_funcall(rb_mJSON, rb_intern("parse"), 1,
+json_string);
+      |                                        ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1109:40: note: ')' token is here
+1109 |             ret = rb_funcall(rb_mJSON, rb_intern("parse"), 1,
+json_string);
+      |                                        ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1119:25: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1119 |     if (rb_funcall(ret, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                         ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1119:25: note: '{' token is here
+1119 |     if (rb_funcall(ret, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                         ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1119:25: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1119 |     if (rb_funcall(ret, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                         ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1119:25: note: ')' token is here
+1119 |     if (rb_funcall(ret, rb_intern("class"), 0) ==
+rb_cFailedV8Conversion) {
+      |                         ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1203:46: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1203 |         result = rb_funcall2(data->callback, rb_intern("call"),
+data->length,
+      |                                              ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+mini_racer_extension.cc:1203:46: note: '{' token is here
+1203 |         result = rb_funcall2(data->callback, rb_intern("call"),
+data->length,
+      |                                              ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+mini_racer_extension.cc:1203:46: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1203 |         result = rb_funcall2(data->callback, rb_intern("call"),
+data->length,
+      |                                              ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+mini_racer_extension.cc:1203:46: note: ')' token is here
+1203 |         result = rb_funcall2(data->callback, rb_intern("call"),
+data->length,
+      |                                              ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+mini_racer_extension.cc:1207:45: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1207 |         result = rb_funcall(data->callback, rb_intern("call"), 0);
+      |                                             ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1207:45: note: '{' token is here
+ 1207 |         result = rb_funcall(data->callback, rb_intern("call"), 0);
+      |                                             ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1207:45: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1207 |         result = rb_funcall(data->callback, rb_intern("call"), 0);
+      |                                             ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1207:45: note: ')' token is here
+ 1207 |         result = rb_funcall(data->callback, rb_intern("call"), 0);
+      |                                             ^~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1571:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1571 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1571:35: note: '{' token is here
+1571 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1571:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1571 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1571:35: note: ')' token is here
+1571 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1572:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1572 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")), ULONG2NUM(0));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1572:35: note: '{' token is here
+1572 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")), ULONG2NUM(0));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1572:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1572 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")), ULONG2NUM(0));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1572:35: note: ')' token is here
+1572 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")), ULONG2NUM(0));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1573:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1573 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1573:35: note: '{' token is here
+1573 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1573:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1573 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1573:35: note: ')' token is here
+1573 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1574:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1574 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1574:35: note: '{' token is here
+1574 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1574:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1574 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1574:35: note: ')' token is here
+1574 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1575:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1575 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1575:35: note: '{' token is here
+1575 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1575:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1575 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1575:35: note: ')' token is here
+1575 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(0));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1580:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1580 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(stats.total_physical_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1580:35: note: '{' token is here
+1580 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(stats.total_physical_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1580:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1580 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(stats.total_physical_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1580:35: note: ')' token is here
+1580 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_physical_size")),
+ULONG2NUM(stats.total_physical_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1581:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1581 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")),
+ULONG2NUM(stats.total_heap_size_executable()));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1581:35: note: '{' token is here
+1581 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")),
+ULONG2NUM(stats.total_heap_size_executable()));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1581:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1581 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")),
+ULONG2NUM(stats.total_heap_size_executable()));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1581:35: note: ')' token is here
+1581 |         rb_hash_aset(rval,
+ID2SYM(rb_intern("total_heap_size_executable")),
+ULONG2NUM(stats.total_heap_size_executable()));
+|                                  
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1582:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1582 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(stats.total_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1582:35: note: '{' token is here
+1582 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(stats.total_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1582:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1582 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(stats.total_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1582:35: note: ')' token is here
+1582 |         rb_hash_aset(rval, ID2SYM(rb_intern("total_heap_size")),
+ULONG2NUM(stats.total_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1583:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1583 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(stats.used_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1583:35: note: '{' token is here
+1583 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(stats.used_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1583:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1583 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(stats.used_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1583:35: note: ')' token is here
+1583 |         rb_hash_aset(rval, ID2SYM(rb_intern("used_heap_size")),
+ULONG2NUM(stats.used_heap_size()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1584:35: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1584 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(stats.heap_size_limit()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1584:35: note: '{' token is here
+1584 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(stats.heap_size_limit()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1584:35: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+1584 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(stats.heap_size_limit()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1584:35: note: ')' token is here
+1584 |         rb_hash_aset(rval, ID2SYM(rb_intern("heap_size_limit")),
+ULONG2NUM(stats.heap_size_limit()));
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:413:29:
+note: expanded from macro 'ID2SYM'
+  413 | #define ID2SYM(x) RB_ID2SYM(x)
+      |                             ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:408:33:
+note: expanded from macro 'RB_ID2SYM'
+  408 | #define RB_ID2SYM(x) (rb_id2sym(x))
+      |                                 ^
+mini_racer_extension.cc:1638:22: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1638 |     rb_funcall(file, rb_intern("flush"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1638:22: note: '{' token is here
+ 1638 |     rb_funcall(file, rb_intern("flush"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1638:22: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1638 |     rb_funcall(file, rb_intern("flush"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1638:22: note: ')' token is here
+ 1638 |     rb_funcall(file, rb_intern("flush"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1678:22: warning: '(' and '{' tokens introducing
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1678 |     rb_funcall(self, rb_intern("stop_attached"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1678:22: note: '{' token is here
+ 1678 |     rb_funcall(self, rb_intern("stop_attached"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1678:22: warning: '}' and ')' tokens terminating
+statement expression appear in different macro expansion contexts
+[-Wcompound-token-split-by-macro]
+ 1678 |     rb_funcall(self, rb_intern("stop_attached"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5:
+note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+mini_racer_extension.cc:1678:22: note: ')' token is here
+ 1678 |     rb_funcall(self, rb_intern("stop_attached"), 0);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56:
+note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2602:20:
+note: expanded from macro 'rb_funcall'
+ 2602 |         rb_funcallv(recv, mid, \
+      |                           ^~~
+60 warnings generated.
+linking shared-object mini_racer_extension.bundle
+clang++: error: no such file or directory:
+'/Users/jamesonnyeholt/code/blog/vendor/bundle/ruby/2.6.0/gems/libv8-node-16.19.0.1-arm64-darwin/vendor/v8/universal-darwin/libv8/obj/libv8_monolith.a'
+make: *** [mini_racer_extension.bundle] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in
+/Users/jamesonnyeholt/code/blog/vendor/bundle/ruby/2.6.0/gems/mini_racer-0.6.4
+for inspection.
+Results logged to
+/Users/jamesonnyeholt/code/blog/vendor/bundle/ruby/2.6.0/extensions/universal-darwin-24/2.6.0/mini_racer-0.6.4/gem_make.out
+
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:99:in
+`run'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:51:in
+`block in make'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:43:in
+`each'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:43:in
+`make'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/ext_conf_builder.rb:62:in
+`block in build'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/tempfile.rb:295:in
+`open'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/ext_conf_builder.rb:29:in
+`build'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:185:in
+`block in build_extension'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/monitor.rb:235:in
+`mon_synchronize'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:181:in
+`build_extension'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:229:in
+`block in build_extensions'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:226:in
+`each'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/ext/builder.rb:226:in
+`build_extensions'
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/installer.rb:830:in
+`build_extensions'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/rubygems_gem_installer.rb:76:in
+`build_extensions'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/rubygems_gem_installer.rb:28:in
+`install'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/source/rubygems.rb:203:in
+`install'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/installer/gem_installer.rb:54:in
+`install'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/installer/gem_installer.rb:16:in
+`install_from_spec'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/installer/parallel_installer.rb:130:in
+`do_install'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/installer/parallel_installer.rb:121:in
+`block in worker_pool'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/worker.rb:62:in
+`apply_func'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/worker.rb:57:in
+`block in process_queue'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/worker.rb:54:in
+`loop'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/worker.rb:54:in
+`process_queue'
+/Users/jamesonnyeholt/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/worker.rb:90:in
+`block (2 levels) in create_threads'
+
+An error occurred while installing mini_racer (0.6.4), and Bundler cannot
+continue.
+
+In Gemfile:
+  mini_racer
