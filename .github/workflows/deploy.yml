@@ -11,9 +11,9 @@ on:
     # Optionally, you can also add other branches like 'main' if needed:
     # - main
 
-# Netlify site ID (public identifier – not sensitive)
+# Netlify site API ID (public identifier – not sensitive)
 env:
-  NETLIFY_SITE_ID: reverent-aryabhata-74e98b
+  NETLIFY_SITE_ID: b41210aa-495b-4238-bf63-0c7e938f63fd
 
 # Minimal permissions for checkout + deployment status integration
 permissions:
@@ -83,8 +83,10 @@ jobs:
 
       # Step 6: Verify production Netlify credentials
       - name: Check Netlify auth token
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
             echo "::error::NETLIFY_AUTH_TOKEN secret is not configured."
             echo "::error::Production deploys target Netlify because jnyeholt.dev resolves there."
             exit 1
@@ -99,6 +101,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: 'Deploy Jekyll site'
           netlify-config-path: ./netlify.toml
+          enable-github-deployment: false
+          enable-commit-status: false
           enable-pull-request-comment: false
           enable-commit-comment: false
         env:
