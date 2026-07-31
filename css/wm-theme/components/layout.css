@@ -1,0 +1,525 @@
+/* ── Layout: App Shell & Two-Column Sidebar Layout ─────────────────────────── */
+
+/**
+ * .app-shell / .wm-app-shell
+ * Centered, max-width page wrapper. Apply to the outermost <div> or <main>.
+ */
+.app-shell,
+.wm-app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/**
+ * .app-header / .wm-app-header
+ * Horizontal top bar with brand, nav, and action zones. Bottom-border divider.
+ */
+.app-header,
+.wm-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--wm-color-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+/**
+ * .app-brand / .wm-app-brand
+ * Column stack for app name + optional byline.
+ */
+.app-brand,
+.wm-app-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.app-brand h1,
+.wm-app-brand h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/**
+ * .app-byline / .wm-app-byline
+ * Muted italic tagline below the app title.
+ */
+.app-byline,
+.wm-app-byline {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--wm-color-text-muted);
+  font-style: italic;
+}
+
+/**
+ * .app-nav / .wm-app-nav
+ * Horizontal navigation link row inside .app-header.
+ * Anchor children get hover + active states.
+ */
+.app-nav,
+.wm-app-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/**
+ * .app-nav-nowrap / .wm-app-nav-nowrap
+ * Optional utility to keep nav links on one row with horizontal scroll instead
+ * of wrapping and compressing content.
+ */
+.app-nav-nowrap,
+.wm-app-nav-nowrap {
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.app-nav a,
+.wm-app-nav a {
+  text-decoration: none;
+  color: var(--wm-color-text-secondary);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--wm-radius-xs, 4px);
+  transition: background-color 0.15s;
+}
+
+.app-nav a:hover,
+.wm-app-nav a:hover {
+  background-color: var(--wm-color-surface-strong);
+}
+
+.app-nav a.active,
+.wm-app-nav a.active {
+  color: var(--wm-color-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--wm-color-accent);
+  text-underline-offset: 0.2em;
+}
+
+/**
+ * .app-header-actions / .wm-app-header-actions
+ * Right-aligned row of buttons or utility controls.
+ */
+.app-header-actions,
+.wm-app-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ── Docs Topbar Layout Pattern ───────────────────────────────────────────── */
+
+/**
+ * .docs-topbar / .wm-docs-topbar
+ * Sticky docs-style top bar with subtle blur and soft surface blending.
+ */
+.docs-topbar,
+.wm-docs-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--wm-color-bg) 84%, transparent);
+  border-bottom: 1px solid var(--wm-color-border);
+}
+
+/**
+ * .docs-topbar-inner / .wm-docs-topbar-inner
+ * Horizontal row container for brand, nav, and actions.
+ */
+.docs-topbar-inner,
+.wm-docs-topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 1.6rem;
+}
+
+/**
+ * .docs-topbar-brand / .wm-docs-topbar-brand
+ * Compact brand block for docs/product title.
+ */
+.docs-topbar-brand,
+.wm-docs-topbar-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--wm-color-text);
+  white-space: nowrap;
+}
+
+.docs-topbar-brand h1,
+.wm-docs-topbar-brand h1 {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/**
+ * .docs-topbar-nav / .wm-docs-topbar-nav
+ * Horizontal scroll-safe link row.
+ */
+.docs-topbar-nav,
+.wm-docs-topbar-nav {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 0.05rem;
+}
+
+/**
+ * .docs-topbar-link / .wm-docs-topbar-link
+ * Pill links with hover and active states.
+ */
+.docs-topbar-link,
+.wm-docs-topbar-link {
+  text-decoration: none;
+  color: var(--wm-color-text-muted);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.33rem 0.62rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.docs-topbar-link:hover,
+.wm-docs-topbar-link:hover {
+  color: var(--wm-color-text);
+  background: color-mix(in srgb, var(--wm-color-surface-solid) 60%, var(--wm-color-surface-muted));
+  border-color: var(--wm-color-border);
+}
+
+.docs-topbar-link.is-active,
+.wm-docs-topbar-link.is-active {
+  color: var(--wm-color-text);
+  background: color-mix(in srgb, var(--wm-color-accent-soft) 60%, transparent);
+  border-color: var(--wm-color-accent-border);
+}
+
+/**
+ * .docs-topbar-link-devdocs / .wm-docs-topbar-link-devdocs
+ * Minimal docs-tab link style modeled after developer docs top nav patterns.
+ * Designed for product-level tabs like Home/About where active state is shown
+ * via a bottom border rather than pill backgrounds.
+ */
+.docs-topbar-link-devdocs,
+.wm-docs-topbar-link-devdocs {
+  text-decoration: none;
+  color: var(--wm-color-text-muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.46rem 0.12rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-bottom-color 0.15s ease;
+}
+
+.docs-topbar-link-devdocs:hover,
+.wm-docs-topbar-link-devdocs:hover {
+  color: var(--wm-color-text);
+  border-bottom-color: var(--wm-color-border-strong);
+  background: transparent;
+}
+
+.docs-topbar-link-devdocs.is-active,
+.wm-docs-topbar-link-devdocs.is-active,
+.docs-topbar-link-devdocs[aria-current="page"],
+.wm-docs-topbar-link-devdocs[aria-current="page"] {
+  color: var(--wm-color-text);
+  border-bottom-color: var(--wm-color-text);
+  background: transparent;
+}
+
+/**
+ * .docs-topbar-actions / .wm-docs-topbar-actions
+ * Right-aligned utility control row.
+ */
+.docs-topbar-actions,
+.wm-docs-topbar-actions {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.docs-topbar-toggle,
+.wm-docs-topbar-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0.33rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--wm-color-border);
+  background: transparent;
+  color: var(--wm-color-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.docs-topbar-toggle:hover,
+.wm-docs-topbar-toggle:hover {
+  background: color-mix(in srgb, var(--wm-color-surface-solid) 60%, var(--wm-color-surface-muted));
+  color: var(--wm-color-text);
+  border-color: var(--wm-color-accent-border);
+}
+
+.docs-topbar-toggle svg,
+.wm-docs-topbar-toggle svg {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+}
+
+.docs-topbar-version,
+.wm-docs-topbar-version {
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0.28rem 1.6rem 0.28rem 0.6rem;
+  border-radius: var(--wm-radius-xs, 4px);
+  border: none;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")
+    no-repeat right 0.45rem center;
+  color: var(--wm-color-text-muted);
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.docs-topbar-version:hover,
+.docs-topbar-version:focus,
+.wm-docs-topbar-version:hover,
+.wm-docs-topbar-version:focus {
+  background-color: var(--wm-color-surface-muted);
+  color: var(--wm-color-text);
+}
+
+.docs-topbar-github,
+.wm-docs-topbar-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--wm-color-text-muted);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.docs-topbar-github:hover,
+.wm-docs-topbar-github:hover {
+  color: var(--wm-color-text);
+  background: color-mix(in srgb, var(--wm-color-surface-solid) 60%, var(--wm-color-surface-muted));
+}
+
+.docs-topbar-github svg,
+.wm-docs-topbar-github svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+@media (width <= 767px) {
+  .docs-topbar-inner,
+  .wm-docs-topbar-inner {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .docs-topbar-actions,
+  .wm-docs-topbar-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Two-Column Sidebar + Main ──────────────────────────────────────────────── */
+
+/**
+ * .sidebar-layout / .wm-sidebar-layout
+ * Flex row: narrow fixed sidebar on left, flex-1 main panel on right.
+ * Collapses to a vertical stack at ≤768 px.
+ */
+.sidebar-layout,
+.wm-sidebar-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/**
+ * .sidebar-layout-stretch / .wm-sidebar-layout-stretch
+ * Optional utility for app workspaces that require both columns to stretch
+ * to the container height (useful for sticky controls and independent rail scroll).
+ */
+.sidebar-layout-stretch,
+.wm-sidebar-layout-stretch {
+  align-items: stretch;
+}
+
+/**
+ * .sidebar-layout-aside / .wm-sidebar-layout-aside
+ * Fixed-width left column. Right border acts as a divider.
+ */
+.sidebar-layout-aside,
+.wm-sidebar-layout-aside {
+  flex: 0 1 var(--wm-sidebar-aside-width, 220px);
+  width: var(--wm-sidebar-aside-width, 220px);
+  min-width: var(--wm-sidebar-aside-min-width, var(--wm-sidebar-aside-width, 220px));
+  max-width: var(--wm-sidebar-aside-max-width, var(--wm-sidebar-aside-width, 220px));
+  border-right: 1px solid var(--wm-color-border);
+  padding-right: 1rem;
+}
+
+/**
+ * .sidebar-layout-aside-no-divider / .wm-sidebar-layout-aside-no-divider
+ * Optional utility to remove the aside divider for seamless split layouts.
+ */
+.sidebar-layout-aside-no-divider,
+.wm-sidebar-layout-aside-no-divider {
+  border-right: none;
+  padding-right: 0;
+}
+
+/**
+ * .sidebar-layout-main / .wm-sidebar-layout-main
+ * Grows to fill remaining width. min-width:0 prevents flex blowout.
+ */
+.sidebar-layout-main,
+.wm-sidebar-layout-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/**
+ * .sticky-bottom / .wm-sticky-bottom
+ * Optional utility for controls/toolbars that should remain pinned to the
+ * bottom edge of the scrolling layout region.
+ */
+.sticky-bottom,
+.wm-sticky-bottom {
+  position: sticky;
+  bottom: 0;
+}
+
+/**
+ * .sidebar-section-title / .wm-sidebar-section-title
+ * Small-caps section label at the top of a sidebar column.
+ */
+.sidebar-section-title,
+.wm-sidebar-section-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--wm-color-text-muted);
+  margin: 0 0 0.75rem;
+}
+
+/* ── Entry Header ───────────────────────────────────────────────────────────── */
+
+/**
+ * .entry-header / .wm-entry-header
+ * Two-column header row: title/name on the left, date or meta on the right.
+ * Use for resume-style entries, work history rows, timeline items, etc.
+ * Wraps gracefully on narrow viewports.
+ */
+.entry-header,
+.wm-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+/**
+ * .entry-date / .wm-entry-date
+ * Small muted timestamp or date range. Right-aligned inside .entry-header.
+ */
+.entry-date,
+.wm-entry-date {
+  font-size: 0.8rem;
+  color: var(--wm-color-text-muted);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/**
+ * .entry-meta / .wm-entry-meta
+ * Small muted secondary detail (location, category, type) below or beside a title.
+ */
+.entry-meta,
+.wm-entry-meta {
+  font-size: 0.8rem;
+  color: var(--wm-color-text-muted);
+}
+
+/* ── Content Grid ───────────────────────────────────────────────────────────── */
+
+/**
+ * .content-grid / .wm-content-grid
+ * Responsive auto-fill grid for equal-width content tiles (skills, features, cards).
+ * Each cell is at least 220 px wide and expands to fill available space.
+ */
+.content-grid,
+.wm-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem 2rem;
+}
+
+@media (width <= 768px) {
+  .app-header,
+  .wm-app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-header-actions,
+  .wm-app-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sidebar-layout,
+  .wm-sidebar-layout {
+    flex-direction: column;
+  }
+
+  .sidebar-layout-aside,
+  .wm-sidebar-layout-aside {
+    flex: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--wm-color-border);
+    padding-right: 0;
+    padding-bottom: 0.75rem;
+  }
+}
