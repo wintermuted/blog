@@ -1,9 +1,8 @@
-name: Deploy Jekyll site to GitHub Pages
+name: Deploy Jekyll site to Netlify
 
-# This workflow builds a Jekyll site with all required gems and plugins,
-# then deploys the generated static site to the gh-pages branch.
-# This works around GitHub Pages limitations by building with custom plugins
-# and serving the pre-built static content from gh-pages.
+# This workflow builds the Jekyll site with all required gems and plugins,
+# then deploys the generated static site to the production Netlify site that
+# serves jnyeholt.dev and www.jnyeholt.dev.
 
 on:
   push:
@@ -12,16 +11,17 @@ on:
     # Optionally, you can also add other branches like 'main' if needed:
     # - main
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: write  # Required to push to gh-pages branch
-  pages: write
-  id-token: write
+# Netlify site API ID (public identifier – not sensitive)
+env:
+  NETLIFY_SITE_ID: b41210aa-495b-4238-bf63-0c7e938f63fd
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Minimal permissions for checkout + deployment status integration
+permissions:
+  contents: read
+
+# Allow only one concurrent production deployment at a time.
 concurrency:
-  group: pages-deploy
+  group: netlify-production-deploy
   cancel-in-progress: false
 
 jobs:
@@ -81,25 +81,29 @@ jobs:
         env:
           JEKYLL_ENV: production  # Set environment to production for optimizations
 
-      # Step 6: Deploy to GitHub Pages
-      # Uses peaceiris/actions-gh-pages to push the _site directory to gh-pages branch
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Step 6: Verify production Netlify credentials
+      - name: Check Netlify auth token
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN secret is not configured."
+            echo "::error::Production deploys target Netlify because jnyeholt.dev resolves there."
+            exit 1
+          fi
+
+      # Step 7: Deploy the built site to the live Netlify site
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
         with:
-          # Use the built-in GITHUB_TOKEN for authentication
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-          # Directory containing the built static site
-          publish_dir: ./_site
-          
-          # Branch to deploy to (GitHub Pages will serve from this branch)
-          publish_branch: gh-pages
-          
-          # Commit message for the deployment
-          commit_message: 'Deploy Jekyll site'
-          
-          # Add CNAME file for custom domain
-          cname: jnyeholt.dev
-          
-          # Keep existing files to preserve PR preview directories
-          keep_files: true
+          publish-dir: './_site'
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Deploy Jekyll site'
+          netlify-config-path: ./netlify.toml
+          enable-github-deployment: false
+          enable-commit-status: false
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

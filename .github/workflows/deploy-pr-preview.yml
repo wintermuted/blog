@@ -12,9 +12,9 @@ on:
 permissions:
   pull-requests: write  # To comment on PR
 
-# Netlify site ID (public identifier – not sensitive)
+# Netlify site API ID (public identifier – not sensitive)
 env:
-  NETLIFY_SITE_ID: reverent-aryabhata-74e98b
+  NETLIFY_SITE_ID: b41210aa-495b-4238-bf63-0c7e938f63fd
 
 jobs:
   deploy-preview:
@@ -24,8 +24,10 @@ jobs:
       # Step 0: Check if Netlify auth token secret is configured
       - name: Check Netlify auth token
         id: netlify-auth
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
             echo "::warning::NETLIFY_AUTH_TOKEN secret is not configured. Skipping Netlify preview deploy."
             echo "has_token=false" >> "$GITHUB_OUTPUT"
           else
@@ -97,6 +99,8 @@ jobs:
           deploy-message: "Deploy from PR #${{ github.event.pull_request.number }}"
           alias: pr-${{ github.event.pull_request.number }}
           netlify-config-path: ./netlify.toml
+          enable-github-deployment: false
+          enable-commit-status: false
           enable-pull-request-comment: false
           enable-commit-comment: false
         env:
@@ -158,32 +162,19 @@ jobs:
             
             console.log('Comment posted successfully!');
       
-      # Step 8: Comment on error if deployment failed
-      - name: Comment on deployment failure
-        if: steps.netlify-auth.outputs.has_token != 'true' || steps.netlify.outcome == 'failure'
+      # Step 8: Comment only when preview deploy is skipped because the secret is missing.
+      - name: Comment on preview deploy skip
+        if: steps.netlify-auth.outputs.has_token != 'true'
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.issue.number;
-            
-            let body = `❌ **Preview deployment failed!**\n\n`;
-            
-            const hasAuthToken = !!process.env.NETLIFY_AUTH_TOKEN;
-            
-            if (!hasAuthToken) {
-              body += `**Issue**: \`NETLIFY_AUTH_TOKEN\` secret is missing.\n\n`;
-              body += `**To fix**:\n`;
-              body += `1. Generate a Personal Access Token in Netlify User settings > Applications\n`;
-              body += `2. Add it as \`NETLIFY_AUTH_TOKEN\` in repository Settings > Secrets and variables > Actions\n\n`;
-              body += `See [setup instructions](.github/workflows/README.md) for details.`;
-            } else {
-              body += `**Common issues**:\n\n`;
-              body += `1. **Invalid token**: Verify your \`NETLIFY_AUTH_TOKEN\` is valid\n`;
-              body += `   - Generate a new token in User settings > Applications\n`;
-              body += `   - Make sure it's a Personal Access Token, not a Deploy Key\n\n`;
-              body += `2. **Permissions**: Ensure the token has permission to deploy\n\n`;
-              body += `Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.`;
-            }
+            let body = `ℹ️ **Preview deployment skipped**\n\n`;
+            body += `**Issue**: \`NETLIFY_AUTH_TOKEN\` secret is missing.\n\n`;
+            body += `**To fix**:\n`;
+            body += `1. Generate a Personal Access Token in Netlify User settings > Applications\n`;
+            body += `2. Add it as \`NETLIFY_AUTH_TOKEN\` in repository Settings > Secrets and variables > Actions\n\n`;
+            body += `See [setup instructions](.github/workflows/README.md) for details.`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -191,5 +182,3 @@ jobs:
               issue_number: prNumber,
               body: body
             });
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

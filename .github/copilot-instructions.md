@@ -55,7 +55,7 @@ blog/
 1. Make edits to post content in `collections/` or styling in `_sass/`
 2. Run `bundle exec jekyll serve` to preview locally
 3. Changes auto-reload; view at `http://localhost:4000`
-4. Commit and push to main — Netlify auto-deploys
+4. Commit and push to `master` — the production GitHub Actions workflow deploys to Netlify
 5. Monitor build status via [Netlify dashboard](https://app.netlify.com/sites/reverent-aryabhata-74e98b)
 
 ## Adding a New Post
@@ -84,7 +84,7 @@ blog/
 
 ## Deployment
 
-- **Auto-deploy:** Any push to `main` triggers a Netlify build (configured in `netlify.toml`)
+- **Auto-deploy:** Any push to `master` triggers the production GitHub Actions workflow, which builds the site and deploys it to Netlify
 - **Live site:** https://www.jnyeholt.dev
 - **Build logs:** View at https://app.netlify.com/sites/reverent-aryabhata-74e98b/deploys
 

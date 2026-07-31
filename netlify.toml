@@ -1,6 +1,8 @@
-# Netlify configuration for PR preview deployments
-# This file is only used by PR preview deployments via GitHub Actions
-# The main site continues to deploy to GitHub Pages
+# Netlify configuration for GitHub Actions-driven deploys.
+# This file is used by the preview workflow and the production Netlify deploy.
+# It should not be copied into the generated site output, because a published
+# branch/site root already contains the built files and does not have a nested
+# `_site` directory.
 
 [build]
   # The publish directory is set in the GitHub Actions workflow
