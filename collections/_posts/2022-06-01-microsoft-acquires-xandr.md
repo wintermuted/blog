@@ -4,7 +4,7 @@ title:  "I now work at Microsoft"
 date:   2022-6-01 09:57:46 -0700
 location: "Portland, OR"
 author: "Jameson Nyeholt"
-image: /assets/img/posts/2022/jun/microsoft/logo.png 
+image: /assets/img/posts/2022/jun/microsoft/logo-monochrome.svg 
 category: journal
 tags:
 - career updates
@@ -23,4 +23,6 @@ I now work at Microsoft where I am continuing as a Senior Software Engineering M
 
 The acquistion was earlier announced in December 2021 after I had just started paternity leave.  I am very excited at the outcome for me and my colleagues at Xandr following what seemed like a misadventure for several years at AT&T.
 
-{% picture thumbnail /assets/img/posts/2022/jun/microsoft/logo.png --a data-lightbox="lightbox1" %}
+<a data-lightbox="lightbox1" href="/assets/img/posts/2022/jun/microsoft/logo-monochrome.svg">
+	<img class="rounded" src="/assets/img/posts/2022/jun/microsoft/logo-monochrome.svg" alt="Microsoft logo" />
+</a>

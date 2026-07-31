@@ -1,30 +1,238 @@
 ---
 layout: default
 ---
-</br>
-
-<main class="app-shell post-body">
-    <div class="row"> 
-        <div class="col">
-            <h1 class="article-title" itemprop="name headline">{{ page.title }}</h1>
-            <hr/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9 col-sm-12">
-            <!-- {% include post-navigation.html %}
-            <br />
-            <hr /> -->
-            <article class="body-content post" itemscope itemtype="http://schema.org/BlogPosting">
+<main class="post-detail-layout body-content">
+    <div class="post-detail-layout-content post-body">
+        <header class="post-detail-header">
+            <div class="post-titlebar-row">
+                <div class="post-titlebar-main">
+                    <h1 class="article-title" itemprop="name headline">{{ page.title }}</h1>
+                </div>
+                <div class="project-tab-menu" aria-label="Column toggles">
+                    <div class="project-tab-menu-group" role="group" aria-label="Post column visibility toggles">
+                        <button
+                            type="button"
+                            class="project-sidebar-toggle project-tab-menu-toggle"
+                            data-post-sidebar-toggle="left"
+                            aria-controls="post-side-nav"
+                            aria-expanded="true"
+                            aria-label="Collapse left column"
+                            title="Collapse left column"
+                        >
+                            <i class="fas fa-align-left" aria-hidden="true"></i>
+                        </button>
+                        <button
+                            type="button"
+                            class="project-sidebar-toggle project-tab-menu-toggle"
+                            data-post-sidebar-toggle="right"
+                            aria-controls="post-detail-sidebar"
+                            aria-expanded="true"
+                            aria-label="Collapse right column"
+                            title="Collapse right column"
+                        >
+                            <i class="fas fa-align-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="post-detail-grid">
+            <nav id="post-side-nav" class="post-side-nav" hidden aria-label="Section navigation"></nav>
+            <article class="post post-detail-article" itemscope itemtype="http://schema.org/BlogPosting">
                 <div class="article-content" itemprop="articleBody">
                     {{ page.content }}
                 </div>
             </article>
-            <hr />
-            {% include post-navigation.html %}
+            <div id="post-detail-sidebar" class="post-detail-sidebar">
+                <div class="post-detail-sidebar-card">
+                    {% include sidebar-post.html %}
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 col-sm-12">
-            {% include sidebar-post.html %}
+        <hr />
+        <div class="post-detail-nav">
+            {% include post-navigation.html %}
         </div>
     </div>
 </main>
+
+<script>
+    window.addEventListener('load', function () {
+        function initPostColumnToggles() {
+            var grid = document.querySelector('.post-detail-grid');
+            if (!grid) return;
+
+            function syncButtonState() {
+                var leftDesktopAvailable = window.matchMedia('(min-width: 1200px)').matches;
+                var leftCollapsed = grid.classList.contains('is-left-collapsed');
+                var rightCollapsed = grid.classList.contains('is-right-collapsed');
+                var buttons = Array.from(document.querySelectorAll('[data-post-sidebar-toggle]'));
+
+                buttons.forEach(function (button) {
+                    var side = button.getAttribute('data-post-sidebar-toggle');
+                    var expanded = side === 'left' ? !leftCollapsed : !rightCollapsed;
+
+                    if (side === 'left') {
+                        button.disabled = !leftDesktopAvailable;
+                        expanded = leftDesktopAvailable && !leftCollapsed;
+                        if (!leftDesktopAvailable) {
+                            button.setAttribute('aria-label', 'Left column toggles are available on desktop');
+                            button.setAttribute('title', 'Left column toggles are available on desktop');
+                        } else {
+                            button.setAttribute('aria-label', expanded ? 'Collapse left column' : 'Expand left column');
+                            button.setAttribute('title', expanded ? 'Collapse left column' : 'Expand left column');
+                        }
+                    } else {
+                        button.disabled = false;
+                        button.setAttribute('aria-label', expanded ? 'Collapse right column' : 'Expand right column');
+                        button.setAttribute('title', expanded ? 'Collapse right column' : 'Expand right column');
+                    }
+
+                    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                });
+            }
+
+            Array.from(document.querySelectorAll('[data-post-sidebar-toggle]')).forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var side = button.getAttribute('data-post-sidebar-toggle');
+                    if (side === 'left' && !window.matchMedia('(min-width: 1200px)').matches) return;
+
+                    if (side === 'left') {
+                        grid.classList.toggle('is-left-collapsed');
+                    }
+
+                    if (side === 'right') {
+                        grid.classList.toggle('is-right-collapsed');
+                    }
+
+                    syncButtonState();
+                });
+            });
+
+            window.addEventListener('resize', syncButtonState);
+            syncButtonState();
+        }
+
+        function initPostSideNav() {
+            var nav = document.getElementById('post-side-nav');
+            var article = document.querySelector('.post-detail-article .article-content');
+            if (!nav || !article) return;
+
+            function slugifyHeading(text) {
+                return text
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^a-z0-9\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+            }
+
+            var headings = Array.from(article.querySelectorAll('h2, h3'));
+
+            nav.hidden = false;
+            var ul = document.createElement('ul');
+            var idCounts = Object.create(null);
+
+            headings.forEach(function (heading) {
+                var text = (heading.textContent || '').trim();
+                if (!text) return;
+
+                var headingId = heading.id;
+                if (!headingId) {
+                    var baseId = slugifyHeading(text) || 'section';
+                    var count = (idCounts[baseId] || 0) + 1;
+                    idCounts[baseId] = count;
+                    headingId = count === 1 ? baseId : baseId + '-' + count;
+
+                    while (document.getElementById(headingId)) {
+                        count += 1;
+                        idCounts[baseId] = count;
+                        headingId = baseId + '-' + count;
+                    }
+
+                    heading.id = headingId;
+                }
+
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.href = '#' + headingId;
+                a.textContent = text;
+                a.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#' + headingId);
+                });
+
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            if (!ul.children.length) {
+                var overviewId = article.id || 'post-overview';
+                article.id = overviewId;
+
+                var overviewLi = document.createElement('li');
+                var overviewLink = document.createElement('a');
+                overviewLink.href = '#' + overviewId;
+                overviewLink.textContent = 'Overview';
+                overviewLink.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#' + overviewId);
+                });
+                overviewLi.appendChild(overviewLink);
+                ul.appendChild(overviewLi);
+                headings = [article];
+            }
+
+            nav.appendChild(ul);
+
+            var links = Array.from(nav.querySelectorAll('a'));
+            if (!links.length) return;
+
+            function applyLinkColor(link, isActive) {
+                link.style.setProperty('color', isActive ? 'var(--wm-color-text)' : 'var(--wm-color-text-muted)', 'important');
+                link.style.setProperty('text-decoration-color', isActive ? 'var(--wm-color-text)' : 'var(--wm-color-text-muted)', 'important');
+            }
+
+            links.forEach(function (link) {
+                applyLinkColor(link, false);
+            });
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+
+                    links.forEach(function (link) {
+                        var isActive = link.getAttribute('href') === '#' + entry.target.id;
+                        link.classList.toggle('active', isActive);
+                        applyLinkColor(link, isActive);
+                    });
+                });
+            }, { rootMargin: '-10% 0px -80% 0px' });
+
+            headings.forEach(function (heading) {
+                observer.observe(heading);
+            });
+
+            links[0].classList.add('active');
+            applyLinkColor(links[0], true);
+        }
+
+        function initPostSidebarTypography() {
+            var sidebar = document.querySelector('.post-detail-sidebar-card .sidebar');
+            if (!sidebar) return;
+
+            sidebar.style.setProperty('font-size', '0.7rem', 'important');
+
+            var textNodes = sidebar.querySelectorAll('p, a, time, h5, li, small, span');
+            textNodes.forEach(function (node) {
+                node.style.setProperty('font-size', '0.7rem', 'important');
+            });
+        }
+
+        initPostColumnToggles();
+        initPostSideNav();
+        initPostSidebarTypography();
+    });
+</script>

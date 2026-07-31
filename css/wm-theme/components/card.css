@@ -1,0 +1,92 @@
+/* ── Card ─────────────────────────────────────────────────────────────────────
+ * Base surface container. Provides background, border, radius, and elevation.
+ * Add padding via a .card-body child or directly on the element as needed.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+.card,
+.wm-card {
+  background: var(--wm-color-surface);
+  border: 1px solid var(--wm-color-border);
+  border-radius: var(--wm-radius-md);
+  box-shadow: var(--wm-shadow-soft);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+/* ── Structural slots ────────────────────────────────────────────────────── */
+
+/**
+ * .card-header — Title / action row at the top of the card.
+ * Sits above .card-body with a bottom border separator.
+ */
+.card-header,
+.wm-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--wm-color-border);
+}
+
+.card-header h3,
+.card-header h4,
+.wm-card-header h3,
+.wm-card-header h4 {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/**
+ * .card-body — Primary content area.
+ * Provides consistent internal padding.
+ */
+.card-body,
+.wm-card-body {
+  padding: 1.25rem;
+}
+
+/**
+ * .card-footer — Secondary action / metadata row at the bottom.
+ * Muted surface with a top border separator.
+ */
+.card-footer,
+.wm-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--wm-color-border);
+  background: var(--wm-color-surface-muted);
+}
+
+/* ── Accent border variants ──────────────────────────────────────────────── */
+
+/**
+ * Left-border accent variants. Communicate semantic tone at a glance.
+ * Apply to .card in addition to the base class.
+ *
+ *   <div class="card card-accent-success">…</div>
+ */
+
+.card-accent-info,
+.wm-card-accent-info {
+  border-left: 4px solid var(--wm-color-accent);
+}
+
+.card-accent-success,
+.wm-card-accent-success {
+  border-left: 4px solid var(--wm-color-success);
+}
+
+.card-accent-warning,
+.wm-card-accent-warning {
+  border-left: 4px solid var(--wm-color-warning);
+}
+
+.card-accent-danger,
+.wm-card-accent-danger {
+  border-left: 4px solid var(--wm-color-danger);
+}

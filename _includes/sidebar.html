@@ -7,7 +7,7 @@ Current 3: {{ current[3] }} -->
 
 <aside class="sidebar sidebar-weblog">
     <!-- <h4>Categories</h4> -->
-    <ul class="list-unstyled">
+    <ul class="list-unstyled" style="margin-top: 0; margin-bottom: 0; padding-left: 0;">
         <!-- <li>
             {% if current[1] == 'weblog' and current[3] == nil %}
                 <small class="text-muted active">
@@ -22,7 +22,7 @@ Current 3: {{ current[3] }} -->
             {% endif %}
         </li>
         <hr /> -->
-        <h4 class="text-muted">Work</h4>
+        <h4 class="text-muted" style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 0.45rem;">Work</h4>
         <li>
             {% if current[3] == 'journal' %}
                 <small class="text-muted active">
@@ -62,9 +62,21 @@ Current 3: {{ current[3] }} -->
                 </small>
             {% endif %}
         </li>
+        <li>
+            {% if current[3] == 'devlog' %}
+                <small class="text-muted active">
+                    <i class="fas fa-terminal"></i>
+                    <a href="{{ "/weblog/category/devlog" | prepend: site.baseurl }}">Dev Logs</a>
+                </small>
+            {% else %}
+                <small class="text-muted">
+                    <i class="fas fa-terminal"></i>
+                    <a href="{{ "/weblog/category/devlog" | prepend: site.baseurl }}">Dev Logs</a>
+                </small>
+            {% endif %}
+        </li>
 
-        <hr/>
-        <h4 class="text-muted">Adventures</h4>
+        <h4 class="text-muted" style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin: 0.95rem 0 0.45rem;">Adventures</h4>
 
         <li>
             {% if current[3] == 'travelogue' %}
@@ -133,8 +145,7 @@ Current 3: {{ current[3] }} -->
             {% endif %}
         </li>
 
-        <hr/>
-        <h4 class="text-muted">Meta</h4>
+        <h4 class="text-muted" style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin: 0.95rem 0 0.45rem;">Meta</h4>
 
         <li>
             {% if current[2] == 'tags' %}

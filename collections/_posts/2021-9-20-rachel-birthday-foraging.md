@@ -28,9 +28,15 @@ tags:
 - opinel
 ---
 
-Every September for the past several years we have gone camping at [Whalen Island](/wiki/cascadia/camping/whalen-island) on the Oregon Coast to celebrate Rachel's Birthday. <!--description-->  This year we decided to cancel this trip due to inclement weather and the prospect of sleeping on the ground with Rachel heavily pregnant.
+## Trip Context
+
+Every September for the past several years we have gone camping at [Whalen Island](/wiki/cascadia/camping/whalen-island) on the Oregon Coast to celebrate Rachel's Birthday. <!--description--> This year we decided to cancel this trip due to inclement weather and the prospect of sleeping on the ground with Rachel heavily pregnant.
+
+## Into the Forest
 
 With the camping trip cancelled, Rachel decided she wanted to try to fit in one more mushroom foraging trip before the year was over with.  We ended up exploring some areas we had tried in some prior years, and found quite a few things, though it was clear we were about a week or so too early.
+
+## Field Photo Log
 
 {% picture thumbnail /assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-lobster.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/sep/tillamook-mushrooming/hollow-tree-shelter.jpeg --a data-lightbox="lightbox1" %}
@@ -74,7 +80,7 @@ With the camping trip cancelled, Rachel decided she wanted to try to fit in one 
 {% picture thumbnail /assets/img/posts/2021/sep/tillamook-mushrooming/mushroom-yellow-forest-3.jpeg --a data-lightbox="lightbox1" %}
 {% picture thumbnail /assets/img/posts/2021/sep/tillamook-mushrooming/banana-slug.jpeg --a data-lightbox="lightbox1" %}
 
-## Some of the mushrooms we found
+## Mushrooms We Found
 * [Hypomyces lactifluorum (Wikipedia)](https://en.wikipedia.org/wiki/Hypomyces_lactifluorum)
 * [Marchantiophyta (Wikipedia)](https://en.wikipedia.org/wiki/Marchantiophyta)
 * [Chantrelle (Wikipedia)](https://en.wikipedia.org/wiki/Chanterelle)

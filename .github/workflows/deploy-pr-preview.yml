@@ -23,15 +23,16 @@ jobs:
     steps:
       # Step 0: Check if Netlify auth token secret is configured
       - name: Check Netlify auth token
+        id: netlify-auth
         run: |
           if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
-            echo "::error::NETLIFY_AUTH_TOKEN secret is not configured!"
-            echo "::error::Please add NETLIFY_AUTH_TOKEN to repository secrets."
-            echo "::error::See .github/workflows/README.md for setup instructions."
-            exit 1
+            echo "::warning::NETLIFY_AUTH_TOKEN secret is not configured. Skipping Netlify preview deploy."
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "✓ Netlify auth token is configured"
+            echo "Using site ID: ${NETLIFY_SITE_ID}"
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
           fi
-          echo "✓ Netlify auth token is configured"
-          echo "Using site ID: ${NETLIFY_SITE_ID}"
       
       # Step 1: Checkout the PR branch
       - name: Checkout PR branch
@@ -87,6 +88,7 @@ jobs:
       # Each PR gets a unique deploy preview URL
       - name: Deploy to Netlify
         id: netlify
+        if: steps.netlify-auth.outputs.has_token == 'true'
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: './_site'
@@ -100,6 +102,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         timeout-minutes: 5
+        continue-on-error: true
 
       # Step 7: Comment on PR with preview URL
       # Creates or updates a comment with the preview link
@@ -157,7 +160,7 @@ jobs:
       
       # Step 8: Comment on error if deployment failed
       - name: Comment on deployment failure
-        if: failure()
+        if: steps.netlify-auth.outputs.has_token != 'true' || steps.netlify.outcome == 'failure'
         uses: actions/github-script@v7
         with:
           script: |

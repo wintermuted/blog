@@ -1,14 +1,37 @@
 
 <aside class="sidebar">
-    <h4>Topic: {{ page.topic }}</h4>
+        {% if page.topic %}
+            <h5 class="text-muted">Topic</h5>
+            <p class="text-muted" style="margin: 0 0 0.65rem;">
+                <i class="fas fa-archive" aria-hidden="true"></i>
+                <span>{{ page.topic }}</span>
+            </p>
+        {% endif %}
 
-    {% assign sorted-posts = site.software_development | where: "topic",{page.topic} %}
-    <ul class="list-unstyled">
-        {% for post in sorted-posts%}
-            <li>
-                <i class="fas fa-book"></i>
-                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-            </li>
-        {% endfor %}
-    </ul>
+        {% assign wiki_tag_list = include.tags | default: page.tags %}
+        {% if wiki_tag_list and wiki_tag_list.size > 0 %}
+            <h5 class="text-muted">Tags</h5>
+            <ul class="list-unstyled post-sidebar-tags" style="margin: 0; padding-left: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem;">
+                {% for tag in wiki_tag_list %}
+                    <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                        <span>{{ tag }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% assign sorted-posts = site.software_development | where: "topic", page.topic %}
+        {% if sorted-posts and sorted-posts.size > 0 %}
+            <h5 class="text-muted">Related Pages</h5>
+            <ul class="list-unstyled">
+                {% for post in sorted-posts %}
+                    <li>
+                        <small class="text-muted">
+                            <i class="fas fa-book" aria-hidden="true"></i>
+                            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                        </small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 </aside>

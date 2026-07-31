@@ -1,21 +1,32 @@
 <main role="main" class="container homepage body-content">
-    <section class="homepage-hero" aria-labelledby="homepage-hero-title">
-        <div class="homepage-hero-body homepage-hero-body--text-only">
+    <section class="homepage-hero homepage-hero--image" aria-labelledby="homepage-hero-title">
+        <div class="homepage-hero-shell">
             <div class="homepage-hero-copy">
                 <h1 id="homepage-hero-title">
-                    Hi, I'm Jameson Nyeholt
-                    <small class="text-muted">It's nice to meet you.</small>
+                    <span class="homepage-hero-name">Hi, I'm Jameson Nyeholt</span>
+                    <small class="homepage-hero-subtitle text-muted">It's nice to meet you.</small>
                 </h1>
-                <p class="lead">
-                    I am a Software Engineer who lives in the Pacific Northwest. I'm a tinkerer and a collector of things.
-                    <a href="{{ site.baseurl }}/about">Learn More</a>
-                </p>
             </div>
-            <!--
-            <figure class="homepage-hero-media">
-                <img src="{{ site.baseurl }}/assets/img/beach2.JPG" alt="A beach in the Pacific Northwest" class="homepage-hero-image" />
-            </figure>
-            -->
+            <aside class="homepage-hero-links-block" aria-label="Homepage links">
+                <p class="homepage-hero-links">
+                    <a href="{{ site.baseurl }}/projects">Projects</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ site.baseurl }}/weblog">Weblog</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ site.baseurl }}/about">About</a>
+                </p>
+                <p class="homepage-hero-links homepage-hero-links-github-row">
+                    <a class="homepage-hero-links-github" href="https://github.com/wintermuted" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <span aria-hidden="true">·</span>
+                    <a class="homepage-hero-links-github" href="https://www.linkedin.com/in/jwnyeholt" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </p>
+            </aside>
         </div>
     </section>
 </main>

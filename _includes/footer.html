@@ -1,10 +1,39 @@
-<footer>
-  <div class="container global-footer">
+<footer class="global-footer">
+  <div class="global-footer-shell">
     <nav class="site-footer-nav">
       <span class="text-muted">
         <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
       </span>
+      <span class="site-footer-controls">
+        <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <input type="checkbox" id="darkSwitch" />
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Dark</span>
+        </label>
+        <div class="bg-tone-selector" role="group" aria-label="Background tone selector">
+          <button type="button" class="bg-tone-btn bg-tone-btn--neutral" data-bg-tone="neutral" data-tooltip="Neutral" aria-label="Set neutral background tone" title="Neutral"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--grayscale" data-bg-tone="grayscale" data-tooltip="Grayscale" aria-label="Set grayscale background tone" title="Grayscale"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--warm" data-bg-tone="warm" data-tooltip="Warm" aria-label="Set warm background tone" title="Warm"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--cool" data-bg-tone="cool" data-tooltip="Cool" aria-label="Set cool background tone" title="Cool"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--gol" data-bg-tone="gol" data-tooltip="Game of Life" aria-label="Set Game of Life background tone" title="Game of Life"></button>
+        </div>
+      </span>
     </nav>
   </div>
-  <script src="{{ site.baseurl }}/js/dark-mode.js"></script>
+  <script src="{{ site.baseurl }}/js/dark-mode.js?v=20260704-bg-tones"></script>
 </footer>

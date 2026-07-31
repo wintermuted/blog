@@ -1,79 +1,276 @@
+<div class="projects-filter-bar" role="toolbar" aria-label="Project type filters">
+  <button type="button" class="projects-filter-button is-active" data-project-filter="all"><i class="fas fa-th-large" aria-hidden="true"></i>All</button>
+  <button type="button" class="projects-filter-button" data-project-filter="web-app"><i class="fas fa-globe-americas" aria-hidden="true"></i>Web Apps</button>
+  <button type="button" class="projects-filter-button" data-project-filter="game"><i class="fas fa-gamepad" aria-hidden="true"></i>Games</button>
+  <button type="button" class="projects-filter-button" data-project-filter="agent"><i class="fas fa-robot" aria-hidden="true"></i>Agent stuff</button>
+  <button type="button" class="projects-filter-button" data-project-filter="tooling"><i class="fas fa-tools" aria-hidden="true"></i>Tooling</button>
+</div>
+
 <section class="projects-grid" aria-label="Project list">
     
-    <article class="project-card-item">
+    <article class="project-card-item" data-project-types="web-app">
       <div class="card project-card">
-        <div class="project-card-media">
-          <img src="{{ site.baseurl }}/assets/img/projects/game-of-life/game-of-life.png" class="project-card-image" alt="Game of Life project screenshot">
+        <div class="project-card-media project-card-media-placeholder project-card-media--game project-card-media--reveal">
+          <a href="{{ site.baseurl }}/projects/game-of-life/" class="project-card-media-link" aria-label="View Game of Life project details">
+            <span class="project-card-media-reveal-default" aria-hidden="true">
+              <img src="{{ site.baseurl }}/assets/img/projects/game-of-life/gol-mark.svg" class="project-card-media-reveal-icon" alt="" aria-hidden="true">
+            </span>
+            <img src="{{ site.baseurl }}/assets/img/projects/game-of-life/game-of-life-dark-demo.gif" class="project-card-image project-card-image--hover-reveal" alt="15-second animated Game of Life demo in dark mode">
+          </a>
         </div>
         <div class="card-body">
-          <h4 class="project-card-title">Game of Life</h4>
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/game-of-life/">Game of Life</a></h4>
           <p class="project-card-subtitle text-muted">Typescript web application.</p>
-          <p class="project-card-description">An implementation of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a> in TypeScript.</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://wintermuted.github.io/game-of-life/" class="btn btn-secondary-neutral btn-sm">
-            <i class="fas fa-laptop-code"></i>
-            Demo
-          </a>
-          <a href="https://github.com/wintermuted/game-of-life" class="btn btn-secondary-neutral btn-sm">
-            <i class="fab fa-github"></i>
-            Github
-          </a>
+          <!-- <ul class="project-card-badges" aria-label="Game of Life project tags">
+            <li>Simulation</li>
+            <li>Canvas</li>
+            <li>TypeScript</li>
+            <li>React</li>
+          </ul> -->
         </div>
       </div>
     </article>
 
-    <article class="project-card-item">
+    {% comment %}
+    <article class="project-card-item" data-project-types="web-app">
       <div class="card project-card">
-        <div class="project-card-media">
-          <img src="{{ site.baseurl }}/assets/img/projects/wintermuted-ui-theme/wintermuted-ui-theme.png" class="project-card-image" alt="Wintermuted UI Theme project screenshot">
-        </div>
-        <div class="card-body">
-          <h4 class="project-card-title">Wintermuted UI Theme</h4>
-          <p class="project-card-subtitle text-muted">Design System / CSS Components.</p>
-          <p class="project-card-description">
-            A shared CSS and JavaScript design system package providing design tokens, component styles, and utilities for consistent UI across projects.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/wintermuted/ui-theme" class="btn btn-secondary-neutral btn-sm">
-            <i class="fab fa-github"></i>
-            Github
-          </a>
-          <a href="https://www.npmjs.com/@wintermuted/ui-theme" class="btn btn-secondary-neutral btn-sm">
-            <i class="fab fa-npm"></i>
-            NPM
+        <div class="project-card-media project-card-media-placeholder project-card-media--web-app">
+          <a href="{{ site.baseurl }}/projects/sub-killer/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View Sub Killer project details">
+            <i class="fas fa-globe-americas" aria-hidden="true"></i>
+            <span>Web App</span>
           </a>
         </div>
-      </div>
-    </article>
-
-    <article class="project-card-item">
-      <div class="card project-card">
-        <div class="project-card-media">
-          <img src="{{ site.baseurl }}/assets/img/projects/sub-killer/sub-killer.png" class="project-card-image" alt="Sub Killer project screenshot">
-        </div>
         <div class="card-body">
-          <h4 class="project-card-title">Sub Killer</h4>
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/sub-killer/">Sub Killer</a></h4>
           <p class="project-card-subtitle text-muted">React / TypeScript PWA.</p>
-          <p class="project-card-description">
-            A local-only subscription detection and management tool. Import bank/card CSV exports to identify recurring charges and find cancellation links.
-          </p>
+          <!-- <ul class="project-card-badges" aria-label="Sub Killer project tags">
+            <li>Privacy-first</li>
+            <li>PWA</li>
+            <li>React</li>
+            <li>TypeScript</li>
+          </ul> -->
         </div>
-        <div class="card-footer">
-          <a href="https://wintermuted.github.io/sub-killer/" class="btn btn-secondary-neutral btn-sm">
-            <i class="fas fa-laptop-code"></i>
-            Demo
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="game">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--game">
+          <a href="{{ site.baseurl }}/projects/playdate-rpg-prototype/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View Playdate RPG Prototype project details">
+            <i class="fas fa-gamepad" aria-hidden="true"></i>
+            <span>Game</span>
           </a>
-          <a href="https://github.com/wintermuted/sub-killer" class="btn btn-secondary-neutral btn-sm">
-            <i class="fab fa-github"></i>
-            Github
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/playdate-rpg-prototype/">Playdate RPG Prototype</a></h4>
+          <p class="project-card-subtitle text-muted">Lua / Playdate combat prototype.</p>
+          <!-- <ul class="project-card-badges" aria-label="Playdate RPG Prototype project tags">
+            <li>Playdate</li>
+            <li>Lua</li>
+            <li>RPG</li>
+            <li>Prototype</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+    {% endcomment %}
+
+    <article class="project-card-item" data-project-types="agent">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--agent">
+          <a href="{{ site.baseurl }}/projects/playdate-mcp/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View playdate-mcp project details">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+            <span>Agent</span>
           </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/playdate-mcp/">playdate-mcp</a></h4>
+          <p class="project-card-subtitle text-muted">TypeScript MCP tooling server.</p>
+          <!-- <ul class="project-card-badges" aria-label="playdate-mcp project tags">
+            <li>MCP</li>
+            <li>TypeScript</li>
+            <li>Tooling</li>
+            <li>Playdate</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="agent">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--agent">
+          <a href="{{ site.baseurl }}/projects/playdate-skills/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View playdate-skills project details">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+            <span>Agent</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/playdate-skills/">playdate-skills</a></h4>
+          <p class="project-card-subtitle text-muted">Agent skill library for Playdate SDK work.</p>
+          <!-- <ul class="project-card-badges" aria-label="playdate-skills project tags">
+            <li>AI Skills</li>
+            <li>Playdate</li>
+            <li>Docs</li>
+            <li>Smithery</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="tooling">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--tooling">
+          <a href="{{ site.baseurl }}/projects/wm-asset-workflows/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View wm-asset-workflows project details">
+            <i class="fas fa-tools" aria-hidden="true"></i>
+            <span>Tooling</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/wm-asset-workflows/">wm-asset-workflows</a></h4>
+          <p class="project-card-subtitle text-muted">SVG-first asset pipeline.</p>
+          <!-- <ul class="project-card-badges" aria-label="wm-asset-workflows project tags">
+            <li>SVG</li>
+            <li>Automation</li>
+            <li>Playwright</li>
+            <li>Pillow</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="tooling">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--tooling">
+          <a href="{{ site.baseurl }}/projects/wintermuted-ui-theme/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View Wintermuted UI Theme project details">
+            <i class="fas fa-tools" aria-hidden="true"></i>
+            <span>Tooling</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/wintermuted-ui-theme/">Wintermuted UI Theme</a></h4>
+          <p class="project-card-subtitle text-muted">Design System / CSS Components.</p>
+          <!-- <ul class="project-card-badges" aria-label="Wintermuted UI Theme project tags">
+            <li>Design System</li>
+            <li>Tokens</li>
+            <li>CSS</li>
+            <li>npm Package</li>
+          </ul> -->
         </div>
       </div>
     </article>
   
-    </section>
+  </section>
+
+  <p class="projects-filter-empty text-muted" hidden>No projects match the selected filter.</p>
+
+<script>
+  window.addEventListener('load', function () {
+    var buttons = Array.from(document.querySelectorAll('.projects-filter-button'));
+    var cards = Array.from(document.querySelectorAll('.project-card-item[data-project-types]'));
+    var emptyState = document.querySelector('.projects-filter-empty');
+    var grid = document.querySelector('.projects-grid');
+
+    if (!buttons.length || !cards.length || !grid) return;
+
+    function configureMediaHoverEffects() {
+      var mediaLinks = Array.from(document.querySelectorAll('.project-card-media-link'));
+
+      mediaLinks.forEach(function (link) {
+        var media = link.closest('.project-card-media');
+        var image = link.querySelector('.project-card-image');
+        var label = link.querySelector('span');
+
+        if (!media) return;
+
+        // Keep placeholder links and labels from underlining regardless of global anchor rules.
+        if (link.classList.contains('project-card-media-link--placeholder')) {
+          link.style.textDecoration = 'none';
+          if (label) {
+            label.style.textDecoration = 'none';
+          }
+        }
+
+        function applyHoverStyles() {
+          media.style.boxShadow = 'inset 0 0 0 999px rgba(15, 23, 42, 0.08)';
+          link.style.backgroundColor = 'rgba(15, 23, 42, 0.08)';
+
+          if (image) {
+            image.style.transform = 'scale(1.03)';
+            image.style.filter = 'brightness(1.06)';
+          }
+
+          if (label) {
+            label.style.textDecoration = 'none';
+          }
+          link.style.textDecoration = 'none';
+        }
+
+        function clearHoverStyles() {
+          media.style.boxShadow = '';
+          link.style.backgroundColor = '';
+
+          if (image) {
+            image.style.transform = '';
+            image.style.filter = '';
+          }
+
+          if (label) {
+            label.style.textDecoration = 'none';
+          }
+          link.style.textDecoration = 'none';
+        }
+
+        link.addEventListener('mouseenter', applyHoverStyles);
+        link.addEventListener('mouseleave', clearHoverStyles);
+        link.addEventListener('focus', applyHoverStyles);
+        link.addEventListener('blur', clearHoverStyles);
+      });
+    }
+
+    function syncGridColumnState() {
+      var templateColumns = window.getComputedStyle(grid).gridTemplateColumns || '';
+      var columnCount = templateColumns.split(' ').filter(Boolean).length;
+      grid.classList.toggle('projects-grid--four-up', columnCount === 4);
+    }
+
+    function applyFilter(filter) {
+      var visibleCount = 0;
+
+      buttons.forEach(function (button) {
+        var active = button.getAttribute('data-project-filter') === filter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      cards.forEach(function (card) {
+        var types = (card.getAttribute('data-project-types') || '')
+          .split(',')
+          .map(function (value) { return value.trim(); })
+          .filter(Boolean);
+
+        var matches = filter === 'all' || types.indexOf(filter) !== -1;
+        card.hidden = !matches;
+        if (matches) visibleCount += 1;
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount !== 0;
+      }
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        applyFilter(button.getAttribute('data-project-filter') || 'all');
+        syncGridColumnState();
+      });
+    });
+
+    applyFilter('all');
+    syncGridColumnState();
+    configureMediaHoverEffects();
+    window.addEventListener('resize', syncGridColumnState);
+  });
+</script>
 
 
 

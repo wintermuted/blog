@@ -1,0 +1,94 @@
+<div class="col mb-4">
+  <div class="card h-100">
+    {% if include.post.image %}
+      {% assign image_ext = include.post.image | split: '.' | last | downcase %}
+      <div class="gallery-card-media{% if include.post.url contains 'microsoft-acquires-xandr' %} gallery-card-media--microsoft{% endif %}">
+        {% if image_ext == 'svg' %}
+          <a href="{{ include.post.url | prepend: site.baseurl }}">
+            <img class="card-image-top card-image-top--svg" src="{{ include.post.image | prepend: site.baseurl }}" alt="{{ include.post.title }}">
+          </a>
+        {% else %}
+          {% picture gallery_thumbnail {{ include.post.image }} %}
+        {% endif %}
+        <div class="overlay">
+          <div>
+          {% if include.post.category == 'journal' %}
+            <i class="fas fa-journal-whills"></i> <span>Journal</span>
+            {% elsif include.post.category == 'devlog' %}
+            <i class="fas fa-terminal"></i> <span>Devlog</span>
+            {% elsif include.post.category == 'essay' %}
+            <i class="fas fa-file-alt"></i> <span>Essay</span>
+            {% elsif include.post.category == 'hiking' %}
+            <i class="fas fa-hiking"></i> <span>Hiking</span>
+            {% elsif include.post.category == 'foraging' %}
+            <i class="fas fa-leaf"></i> <span>Foraging</span>
+            {% elsif include.post.category == 'camping' %}
+            <i class="fas fa-campground"></i> <span>Camping</span>
+            {% elsif include.post.category == 'talks' %}
+            <i class="fas fa-chalkboard"></i> <span>Talks</span>
+            {% elsif include.post.category == 'travelogue' %}
+            <i class="fas fa-passport"></i> <span>Travelogue</span>
+            {% elsif include.post.category == 'roadtrip' %}
+            <i class="fas fa-car-side"></i> <span>Roadtrip</span>
+            {% elsif include.post.category == 'changelog' %}
+            <i class="fas fa-list-alt"></i> <span>Changelog</span>
+            {% else %}
+            <i class="fas fa-folder"></i>
+          {% endif %}
+          </div>
+          <br />
+        </div>
+      </div>
+    {% endif %}
+    {% if include.post.image == nil %}
+      {% assign placeholder_icon = 'fas fa-folder' %}
+      {% case include.post.category %}
+        {% when 'journal' %}
+          {% assign placeholder_icon = 'fas fa-journal-whills' %}
+        {% when 'devlog' %}
+          {% assign placeholder_icon = 'fas fa-terminal' %}
+        {% when 'essay' %}
+          {% assign placeholder_icon = 'fas fa-file-alt' %}
+        {% when 'hiking' %}
+          {% assign placeholder_icon = 'fas fa-hiking' %}
+        {% when 'foraging' %}
+          {% assign placeholder_icon = 'fas fa-leaf' %}
+        {% when 'camping' %}
+          {% assign placeholder_icon = 'fas fa-campground' %}
+        {% when 'talks' %}
+          {% assign placeholder_icon = 'fas fa-chalkboard' %}
+        {% when 'travelogue' %}
+          {% assign placeholder_icon = 'fas fa-passport' %}
+        {% when 'roadtrip' %}
+          {% assign placeholder_icon = 'fas fa-car-side' %}
+        {% when 'changelog' %}
+          {% assign placeholder_icon = 'fas fa-list-alt' %}
+      {% endcase %}
+      <div class="gallery-card-media gallery-card-media-placeholder">
+        <a href="{{ include.post.url | prepend: site.baseurl }}" class="gallery-card-media-link--placeholder" aria-label="View {{ include.post.title }} post details">
+          <i class="{{ placeholder_icon }}" aria-hidden="true"></i>
+          <span>{{ include.post.category | default: 'post' | capitalize }}</span>
+        </a>
+      </div>
+    {% endif %}
+    <div class="card-body">
+      {% if include.post.image %}
+        <h4 class="gallery-card-title">
+          <a href="{{ include.post.url | prepend: site.baseurl }}">{{ include.post.title }}</a>
+        </h4>
+      {% else %}
+        <h4 class="gallery-card-title">
+          <a href="{{ include.post.url | prepend: site.baseurl }}">{{ include.post.title }}</a>
+        </h4>
+        <p class="gallery-card-excerpt">
+          {{ include.post.excerpt | strip_html | strip_newlines | truncate: 180 }}
+        </p>
+      {% endif %}
+      <div class="gallery-card-meta">
+        <small class="text-muted gallery-card-meta-line">
+          <span class="date">{{ include.post.date | date: "%-d %b, %Y" }}</span>{% if include.post.location %}<span class="gallery-card-meta-sep"> · </span><span class="gallery-card-location">{{ include.post.location }}</span>{% endif %}
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
