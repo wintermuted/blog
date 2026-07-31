@@ -5,12 +5,12 @@ This directory contains GitHub Actions workflows for building and deploying the 
 ## Workflows
 
 ### deploy.yml
-Builds and deploys the Jekyll site to GitHub Pages (gh-pages branch) when changes are pushed to the master branch.
+Builds and deploys the Jekyll site to the production Netlify site when changes are pushed to the master branch.
 
 - **Trigger**: Push to `master` branch
-- **Target**: Root of gh-pages branch
-- **URL**: Main site accessible via custom domain (jnyeholt.dev)
-- **Method**: GitHub Pages with CNAME
+- **Target**: Netlify production site (`reverent-aryabhata-74e98b`)
+- **URL**: Main site accessible via custom domains (`jnyeholt.dev`, `www.jnyeholt.dev`)
+- **Method**: GitHub Actions builds Jekyll, then publishes `_site/` to Netlify
 
 ### deploy-pr-preview.yml
 Creates preview deployments for pull requests using Netlify, completely separate from the main site deployment.
@@ -51,6 +51,7 @@ When you open a pull request:
 - Ruby 3.2
 - System dependencies for image processing (libvips, etc.)
 - Jekyll and all gems specified in Gemfile
+- **Netlify credentials**: `NETLIFY_AUTH_TOKEN` repository secret must be configured for production deploys
 
 ### PR previews (deploy-pr-preview.yml)
 - Ruby 3.2
@@ -90,3 +91,7 @@ Netlify is a widely-adopted, modern platform that:
 - Offers a generous free tier
 - Is actively maintained and well-documented
 - Used by thousands of production sites
+
+## Production Hosting Note
+
+The repository previously published production builds to `gh-pages`, but the live custom domains resolve to Netlify. Production deploys therefore need to publish to Netlify to update the public site.
