@@ -570,6 +570,23 @@ body a:visited {
   padding-inline: 1.6rem !important;
 }
 
+.about-page-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.about-page-main {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.about-page-sidebar {
+  min-width: 0;
+}
+
 .projects-layout,
 .weblog-layout {
   width: 100%;
@@ -598,6 +615,10 @@ body a:visited {
 @media (max-width: 767px) {
   .about-layout-content {
     padding-inline: 0.75rem !important;
+  }
+
+  .about-page-columns {
+    grid-template-columns: 1fr;
   }
 
   .projects-layout-content {
