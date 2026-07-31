@@ -2,53 +2,92 @@
 layout: default
 ---
 
-</br>
-<main class="app-shell archive">
-  <div class="row">
-    <div class="col">
-      <h1>
+<main class="post-detail-layout archive-list-layout body-content">
+  <div class="post-detail-layout-content">
+    <header class="post-detail-header">
+      <h1 class="article-title">
         <i class="fas fa-tag"></i>
         <span>Tag: {{ page.title }}</span>
       </h1>
-      <hr/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-9 post_list">
-        <h2>Blog Posts</h2>
+      <hr>
+    </header>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-9 post_list">
+        <h2>Weblog Posts</h2>
         <ul class="list-unstyled posts">
-        {% for post in page.posts %}
-          <li class="post_title">
-            {% if post.category == 'journal' %}
-            <i class="fas fa-journal-whills"></i>
-            {% elsif post.category == 'essay' %}
-            <i class="fas fa-file-alt"></i>
-            {% elsif post.category == 'essay' %}
-            <i class="fas fa-file-alt"></i>
-            {% elsif post.category == 'hiking' %}
-            <i class="fas fa-hiking"></i>
-            {% elsif post.category == 'foraging' %}
-            <i class="fas fa-leaf"></i>
-            {% elsif post.category == 'camping' %}
-            <i class="fas fa-campground"></i>
-            {% elsif post.category == 'talks' %}
-            <i class="fas fa-chalkboard"></i>
-            {% elsif post.category == 'travelogue' %}
-            <i class="fas fa-passport"></i>
-            {% elsif post.category == 'changelog' %}
-            <i class="fas fa-list-alt"></i>
-            {% else %}
-            <i class="fas fa-folder"></i>
+          {% if page.posts and page.posts.size > 0 %}
+            {% for post in page.posts %}
+              <li class="post_title">
+                {% if post.category == 'journal' %}
+                <i class="fas fa-journal-whills"></i>
+                {% elsif post.category == 'essay' %}
+                <i class="fas fa-file-alt"></i>
+                {% elsif post.category == 'essay' %}
+                <i class="fas fa-file-alt"></i>
+                {% elsif post.category == 'hiking' %}
+                <i class="fas fa-hiking"></i>
+                {% elsif post.category == 'foraging' %}
+                <i class="fas fa-leaf"></i>
+                {% elsif post.category == 'camping' %}
+                <i class="fas fa-campground"></i>
+                {% elsif post.category == 'talks' %}
+                <i class="fas fa-chalkboard"></i>
+                {% elsif post.category == 'travelogue' %}
+                <i class="fas fa-passport"></i>
+                {% elsif post.category == 'changelog' %}
+                <i class="fas fa-list-alt"></i>
+                  {% elsif post.category == 'devlog' %}
+                  <i class="fas fa-terminal"></i>
+                {% endif %}
+                <a href="{{ post.url | prepend: site.baseurl }}">
+                  {{ post.title }}
+                </a>
+                -
+                <small class="text-muted">
+                  <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+                </small>
+              </li>
+            {% endfor %}
+          {% else %}
+            <li class="text-muted">No weblog posts found for this tag yet.</li>
+          {% endif %}
+        </ul>
+
+        <h2>Projects</h2>
+        <ul class="list-unstyled posts">
+          {% assign tag_slug = page.title | slugify %}
+          {% assign project_match_count = 0 %}
+          {% for project in site.pages %}
+            {% if project.layout == 'project-detail' %}
+              {% assign devlog_slug = project.devlog_tag | default: '' | slugify %}
+              {% assign tech_match_count = 0 %}
+              {% if project.tech_stack %}
+                {% for stack_item in project.tech_stack %}
+                  {% assign stack_slug = stack_item | slugify %}
+                  {% if stack_slug == tag_slug %}
+                    {% assign tech_match_count = tech_match_count | plus: 1 %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+              {% if devlog_slug == tag_slug or tech_match_count > 0 %}
+                {% assign project_match_count = project_match_count | plus: 1 %}
+                <li class="post_title">
+                  <i class="fas fa-project-diagram"></i>
+                  <a href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
+                  {% if project.timeline %}
+                    -
+                    <small class="text-muted">{{ project.timeline }}</small>
+                  {% endif %}
+                </li>
+              {% endif %}
             {% endif %}
-            <a href="{{ post.url | prepend: site.baseurl }}">
-              {{ post.title }}
-            </a> 
-            -
-            <small class="text-muted">
-              <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
-            </small>
-          </li>
-        {% endfor %}
+          {% endfor %}
+
+          {% if project_match_count == 0 %}
+            <li class="text-muted">No project pages found for this tag yet.</li>
+          {% endif %}
         </ul>
 
         <hr />
@@ -59,9 +98,40 @@ layout: default
         </h2>
         {% include tag-cloud.html %}
 
-    </div>
-    <div class="col-sm-12 col-md-3">
-      {% include sidebar.html %}
+      </div>
+      <div class="col-sm-12 col-md-3">
+        {% include sidebar.html %}
+      </div>
     </div>
   </div>
 </main>
+
+<script>
+  window.addEventListener('load', function () {
+    function syncArchiveColumns() {
+      var desktop = window.matchMedia('(min-width: 768px)').matches;
+      var row = document.querySelector('.archive-list-layout .row');
+      if (!row) return;
+
+      var leftCol = row.querySelector('.col-md-9, .post_list');
+      var rightCol = row.querySelector('.col-md-3');
+      if (!leftCol || !rightCol) return;
+
+      if (!desktop) {
+        leftCol.style.removeProperty('flex');
+        leftCol.style.removeProperty('max-width');
+        rightCol.style.removeProperty('flex');
+        rightCol.style.removeProperty('max-width');
+        return;
+      }
+
+      rightCol.style.setProperty('flex', '0 0 280px', 'important');
+      rightCol.style.setProperty('max-width', '280px', 'important');
+      leftCol.style.setProperty('flex', '1 1 0%', 'important');
+      leftCol.style.setProperty('max-width', 'calc(100% - 280px)', 'important');
+    }
+
+    syncArchiveColumns();
+    window.addEventListener('resize', syncArchiveColumns);
+  });
+</script>

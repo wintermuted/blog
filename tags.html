@@ -4,23 +4,67 @@ title: Tags
 permalink: /weblog/tags
 ---
 
-</br>
-<div class="container archive">
-  <div class="row">
-    <div class="col">
-      <h1>
+<main class="post-detail-layout archive-list-layout body-content">
+  <div class="post-detail-layout-content">
+    <header class="post-detail-header">
+      <h1 class="article-title">
         <i class="fas fa-tag"></i>
         <span>{{ page.title }}</span>
       </h1>
-      <hr/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-9">
+      <hr>
+    </header>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-9 post_list">
         {% include tag-cloud.html %}
-    </div>
-    <div class="col-sm-12 col-md-3">
-      {% include sidebar.html %}
+      </div>
+      <div class="col-sm-12 col-md-3">
+        {% include sidebar.html %}
+      </div>
     </div>
   </div>
-</div>
+</main>
+
+<script>
+  window.addEventListener('load', function () {
+    function syncArchiveColumns() {
+      var desktop = window.matchMedia('(min-width: 768px)').matches;
+      var row = document.querySelector('.archive-list-layout .row');
+      if (!row) return;
+
+      var leftCol = row.querySelector('.col-md-9, .post_list');
+      var rightCol = row.querySelector('.col-md-3');
+      if (!leftCol || !rightCol) return;
+
+      if (!desktop) {
+        row.style.removeProperty('align-items');
+        leftCol.style.removeProperty('flex');
+        leftCol.style.removeProperty('max-width');
+        rightCol.style.removeProperty('flex');
+        rightCol.style.removeProperty('max-width');
+        rightCol.style.removeProperty('padding-top');
+        return;
+      }
+
+      row.style.setProperty('align-items', 'flex-start', 'important');
+      rightCol.style.setProperty('flex', '0 0 280px', 'important');
+      rightCol.style.setProperty('max-width', '280px', 'important');
+      rightCol.style.setProperty('padding-top', '0', 'important');
+      leftCol.style.setProperty('flex', '1 1 0%', 'important');
+      leftCol.style.setProperty('max-width', 'calc(100% - 280px)', 'important');
+
+      var sidebar = rightCol.querySelector('aside.sidebar');
+      if (sidebar) {
+        sidebar.style.setProperty('margin-top', '0', 'important');
+      }
+
+      var firstHeading = rightCol.querySelector('.sidebar-weblog h4:first-of-type');
+      if (firstHeading) {
+        firstHeading.style.setProperty('margin-top', '0', 'important');
+      }
+    }
+
+    syncArchiveColumns();
+    window.addEventListener('resize', syncArchiveColumns);
+  });
+</script>

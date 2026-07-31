@@ -1,9 +1,40 @@
-{% assign tags = site.tags | sort %}
-{% for tag in tags %}
-  <span class="site-tag">
-      <a href="/weblog/tag/{{ tag | first | slugify }}/"
-          style="font-size: {{ tag | last | size  |  times: 10 | plus: 80  }}%">
-              {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
-      </a>
-  </span>
+{% assign tag_entries = '' %}
+{% for tag in site.tags %}
+  {% assign tag_name = tag | first %}
+  {% assign tag_count = tag | last | size %}
+  {% capture tag_entry %}{{ tag_name | downcase }}|||{{ tag_name }}|||{{ tag_count }}{% endcapture %}
+  {% assign tag_entries = tag_entries | append: tag_entry | append: ';;' %}
 {% endfor %}
+{% assign sorted_tag_entries = tag_entries | split: ';;' | sort_natural %}
+<ul class="list-unstyled site-tag-cloud" style="margin: 0; padding-left: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: flex-start; align-content: flex-start;">
+  {% for entry in sorted_tag_entries %}
+    {% if entry == '' %}
+      {% continue %}
+    {% endif %}
+    {% assign entry_parts = entry | split: '|||' %}
+    {% assign tag_name = entry_parts[1] %}
+    {% assign tag_count = entry_parts[2] | plus: 0 %}
+    {% assign tag_scale = 95 %}
+    {% if tag_count == 1 %}
+      {% assign tag_scale = 78 %}
+    {% elsif tag_count <= 2 %}
+      {% assign tag_scale = 92 %}
+    {% elsif tag_count <= 4 %}
+      {% assign tag_scale = 108 %}
+    {% elsif tag_count <= 7 %}
+      {% assign tag_scale = 124 %}
+    {% elsif tag_count <= 12 %}
+      {% assign tag_scale = 142 %}
+    {% elsif tag_count <= 20 %}
+      {% assign tag_scale = 165 %}
+    {% else %}
+      {% assign tag_scale = 188 %}
+    {% endif %}
+    <li style="margin: 0; padding: 0.22em 0.6em; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: {{ tag_scale }}% !important; line-height: 1.25; color: var(--wm-color-text); white-space: nowrap; display: inline-flex; align-items: center; width: auto; flex: 0 0 auto; align-self: flex-start;">
+      <a href="/weblog/tag/{{ tag_name | slugify }}/" style="color: var(--wm-color-text); text-decoration: none; line-height: inherit; display: inline-flex; align-items: center; gap: 0.35em;">
+        <span>{{ tag_name | replace:'-', ' ' }}</span>
+        <span class="project-detail-tab-count" aria-label="{{ tag_count }} posts">{{ tag_count }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

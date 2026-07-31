@@ -1,5 +1,16 @@
 var darkSwitch = document.getElementById("darkSwitch");
-var themeToggleLabel = document.querySelector(".theme-toggle-label");
+var themeToggleLabels = Array.from(document.querySelectorAll(".theme-toggle-label"));
+var toneButtons = Array.from(document.querySelectorAll("[data-bg-tone]"));
+
+var DARK_MODE_KEY = "darkSwitch";
+var BG_TONE_KEY = "bgTone";
+var BG_TONE_CLASSES = [
+  "bg-tone-neutral",
+  "bg-tone-grayscale",
+  "bg-tone-warm",
+  "bg-tone-cool",
+  "bg-tone-gol"
+];
 
 function applyThemeState(isDark) {
   if (isDark) {
@@ -12,62 +23,89 @@ function applyThemeState(isDark) {
 }
 
 function syncThemeToggleLabel() {
-  if (!themeToggleLabel || !darkSwitch) {
+  if (!darkSwitch || !themeToggleLabels.length) {
     return;
   }
 
-  themeToggleLabel.textContent = darkSwitch.checked ? "Light" : "Dark";
+  themeToggleLabels.forEach(function (label) {
+    label.textContent = darkSwitch.checked ? "Light" : "Dark";
+  });
+}
+
+function normalizeTone(tone) {
+  var allowed = ["neutral", "grayscale", "warm", "cool", "gol"];
+  return allowed.indexOf(tone) !== -1 ? tone : "neutral";
+}
+
+function applyBackgroundTone(tone) {
+  var normalizedTone = normalizeTone(tone);
+  BG_TONE_CLASSES.forEach(function (className) {
+    document.body.classList.remove(className);
+  });
+  document.body.classList.add("bg-tone-" + normalizedTone);
+
+  toneButtons.forEach(function (button) {
+    var isActive = button.getAttribute("data-bg-tone") === normalizedTone;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+
+  return normalizedTone;
 }
 
 function initTheme() {
-  console.log('init theme')
-  
-  var defaultSelected = localStorage.getItem("darkSwitch") !== null && localStorage.getItem("darkSwitch") === "default";
-  var darkThemeSelected = localStorage.getItem("darkSwitch") !== null && localStorage.getItem("darkSwitch") === "dark";
-  var prefersColorSchemeDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var activateDarkTheme = darkThemeSelected || prefersColorSchemeDark;
+  var defaultSelected = localStorage.getItem(DARK_MODE_KEY) === "default";
+  var darkThemeSelected = localStorage.getItem(DARK_MODE_KEY) === "dark";
+  var prefersColorSchemeDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  console.log('default theme selected', defaultSelected)
-  console.log('dark theme selected', darkThemeSelected)
-  console.log('prefers color scheme: dark', prefersColorSchemeDark)
-  
-  applyThemeState(activateDarkTheme);
-
-  if (defaultSelected) {
-    applyThemeState(false)
-    darkSwitch.checked =  false;
-  } else if (darkThemeSelected) {
-    applyThemeState(true)
-    darkSwitch.checked =  true;
-  } else if (prefersColorSchemeDark) {
-    applyThemeState(true)
-    darkSwitch.checked =  true;
+  if (darkThemeSelected || (!defaultSelected && prefersColorSchemeDark)) {
+    applyThemeState(true);
+    if (darkSwitch) darkSwitch.checked = true;
+  } else {
+    applyThemeState(false);
+    if (darkSwitch) darkSwitch.checked = false;
   }
 
   syncThemeToggleLabel();
+
+  var storedToneRaw = localStorage.getItem(BG_TONE_KEY);
+  var storedTone = normalizeTone(storedToneRaw || "neutral");
+  if (!storedToneRaw) {
+    localStorage.setItem(BG_TONE_KEY, storedTone);
+  }
+  applyBackgroundTone(storedTone);
 }
 
 function resetTheme() {
-  console.log('reseting theme')
+  if (!darkSwitch) {
+    return;
+  }
 
   if (darkSwitch.checked) {
-    console.log('setting theme to dark')
     applyThemeState(true);
-    localStorage.setItem("darkSwitch", "dark");
+    localStorage.setItem(DARK_MODE_KEY, "dark");
   } else {
-    console.log('setting theme to light')
     applyThemeState(false);
-    localStorage.setItem("darkSwitch", "default");
+    localStorage.setItem(DARK_MODE_KEY, "default");
   }
 
   syncThemeToggleLabel();
 }
 
 window.addEventListener("load", function () {
+  initTheme();
+
   if (darkSwitch) {
-    initTheme();
     darkSwitch.addEventListener("change", function () {
       resetTheme();
     });
   }
+
+  toneButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var tone = normalizeTone(button.getAttribute("data-bg-tone"));
+      applyBackgroundTone(tone);
+      localStorage.setItem(BG_TONE_KEY, tone);
+    });
+  });
 });

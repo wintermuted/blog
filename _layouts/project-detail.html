@@ -1,0 +1,1257 @@
+---
+layout: default
+---
+{% assign tab_id_prefix = page.url | slugify %}
+{% assign detail_sections = content | split: '<h2' %}
+{% assign has_architecture_tab = false %}
+{% assign has_roadmap_tab = false %}
+{% assign architecture_section_labels = '|technical architecture|architecture diagrams|architectural overview|architecture goals|planning|packages|problem|problem space|key decisions|challenges|outcomes|' %}
+{% if detail_sections.size > 1 %}
+  {% for section in detail_sections offset: 1 %}
+    {% assign section_heading = section | split: '</h2>' | first | downcase %}
+    {% assign section_heading_label = section_heading | split: '>' | last | strip | downcase %}
+    {% assign section_heading_key = section_heading_label | prepend: '|' | append: '|' %}
+    {% if section_heading_label contains 'architecture' or architecture_section_labels contains section_heading_key or section contains '<!--tab:architecture-->' or section_heading_label == 'overview' and section contains 'deterministic simulation core and a separate React application shell' %}
+      {% assign has_architecture_tab = true %}
+    {% endif %}
+    {% if section_heading contains 'roadmap' %}
+      {% assign has_roadmap_tab = true %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% assign has_project_tabs = false %}
+{% if page.devlog_tag or has_architecture_tab or has_roadmap_tab %}
+  {% assign has_project_tabs = true %}
+{% endif %}
+{% if page.devlog_tag %}
+  {% assign tagged_posts = site.tags[page.devlog_tag] %}
+  {% assign devlog_post_count = 0 %}
+  {% if tagged_posts %}
+    {% for post in tagged_posts %}
+      {% if post.url contains '/weblog/' %}
+        {% assign devlog_post_count = devlog_post_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+<main class="projects-layout projects-page project-detail-page body-content">
+  <div class="projects-layout-content">
+    <header class="view-header">
+      <div class="project-titlebar-main">
+        {% assign fallback_title_icon = '' %}
+        {% case page.project_type %}
+          {% when 'web-app' %}
+            {% assign fallback_title_icon = 'fa-globe-americas' %}
+          {% when 'tooling' %}
+            {% assign fallback_title_icon = 'fa-tools' %}
+          {% when 'agent' %}
+            {% assign fallback_title_icon = 'fa-robot' %}
+          {% when 'game' %}
+            {% assign fallback_title_icon = 'fa-gamepad' %}
+        {% endcase %}
+        <h1>
+          {% if page.header_logo %}
+            <img src="{{ site.baseurl }}{{ page.header_logo }}" alt="" aria-hidden="true" class="project-title-logo">
+          {% elsif fallback_title_icon != '' %}
+            <i class="fas {{ fallback_title_icon }} project-title-icon" aria-hidden="true"></i>
+          {% endif %}
+          <span>{{ page.title }}</span>
+        </h1>
+      </div>
+    </header>
+
+    {% if has_project_tabs %}
+      <div class="project-titlebar-tabs-row">
+        <div class="project-titlebar-tabs project-detail-tabs" role="tablist" aria-label="Project detail sections">
+          <button
+            type="button"
+            class="project-detail-tab is-active"
+            id="{{ tab_id_prefix }}-tab-details"
+            role="tab"
+            aria-selected="true"
+            aria-controls="{{ tab_id_prefix }}-panel-details"
+            data-project-tab-target="details"
+          >
+            <i class="fas fa-info-circle" aria-hidden="true"></i>
+            Details
+          </button>
+
+          {% if has_architecture_tab %}
+            <button
+              type="button"
+              class="project-detail-tab"
+              id="{{ tab_id_prefix }}-tab-architecture"
+              role="tab"
+              aria-selected="false"
+              aria-controls="{{ tab_id_prefix }}-panel-architecture"
+              data-project-tab-target="architecture"
+            >
+              <i class="fas fa-project-diagram" aria-hidden="true"></i>
+              Architecture
+            </button>
+          {% endif %}
+          {% if has_roadmap_tab %}
+            <button
+              type="button"
+              class="project-detail-tab"
+              id="{{ tab_id_prefix }}-tab-roadmap"
+              role="tab"
+              aria-selected="false"
+              aria-controls="{{ tab_id_prefix }}-panel-roadmap"
+              data-project-tab-target="roadmap"
+            >
+              <i class="fas fa-road" aria-hidden="true"></i>
+              Roadmap
+            </button>
+          {% endif %}
+          {% if page.devlog_tag %}
+            <button
+              type="button"
+              class="project-detail-tab"
+              id="{{ tab_id_prefix }}-tab-devlog"
+              role="tab"
+              aria-selected="false"
+              aria-controls="{{ tab_id_prefix }}-panel-devlog"
+              data-project-tab-target="devlog"
+            >
+              <i class="fas fa-code-branch" aria-hidden="true"></i>
+              Dev Log
+              <span class="project-detail-tab-count" aria-label="{{ devlog_post_count }} dev log posts">{{ devlog_post_count }}</span>
+            </button>
+          {% endif %}
+        </div>
+
+        <div class="project-tab-menu" aria-label="Sidebar toggles">
+          <div class="project-tab-menu-group" role="group" aria-label="Sidebar visibility toggles">
+            <button
+              type="button"
+              class="project-sidebar-toggle project-tab-menu-toggle"
+              data-sidebar-toggle="left"
+              aria-controls="project-side-nav"
+              aria-expanded="true"
+              aria-label="Collapse left sidebar"
+              title="Collapse left sidebar"
+            >
+              <i class="fas fa-align-left" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="project-sidebar-toggle project-tab-menu-toggle"
+              data-sidebar-toggle="right"
+              aria-controls="project-detail-sidebar"
+              aria-expanded="true"
+              aria-label="Collapse right sidebar"
+              title="Collapse right sidebar"
+            >
+              <i class="fas fa-align-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <section class="project-detail-shell">
+      <nav id="project-side-nav" class="project-side-nav" hidden aria-label="Section navigation"></nav>
+
+      <div class="project-detail-main">
+        {% if has_project_tabs %}
+          <section
+            class="project-detail-tab-panel is-active"
+            id="{{ tab_id_prefix }}-panel-details"
+            role="tabpanel"
+            aria-labelledby="{{ tab_id_prefix }}-tab-details"
+            data-project-tab-panel="details"
+          >
+        {% endif %}
+
+        <div class="article-content">
+          {% if detail_sections.size > 1 %}
+            {{ detail_sections[0] }}
+            {% assign non_arch_section_count = 0 %}
+            {% for section in detail_sections offset: 1 %}
+              {% assign section_heading = section | split: '</h2>' | first | downcase %}
+              {% assign section_heading_label = section_heading | split: '>' | last | strip | downcase %}
+              {% assign section_heading_key = section_heading_label | prepend: '|' | append: '|' %}
+              {% assign is_architecture_section = false %}
+              {% assign is_roadmap_section = false %}
+              {% if section_heading_label contains 'architecture' or architecture_section_labels contains section_heading_key or section contains '<!--tab:architecture-->' or section_heading_label == 'overview' and section contains 'deterministic simulation core and a separate React application shell' %}
+                {% assign is_architecture_section = true %}
+              {% endif %}
+              {% if section_heading contains 'roadmap' %}
+                {% assign is_roadmap_section = true %}
+              {% endif %}
+
+              {% unless is_architecture_section or is_roadmap_section %}
+                {% assign non_arch_section_count = non_arch_section_count | plus: 1 %}
+                <h2{{ section }}
+
+                {% if non_arch_section_count == 1 and page.screenshots %}
+                  <section class="project-screenshots" aria-label="Project screenshots">
+                    <h3>Screenshots</h3>
+                    {% assign screenshot_count = page.screenshots | size %}
+                    <div class="project-screenshot-slideshow" data-project-slideshow>
+                      <div class="project-screenshot-stage">
+                        <div class="project-screenshot-viewport" aria-live="polite">
+                          <ul class="project-screenshot-track" data-screenshot-track>
+                            {% for shot in page.screenshots %}
+                              {% assign shot_label = shot.caption | default: shot.alt %}
+                              <li class="project-screenshot-slide" data-screenshot-slide>
+                                <button
+                                  type="button"
+                                  class="project-screenshot-card"
+                                  data-screenshot-jump="{{ forloop.index0 }}"
+                                  aria-label="Focus screenshot {{ forloop.index }}: {{ shot_label }}"
+                                  {% if forloop.first %}aria-current="true"{% else %}aria-current="false"{% endif %}
+                                >
+                                  <figure>
+                                    <img src="{{ site.baseurl }}{{ shot.src }}" alt="{{ shot.alt }}" loading="lazy">
+                                    {% if shot.caption %}
+                                      <figcaption>{{ shot.caption }}</figcaption>
+                                    {% endif %}
+                                  </figure>
+                                </button>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="project-screenshot-controls">
+                        <button
+                          type="button"
+                          class="project-screenshot-nav project-screenshot-nav--prev"
+                          aria-label="Show previous screenshots"
+                          data-screenshot-nav="prev"
+                          {% if screenshot_count <= 1 %}disabled{% endif %}
+                        >
+                          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+
+                        <input
+                          type="range"
+                          class="project-screenshot-scrollbar"
+                          data-screenshot-scrollbar
+                          min="0"
+                          max="0"
+                          step="1"
+                          value="0"
+                          aria-label="Screenshot position"
+                          {% if screenshot_count <= 1 %}disabled{% endif %}
+                        >
+
+                        <button
+                          type="button"
+                          class="project-screenshot-nav project-screenshot-nav--next"
+                          aria-label="Show more screenshots"
+                          data-screenshot-nav="next"
+                          {% if screenshot_count <= 1 %}disabled{% endif %}
+                        >
+                          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="project-screenshot-fullscreen"
+                          data-screenshot-fullscreen
+                          aria-label="Open current screenshot in lightbox"
+                        >
+                          <i class="fas fa-expand" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+                {% endif %}
+              {% endunless %}
+            {% endfor %}
+          {% else %}
+            {{ content }}
+
+            {% if page.screenshots %}
+              <section class="project-screenshots" aria-label="Project screenshots">
+                <h2>Screenshots</h2>
+                {% assign screenshot_count = page.screenshots | size %}
+                <div class="project-screenshot-slideshow" data-project-slideshow>
+                  <div class="project-screenshot-stage">
+                    <div class="project-screenshot-viewport" aria-live="polite">
+                      <ul class="project-screenshot-track" data-screenshot-track>
+                        {% for shot in page.screenshots %}
+                          {% assign shot_label = shot.caption | default: shot.alt %}
+                          <li class="project-screenshot-slide" data-screenshot-slide>
+                            <button
+                              type="button"
+                              class="project-screenshot-card"
+                              data-screenshot-jump="{{ forloop.index0 }}"
+                              aria-label="Focus screenshot {{ forloop.index }}: {{ shot_label }}"
+                              {% if forloop.first %}aria-current="true"{% else %}aria-current="false"{% endif %}
+                            >
+                              <figure>
+                                <img src="{{ site.baseurl }}{{ shot.src }}" alt="{{ shot.alt }}" loading="lazy">
+                                {% if shot.caption %}
+                                  <figcaption>{{ shot.caption }}</figcaption>
+                                {% endif %}
+                              </figure>
+                            </button>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="project-screenshot-controls">
+                    <button
+                      type="button"
+                      class="project-screenshot-nav project-screenshot-nav--prev"
+                      aria-label="Show previous screenshots"
+                      data-screenshot-nav="prev"
+                      {% if screenshot_count <= 1 %}disabled{% endif %}
+                    >
+                      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+
+                    <input
+                      type="range"
+                      class="project-screenshot-scrollbar"
+                      data-screenshot-scrollbar
+                      min="0"
+                      max="0"
+                      step="1"
+                      value="0"
+                      aria-label="Screenshot position"
+                      {% if screenshot_count <= 1 %}disabled{% endif %}
+                    >
+
+                    <button
+                      type="button"
+                      class="project-screenshot-nav project-screenshot-nav--next"
+                      aria-label="Show more screenshots"
+                      data-screenshot-nav="next"
+                      {% if screenshot_count <= 1 %}disabled{% endif %}
+                    >
+                      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="project-screenshot-fullscreen"
+                      data-screenshot-fullscreen
+                      aria-label="Open current screenshot in lightbox"
+                    >
+                      <i class="fas fa-expand" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {% if has_project_tabs %}
+          </section>
+
+          {% if has_architecture_tab %}
+            <section
+              class="project-detail-tab-panel"
+              id="{{ tab_id_prefix }}-panel-architecture"
+              role="tabpanel"
+              aria-labelledby="{{ tab_id_prefix }}-tab-architecture"
+              data-project-tab-panel="architecture"
+              hidden
+            >
+              <section class="article-content project-architecture-content" aria-label="Project architecture">
+                {% for section in detail_sections offset: 1 %}
+                  {% assign section_heading = section | split: '</h2>' | first | downcase %}
+                  {% assign section_heading_label = section_heading | split: '>' | last | strip | downcase %}
+                  {% assign section_heading_key = section_heading_label | prepend: '|' | append: '|' %}
+                  {% if section_heading_label contains 'architecture' or architecture_section_labels contains section_heading_key or section contains '<!--tab:architecture-->' or section_heading_label == 'overview' and section contains 'deterministic simulation core and a separate React application shell' %}
+                    <h2{{ section }}
+                  {% endif %}
+                {% endfor %}
+              </section>
+            </section>
+          {% endif %}
+
+          {% if has_roadmap_tab %}
+            <section
+              class="project-detail-tab-panel"
+              id="{{ tab_id_prefix }}-panel-roadmap"
+              role="tabpanel"
+              aria-labelledby="{{ tab_id_prefix }}-tab-roadmap"
+              data-project-tab-panel="roadmap"
+              hidden
+            >
+              <section class="article-content project-roadmap-content" aria-label="Project roadmap">
+                {% for section in detail_sections offset: 1 %}
+                  {% assign section_heading = section | split: '</h2>' | first | downcase %}
+                  {% if section_heading contains 'roadmap' %}
+                    <h2{{ section }}
+                  {% endif %}
+                {% endfor %}
+              </section>
+            </section>
+          {% endif %}
+
+          {% if page.devlog_tag %}
+          <section
+            class="project-detail-tab-panel"
+            id="{{ tab_id_prefix }}-panel-devlog"
+            role="tabpanel"
+            aria-labelledby="{{ tab_id_prefix }}-tab-devlog"
+            data-project-tab-panel="devlog"
+            hidden
+          >
+            {% assign has_devlog_posts = false %}
+            <section class="project-devlog" aria-label="Project development log">
+              <div class="project-devlog-header">
+                <h2>Dev Log</h2>
+                <a class="project-devlog-tag-link" href="{{ site.baseurl }}/weblog/tag/{{ page.devlog_tag | slugify }}/">View tag archive</a>
+              </div>
+              <p class="text-muted project-devlog-subtitle">Posts tagged <code>#{{ page.devlog_tag }}</code></p>
+              <ul class="project-devlog-list list-unstyled">
+                {% if tagged_posts %}
+                  {% assign devlog_posts = tagged_posts | sort: "date" | reverse %}
+                  {% for post in devlog_posts %}
+                    {% if post.url contains '/weblog/' %}
+                      {% assign has_devlog_posts = true %}
+                      <li class="project-devlog-item">
+                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                        <small class="text-muted">{{ post.date | date: "%-d %b, %Y" }}</small>
+                        <p>{{ post.excerpt | strip_html | strip_newlines | truncatewords: 28 }}</p>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </ul>
+              {% if has_devlog_posts == false %}
+                <p class="text-muted">No posts tagged {{ page.devlog_tag }} yet.</p>
+              {% endif %}
+            </section>
+          </section>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <aside id="project-detail-sidebar" class="project-detail-sidebar" aria-label="Project sidebar">
+        <div class="project-detail-sidebar-card">
+          {% if page.tagline %}
+            <p class="project-sidebar-tagline">{{ page.tagline }}</p>
+          {% endif %}
+
+          {% if page.status %}
+            <p><strong>Status:</strong> {{ page.status }}</p>
+          {% endif %}
+
+          {% if page.role %}
+            <p><strong>Role:</strong> {{ page.role }}</p>
+          {% endif %}
+
+          {% if page.timeline %}
+            <p><strong>Timeline:</strong> {{ page.timeline }}</p>
+          {% endif %}
+
+          {% if page.project_links %}
+            <h3>Links</h3>
+            <ul class="project-sidebar-links">
+              {% for item in page.project_links %}
+                {% assign link_label = item.label | downcase %}
+                {% assign link_url = item.url | downcase %}
+                <li>
+                  <a href="{{ item.url }}">
+                    {% if link_url contains 'github.com' %}
+                      <i class="fab fa-github" aria-hidden="true"></i>
+                    {% elsif link_label contains 'demo' or link_label contains 'live' or link_label contains 'website' %}
+                      <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                    {% else %}
+                      <i class="fas fa-link" aria-hidden="true"></i>
+                    {% endif %}
+                    <span>{{ item.label }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if page.tech_stack %}
+            <h3>Tags</h3>
+            <ul class="project-sidebar-tech">
+              {% for item in page.tech_stack %}
+                <li>
+                  <a href="{{ site.baseurl }}/weblog/tag/{{ item | slugify }}/">{{ item }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </aside>
+    </section>
+
+    <div class="lightbox-overlay" id="project-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+      <div class="lightbox-header" id="project-lightbox-header">
+        <span class="lightbox-project-name" id="project-lightbox-project-name">{{ page.title }}</span>
+        {% if page.timeline %}
+          <span class="lightbox-project-date" id="project-lightbox-project-date">{{ page.timeline }}</span>
+        {% endif %}
+      </div>
+      <button type="button" class="lightbox-close" id="project-lightbox-close" aria-label="Close preview">&times;</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="project-lightbox-prev" aria-label="Previous screenshot">&#8249;</button>
+      <button type="button" class="lightbox-nav lightbox-next" id="project-lightbox-next" aria-label="Next screenshot">&#8250;</button>
+      <img class="lightbox-img" id="project-lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="project-lightbox-caption"></p>
+      <span class="lightbox-counter" id="project-lightbox-counter"></span>
+    </div>
+  </div>
+</main>
+
+<script>
+  function initProjectDetailPageInteractions() {
+    function initProjectSideNav() {
+      var nav = document.getElementById('project-side-nav');
+      var main = document.querySelector('.project-detail-main');
+      var shell = document.querySelector('.project-detail-shell');
+      if (!nav || !main) return { rebuild: function () {} };
+
+      var observer = null;
+
+      function slugifyHeading(text) {
+        return text
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+      }
+
+      function rebuild() {
+        if (observer) {
+          observer.disconnect();
+          observer = null;
+        }
+
+        nav.innerHTML = '';
+
+        var activePanel = main.querySelector('[data-project-tab-panel]:not([hidden])');
+        var source = activePanel || main;
+        var headings = Array.from(source.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .project-devlog h2'));
+
+        if (!headings.length) {
+          nav.hidden = true;
+          return;
+        }
+
+        nav.hidden = false;
+        var ul = document.createElement('ul');
+        var idCounts = Object.create(null);
+        var currentTopLevelItem = null;
+        var currentSecondLevelItem = null;
+
+        headings.forEach(function (heading) {
+          var text = (heading.textContent || '').trim();
+          if (!text) return;
+
+          var headingId = heading.id;
+          if (!headingId) {
+            var baseId = slugifyHeading(text) || 'section';
+            var count = (idCounts[baseId] || 0) + 1;
+            idCounts[baseId] = count;
+            headingId = count === 1 ? baseId : baseId + '-' + count;
+
+            while (document.getElementById(headingId)) {
+              count += 1;
+              idCounts[baseId] = count;
+              headingId = baseId + '-' + count;
+            }
+
+            heading.id = headingId;
+          }
+
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + headingId;
+          a.textContent = text;
+          a.addEventListener('click', function (event) {
+            event.preventDefault();
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.replaceState(null, '', '#' + headingId);
+          });
+
+          li.appendChild(a);
+
+          if (heading.tagName === 'H3' && currentTopLevelItem) {
+            var childList = currentTopLevelItem.querySelector(':scope > ul');
+            if (!childList) {
+              childList = document.createElement('ul');
+              currentTopLevelItem.appendChild(childList);
+            }
+            childList.appendChild(li);
+            currentSecondLevelItem = li;
+          } else if (heading.tagName === 'H4' && currentSecondLevelItem) {
+            var grandchildList = currentSecondLevelItem.querySelector(':scope > ul');
+            if (!grandchildList) {
+              grandchildList = document.createElement('ul');
+              currentSecondLevelItem.appendChild(grandchildList);
+            }
+            grandchildList.appendChild(li);
+          } else {
+            ul.appendChild(li);
+            currentTopLevelItem = li;
+            currentSecondLevelItem = null;
+          }
+        });
+
+        nav.appendChild(ul);
+
+        var links = Array.from(nav.querySelectorAll('a'));
+        if (!links.length) {
+          nav.hidden = true;
+          return;
+        }
+
+        observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+
+            links.forEach(function (link) {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+          });
+        }, { rootMargin: '-10% 0px -80% 0px' });
+
+        headings.forEach(function (heading) {
+          observer.observe(heading);
+        });
+
+        var firstLink = links[0];
+        if (firstLink) firstLink.classList.add('active');
+      }
+
+      rebuild();
+      return { rebuild: rebuild };
+    }
+
+    function initScreenshotSlideshows() {
+      document.querySelectorAll('[data-project-slideshow]').forEach(function (slideshow) {
+        var track = slideshow.querySelector('[data-screenshot-track]');
+        var slides = Array.from(slideshow.querySelectorAll('[data-screenshot-slide]'));
+        var prevButton = slideshow.querySelector('[data-screenshot-nav="prev"]');
+        var nextButton = slideshow.querySelector('[data-screenshot-nav="next"]');
+        var scrollbar = slideshow.querySelector('[data-screenshot-scrollbar]');
+        var jumpButtons = Array.from(slideshow.querySelectorAll('[data-screenshot-jump]'));
+        var fullscreenButton = slideshow.querySelector('[data-screenshot-fullscreen]');
+        var lightboxOverlay = document.getElementById('project-lightbox-overlay');
+        var lightboxImg = document.getElementById('project-lightbox-img');
+        var lightboxCaption = document.getElementById('project-lightbox-caption');
+        var lightboxCounter = document.getElementById('project-lightbox-counter');
+        var lightboxPrev = document.getElementById('project-lightbox-prev');
+        var lightboxNext = document.getElementById('project-lightbox-next');
+        var lightboxClose = document.getElementById('project-lightbox-close');
+        var lightboxIndex = -1;
+
+        if (!track || slides.length === 0) return;
+
+        var currentIndex = 0;
+
+        function getVisibleCount() {
+          var rawValue = window.getComputedStyle(slideshow).getPropertyValue('--screenshot-slides-visible').trim();
+          var parsedValue = Number.parseInt(rawValue, 10);
+          return Number.isFinite(parsedValue) && parsedValue > 0 ? parsedValue : 1;
+        }
+
+        function clampIndex(indexValue) {
+          var maxStart = Math.max(0, slides.length - getVisibleCount());
+          return Math.min(Math.max(indexValue, 0), maxStart);
+        }
+
+        function getCurrentImage() {
+          var currentSlide = slides[currentIndex];
+          if (!currentSlide) return null;
+          return currentSlide.querySelector('img');
+        }
+
+        function showLightboxImage(indexValue) {
+          if (!lightboxOverlay || !lightboxImg) return;
+          if (indexValue < 0 || indexValue >= slides.length) return;
+
+          lightboxIndex = indexValue;
+          var image = slides[lightboxIndex].querySelector('img');
+          var captionNode = slides[lightboxIndex].querySelector('figcaption');
+          if (!image) return;
+
+          lightboxImg.src = image.src;
+          lightboxImg.alt = image.alt || '';
+
+          var captionText = captionNode ? captionNode.textContent : '';
+          if (lightboxCaption) {
+            lightboxCaption.textContent = captionText;
+            lightboxCaption.style.display = captionText ? 'block' : 'none';
+          }
+
+          if (lightboxCounter) {
+            lightboxCounter.textContent = slides.length > 1 ? (lightboxIndex + 1) + ' / ' + slides.length : '';
+          }
+
+          if (lightboxPrev) {
+            lightboxPrev.disabled = lightboxIndex <= 0;
+            lightboxPrev.style.display = slides.length > 1 ? '' : 'none';
+          }
+
+          if (lightboxNext) {
+            lightboxNext.disabled = lightboxIndex >= slides.length - 1;
+            lightboxNext.style.display = slides.length > 1 ? '' : 'none';
+          }
+        }
+
+        function openLightbox(indexValue) {
+          if (!lightboxOverlay) return;
+          showLightboxImage(indexValue);
+          lightboxOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+          if (!lightboxOverlay) return;
+          lightboxOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+          lightboxIndex = -1;
+          if (lightboxImg) lightboxImg.src = '';
+        }
+
+        function requestFullscreenForCurrentImage() {
+          var image = getCurrentImage();
+          if (!image) return;
+
+          var index = slides.findIndex(function (slide) {
+            return slide.contains(image);
+          });
+          openLightbox(index >= 0 ? index : currentIndex);
+        }
+
+        function updateFullscreenButtonState() {
+          if (!fullscreenButton) return;
+
+          var image = getCurrentImage();
+          fullscreenButton.disabled = !image;
+          fullscreenButton.setAttribute('aria-label', 'Open current screenshot in lightbox');
+        }
+
+        function update() {
+          currentIndex = clampIndex(currentIndex);
+
+          var targetSlide = slides[currentIndex];
+          var offset = targetSlide ? targetSlide.offsetLeft : 0;
+          track.style.transform = 'translateX(' + -offset + 'px)';
+
+          var maxStart = Math.max(0, slides.length - getVisibleCount());
+          if (prevButton) prevButton.disabled = currentIndex <= 0;
+          if (nextButton) nextButton.disabled = currentIndex >= maxStart;
+
+          if (scrollbar) {
+            scrollbar.max = String(maxStart);
+            scrollbar.value = String(currentIndex);
+            scrollbar.disabled = maxStart <= 0;
+          }
+
+          jumpButtons.forEach(function (button) {
+            var target = Number.parseInt(button.getAttribute('data-screenshot-jump'), 10);
+            var active = target === currentIndex;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+
+          updateFullscreenButtonState();
+        }
+
+        if (prevButton) {
+          prevButton.addEventListener('click', function () {
+            currentIndex = currentIndex - 1;
+            update();
+          });
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener('click', function () {
+            currentIndex = currentIndex + 1;
+            update();
+          });
+        }
+
+        jumpButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            var target = Number.parseInt(button.getAttribute('data-screenshot-jump'), 10);
+            if (!Number.isFinite(target)) return;
+            currentIndex = target;
+            update();
+          });
+        });
+
+        if (fullscreenButton) {
+          fullscreenButton.addEventListener('click', function () {
+            requestFullscreenForCurrentImage();
+          });
+        }
+
+        if (scrollbar) {
+          scrollbar.addEventListener('input', function () {
+            var target = Number.parseInt(scrollbar.value, 10);
+            if (!Number.isFinite(target)) return;
+            currentIndex = target;
+            update();
+          });
+        }
+
+        if (lightboxClose) {
+          lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        if (lightboxOverlay) {
+          lightboxOverlay.addEventListener('click', function (event) {
+            if (event.target === lightboxOverlay) closeLightbox();
+          });
+        }
+
+        if (lightboxPrev) {
+          lightboxPrev.addEventListener('click', function (event) {
+            event.stopPropagation();
+            if (lightboxIndex > 0) showLightboxImage(lightboxIndex - 1);
+          });
+        }
+
+        if (lightboxNext) {
+          lightboxNext.addEventListener('click', function (event) {
+            event.stopPropagation();
+            if (lightboxIndex < slides.length - 1) showLightboxImage(lightboxIndex + 1);
+          });
+        }
+
+        document.addEventListener('keydown', function (event) {
+          if (!lightboxOverlay || !lightboxOverlay.classList.contains('active')) return;
+
+          if (event.key === 'Escape') closeLightbox();
+          if (event.key === 'ArrowLeft' && lightboxIndex > 0) showLightboxImage(lightboxIndex - 1);
+          if (event.key === 'ArrowRight' && lightboxIndex < slides.length - 1) showLightboxImage(lightboxIndex + 1);
+        });
+
+        window.addEventListener('resize', update);
+        update();
+      });
+    }
+
+    function initSidebarToggles() {
+      var shell = document.querySelector('.project-detail-shell');
+      if (!shell) return { sync: function () {} };
+
+      function updateButtonState() {
+        var inRoadmapFocus = shell.classList.contains('is-roadmap-focus');
+        var buttons = Array.from(document.querySelectorAll('[data-sidebar-toggle]'));
+
+        buttons.forEach(function (button) {
+          var side = button.getAttribute('data-sidebar-toggle');
+          var icon = button.querySelector('i');
+          var collapsed = side === 'left'
+            ? shell.classList.contains('is-left-collapsed')
+            : shell.classList.contains('is-right-collapsed');
+          var isLeft = side === 'left';
+          var expandLabel = isLeft ? 'Expand left sidebar' : 'Expand right sidebar';
+          var collapseLabel = isLeft ? 'Collapse left sidebar' : 'Collapse right sidebar';
+
+          button.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+          button.setAttribute('aria-label', collapsed ? expandLabel : collapseLabel);
+          button.setAttribute('title', collapsed ? expandLabel : collapseLabel);
+          button.classList.toggle('is-collapsed', collapsed);
+
+          if (icon) {
+            icon.className = isLeft ? 'fas fa-align-left' : 'fas fa-align-right';
+          }
+
+          button.disabled = inRoadmapFocus;
+        });
+      }
+
+      document.addEventListener('click', function (event) {
+        var button = event.target.closest('[data-sidebar-toggle]');
+        if (!button) return;
+        if (button.disabled) return;
+
+        var side = button.getAttribute('data-sidebar-toggle');
+
+        if (side === 'left') {
+          shell.classList.toggle('is-left-collapsed');
+        } else if (side === 'right') {
+          shell.classList.toggle('is-right-collapsed');
+        }
+
+        updateButtonState();
+      });
+
+      updateButtonState();
+      return { sync: updateButtonState };
+    }
+
+    function initProjectStickyOffsets() {
+      var pageRoot = document.querySelector('.project-detail-page');
+      var topbar = document.querySelector('.site-header');
+      var tabRow = document.querySelector('.project-titlebar-tabs-row');
+      if (!pageRoot || !topbar) return;
+
+      var rafId = 0;
+
+      function updateOffsets() {
+        rafId = 0;
+        var topbarHeight = topbar.getBoundingClientRect().height || 0;
+        var sideNavTop = topbarHeight;
+
+        if (tabRow) {
+          var tabRowHeight = tabRow.getBoundingClientRect().height || 0;
+          var tabRowMarginBottom = Number.parseFloat(window.getComputedStyle(tabRow).marginBottom || '0') || 0;
+          sideNavTop = topbarHeight + tabRowHeight + tabRowMarginBottom;
+        }
+
+        var sideNavMaxHeight = Math.max(160, window.innerHeight - sideNavTop - 16);
+
+        pageRoot.style.setProperty('--project-sticky-top', Math.max(0, topbarHeight) + 'px');
+        pageRoot.style.setProperty('--project-side-nav-top', Math.max(0, sideNavTop) + 'px');
+        pageRoot.style.setProperty('--project-side-nav-max-height', sideNavMaxHeight + 'px');
+      }
+
+      function scheduleUpdateOffsets() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(updateOffsets);
+      }
+
+      updateOffsets();
+      window.addEventListener('resize', scheduleUpdateOffsets);
+      window.addEventListener('orientationchange', scheduleUpdateOffsets);
+      window.addEventListener('scroll', scheduleUpdateOffsets, { passive: true });
+    }
+
+    function initProjectStickyTabRowState() {
+      var topbar = document.querySelector('.site-header');
+      var tabRow = document.querySelector('.project-titlebar-tabs-row');
+      if (!topbar || !tabRow) return;
+
+      var rafId = 0;
+
+      function syncStickyState() {
+        rafId = 0;
+        var topbarBottom = topbar.getBoundingClientRect().bottom;
+        var rowTop = tabRow.getBoundingClientRect().top;
+        var stuck = rowTop <= topbarBottom + 0.5 && window.scrollY > 0;
+        tabRow.classList.toggle('is-stuck', stuck);
+      }
+
+      function scheduleSyncStickyState() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(syncStickyState);
+      }
+
+      syncStickyState();
+      window.addEventListener('scroll', scheduleSyncStickyState, { passive: true });
+      window.addEventListener('resize', scheduleSyncStickyState);
+      window.addEventListener('orientationchange', scheduleSyncStickyState);
+    }
+
+    function initProjectTopbarScrollTitle() {
+      var pageRoot = document.querySelector('.project-detail-page');
+      var topbar = document.querySelector('.site-header');
+      var titleHeading = document.querySelector('.project-titlebar-main h1');
+      var titleNode = document.querySelector('.project-titlebar-main h1 span');
+      var topbarTitle = document.querySelector('.docs-topbar-scroll-title');
+      var topbarTitleIcon = document.querySelector('.docs-topbar-scroll-title-icon');
+      var topbarTitleText = document.querySelector('.docs-topbar-scroll-title-text');
+      if (!pageRoot || !topbar || !titleHeading || !titleNode || !topbarTitle || !topbarTitleText) return;
+
+      topbarTitleText.textContent = (titleNode.textContent || '').trim();
+
+      if (topbarTitleIcon) {
+        topbarTitleIcon.innerHTML = '';
+
+        var sourceLogo = titleHeading.querySelector('.project-title-logo');
+        var sourceGlyph = titleHeading.querySelector('.project-title-icon');
+
+        if (sourceLogo) {
+          var iconImage = document.createElement('img');
+          iconImage.className = 'docs-topbar-scroll-title-logo';
+          iconImage.src = sourceLogo.getAttribute('src') || '';
+          iconImage.alt = '';
+          iconImage.setAttribute('aria-hidden', 'true');
+          topbarTitleIcon.appendChild(iconImage);
+        } else if (sourceGlyph) {
+          var iconGlyph = document.createElement('i');
+          iconGlyph.className = sourceGlyph.className + ' docs-topbar-scroll-title-glyph';
+          iconGlyph.setAttribute('aria-hidden', 'true');
+          topbarTitleIcon.appendChild(iconGlyph);
+        }
+      }
+
+      topbarTitle.classList.add('is-interactive');
+      topbarTitle.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+
+      var rafId = 0;
+      var revealStart = 0;
+      var revealEnd = 1;
+
+      function recalcRevealBounds() {
+        var sourceRect = titleNode.getBoundingClientRect();
+        var sourceHeight = titleNode.offsetHeight || sourceRect.height || 1;
+        var sourcePageTop = sourceRect.top + window.scrollY;
+        var topbarHeight = topbar.getBoundingClientRect().height || 0;
+        var revealWindow = Math.max(sourceHeight * 2.2, 1);
+        var revealDelay = Math.max(48, topbarHeight * 0.45);
+
+        revealEnd = sourcePageTop - topbarHeight;
+        revealStart = revealEnd - revealWindow;
+
+        // Keep the compact title hidden at initial page load, especially on short hero sections.
+        revealStart += revealDelay;
+        revealEnd += revealDelay;
+      }
+
+      function syncTitle() {
+        rafId = 0;
+        var revealRange = Math.max(1, revealEnd - revealStart);
+        var rawProgress = (window.scrollY - revealStart) / revealRange;
+        if (!Number.isFinite(rawProgress)) rawProgress = 0;
+        var progress = Math.max(0, Math.min(1, rawProgress));
+        var offsetY = (1 - progress) * 12;
+
+        topbarTitle.style.setProperty('opacity', progress.toFixed(3), 'important');
+        topbarTitle.style.transform = 'translate(-50%, calc(-50% + ' + offsetY.toFixed(2) + 'px))';
+      }
+
+      function scheduleSyncTitle() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(syncTitle);
+      }
+
+      function handleResizeOrOrientation() {
+        recalcRevealBounds();
+        scheduleSyncTitle();
+      }
+
+      recalcRevealBounds();
+      syncTitle();
+      window.addEventListener('scroll', scheduleSyncTitle, { passive: true });
+      window.addEventListener('resize', handleResizeOrOrientation);
+      window.addEventListener('orientationchange', handleResizeOrOrientation);
+    }
+
+    var sideNavController = initProjectSideNav();
+    var sidebarToggleController = initSidebarToggles();
+    initProjectStickyOffsets();
+    initProjectStickyTabRowState();
+    initProjectTopbarScrollTitle();
+
+    document.querySelectorAll('.project-detail-tabs').forEach(function (tablist) {
+      var tabs = Array.from(tablist.querySelectorAll('.project-detail-tab'));
+      var panels = tabs
+        .map(function (tab) {
+          var panelId = tab.getAttribute('aria-controls');
+          return panelId ? document.getElementById(panelId) : null;
+        })
+        .filter(Boolean);
+
+      if (!tabs.length || !panels.length) return;
+
+      function updateUrlForTab(target) {
+        try {
+          var url = new URL(window.location.href);
+          url.searchParams.set('tab', target);
+          url.hash = '';
+          history.replaceState(null, '', url.pathname + url.search + url.hash);
+        } catch (_err) {
+          // Ignore URL parsing failures and keep tab behavior functional.
+        }
+      }
+
+      function resolveInitialTab() {
+        var queryTarget = null;
+        var hashTarget = null;
+
+        try {
+          var queryParams = new URLSearchParams(window.location.search);
+          queryTarget = queryParams.get('tab');
+        } catch (_err) {
+          queryTarget = null;
+        }
+
+        var rawHash = (window.location.hash || '').replace(/^#/, '');
+        if (rawHash.indexOf('tab-') === 0) {
+          hashTarget = rawHash.replace(/^tab-/, '');
+        }
+
+        var requestedTarget = queryTarget || hashTarget;
+        if (!requestedTarget) return null;
+
+        return tabs.find(function (tab) {
+          return tab.getAttribute('data-project-tab-target') === requestedTarget;
+        }) || null;
+      }
+
+      function activateTab(nextTab, options) {
+        var shouldUpdateUrl = !options || options.updateUrl !== false;
+        var shouldResetScroll = !options || options.resetScroll !== false;
+        var target = nextTab.getAttribute('data-project-tab-target');
+        var shell = document.querySelector('.project-detail-shell');
+        var topbar = document.querySelector('.site-header');
+        var tabRow = document.querySelector('.project-titlebar-tabs-row');
+
+        if (shell) {
+          shell.classList.toggle('is-roadmap-focus', target === 'roadmap');
+        }
+
+        if (sidebarToggleController) {
+          sidebarToggleController.sync();
+        }
+
+        tabs.forEach(function (tab) {
+          var active = tab === nextTab;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        panels.forEach(function (panel) {
+          var active = panel.getAttribute('data-project-tab-panel') === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+
+        if (typeof window.renderProjectMermaidDiagrams === 'function') {
+          var activePanel = panels.find(function (panel) {
+            return panel.getAttribute('data-project-tab-panel') === target;
+          });
+          window.renderProjectMermaidDiagrams(activePanel || document);
+        }
+
+        if (shouldUpdateUrl) {
+          updateUrlForTab(target);
+        }
+
+        if (sideNavController) {
+          sideNavController.rebuild();
+        }
+
+        if (shouldResetScroll) {
+          window.requestAnimationFrame(function () {
+            var activePanel = document.querySelector('[data-project-tab-panel="' + target + '"]');
+            if (!activePanel) return;
+
+            var topbarHeight = topbar ? (topbar.getBoundingClientRect().height || 0) : 0;
+            var tabRowHeight = tabRow ? (tabRow.getBoundingClientRect().height || 0) : 0;
+            var panelTop = activePanel.getBoundingClientRect().top + window.scrollY;
+            var targetScrollTop = Math.max(0, panelTop - topbarHeight - tabRowHeight - 10);
+
+            window.scrollTo({ top: targetScrollTop, behavior: 'auto' });
+          });
+        }
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activateTab(tab);
+        });
+      });
+
+      var initialTab = resolveInitialTab();
+      if (initialTab) {
+        activateTab(initialTab, { updateUrl: false, resetScroll: false });
+      }
+    });
+
+    initScreenshotSlideshows();
+
+    (function initProjectMermaid() {
+      function getRenderableNodes(root) {
+        var scope = root || document;
+        return Array.from(scope.querySelectorAll('.project-diagram .mermaid')).filter(function (node) {
+          return !node.getAttribute('data-processed');
+        });
+      }
+
+      function resizeRoadmapMermaid(root) {
+        var scope = root || document;
+        var roadmapSvgs = scope.querySelectorAll('.project-roadmap-content .project-diagram .mermaid svg');
+        roadmapSvgs.forEach(function (svg) {
+          svg.style.width = 'auto';
+          svg.style.minWidth = '1120px';
+          svg.style.maxWidth = 'none';
+          svg.style.height = 'auto';
+        });
+      }
+
+      var allNodes = getRenderableNodes(document);
+      if (!allNodes.length) return;
+
+      var initialNodes = allNodes.filter(function (node) {
+        var panel = node.closest('[data-project-tab-panel]');
+        return !panel || !panel.hidden;
+      });
+
+      import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+        .then(function (module) {
+          var mermaid = module && module.default;
+          if (!mermaid) return;
+
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default',
+            themeVariables: document.documentElement.getAttribute('data-theme') === 'dark'
+              ? {
+                  primaryTextColor: '#ffffff',
+                  textColor: '#ffffff',
+                  actorTextColor: '#ffffff',
+                  labelTextColor: '#ffffff',
+                  noteTextColor: '#ffffff',
+                  loopTextColor: '#ffffff',
+                  signalTextColor: '#ffffff',
+                  lineColor: '#d3deea',
+                  signalColor: '#d3deea',
+                  actorBorder: '#d3deea',
+                  fontSize: '20px'
+                }
+              : {
+                  primaryTextColor: '#10233f',
+                  textColor: '#10233f',
+                  actorTextColor: '#10233f',
+                  labelTextColor: '#10233f',
+                  noteTextColor: '#10233f',
+                  loopTextColor: '#10233f',
+                  signalTextColor: '#10233f',
+                  lineColor: '#4b647d',
+                  signalColor: '#4b647d',
+                  actorBorder: '#4b647d',
+                  fontSize: '18px',
+                  fontWeight: 600
+                },
+            flowchart: { useMaxWidth: true, htmlLabels: true },
+            sequence: { useMaxWidth: true }
+          });
+
+          function renderMermaidDiagrams(root) {
+            var nodes = getRenderableNodes(root);
+            if (!nodes.length) {
+              resizeRoadmapMermaid(root);
+              return Promise.resolve();
+            }
+            return mermaid.run({ nodes: nodes }).then(function () {
+              resizeRoadmapMermaid(root);
+            });
+          }
+
+          window.renderProjectMermaidDiagrams = renderMermaidDiagrams;
+          if (!initialNodes.length) return Promise.resolve();
+          return renderMermaidDiagrams(document);
+        })
+        .catch(function () {
+          // If CDN loading fails, keep source text as a graceful fallback.
+        });
+    })();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectDetailPageInteractions, { once: true });
+  } else {
+    initProjectDetailPageInteractions();
+  }
+</script>

@@ -26,35 +26,52 @@
             </a>
         </small>
         {% endif %}
+
+        {% assign post_category = page.category %}
+        {% if post_category == nil or post_category == '' %}
+            {% assign post_category = page.categories | first %}
+        {% endif %}
+        {% if post_category %}
+        <br />
+        <small class="text-muted">
+            {% if post_category == 'journal' %}
+                <i class="fas fa-journal-whills"></i>
+            {% elsif post_category == 'essay' %}
+                <i class="fas fa-file-alt"></i>
+            {% elsif post_category == 'hiking' %}
+                <i class="fas fa-hiking"></i>
+            {% elsif post_category == 'foraging' %}
+                <i class="fas fa-leaf"></i>
+            {% elsif post_category == 'camping' %}
+                <i class="fas fa-campground"></i>
+            {% elsif post_category == 'talks' %}
+                <i class="fas fa-chalkboard"></i>
+            {% elsif post_category == 'travelogue' %}
+                <i class="fas fa-passport"></i>
+            {% elsif post_category == 'roadtrip' %}
+                <i class="fas fa-car-side"></i>
+            {% elsif post_category == 'devlog' %}
+                <i class="fas fa-terminal"></i>
+            {% elsif post_category == 'changelog' %}
+                <i class="fas fa-list-alt"></i>
+            {% else %}
+                <i class="fas fa-folder"></i>
+            {% endif %}
+            <a href="{{ site.baseurl }}/weblog/category/{{ post_category | slugify }}">{{ post_category | replace:'-', ' ' }}</a>
+        </small>
+        {% endif %}
     </p>
     <hr />
     <!-- {% include post-navigation-side.html %}
     <hr /> -->
-    <h5 class="text-muted">Category</h5>
-    <ul class="list-unstyled">
-        {% for category in page.categories %}
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-folder"></i>
-                    <a href="{{site.baseurl}}/weblog/category/{{category}}">
-                        {{category}}
-                    </a>
-                </small>
-            </li>
-        {% endfor %}
-    </ul>
-    <h5 class="text-muted">Tags</h5>
-    <ul class="list-unstyled">
+    <h5 class="text-muted"><i class="fas fa-tags"></i> Tags</h5>
+    <ul class="list-unstyled post-sidebar-tags" style="margin: 0; padding-left: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem;">
         {% for tag in page.tags %}
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="{{ site.baseurl }}/weblog/tag/{{ tag | slugify }}">
-                        {{ tag | replace:'-', ' ' }}
-                    </a>
-                </small>
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="{{ site.baseurl }}/weblog/tag/{{ tag | slugify }}" style="color: var(--wm-color-text); text-decoration: none;">
+                    {{ tag | replace:'-', ' ' }}
+                </a>
             </li>
         {% endfor %}
     </ul>
-    <hr/>
 </aside>

@@ -1,5 +1,5 @@
-<br/>
-<div class="container" id="weblog-gallery">
+<div class="weblog-layout" id="weblog-gallery">
+  <div class="weblog-layout-content">
   <div class="row">
     <div class="col-md-9 col-sm-12">
       {% include weblog-nav.html %}
@@ -8,9 +8,14 @@
           <div class="row">
             <div class="card summary-card">
               {% if post.image %}
+                {% assign image_ext = post.image | split: '.' | last | downcase %}
                 <div>
                   <a href="{{ post.url | prepend: site.baseurl }}">
-                    {% picture summary_thumbnail {{ post.image }} %}
+                    {% if image_ext == 'svg' %}
+                      <img class="card-image-top card-image-top--svg" src="{{ post.image | prepend: site.baseurl }}" alt="{{ post.title }}">
+                    {% else %}
+                      {% picture summary_thumbnail {{ post.image }} %}
+                    {% endif %}
                   </a>
                   <div class="overlay">
                     {% if post.category == 'journal' %}
@@ -78,6 +83,7 @@
     <div class="col-md-3 col-sm-12">
       {% include sidebar.html %}
     </div>
+  </div>
   </div>
 
 </div>

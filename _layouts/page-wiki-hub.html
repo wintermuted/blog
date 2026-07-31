@@ -1,29 +1,117 @@
 ---
 layout: default
 ---
-<br/>
-<main class="app-shell">
-  <div class="row">
-    <div class="col">
-      <header class="post-header">
-        <!-- <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ site.baseurl }}/wiki">Wiki</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
-          </ol>
-        </nav> -->
-        <h1 class="post-title">{{ page.title }}</h1>
-      </header>
-      <hr/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <article class="body-content post">
+{% assign wiki_tags = page.tags | default: page.topics %}
+<main class="post-detail-layout body-content wiki-detail-layout">
+  <div class="post-detail-layout-content wiki-detail-layout-content">
+    <header class="post-detail-header">
+      <div class="post-titlebar-row">
+        <div class="post-titlebar-main">
+          <h1 class="article-title">
+            <i class="fas fa-wikipedia-w" aria-hidden="true"></i>
+            <span>{{ page.title }}</span>
+          </h1>
+          {% if page.topic %}
+            <p class="wiki-page-kicker text-muted">
+              <i class="fas fa-archive" aria-hidden="true"></i>
+              <span>Topic: {{ page.topic }}</span>
+            </p>
+          {% endif %}
+        </div>
+      </div>
+      <hr class="project-title-divider" aria-hidden="true">
+    </header>
+
+    <div class="post-detail-grid wiki-detail-grid" style="display: grid; grid-template-columns: minmax(180px, 230px) minmax(0, 1fr) minmax(220px, 280px); gap: clamp(1.1rem, 2.4vw, 2.2rem); align-items: start;">
+      <nav class="post-side-nav wiki-side-nav" aria-label="Section navigation"></nav>
+
+      <article class="post post-detail-article wiki-detail-article">
         <div class="article-content">
           {{ content }}
         </div>
       </article>
+
+      <div class="post-detail-sidebar">
+        <div class="post-detail-sidebar-card">
+          {% include sidebar-wiki.html tags=wiki_tags %}
+        </div>
+      </div>
     </div>
   </div>
 </main>
+
+<script>
+  window.addEventListener('load', function () {
+    var grid = document.querySelector('.wiki-detail-grid');
+    var nav = document.querySelector('.wiki-side-nav');
+    var article = document.querySelector('.wiki-detail-article .article-content');
+    if (!grid || !nav || !article) return;
+
+    function slugifyHeading(text) {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+
+    var headings = Array.from(article.querySelectorAll('h2, h3'));
+    var ul = document.createElement('ul');
+    var idCounts = Object.create(null);
+
+    headings.forEach(function (heading) {
+      var text = (heading.textContent || '').trim();
+      if (!text) return;
+
+      var headingId = heading.id;
+      if (!headingId) {
+        var baseId = slugifyHeading(text) || 'section';
+        var count = (idCounts[baseId] || 0) + 1;
+        idCounts[baseId] = count;
+        headingId = count === 1 ? baseId : baseId + '-' + count;
+
+        while (document.getElementById(headingId)) {
+          count += 1;
+          idCounts[baseId] = count;
+          headingId = baseId + '-' + count;
+        }
+
+        heading.id = headingId;
+      }
+
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + headingId;
+      a.textContent = text;
+      a.addEventListener('click', function (event) {
+        event.preventDefault();
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#' + headingId);
+      });
+
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    if (!ul.children.length) {
+      var overviewId = article.id || 'wiki-overview';
+      article.id = overviewId;
+
+      var overviewLi = document.createElement('li');
+      var overviewLink = document.createElement('a');
+      overviewLink.href = '#' + overviewId;
+      overviewLink.textContent = 'Overview';
+      overviewLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#' + overviewId);
+      });
+      overviewLi.appendChild(overviewLink);
+      ul.appendChild(overviewLi);
+    }
+
+    nav.hidden = false;
+    nav.appendChild(ul);
+  });
+</script>

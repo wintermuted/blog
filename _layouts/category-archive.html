@@ -2,11 +2,10 @@
 layout: default
 ---
 
-</br>
-<main class="app-shell archive">
-  <div class="row">
-    <div class="col">
-      <h1>
+<main class="post-detail-layout archive-list-layout body-content">
+  <div class="post-detail-layout-content">
+    <header class="post-detail-header">
+      <h1 class="article-title">
         {% if page.title == 'journal' %}
           <i class="fas fa-journal-whills"></i>
         {% elsif page.title == 'essay' %}
@@ -24,7 +23,7 @@ layout: default
         {% elsif page.title == 'travelogue' %}
           <i class="fas fa-passport"></i>
         {% elsif page.title == 'roadtrip' %}
-        <i class="fas fa-car-side"></i>
+          <i class="fas fa-car-side"></i>
         {% elsif page.title == 'changelog' %}
           <i class="fas fa-list-alt"></i>
         {% else %}
@@ -32,11 +31,11 @@ layout: default
         {% endif %}
         <span>Category: {{ page.title }}</span>
       </h1>
-      <hr/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-9 post_list">
+      <hr>
+    </header>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-9 post_list">
         {% if page.title == 'journal' %}
           <p class="lead">News & updates about life events.</p>
         {% elsif page.title == 'essay' %}
@@ -79,8 +78,8 @@ layout: default
               <i class="fas fa-passport"></i>
               {% elsif post.category == 'roadtrip' %}
               <i class="fas fa-car-side"></i>
-              {% elsif post.category == 'changelog' %}
-              <i class="fas fa-list-alt"></i>
+                {% elsif post.category == 'devlog' %}
+                <i class="fas fa-terminal"></i>
               {% else %}
               <i class="fas fa-folder"></i>
               {% endif %}
@@ -94,9 +93,40 @@ layout: default
             </li>
           {% endfor %}
         </ul>
-    </div>
-    <div class="col-sm-12 col-md-3">
-      {% include sidebar.html %}
+      </div>
+      <div class="col-sm-12 col-md-3">
+        {% include sidebar.html %}
+      </div>
     </div>
   </div>
 </main>
+
+<script>
+  window.addEventListener('load', function () {
+    function syncArchiveColumns() {
+      var desktop = window.matchMedia('(min-width: 768px)').matches;
+      var row = document.querySelector('.archive-list-layout .row');
+      if (!row) return;
+
+      var leftCol = row.querySelector('.col-md-9, .post_list');
+      var rightCol = row.querySelector('.col-md-3');
+      if (!leftCol || !rightCol) return;
+
+      if (!desktop) {
+        leftCol.style.removeProperty('flex');
+        leftCol.style.removeProperty('max-width');
+        rightCol.style.removeProperty('flex');
+        rightCol.style.removeProperty('max-width');
+        return;
+      }
+
+      rightCol.style.setProperty('flex', '0 0 280px', 'important');
+      rightCol.style.setProperty('max-width', '280px', 'important');
+      leftCol.style.setProperty('flex', '1 1 0%', 'important');
+      leftCol.style.setProperty('max-width', 'calc(100% - 280px)', 'important');
+    }
+
+    syncArchiveColumns();
+    window.addEventListener('resize', syncArchiveColumns);
+  });
+</script>
