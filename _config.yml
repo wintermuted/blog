@@ -61,3 +61,6 @@ collections:
 include:
  - tags
  - favicon.ico
+
+exclude:
+ - netlify.toml
