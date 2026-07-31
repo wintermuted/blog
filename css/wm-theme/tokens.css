@@ -1,0 +1,70 @@
+/* Shared Wintermuted UI theme tokens. */
+
+:root {
+  --wm-font-sans: "Inter", "Sohne", "Söhne", system-ui, -apple-system, "Segoe UI",
+    helvetica, arial, sans-serif;
+  --wm-color-text: #0d0d0d;
+  --wm-color-bg: #fff;
+  --wm-color-surface: rgb(255 255 255 / 86%);
+  --wm-color-surface-solid: #fbfbfb;
+  --wm-color-surface-muted: #f7f7f7;
+  --wm-color-surface-strong: #efefef;
+  --wm-color-text-secondary: #353535;
+  --wm-color-text-muted: #6e6e6e;
+  --wm-color-text-faint: #8e8e8e;
+  --wm-color-border: #e5e5e5;
+  --wm-color-border-strong: #d8d8d8;
+  --wm-color-link-underline: #d1d1d1;
+  --wm-color-accent: #2a4a8a;
+  --wm-color-accent-soft: #f0f4ff;
+  --wm-color-accent-border: #d8e0f0;
+  --wm-color-success: #137333;
+  --wm-color-success-soft: #e6f4ea;
+  --wm-color-success-border: #cfe6d4;
+  --wm-color-warning: #ea8600;
+  --wm-color-warning-soft: #fff7e0;
+  --wm-color-warning-border: #f6d28b;
+  --wm-color-danger: #c5221f;
+  --wm-color-danger-soft: #fce8e6;
+  --wm-color-danger-border: #f4c3c1;
+  --wm-control-on: #0285ff;
+  --wm-control-off: #d2d2d2;
+  --wm-control-thumb: #fff;
+  --wm-shadow-soft: 0 18px 40px -30px rgb(13 13 13 / 28%);
+  --wm-radius-xs: 4px;
+  --wm-radius-base: 8px;
+  --wm-radius-sm: 10px;
+  --wm-radius-md: 16px;
+  --wm-radius-lg: 24px;
+  --wm-radius-pill: 999px;
+}
+
+[data-theme="dark"] {
+  --wm-color-text: #e0e0e0;
+  --wm-color-bg: #141414;
+  --wm-color-surface: rgb(28 28 28 / 88%);
+  --wm-color-surface-solid: #1c1c1c;
+  --wm-color-surface-muted: #181818;
+  --wm-color-surface-strong: #202020;
+  --wm-color-text-secondary: #b8b8b8;
+  --wm-color-text-muted: #888;
+  --wm-color-text-faint: #666;
+  --wm-color-border: #2e2e2e;
+  --wm-color-border-strong: #3a3a3a;
+  --wm-color-link-underline: #444;
+  --wm-color-accent: #7aa0e8;
+  --wm-color-accent-soft: #1a2240;
+  --wm-color-accent-border: #2a3560;
+  --wm-color-success: #78d49a;
+  --wm-color-success-soft: #132719;
+  --wm-color-success-border: #21452c;
+  --wm-color-warning: #ffb95a;
+  --wm-color-warning-soft: #35250f;
+  --wm-color-warning-border: #5e441d;
+  --wm-color-danger: #ff978f;
+  --wm-color-danger-soft: #351615;
+  --wm-color-danger-border: #5d2623;
+  --wm-control-on: #0285ff;
+  --wm-control-off: #414141;
+  --wm-control-thumb: #dcdcdc;
+}

@@ -1,0 +1,2692 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Game of Life</title>
+  <meta name="description" content="Jameson Nyeholt's weblog.
+">
+
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+  <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
+
+  <link rel="stylesheet" href="/css/wm-theme/tokens.css">
+  <link rel="stylesheet" href="/css/wm-theme/base.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/card.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/button.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/badge.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/side-nav.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/layout.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/tag.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/list.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/separator.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/code-block.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/gallery.css">
+
+  <!-- Lightbox2 for image galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+  <!-- CSS — site styles -->
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <link rel="canonical" href="/projects/game-of-life/">
+
+  <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/feed.xml">
+
+  <!-- Lightbox2 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
+</head>
+
+    <body class="">
+                
+        
+
+<header class="site-header docs-topbar">
+  
+    <div class="docs-topbar-inner">
+      <div class="docs-topbar-brand">
+        <a href="/" class="docs-topbar-brand-link">
+          <img src="/logo.png" alt="" class="docs-topbar-brand-icon" width="20" height="20">
+          <h1>jnyeholt</h1>
+        </a>
+      </div>
+      <button type="button" class="docs-topbar-scroll-title" aria-label="Scroll to top">
+        <span class="docs-topbar-scroll-title-icon"></span>
+        <span class="docs-topbar-scroll-title-text"></span>
+      </button>
+      <nav class="docs-topbar-nav" aria-label="Main navigation">
+        <a class="docs-topbar-link-devdocs" href="/projects"
+          aria-current="page">Projects</a>
+        <a class="docs-topbar-link-devdocs" href="/weblog"
+          >Weblog</a>
+        <a class="docs-topbar-link-devdocs" href="/about"
+          >About</a>
+      </nav>
+      <div class="docs-topbar-actions">
+        <a class="docs-topbar-link-secondary" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a class="docs-topbar-link-secondary" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  
+</header>
+
+        
+
+
+
+
+
+
+
+
+<main class="projects-layout projects-page project-detail-page body-content">
+  <div class="projects-layout-content">
+    <header class="view-header">
+      <div class="project-titlebar-main">
+        
+        
+        <h1>
+          
+            <img src="/assets/img/projects/game-of-life/gol-mark.svg" alt="" aria-hidden="true" class="project-title-logo">
+          
+          <span>Game of Life</span>
+        </h1>
+      </div>
+    </header>
+
+    
+      <div class="project-titlebar-tabs-row">
+        <div class="project-titlebar-tabs project-detail-tabs" role="tablist" aria-label="Project detail sections">
+          <button
+            type="button"
+            class="project-detail-tab is-active"
+            id="projects-game-of-life-tab-details"
+            role="tab"
+            aria-selected="true"
+            aria-controls="projects-game-of-life-panel-details"
+            data-project-tab-target="details"
+          >
+            <i class="fas fa-info-circle" aria-hidden="true"></i>
+            Details
+          </button>
+
+          
+            <button
+              type="button"
+              class="project-detail-tab"
+              id="projects-game-of-life-tab-architecture"
+              role="tab"
+              aria-selected="false"
+              aria-controls="projects-game-of-life-panel-architecture"
+              data-project-tab-target="architecture"
+            >
+              <i class="fas fa-project-diagram" aria-hidden="true"></i>
+              Architecture
+            </button>
+          
+          
+            <button
+              type="button"
+              class="project-detail-tab"
+              id="projects-game-of-life-tab-roadmap"
+              role="tab"
+              aria-selected="false"
+              aria-controls="projects-game-of-life-panel-roadmap"
+              data-project-tab-target="roadmap"
+            >
+              <i class="fas fa-road" aria-hidden="true"></i>
+              Roadmap
+            </button>
+          
+          
+            <button
+              type="button"
+              class="project-detail-tab"
+              id="projects-game-of-life-tab-devlog"
+              role="tab"
+              aria-selected="false"
+              aria-controls="projects-game-of-life-panel-devlog"
+              data-project-tab-target="devlog"
+            >
+              <i class="fas fa-code-branch" aria-hidden="true"></i>
+              Dev Log
+              <span class="project-detail-tab-count" aria-label="4 dev log posts">4</span>
+            </button>
+          
+        </div>
+
+        <div class="project-tab-menu" aria-label="Sidebar toggles">
+          <div class="project-tab-menu-group" role="group" aria-label="Sidebar visibility toggles">
+            <button
+              type="button"
+              class="project-sidebar-toggle project-tab-menu-toggle"
+              data-sidebar-toggle="left"
+              aria-controls="project-side-nav"
+              aria-expanded="true"
+              aria-label="Collapse left sidebar"
+              title="Collapse left sidebar"
+            >
+              <i class="fas fa-align-left" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="project-sidebar-toggle project-tab-menu-toggle"
+              data-sidebar-toggle="right"
+              aria-controls="project-detail-sidebar"
+              aria-expanded="true"
+              aria-label="Collapse right sidebar"
+              title="Collapse right sidebar"
+            >
+              <i class="fas fa-align-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    
+
+    <section class="project-detail-shell">
+      <nav id="project-side-nav" class="project-side-nav" hidden aria-label="Section navigation"></nav>
+
+      <div class="project-detail-main">
+        
+          <section
+            class="project-detail-tab-panel is-active"
+            id="projects-game-of-life-panel-details"
+            role="tabpanel"
+            aria-labelledby="projects-game-of-life-tab-details"
+            data-project-tab-panel="details"
+          >
+        
+
+        <div class="article-content">
+          
+            
+            
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+                
+                <h2 id="overview">Overview</h2>
+
+<p>Game of Life is an interactive cellular automata playground built to explore algorithmic simulation and front-end performance together. I used Conway’s Game of Life as a known problem space, then treated the project like a production-style app with a modular architecture, automated tests, and continuous deployment to GitHub Pages.</p>
+
+<h3 id="key-features">Key Features</h3>
+
+<p>I built a playable simulation app with controls, diagnostics, and pattern workflows:</p>
+
+<ul>
+  <li>Start, pause, single-step, reset, and speed controls for generation playback.</li>
+  <li>Pattern loading and custom board editing for quick experimentation.</li>
+  <li>URL state sharing so current board state can be copied and reopened.</li>
+  <li>Rule toggles (survival/birth variants) to inspect behavior changes.</li>
+  <li>Stats and diagnostics (live cells, births, deaths, generations) surfaced during execution.</li>
+  <li>Theming and localization support in the app shell for a more complete UX.</li>
+</ul>
+
+
+
+                
+                  <section class="project-screenshots" aria-label="Project screenshots">
+                    <h3>Screenshots</h3>
+                    
+                    <div class="project-screenshot-slideshow" data-project-slideshow>
+                      <div class="project-screenshot-stage">
+                        <div class="project-screenshot-viewport" aria-live="polite">
+                          <ul class="project-screenshot-track" data-screenshot-track>
+                            
+                              
+                              <li class="project-screenshot-slide" data-screenshot-slide>
+                                <button
+                                  type="button"
+                                  class="project-screenshot-card"
+                                  data-screenshot-jump="0"
+                                  aria-label="Focus screenshot 1: Dark mode animated demo (15s)"
+                                  aria-current="true"
+                                >
+                                  <figure>
+                                    <img src="/assets/img/projects/game-of-life/game-of-life-dark-demo.gif" alt="15-second animated Game of Life demo in dark mode showing simulation controls, live evolution, and panel switching" loading="lazy">
+                                    
+                                      <figcaption>Dark mode animated demo (15s)</figcaption>
+                                    
+                                  </figure>
+                                </button>
+                              </li>
+                            
+                              
+                              <li class="project-screenshot-slide" data-screenshot-slide>
+                                <button
+                                  type="button"
+                                  class="project-screenshot-card"
+                                  data-screenshot-jump="1"
+                                  aria-label="Focus screenshot 2: Dark mode patterns view"
+                                  aria-current="false"
+                                >
+                                  <figure>
+                                    <img src="/assets/img/projects/game-of-life/game-of-life-dark-patterns.png" alt="Game of Life in dark mode with the patterns tab open" loading="lazy">
+                                    
+                                      <figcaption>Dark mode patterns view</figcaption>
+                                    
+                                  </figure>
+                                </button>
+                              </li>
+                            
+                              
+                              <li class="project-screenshot-slide" data-screenshot-slide>
+                                <button
+                                  type="button"
+                                  class="project-screenshot-card"
+                                  data-screenshot-jump="2"
+                                  aria-label="Focus screenshot 3: Dark mode rules view"
+                                  aria-current="false"
+                                >
+                                  <figure>
+                                    <img src="/assets/img/projects/game-of-life/game-of-life-dark-rules.png" alt="Game of Life in dark mode with the rules tab open" loading="lazy">
+                                    
+                                      <figcaption>Dark mode rules view</figcaption>
+                                    
+                                  </figure>
+                                </button>
+                              </li>
+                            
+                              
+                              <li class="project-screenshot-slide" data-screenshot-slide>
+                                <button
+                                  type="button"
+                                  class="project-screenshot-card"
+                                  data-screenshot-jump="3"
+                                  aria-label="Focus screenshot 4: Dark mode running simulation"
+                                  aria-current="false"
+                                >
+                                  <figure>
+                                    <img src="/assets/img/projects/game-of-life/game-of-life-dark-running.png" alt="Game of Life in dark mode while simulation is running" loading="lazy">
+                                    
+                                      <figcaption>Dark mode running simulation</figcaption>
+                                    
+                                  </figure>
+                                </button>
+                              </li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="project-screenshot-controls">
+                        <button
+                          type="button"
+                          class="project-screenshot-nav project-screenshot-nav--prev"
+                          aria-label="Show previous screenshots"
+                          data-screenshot-nav="prev"
+                          
+                        >
+                          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+
+                        <input
+                          type="range"
+                          class="project-screenshot-scrollbar"
+                          data-screenshot-scrollbar
+                          min="0"
+                          max="0"
+                          step="1"
+                          value="0"
+                          aria-label="Screenshot position"
+                          
+                        >
+
+                        <button
+                          type="button"
+                          class="project-screenshot-nav project-screenshot-nav--next"
+                          aria-label="Show more screenshots"
+                          data-screenshot-nav="next"
+                          
+                        >
+                          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="project-screenshot-fullscreen"
+                          data-screenshot-fullscreen
+                          aria-label="Open current screenshot in lightbox"
+                        >
+                          <i class="fas fa-expand" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+                
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+                
+                <h2 id="conways-game-of-life">Conway’s Game of Life</h2>
+
+<h3 id="rules">Rules</h3>
+
+<p>The universe of the Game of Life is <a href="https://en.wikipedia.org/wiki/Square_tiling">an infinite, two-dimensional orthogonal grid of square</a> <em>cells</em>, each of which is in one of two possible states, <em>live</em> or <em>dead</em> (or <em>populated</em> and <em>unpopulated</em>, respectively). Every cell interacts with its eight <em>neighbours</em> (its <a href="https://en.wikipedia.org/wiki/Moore_neighborhood">Moore neighborhood</a>), which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:</p>
+
+<ol class="project-life-rules-list" aria-label="Rules table of contents">
+  <li><a href="#rule-underpopulation">Underpopulation</a></li>
+  <li><a href="#rule-survival">Survival</a></li>
+  <li><a href="#rule-overpopulation">Overpopulation</a></li>
+  <li><a href="#rule-reproduction">Reproduction</a></li>
+</ol>
+
+<div class="project-life-color-key" aria-label="Rules color key">
+  <strong>Game state key</strong>
+  <ul>
+    <li><span class="project-life-color-key-swatch live" aria-hidden="true"></span>Live cell</li>
+    <li><span class="project-life-color-key-swatch dead" aria-hidden="true"></span>Dead cell</li>
+    <li><span class="project-life-color-key-swatch birth" aria-hidden="true"></span>Birth (becomes live)</li>
+    <li><span class="project-life-color-key-swatch death" aria-hidden="true"></span>Death (becomes dead)</li>
+  </ul>
+</div>
+
+<p><a id="rule-underpopulation"></a></p>
+<h4 id="1-underpopulation">1. Underpopulation</h4>
+
+<p>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</p>
+
+<div class="project-life-rule-examples" aria-label="Underpopulation examples">
+  <article class="project-life-transition-card">
+    <h5>Two neighboring live cells die from underpopulation.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>An isolated live cell dies immediately from underpopulation.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>A horizontal pair dies because each cell has too few neighbors.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="death"></span><span class="death"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<p><a id="rule-survival"></a></p>
+<h4 id="2-survival">2. Survival</h4>
+
+<p>Any live cell with two or three live neighbours lives on to the next generation.</p>
+
+<div class="project-life-rule-examples" aria-label="Survival examples">
+  <article class="project-life-transition-card">
+    <h5>A blinker rotates while the center cell survives.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+          <span class="birth"></span><span class="live"></span><span class="birth"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>An L-shape grows into a stable 2x2 block.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="birth"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>A 2x2 block remains stable across generations.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<p><a id="rule-overpopulation"></a></p>
+<h4 id="3-overpopulation">3. Overpopulation</h4>
+
+<p>Any live cell with more than three live neighbours dies, as if by overpopulation.</p>
+
+<div class="project-life-rule-examples" aria-label="Overpopulation examples">
+  <article class="project-life-transition-card">
+    <h5>A plus pattern overpopulates at the center and expands outward.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="birth"></span><span class="live"></span><span class="birth"></span>
+          <span class="live"></span><span class="death"></span><span class="live"></span>
+          <span class="birth"></span><span class="live"></span><span class="birth"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+          <span class="live"></span><span class="dead"></span><span class="live"></span>
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>A dense cluster sheds overcrowded center cells.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="live"></span><span class="death"></span><span class="birth"></span>
+          <span class="death"></span><span class="death"></span><span class="live"></span>
+          <span class="birth"></span><span class="live"></span><span class="birth"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="live"></span><span class="dead"></span><span class="live"></span>
+          <span class="dead"></span><span class="dead"></span><span class="live"></span>
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>A crowded corner cluster loses overpopulated cells.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="live"></span><span class="live"></span>
+          <span class="live"></span><span class="live"></span><span class="live"></span>
+          <span class="dead"></span><span class="dead"></span><span class="live"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="birth"></span><span class="death"></span><span class="live"></span>
+          <span class="live"></span><span class="death"></span><span class="death"></span>
+          <span class="dead"></span><span class="dead"></span><span class="live"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="live"></span><span class="dead"></span><span class="live"></span>
+          <span class="live"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="live"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<p><a id="rule-reproduction"></a></p>
+<h4 id="4-reproduction">4. Reproduction</h4>
+
+<p>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</p>
+
+<div class="project-life-rule-examples" aria-label="Reproduction examples">
+  <article class="project-life-transition-card">
+    <h5>Three neighbors reproduce a new center cell.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="live"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+          <span class="live"></span><span class="birth"></span><span class="dead"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="live"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>A diagonal trio reproduces at center while isolated cells die.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="live"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="live"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="death"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="birth"></span><span class="death"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="project-life-transition-card">
+    <h5>The mirrored diagonal trio reproduces at center while isolated cells die.</h5>
+    <div class="project-life-transition-row">
+      <div class="project-life-state">
+        <span>Before</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="live"></span>
+          <span class="live"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Transform</span>
+        <div class="project-life-rule-board">
+          <span class="dead"></span><span class="dead"></span><span class="death"></span>
+          <span class="death"></span><span class="birth"></span><span class="dead"></span>
+          <span class="dead"></span><span class="death"></span><span class="dead"></span>
+        </div>
+      </div>
+      <span class="project-life-transition-arrow" aria-hidden="true">→</span>
+      <div class="project-life-state">
+        <span>Final</span>
+        <div class="project-life-rule-board project-life-rule-board--final">
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+          <span class="dead"></span><span class="live"></span><span class="dead"></span>
+          <span class="dead"></span><span class="dead"></span><span class="dead"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<script>
+  (function () {
+    var STEP_INTERVAL_MS = 1000;
+    var LOOP_GENERATIONS = 10;
+    var SOURCE_GRID_SIZE = 3;
+    var DISPLAY_GRID_SIZE = 9;
+
+    function cloneGrid(grid) {
+      return grid.map(function (row) {
+        return row.slice();
+      });
+    }
+
+    function expandBoardToDisplayGrid(boardEl) {
+      if (!boardEl) return;
+
+      var cells = Array.from(boardEl.querySelectorAll('span'));
+      if (cells.length !== SOURCE_GRID_SIZE * SOURCE_GRID_SIZE) return;
+
+      var source = [];
+      for (var row = 0; row < SOURCE_GRID_SIZE; row += 1) {
+        source[row] = [];
+        for (var col = 0; col < SOURCE_GRID_SIZE; col += 1) {
+          source[row][col] = cells[row * SOURCE_GRID_SIZE + col].className;
+        }
+      }
+
+      boardEl.innerHTML = '';
+      var rowOffset = Math.floor((DISPLAY_GRID_SIZE - SOURCE_GRID_SIZE) / 2);
+      var colOffset = Math.floor((DISPLAY_GRID_SIZE - SOURCE_GRID_SIZE) / 2);
+
+      for (var outRow = 0; outRow < DISPLAY_GRID_SIZE; outRow += 1) {
+        for (var outCol = 0; outCol < DISPLAY_GRID_SIZE; outCol += 1) {
+          var sourceRow = outRow - rowOffset;
+          var sourceCol = outCol - colOffset;
+          var cell = document.createElement('span');
+          if (
+            sourceRow >= 0 &&
+            sourceRow < SOURCE_GRID_SIZE &&
+            sourceCol >= 0 &&
+            sourceCol < SOURCE_GRID_SIZE
+          ) {
+            cell.className = source[sourceRow][sourceCol];
+          } else {
+            cell.className = 'dead';
+          }
+          boardEl.appendChild(cell);
+        }
+      }
+    }
+
+    function parseBeforeGrid(boardEl) {
+      var cells = Array.from(boardEl.querySelectorAll('span'));
+      var flat = cells.map(function (cell) {
+        return cell.classList.contains('live') ? 1 : 0;
+      });
+      var size = Math.sqrt(flat.length);
+      var grid = [];
+      for (var row = 0; row < size; row += 1) {
+        grid.push(flat.slice(row * size, row * size + size));
+      }
+      return grid;
+    }
+
+    function nextGeneration(grid) {
+      var size = grid.length;
+
+      function neighbors(row, col) {
+        var count = 0;
+        for (var dr = -1; dr <= 1; dr += 1) {
+          for (var dc = -1; dc <= 1; dc += 1) {
+            if (dr === 0 && dc === 0) continue;
+            var rr = row + dr;
+            var cc = col + dc;
+            if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+            count += grid[rr][cc];
+          }
+        }
+        return count;
+      }
+
+      var next = [];
+      for (var row = 0; row < size; row += 1) {
+        next[row] = [];
+        for (var col = 0; col < size; col += 1) {
+          var alive = grid[row][col] === 1;
+          var count = neighbors(row, col);
+          next[row][col] = alive
+            ? (count === 2 || count === 3 ? 1 : 0)
+            : (count === 3 ? 1 : 0);
+        }
+      }
+
+      return next;
+    }
+
+    function hasLiveCells(grid) {
+      for (var row = 0; row < grid.length; row += 1) {
+        for (var col = 0; col < grid[row].length; col += 1) {
+          if (grid[row][col] === 1) return true;
+        }
+      }
+      return false;
+    }
+
+    function renderGrid(boardEl, grid) {
+      var size = grid.length;
+      boardEl.innerHTML = '';
+      for (var row = 0; row < size; row += 1) {
+        for (var col = 0; col < size; col += 1) {
+          var cell = document.createElement('span');
+          cell.className = grid[row][col] === 1 ? 'live' : 'dead';
+          boardEl.appendChild(cell);
+        }
+      }
+    }
+
+    function createEmptyGrid(size) {
+      var grid = [];
+      for (var row = 0; row < size; row += 1) {
+        grid[row] = [];
+        for (var col = 0; col < size; col += 1) {
+          grid[row][col] = 0;
+        }
+      }
+      return grid;
+    }
+
+    function createPatternGrid(patternName) {
+      var seeds = {
+        block: [[0, 0], [0, 1], [1, 0], [1, 1]],
+        beehive: [[0, 1], [0, 2], [1, 0], [1, 3], [2, 1], [2, 2]],
+        loaf: [[0, 1], [0, 2], [1, 0], [1, 3], [2, 1], [2, 3], [3, 2]],
+        boat: [[0, 0], [0, 1], [1, 0], [1, 2], [2, 1]],
+        tub: [[0, 1], [1, 0], [1, 2], [2, 1]],
+        pond: [[0, 1], [0, 2], [1, 0], [1, 3], [2, 0], [2, 3], [3, 1], [3, 2]],
+        blinker: [[0, 1], [1, 1], [2, 1]],
+        toad: [[0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [1, 2]],
+        beacon: [[0, 0], [0, 1], [1, 0], [2, 3], [3, 2], [3, 3]],
+        glider: [[0, 1], [1, 2], [2, 0], [2, 1], [2, 2]],
+        lwss: [[0, 1], [0, 4], [1, 0], [2, 0], [2, 4], [3, 0], [3, 1], [3, 2], [3, 3]],
+        'r-pentomino': [[0, 1], [0, 2], [1, 0], [1, 1], [2, 1]],
+        diehard: [[0, 6], [1, 0], [1, 1], [2, 1], [2, 5], [2, 6], [2, 7]],
+        acorn: [[0, 1], [1, 3], [2, 0], [2, 1], [2, 4], [2, 5], [2, 6]]
+      };
+
+      var coords = seeds[patternName] || seeds.block;
+      var grid = createEmptyGrid(DISPLAY_GRID_SIZE);
+      var maxRow = 0;
+      var maxCol = 0;
+
+      coords.forEach(function (pair) {
+        if (pair[0] > maxRow) maxRow = pair[0];
+        if (pair[1] > maxCol) maxCol = pair[1];
+      });
+
+      var height = maxRow + 1;
+      var width = maxCol + 1;
+      var rowOffset = Math.floor((DISPLAY_GRID_SIZE - height) / 2);
+      var colOffset = Math.floor((DISPLAY_GRID_SIZE - width) / 2);
+
+      coords.forEach(function (pair) {
+        var row = rowOffset + pair[0];
+        var col = colOffset + pair[1];
+        if (row >= 0 && row < DISPLAY_GRID_SIZE && col >= 0 && col < DISPLAY_GRID_SIZE) {
+          grid[row][col] = 1;
+        }
+      });
+
+      return grid;
+    }
+
+    function attachSimulation(cardEl) {
+      var states = cardEl.querySelectorAll('.project-life-state');
+      if (states.length < 2) return;
+      var row = cardEl.querySelector('.project-life-transition-row');
+
+      var beforeBoard = states[0].querySelector('.project-life-rule-board');
+      var transformState = states[1];
+      if (!beforeBoard || !transformState || !row || row.querySelector('.project-life-mini-sim')) return;
+
+      transformState.classList.add('project-life-state--transform');
+
+      var simWrap = document.createElement('div');
+      simWrap.className = 'project-life-mini-sim';
+
+      var simLabel = document.createElement('span');
+      simLabel.className = 'project-life-mini-sim-label';
+      simLabel.textContent = 'Animation (1s)';
+
+      var simBoard = document.createElement('div');
+      simBoard.className = 'project-life-rule-board project-life-rule-board--animated';
+
+      var simBoardWrap = document.createElement('div');
+      simBoardWrap.className = 'project-life-mini-sim-board-wrap';
+
+      var gameOverOverlay = document.createElement('span');
+      gameOverOverlay.className = 'project-life-mini-sim-game-over';
+      gameOverOverlay.textContent = 'Game Over';
+
+      simBoardWrap.appendChild(simBoard);
+      simBoardWrap.appendChild(gameOverOverlay);
+
+      var simControls = document.createElement('div');
+      simControls.className = 'project-life-mini-sim-controls';
+
+      var simButtons = document.createElement('div');
+      simButtons.className = 'project-life-mini-sim-buttons';
+
+      var toggleButton = document.createElement('button');
+      toggleButton.type = 'button';
+      toggleButton.className = 'project-life-mini-sim-button';
+      toggleButton.textContent = 'Pause';
+
+      var restartButton = document.createElement('button');
+      restartButton.type = 'button';
+      restartButton.className = 'project-life-mini-sim-button';
+      restartButton.textContent = 'Restart';
+
+      var simCount = document.createElement('span');
+      simCount.className = 'project-life-mini-sim-count';
+
+      simButtons.appendChild(toggleButton);
+      simButtons.appendChild(restartButton);
+      simControls.appendChild(simButtons);
+      simControls.appendChild(simCount);
+
+      simWrap.appendChild(simLabel);
+      simWrap.appendChild(simBoardWrap);
+      simWrap.appendChild(simControls);
+      row.appendChild(simWrap);
+
+      var initialState = parseBeforeGrid(beforeBoard);
+      var state = cloneGrid(initialState);
+      var generation = 0;
+      var isPaused = false;
+      var pendingResetAfterExtinction = false;
+
+      function updateGenerationCount() {
+        simCount.textContent = 'Generation: ' + generation;
+      }
+
+      function restartSimulation() {
+        state = cloneGrid(initialState);
+        generation = 0;
+        pendingResetAfterExtinction = false;
+        simBoardWrap.classList.remove('is-game-over');
+        renderGrid(simBoard, state);
+        updateGenerationCount();
+      }
+
+      function tick() {
+        if (isPaused) return;
+
+        if (pendingResetAfterExtinction) {
+          restartSimulation();
+          return;
+        }
+
+        if (generation >= LOOP_GENERATIONS) {
+          restartSimulation();
+          return;
+        } else {
+          var next = nextGeneration(state);
+
+          if (!hasLiveCells(next)) {
+            state = next;
+            generation += 1;
+            pendingResetAfterExtinction = true;
+            simBoardWrap.classList.add('is-game-over');
+            renderGrid(simBoard, state);
+            updateGenerationCount();
+            return;
+          }
+
+          simBoardWrap.classList.remove('is-game-over');
+          state = next;
+          generation += 1;
+        }
+
+        renderGrid(simBoard, state);
+        updateGenerationCount();
+      }
+
+      toggleButton.addEventListener('click', function () {
+        isPaused = !isPaused;
+        toggleButton.textContent = isPaused ? 'Play' : 'Pause';
+      });
+
+      restartButton.addEventListener('click', function () {
+        restartSimulation();
+      });
+
+      renderGrid(simBoard, state);
+      updateGenerationCount();
+
+      window.setInterval(tick, STEP_INTERVAL_MS);
+    }
+
+    function attachPatternPreview(previewEl) {
+      var board = previewEl.querySelector('.project-life-rule-board');
+      var count = previewEl.querySelector('.project-life-mini-sim-count');
+      var patternName = previewEl.getAttribute('data-pattern') || 'block';
+      if (!board || !count) return;
+
+      var initialState = createPatternGrid(patternName);
+      var state = cloneGrid(initialState);
+      var generation = 0;
+
+      function updateGenerationCount() {
+        count.textContent = 'Generation: ' + generation;
+      }
+
+      renderGrid(board, state);
+      updateGenerationCount();
+
+      window.setInterval(function () {
+        if (generation >= LOOP_GENERATIONS) {
+          state = cloneGrid(initialState);
+          generation = 0;
+        } else {
+          var next = nextGeneration(state);
+          if (!hasLiveCells(next)) {
+            state = cloneGrid(initialState);
+            generation = 0;
+          } else {
+            state = next;
+            generation += 1;
+          }
+        }
+        renderGrid(board, state);
+        updateGenerationCount();
+      }, STEP_INTERVAL_MS);
+    }
+
+    function initRuleCardAnimations() {
+      var allBoards = document.querySelectorAll('.project-life-rule-board');
+      allBoards.forEach(expandBoardToDisplayGrid);
+
+      var cards = document.querySelectorAll('.project-life-transition-card');
+      cards.forEach(attachSimulation);
+
+      var patternPreviews = document.querySelectorAll('.project-life-pattern-preview');
+      patternPreviews.forEach(attachPatternPreview);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initRuleCardAnimations);
+    } else {
+      initRuleCardAnimations();
+    }
+  })();
+</script>
+
+<h3 id="patterns">Patterns</h3>
+
+<p>Patterns are organized using the same category model as the live app pattern library, with examples aligned to the Conway wiki taxonomy.</p>
+
+<h4 id="still-life">Still Life</h4>
+
+<p>Still lifes are stable patterns that remain unchanged from one generation to the next.</p>
+
+<div class="project-patterns-table-wrap">
+  <table class="project-patterns-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Notes</th>
+        <th>Animated Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Block</td><td>Minimal 2x2 stable structure.</td><td><div class="project-life-pattern-preview" data-pattern="block"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Beehive</td><td>Common 6-cell still life.</td><td><div class="project-life-pattern-preview" data-pattern="beehive"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Loaf</td><td>Stable asymmetric 7-cell form.</td><td><div class="project-life-pattern-preview" data-pattern="loaf"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Boat</td><td>Compact 5-cell stable pattern.</td><td><div class="project-life-pattern-preview" data-pattern="boat"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Tub</td><td>4-cell diamond still life.</td><td><div class="project-life-pattern-preview" data-pattern="tub"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Pond</td><td>Larger stable hollow shape.</td><td><div class="project-life-pattern-preview" data-pattern="pond"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 id="oscillator">Oscillator</h4>
+
+<p>Oscillators repeat a fixed cycle of states over a predictable period.</p>
+
+<div class="project-patterns-table-wrap">
+  <table class="project-patterns-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Notes</th>
+        <th>Animated Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Blinker</td><td>Period-2 line flip.</td><td><div class="project-life-pattern-preview" data-pattern="blinker"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Toad</td><td>Period-2 six-cell oscillator.</td><td><div class="project-life-pattern-preview" data-pattern="toad"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Beacon</td><td>Period-2 corner interaction.</td><td><div class="project-life-pattern-preview" data-pattern="beacon"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 id="spaceship">Spaceship</h4>
+
+<p>Spaceships translate across the grid while repeating their shape after a set number of generations.</p>
+
+<div class="project-patterns-table-wrap">
+  <table class="project-patterns-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Notes</th>
+        <th>Animated Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Glider</td><td>Canonical diagonal spaceship.</td><td><div class="project-life-pattern-preview" data-pattern="glider"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>LWSS</td><td>Lightweight orthogonal spaceship.</td><td><div class="project-life-pattern-preview" data-pattern="lwss"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 id="methuselah">Methuselah</h4>
+
+<p>Methuselahs begin as small seeds but evolve for many generations before stabilizing or vanishing.</p>
+
+<div class="project-patterns-table-wrap">
+  <table class="project-patterns-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Notes</th>
+        <th>Animated Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>R-pentomino</td><td>Classic long-running seed.</td><td><div class="project-life-pattern-preview" data-pattern="r-pentomino"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Diehard</td><td>Dies out after many generations.</td><td><div class="project-life-pattern-preview" data-pattern="diehard"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+      <tr><td>Acorn</td><td>Small seed with long evolution.</td><td><div class="project-life-pattern-preview" data-pattern="acorn"><div class="project-life-rule-board"></div><span class="project-life-mini-sim-count">Generation: 0</span></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Additional wiki categories for advanced exploration:</p>
+
+<ul>
+  <li>Guns: Gosper glider gun, Simkin glider gun</li>
+  <li>Puffers: puffer train variants</li>
+  <li>Breeders: puffer-type breeder constructions</li>
+</ul>
+
+
+
+                
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+            
+              
+              
+              
+              
+              
+              
+              
+
+              
+            
+          
+        </div>
+
+        
+          </section>
+
+          
+            <section
+              class="project-detail-tab-panel"
+              id="projects-game-of-life-panel-architecture"
+              role="tabpanel"
+              aria-labelledby="projects-game-of-life-tab-architecture"
+              data-project-tab-panel="architecture"
+              hidden
+            >
+              <section class="article-content project-architecture-content" aria-label="Project architecture">
+                
+                  
+                  
+                  
+                  
+                
+                  
+                  
+                  
+                  
+                
+                  
+                  
+                  
+                  
+                    <h2 id="overview-1">Overview</h2>
+
+<!--tab:architecture-->
+
+<p>The Game of Life project is structured as a layered monorepo: a deterministic simulation core and a separate React application shell for rendering and interaction. This separation keeps rule logic testable, keeps UI iteration fast, and allows performance tuning of simulation and rendering paths independently.</p>
+
+
+                  
+                
+                  
+                  
+                  
+                  
+                    <h2 id="planning">Planning</h2>
+
+<h3 id="problem-space">Problem Space</h3>
+
+<p>I wanted a project that did more than render a toy grid. The intent was to build an implementation that demonstrates practical engineering decisions around correctness, performance, and maintainability in a simulation-driven UI.</p>
+
+<h3 id="architecture-goals">Architecture Goals</h3>
+
+<ol>
+  <li>Preserve deterministic, testable simulation behavior independent of UI code.</li>
+  <li>Use sparse-state data structures so work scales with active cells instead of full-grid size.</li>
+  <li>Provide interactive controls and shareable state without coupling product UX to rule execution.</li>
+  <li>Keep package boundaries explicit so simulation and presentation layers can evolve independently.</li>
+</ol>
+
+<h3 id="key-decisions">Key Decisions</h3>
+
+<p>Key decisions that shaped the project:</p>
+
+<ul>
+  <li><strong>Monorepo split (<code class="language-plaintext highlighter-rouge">core</code> + <code class="language-plaintext highlighter-rouge">app</code>)</strong>: made game logic independently testable and reusable.</li>
+  <li><strong>Sparse grid model</strong>: optimized for typical Game of Life patterns where most cells are dead.</li>
+  <li><strong>Canvas-oriented rendering path</strong>: chosen to better support larger boards than naive DOM-cell rendering.</li>
+  <li><strong>URL-encoded state sharing</strong>: improved collaboration and reproducibility of interesting board states.</li>
+  <li><strong>CI + GitHub Pages deploys</strong>: ensured the project is always runnable from a public URL.</li>
+</ul>
+
+<h3 id="challenges">Challenges</h3>
+
+<p>The most persistent challenge has been UI performance as grid size and update cadence increase. I addressed this by keeping simulation logic decoupled from rendering, using a sparse state model in the core, and iterating on the rendering path separately from rule execution.</p>
+
+<p>Another challenge was balancing feature depth with maintainability. Splitting into <code class="language-plaintext highlighter-rouge">core</code> and <code class="language-plaintext highlighter-rouge">app</code> packages, plus backing rules/pattern behavior with tests, helped reduce regressions while still allowing rapid UI iteration.</p>
+
+
+                  
+                
+                  
+                  
+                  
+                  
+                    <h2 id="architectural-overview">Architectural Overview</h2>
+
+<p>The implementation separates simulation concerns from presentation concerns so performance work and UX work can evolve independently.</p>
+
+<figure class="project-diagram project-diagram--compact">
+  <pre class="mermaid">flowchart LR
+    U[User input] --&gt; A[React app shell]
+    A --&gt; G[Game wrapper]
+    G --&gt; C[Core simulation engine]
+    C --&gt; A
+  </pre>
+  <figcaption>Basic view of how user actions flow through the app and core simulation.</figcaption>
+</figure>
+
+<h3 id="core-simulation-engine">Core Simulation Engine</h3>
+
+<p>The core engine executes Conway rules as pure transformations: given a current sparse state map, it computes the next generation plus derived stats. Keeping this logic side-effect free makes behavior deterministic and straightforward to unit test.</p>
+
+<p>This engine operates directly on the <code class="language-plaintext highlighter-rouge">LifeGrid</code> structure described in <code class="language-plaintext highlighter-rouge">State and Data Model</code>, so the data model and simulation step logic are intentionally paired.</p>
+
+<p>Relevant core simulation code:</p>
+
+<ul>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/packages/core/src/core/game.ts"><code class="language-plaintext highlighter-rouge">calculateNextGeneration</code> + default rules</a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/packages/core/src/core/coordinates.ts"><code class="language-plaintext highlighter-rouge">countLiveNeighborCoordinates</code> and coordinate helpers</a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/packages/core/src/interfaces/index.ts"><code class="language-plaintext highlighter-rouge">LifeGrid</code> and simulation interfaces</a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/packages/core/src/core/coordinateParser.ts">Coordinate parser utilities</a></li>
+</ul>
+
+<h3 id="state-and-data-model">State and Data Model</h3>
+
+<p>The foundational board data structure is <code class="language-plaintext highlighter-rouge">LifeGrid</code>, which lives in the <code class="language-plaintext highlighter-rouge">@game-of-life/core</code> package at <code class="language-plaintext highlighter-rouge">packages/core/src/interfaces/index.ts</code>. <code class="language-plaintext highlighter-rouge">LifeGrid</code> is a coordinate-keyed hash map where each key is an <code class="language-plaintext highlighter-rouge">"x,y"</code> coordinate string and each value is a boolean cell state.</p>
+
+<p>Board state is represented sparsely with this coordinate map instead of a dense full-grid matrix. This keeps both memory use and per-tick computation proportional to active regions, which is critical for larger boards where most cells are dead.</p>
+
+<p>In practice, each simulation tick in the core engine accepts a <code class="language-plaintext highlighter-rouge">LifeGrid</code>, applies neighbor/rule evaluation, and returns the next <code class="language-plaintext highlighter-rouge">LifeGrid</code>, making this model the contract between data representation and rule execution.</p>
+
+<div class="code-sample has-source-link" data-lang="ts">
+  <div class="code-sample-header">
+    <span class="code-sample-lang">ts</span>
+    <a class="code-sample-source" href="https://github.com/wintermuted/game-of-life/blob/master/packages/core/src/interfaces/index.ts" target="_blank" rel="noopener noreferrer">View source</a>
+  </div>
+
+<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="c1">// @game-of-life/core/packages/core/src/interfaces/index.ts</span>
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">LifeGrid</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">coordinate</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<div class="code-sample" data-lang="ts">
+
+<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="c1">// Example sparse state using LifeGrid.</span>
+<span class="kd">const</span> <span class="nx">gliderSeed</span><span class="p">:</span> <span class="nx">LifeGrid</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">1,0</span><span class="dl">'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">2,1</span><span class="dl">'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">0,2</span><span class="dl">'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">1,2</span><span class="dl">'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">2,2</span><span class="dl">'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">};</span></code></pre></figure>
+
+</div>
+
+<h3 id="rendering-and-interaction-layer">Rendering and Interaction Layer</h3>
+
+<p>The app package owns playback controls, user interactions, and canvas drawing. A thin <code class="language-plaintext highlighter-rouge">Game</code> wrapper adapts core outputs for the UI, so rendering concerns (frame pacing, viewport, theming, controls) can evolve without changing rule execution.</p>
+
+<div class="code-sample has-source-link" data-lang="ts">
+  <div class="code-sample-header">
+    <span class="code-sample-lang">ts</span>
+    <a class="code-sample-source" href="https://github.com/wintermuted/game-of-life/blob/master/packages/core/src/class/Game.ts" target="_blank" rel="noopener noreferrer">View source</a>
+  </div>
+
+<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="c1">// @game-of-life/core/packages/core/src/class/Game.ts</span>
+<span class="kd">class</span> <span class="nx">Game</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">grid</span><span class="p">:</span> <span class="nx">LifeGrid</span><span class="p">,</span> <span class="nx">rules</span><span class="p">:</span> <span class="nx">GameRules</span> <span class="o">=</span> <span class="nx">DEFAULT_RULES</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">grid</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rules</span> <span class="o">=</span> <span class="nx">rules</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">generations</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">previousGrid</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">grid</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">grid</span> <span class="o">=</span> <span class="nx">calculateNextGeneration</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">grid</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">rules</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">stats</span> <span class="o">=</span> <span class="nx">calculateStats</span><span class="p">(</span><span class="nx">previousGrid</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">grid</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">generations</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="na">grid</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">grid</span><span class="p">,</span> <span class="nx">stats</span> <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">getStatus</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">grid</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<h3 id="validation-and-delivery-pipeline">Validation and Delivery Pipeline</h3>
+
+<p>The repository uses package-level testing for simulation correctness and CI-backed deployments for repeatable release quality. This supports fast iteration while preserving confidence that rule logic and core behavior remain stable over time.</p>
+
+<figure class="project-diagram project-diagram--compact">
+  <pre class="mermaid">flowchart TD
+    PR[Pull request to master/main] --&gt; TESTS[Run Unit Tests]
+    PR --&gt; PREVIEW[Deploy Pages preview]
+    PREVIEW --&gt; COMMENT[Post preview URL to PR]
+
+    MERGE[Push/merge to master/main] --&gt; TESTS_MAIN[Run Unit Tests]
+    MERGE --&gt; PAGES[Deploy to GitHub Pages]
+    MERGE --&gt; CODEQL[CodeQL analysis]
+
+    CLOSE[PR closed] --&gt; CLEANUP[Cleanup PR preview]
+  </pre>
+  <figcaption>GitHub Actions pipelines for test, preview deploy, production deploy, security scan, and preview cleanup.</figcaption>
+</figure>
+
+<p>Current workflow files:</p>
+
+<ul>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/.github/workflows/run-tests.yml"><code class="language-plaintext highlighter-rouge">run-tests.yml</code></a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/.github/workflows/deploy-pages.yml"><code class="language-plaintext highlighter-rouge">deploy-pages.yml</code></a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/.github/workflows/cleanup-pr-preview.yml"><code class="language-plaintext highlighter-rouge">cleanup-pr-preview.yml</code></a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/.github/workflows/codeql-analysis.yml"><code class="language-plaintext highlighter-rouge">codeql-analysis.yml</code></a></li>
+  <li><a href="https://github.com/wintermuted/game-of-life/blob/master/.github/workflows/canonical-path-guard.yml"><code class="language-plaintext highlighter-rouge">canonical-path-guard.yml</code></a></li>
+</ul>
+
+<h3 id="test-pyramid-and-coverage">Test Pyramid and Coverage</h3>
+
+<p>The test pyramid is intentionally weighted toward the core simulation layer. Unit tests cover rule evaluation, coordinate handling, and sparse state transitions at the base of the pyramid, while a smaller set of integration tests exercises the <code class="language-plaintext highlighter-rouge">Game</code> wrapper and key UI flows.</p>
+
+<p>Coverage is strongest where behavior is deterministic and easiest to verify: the core package, pattern seed behavior, and transition logic. The UI layer keeps a lighter coverage profile focused on smoke tests, user controls, and regression checks around rendering and state syncing, which keeps the suite fast without losing confidence in the app shell.</p>
+
+<h3 id="runtime-generation-loop">Runtime Generation Loop</h3>
+
+<p>The core simulation uses a sparse dictionary/grid representation keyed by coordinates, keeping work proportional to active areas instead of a fixed full-board matrix. Rule execution and neighbor checks stay in the core package, while the UI consumes results through a <code class="language-plaintext highlighter-rouge">Game</code> wrapper and renders the snapshot to canvas.</p>
+
+<figure class="project-diagram">
+  <pre class="mermaid">sequenceDiagram
+    box rgba(45, 79, 128, 0.95) Presentation Layer
+    participant User
+    participant App as React App
+    end
+
+    box rgba(47, 124, 83, 0.95) Simulation Engine
+    participant Game as Game Wrapper
+    participant Core as Core Engine
+    end
+
+    box rgba(125, 74, 168, 0.95) Render Output
+    participant Render as Canvas Renderer
+    end
+
+    User-&gt;&gt;App: Start simulation
+    loop each generation tick
+      App-&gt;&gt;Game: step()
+      Game-&gt;&gt;Core: calculateNextGeneration(state)
+      Core--&gt;&gt;Game: next state + stats
+      Game--&gt;&gt;App: updated snapshot
+      App-&gt;&gt;Render: draw(snapshot)
+      Render--&gt;&gt;User: updated board and metrics
+    end
+  </pre>
+  <figcaption>Generation loop from user action to rendered frame</figcaption>
+</figure>
+
+
+                  
+                
+                  
+                  
+                  
+                  
+                    <h2 id="packages">Packages</h2>
+
+<p>The project is organized as an Nx monorepo with clear package boundaries and explicit TypeScript project references.</p>
+
+<h3 id="game-of-lifecore">@game-of-life/core</h3>
+
+<p><a href="https://github.com/wintermuted/game-of-life/tree/master/packages/core"><code class="language-plaintext highlighter-rouge">@game-of-life/core</code></a> is the simulation engine package. It owns deterministic rule evaluation, sparse grid transitions, coordinate utilities, and reusable pattern seed data, and remains framework-agnostic so it can be tested in isolation.</p>
+
+<h3 id="game-of-lifeapp">@game-of-life/app</h3>
+
+<p><a href="https://github.com/wintermuted/game-of-life/tree/master/packages/app"><code class="language-plaintext highlighter-rouge">@game-of-life/app</code></a> is the product-facing UI package. It owns the React + Vite interface, playback controls, canvas rendering, and URL-based state sharing, and consumes the core package through a thin <code class="language-plaintext highlighter-rouge">Game</code> adapter layer.</p>
+
+<figure class="project-diagram">
+  <pre class="mermaid">flowchart LR
+    UI["@game-of-life/app\nReact + Vite UI"] --&gt; GAME["Game class\nadapter layer"]
+    GAME --&gt; CORE["@game-of-life/core\nPure simulation logic"]
+    CORE --&gt; RULES["Rule engine\nneighbor checks + transitions"]
+    CORE --&gt; PATTERNS["Pattern library\nseed presets"]
+    UI --&gt; CANVAS["Canvas renderer\nviewport + draw loop"]
+    UI --&gt; CONTROLS["Controls + URL state\nplayback, speed, sharing"]
+    classDef app fill:#2d4f80,stroke:#88a9d8,stroke-width:1.5px,color:#ffffff;
+    classDef core fill:#2f7c53,stroke:#9fd7b8,stroke-width:1.5px,color:#ffffff;
+    classDef supporting fill:#a86f12,stroke:#f3c97a,stroke-width:1.5px,color:#ffffff;
+    classDef output fill:#7d4aa8,stroke:#d9b3f7,stroke-width:1.5px,color:#ffffff;
+    class UI app;
+    class GAME supporting;
+    class CORE core;
+    class RULES supporting;
+    class PATTERNS supporting;
+    class CANVAS output;
+    class CONTROLS output;
+    click UI "https://github.com/wintermuted/game-of-life/tree/master/packages/app" "Open app package" _blank
+    click CORE "https://github.com/wintermuted/game-of-life/tree/master/packages/core" "Open core package" _blank
+    click PATTERNS "https://github.com/wintermuted/game-of-life/tree/master/packages/core/src/data" "Open pattern data" _blank
+    click CONTROLS "https://wintermuted.github.io/game-of-life/" "Open live demo" _blank
+  </pre>
+  <figcaption>Monorepo package boundaries and runtime data flow</figcaption>
+</figure>
+
+
+                  
+                
+                  
+                  
+                  
+                  
+                    <h2 id="outcomes">Outcomes</h2>
+
+<p>The project now functions as both an interactive demo and a maintainable engineering sample:</p>
+
+<ul>
+  <li>Rules and canonical patterns are validated by automated tests.</li>
+  <li>The simulation is publicly deployed on GitHub Pages for easy sharing.</li>
+  <li>Pull request preview deployments support faster iteration and review.</li>
+  <li>The architecture provides a clear path for future optimization work without rewriting core logic.</li>
+</ul>
+
+
+                  
+                
+                  
+                  
+                  
+                  
+                
+              </section>
+            </section>
+          
+
+          
+            <section
+              class="project-detail-tab-panel"
+              id="projects-game-of-life-panel-roadmap"
+              role="tabpanel"
+              aria-labelledby="projects-game-of-life-tab-roadmap"
+              data-project-tab-panel="roadmap"
+              hidden
+            >
+              <section class="article-content project-roadmap-content" aria-label="Project roadmap">
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                
+                  
+                  
+                    <h2 id="roadmap">Roadmap</h2>
+
+<p>The next phase focuses on performance headroom, richer scenario authoring, and stronger collaboration workflows.</p>
+
+<figure class="project-diagram">
+  <pre class="mermaid">gantt
+    title Game of Life Future Roadmap
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b '%y
+
+    section Performance
+    Profile render + tick loop            :p1, 2026-07-05, 21d
+    Canvas batching + redraw minimization :p2, after p1, 28d
+    Worker-based simulation experiments   :p3, after p2, 21d
+
+    section Features
+    Scenario presets + metadata model     :f1, 2026-08-10, 20d
+    Rule-set editor UX improvements       :f2, after f1, 24d
+    Replay timeline and scrub controls    :f3, after f2, 18d
+
+    section Quality and Delivery
+    Expanded benchmark and regression suite :q1, 2026-09-01, 20d
+    PR preview UX polish pass               :q2, after q1, 14d
+    Release hardening + docs refresh        :q3, after q2, 10d
+  </pre>
+  <figcaption>Planned milestones for the next optimization and feature cycle</figcaption>
+</figure>
+
+
+                  
+                
+              </section>
+            </section>
+          
+
+          
+          <section
+            class="project-detail-tab-panel"
+            id="projects-game-of-life-panel-devlog"
+            role="tabpanel"
+            aria-labelledby="projects-game-of-life-tab-devlog"
+            data-project-tab-panel="devlog"
+            hidden
+          >
+            
+            <section class="project-devlog" aria-label="Project development log">
+              <div class="project-devlog-header">
+                <h2>Dev Log</h2>
+                <a class="project-devlog-tag-link" href="/weblog/tag/game-of-life/">View tag archive</a>
+              </div>
+              <p class="text-muted project-devlog-subtitle">Posts tagged <code>#game-of-life</code></p>
+              <ul class="project-devlog-list list-unstyled">
+                
+                  
+                  
+                    
+                      
+                      <li class="project-devlog-item">
+                        <h3><a href="/weblog/devlog/2026/06/11/game-of-life-devlog-rules-and-diagnostics.html">Game of Life Dev Log: Rules and Diagnostics</a></h3>
+                        <small class="text-muted">11 Jun, 2026</small>
+                        <p>I refined rule toggles and tightened diagnostics visibility for births, deaths, and live cell counts.</p>
+                      </li>
+                    
+                  
+                    
+                      
+                      <li class="project-devlog-item">
+                        <h3><a href="/weblog/devlog/2026/05/18/game-of-life-devlog-url-share-state.html">Game of Life Dev Log: Shareable URL State</a></h3>
+                        <small class="text-muted">18 May, 2026</small>
+                        <p>I added another pass on URL state sharing so board setups are easier to copy and reopen.</p>
+                      </li>
+                    
+                  
+                    
+                      
+                      <li class="project-devlog-item">
+                        <h3><a href="/weblog/devlog/2026/04/26/game-of-life-devlog-pattern-workflow.html">Game of Life Dev Log: Pattern Workflow Improvements</a></h3>
+                        <small class="text-muted">26 Apr, 2026</small>
+                        <p>I improved pattern loading and made it easier to move from preset exploration into custom edits.</p>
+                      </li>
+                    
+                  
+                    
+                      
+                      <li class="project-devlog-item">
+                        <h3><a href="/weblog/devlog/2026/04/07/game-of-life-devlog-render-loop.html">Game of Life Dev Log: Tightening the Render Loop</a></h3>
+                        <small class="text-muted">7 Apr, 2026</small>
+                        <p>I revisited the render loop and focused on reducing unnecessary work between generations.</p>
+                      </li>
+                    
+                  
+                
+              </ul>
+              
+            </section>
+          </section>
+          
+        
+      </div>
+
+      <aside id="project-detail-sidebar" class="project-detail-sidebar" aria-label="Project sidebar">
+        <div class="project-detail-sidebar-card">
+          
+            <p class="project-sidebar-tagline">Interactive cellular automata playground</p>
+          
+
+          
+            <p><strong>Status:</strong> Active</p>
+          
+
+          
+            <p><strong>Role:</strong> Designer and Engineer</p>
+          
+
+          
+            <p><strong>Timeline:</strong> 2025-Present</p>
+          
+
+          
+            <h3>Links</h3>
+            <ul class="project-sidebar-links">
+              
+                
+                
+                <li>
+                  <a href="https://wintermuted.github.io/game-of-life/">
+                    
+                      <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                    
+                    <span>Live Demo</span>
+                  </a>
+                </li>
+              
+                
+                
+                <li>
+                  <a href="https://github.com/wintermuted/game-of-life">
+                    
+                      <i class="fab fa-github" aria-hidden="true"></i>
+                    
+                    <span>GitHub Repository</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+
+          
+            <h3>Tags</h3>
+            <ul class="project-sidebar-tech">
+              
+                <li>
+                  <a href="/weblog/tag/typescript/">TypeScript</a>
+                </li>
+              
+                <li>
+                  <a href="/weblog/tag/nx/">Nx</a>
+                </li>
+              
+                <li>
+                  <a href="/weblog/tag/react/">React</a>
+                </li>
+              
+                <li>
+                  <a href="/weblog/tag/vite/">Vite</a>
+                </li>
+              
+                <li>
+                  <a href="/weblog/tag/vitest/">Vitest</a>
+                </li>
+              
+                <li>
+                  <a href="/weblog/tag/html5-canvas/">HTML5 Canvas</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      </aside>
+    </section>
+
+    <div class="lightbox-overlay" id="project-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+      <div class="lightbox-header" id="project-lightbox-header">
+        <span class="lightbox-project-name" id="project-lightbox-project-name">Game of Life</span>
+        
+          <span class="lightbox-project-date" id="project-lightbox-project-date">2025-Present</span>
+        
+      </div>
+      <button type="button" class="lightbox-close" id="project-lightbox-close" aria-label="Close preview">&times;</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="project-lightbox-prev" aria-label="Previous screenshot">&#8249;</button>
+      <button type="button" class="lightbox-nav lightbox-next" id="project-lightbox-next" aria-label="Next screenshot">&#8250;</button>
+      <img class="lightbox-img" id="project-lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="project-lightbox-caption"></p>
+      <span class="lightbox-counter" id="project-lightbox-counter"></span>
+    </div>
+  </div>
+</main>
+
+<script>
+  function initProjectDetailPageInteractions() {
+    function initProjectSideNav() {
+      var nav = document.getElementById('project-side-nav');
+      var main = document.querySelector('.project-detail-main');
+      var shell = document.querySelector('.project-detail-shell');
+      if (!nav || !main) return { rebuild: function () {} };
+
+      var observer = null;
+
+      function slugifyHeading(text) {
+        return text
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+      }
+
+      function rebuild() {
+        if (observer) {
+          observer.disconnect();
+          observer = null;
+        }
+
+        nav.innerHTML = '';
+
+        var activePanel = main.querySelector('[data-project-tab-panel]:not([hidden])');
+        var source = activePanel || main;
+        var headings = Array.from(source.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .project-devlog h2'));
+
+        if (!headings.length) {
+          nav.hidden = true;
+          return;
+        }
+
+        nav.hidden = false;
+        var ul = document.createElement('ul');
+        var idCounts = Object.create(null);
+        var currentTopLevelItem = null;
+        var currentSecondLevelItem = null;
+
+        headings.forEach(function (heading) {
+          var text = (heading.textContent || '').trim();
+          if (!text) return;
+
+          var headingId = heading.id;
+          if (!headingId) {
+            var baseId = slugifyHeading(text) || 'section';
+            var count = (idCounts[baseId] || 0) + 1;
+            idCounts[baseId] = count;
+            headingId = count === 1 ? baseId : baseId + '-' + count;
+
+            while (document.getElementById(headingId)) {
+              count += 1;
+              idCounts[baseId] = count;
+              headingId = baseId + '-' + count;
+            }
+
+            heading.id = headingId;
+          }
+
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + headingId;
+          a.textContent = text;
+          a.addEventListener('click', function (event) {
+            event.preventDefault();
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.replaceState(null, '', '#' + headingId);
+          });
+
+          li.appendChild(a);
+
+          if (heading.tagName === 'H3' && currentTopLevelItem) {
+            var childList = currentTopLevelItem.querySelector(':scope > ul');
+            if (!childList) {
+              childList = document.createElement('ul');
+              currentTopLevelItem.appendChild(childList);
+            }
+            childList.appendChild(li);
+            currentSecondLevelItem = li;
+          } else if (heading.tagName === 'H4' && currentSecondLevelItem) {
+            var grandchildList = currentSecondLevelItem.querySelector(':scope > ul');
+            if (!grandchildList) {
+              grandchildList = document.createElement('ul');
+              currentSecondLevelItem.appendChild(grandchildList);
+            }
+            grandchildList.appendChild(li);
+          } else {
+            ul.appendChild(li);
+            currentTopLevelItem = li;
+            currentSecondLevelItem = null;
+          }
+        });
+
+        nav.appendChild(ul);
+
+        var links = Array.from(nav.querySelectorAll('a'));
+        if (!links.length) {
+          nav.hidden = true;
+          return;
+        }
+
+        observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+
+            links.forEach(function (link) {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+          });
+        }, { rootMargin: '-10% 0px -80% 0px' });
+
+        headings.forEach(function (heading) {
+          observer.observe(heading);
+        });
+
+        var firstLink = links[0];
+        if (firstLink) firstLink.classList.add('active');
+      }
+
+      rebuild();
+      return { rebuild: rebuild };
+    }
+
+    function initScreenshotSlideshows() {
+      document.querySelectorAll('[data-project-slideshow]').forEach(function (slideshow) {
+        var track = slideshow.querySelector('[data-screenshot-track]');
+        var slides = Array.from(slideshow.querySelectorAll('[data-screenshot-slide]'));
+        var prevButton = slideshow.querySelector('[data-screenshot-nav="prev"]');
+        var nextButton = slideshow.querySelector('[data-screenshot-nav="next"]');
+        var scrollbar = slideshow.querySelector('[data-screenshot-scrollbar]');
+        var jumpButtons = Array.from(slideshow.querySelectorAll('[data-screenshot-jump]'));
+        var fullscreenButton = slideshow.querySelector('[data-screenshot-fullscreen]');
+        var lightboxOverlay = document.getElementById('project-lightbox-overlay');
+        var lightboxImg = document.getElementById('project-lightbox-img');
+        var lightboxCaption = document.getElementById('project-lightbox-caption');
+        var lightboxCounter = document.getElementById('project-lightbox-counter');
+        var lightboxPrev = document.getElementById('project-lightbox-prev');
+        var lightboxNext = document.getElementById('project-lightbox-next');
+        var lightboxClose = document.getElementById('project-lightbox-close');
+        var lightboxIndex = -1;
+
+        if (!track || slides.length === 0) return;
+
+        var currentIndex = 0;
+
+        function getVisibleCount() {
+          var rawValue = window.getComputedStyle(slideshow).getPropertyValue('--screenshot-slides-visible').trim();
+          var parsedValue = Number.parseInt(rawValue, 10);
+          return Number.isFinite(parsedValue) && parsedValue > 0 ? parsedValue : 1;
+        }
+
+        function clampIndex(indexValue) {
+          var maxStart = Math.max(0, slides.length - getVisibleCount());
+          return Math.min(Math.max(indexValue, 0), maxStart);
+        }
+
+        function getCurrentImage() {
+          var currentSlide = slides[currentIndex];
+          if (!currentSlide) return null;
+          return currentSlide.querySelector('img');
+        }
+
+        function showLightboxImage(indexValue) {
+          if (!lightboxOverlay || !lightboxImg) return;
+          if (indexValue < 0 || indexValue >= slides.length) return;
+
+          lightboxIndex = indexValue;
+          var image = slides[lightboxIndex].querySelector('img');
+          var captionNode = slides[lightboxIndex].querySelector('figcaption');
+          if (!image) return;
+
+          lightboxImg.src = image.src;
+          lightboxImg.alt = image.alt || '';
+
+          var captionText = captionNode ? captionNode.textContent : '';
+          if (lightboxCaption) {
+            lightboxCaption.textContent = captionText;
+            lightboxCaption.style.display = captionText ? 'block' : 'none';
+          }
+
+          if (lightboxCounter) {
+            lightboxCounter.textContent = slides.length > 1 ? (lightboxIndex + 1) + ' / ' + slides.length : '';
+          }
+
+          if (lightboxPrev) {
+            lightboxPrev.disabled = lightboxIndex <= 0;
+            lightboxPrev.style.display = slides.length > 1 ? '' : 'none';
+          }
+
+          if (lightboxNext) {
+            lightboxNext.disabled = lightboxIndex >= slides.length - 1;
+            lightboxNext.style.display = slides.length > 1 ? '' : 'none';
+          }
+        }
+
+        function openLightbox(indexValue) {
+          if (!lightboxOverlay) return;
+          showLightboxImage(indexValue);
+          lightboxOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+          if (!lightboxOverlay) return;
+          lightboxOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+          lightboxIndex = -1;
+          if (lightboxImg) lightboxImg.src = '';
+        }
+
+        function requestFullscreenForCurrentImage() {
+          var image = getCurrentImage();
+          if (!image) return;
+
+          var index = slides.findIndex(function (slide) {
+            return slide.contains(image);
+          });
+          openLightbox(index >= 0 ? index : currentIndex);
+        }
+
+        function updateFullscreenButtonState() {
+          if (!fullscreenButton) return;
+
+          var image = getCurrentImage();
+          fullscreenButton.disabled = !image;
+          fullscreenButton.setAttribute('aria-label', 'Open current screenshot in lightbox');
+        }
+
+        function update() {
+          currentIndex = clampIndex(currentIndex);
+
+          var targetSlide = slides[currentIndex];
+          var offset = targetSlide ? targetSlide.offsetLeft : 0;
+          track.style.transform = 'translateX(' + -offset + 'px)';
+
+          var maxStart = Math.max(0, slides.length - getVisibleCount());
+          if (prevButton) prevButton.disabled = currentIndex <= 0;
+          if (nextButton) nextButton.disabled = currentIndex >= maxStart;
+
+          if (scrollbar) {
+            scrollbar.max = String(maxStart);
+            scrollbar.value = String(currentIndex);
+            scrollbar.disabled = maxStart <= 0;
+          }
+
+          jumpButtons.forEach(function (button) {
+            var target = Number.parseInt(button.getAttribute('data-screenshot-jump'), 10);
+            var active = target === currentIndex;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+
+          updateFullscreenButtonState();
+        }
+
+        if (prevButton) {
+          prevButton.addEventListener('click', function () {
+            currentIndex = currentIndex - 1;
+            update();
+          });
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener('click', function () {
+            currentIndex = currentIndex + 1;
+            update();
+          });
+        }
+
+        jumpButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            var target = Number.parseInt(button.getAttribute('data-screenshot-jump'), 10);
+            if (!Number.isFinite(target)) return;
+            currentIndex = target;
+            update();
+          });
+        });
+
+        if (fullscreenButton) {
+          fullscreenButton.addEventListener('click', function () {
+            requestFullscreenForCurrentImage();
+          });
+        }
+
+        if (scrollbar) {
+          scrollbar.addEventListener('input', function () {
+            var target = Number.parseInt(scrollbar.value, 10);
+            if (!Number.isFinite(target)) return;
+            currentIndex = target;
+            update();
+          });
+        }
+
+        if (lightboxClose) {
+          lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        if (lightboxOverlay) {
+          lightboxOverlay.addEventListener('click', function (event) {
+            if (event.target === lightboxOverlay) closeLightbox();
+          });
+        }
+
+        if (lightboxPrev) {
+          lightboxPrev.addEventListener('click', function (event) {
+            event.stopPropagation();
+            if (lightboxIndex > 0) showLightboxImage(lightboxIndex - 1);
+          });
+        }
+
+        if (lightboxNext) {
+          lightboxNext.addEventListener('click', function (event) {
+            event.stopPropagation();
+            if (lightboxIndex < slides.length - 1) showLightboxImage(lightboxIndex + 1);
+          });
+        }
+
+        document.addEventListener('keydown', function (event) {
+          if (!lightboxOverlay || !lightboxOverlay.classList.contains('active')) return;
+
+          if (event.key === 'Escape') closeLightbox();
+          if (event.key === 'ArrowLeft' && lightboxIndex > 0) showLightboxImage(lightboxIndex - 1);
+          if (event.key === 'ArrowRight' && lightboxIndex < slides.length - 1) showLightboxImage(lightboxIndex + 1);
+        });
+
+        window.addEventListener('resize', update);
+        update();
+      });
+    }
+
+    function initSidebarToggles() {
+      var shell = document.querySelector('.project-detail-shell');
+      if (!shell) return { sync: function () {} };
+
+      function updateButtonState() {
+        var inRoadmapFocus = shell.classList.contains('is-roadmap-focus');
+        var buttons = Array.from(document.querySelectorAll('[data-sidebar-toggle]'));
+
+        buttons.forEach(function (button) {
+          var side = button.getAttribute('data-sidebar-toggle');
+          var icon = button.querySelector('i');
+          var collapsed = side === 'left'
+            ? shell.classList.contains('is-left-collapsed')
+            : shell.classList.contains('is-right-collapsed');
+          var isLeft = side === 'left';
+          var expandLabel = isLeft ? 'Expand left sidebar' : 'Expand right sidebar';
+          var collapseLabel = isLeft ? 'Collapse left sidebar' : 'Collapse right sidebar';
+
+          button.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+          button.setAttribute('aria-label', collapsed ? expandLabel : collapseLabel);
+          button.setAttribute('title', collapsed ? expandLabel : collapseLabel);
+          button.classList.toggle('is-collapsed', collapsed);
+
+          if (icon) {
+            icon.className = isLeft ? 'fas fa-align-left' : 'fas fa-align-right';
+          }
+
+          button.disabled = inRoadmapFocus;
+        });
+      }
+
+      document.addEventListener('click', function (event) {
+        var button = event.target.closest('[data-sidebar-toggle]');
+        if (!button) return;
+        if (button.disabled) return;
+
+        var side = button.getAttribute('data-sidebar-toggle');
+
+        if (side === 'left') {
+          shell.classList.toggle('is-left-collapsed');
+        } else if (side === 'right') {
+          shell.classList.toggle('is-right-collapsed');
+        }
+
+        updateButtonState();
+      });
+
+      updateButtonState();
+      return { sync: updateButtonState };
+    }
+
+    function initProjectStickyOffsets() {
+      var pageRoot = document.querySelector('.project-detail-page');
+      var topbar = document.querySelector('.site-header');
+      var tabRow = document.querySelector('.project-titlebar-tabs-row');
+      if (!pageRoot || !topbar) return;
+
+      var rafId = 0;
+
+      function updateOffsets() {
+        rafId = 0;
+        var topbarHeight = topbar.getBoundingClientRect().height || 0;
+        var sideNavTop = topbarHeight;
+
+        if (tabRow) {
+          var tabRowHeight = tabRow.getBoundingClientRect().height || 0;
+          var tabRowMarginBottom = Number.parseFloat(window.getComputedStyle(tabRow).marginBottom || '0') || 0;
+          sideNavTop = topbarHeight + tabRowHeight + tabRowMarginBottom;
+        }
+
+        var sideNavMaxHeight = Math.max(160, window.innerHeight - sideNavTop - 16);
+
+        pageRoot.style.setProperty('--project-sticky-top', Math.max(0, topbarHeight) + 'px');
+        pageRoot.style.setProperty('--project-side-nav-top', Math.max(0, sideNavTop) + 'px');
+        pageRoot.style.setProperty('--project-side-nav-max-height', sideNavMaxHeight + 'px');
+      }
+
+      function scheduleUpdateOffsets() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(updateOffsets);
+      }
+
+      updateOffsets();
+      window.addEventListener('resize', scheduleUpdateOffsets);
+      window.addEventListener('orientationchange', scheduleUpdateOffsets);
+      window.addEventListener('scroll', scheduleUpdateOffsets, { passive: true });
+    }
+
+    function initProjectStickyTabRowState() {
+      var topbar = document.querySelector('.site-header');
+      var tabRow = document.querySelector('.project-titlebar-tabs-row');
+      if (!topbar || !tabRow) return;
+
+      var rafId = 0;
+
+      function syncStickyState() {
+        rafId = 0;
+        var topbarBottom = topbar.getBoundingClientRect().bottom;
+        var rowTop = tabRow.getBoundingClientRect().top;
+        var stuck = rowTop <= topbarBottom + 0.5 && window.scrollY > 0;
+        tabRow.classList.toggle('is-stuck', stuck);
+      }
+
+      function scheduleSyncStickyState() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(syncStickyState);
+      }
+
+      syncStickyState();
+      window.addEventListener('scroll', scheduleSyncStickyState, { passive: true });
+      window.addEventListener('resize', scheduleSyncStickyState);
+      window.addEventListener('orientationchange', scheduleSyncStickyState);
+    }
+
+    function initProjectTopbarScrollTitle() {
+      var pageRoot = document.querySelector('.project-detail-page');
+      var topbar = document.querySelector('.site-header');
+      var titleHeading = document.querySelector('.project-titlebar-main h1');
+      var titleNode = document.querySelector('.project-titlebar-main h1 span');
+      var topbarTitle = document.querySelector('.docs-topbar-scroll-title');
+      var topbarTitleIcon = document.querySelector('.docs-topbar-scroll-title-icon');
+      var topbarTitleText = document.querySelector('.docs-topbar-scroll-title-text');
+      if (!pageRoot || !topbar || !titleHeading || !titleNode || !topbarTitle || !topbarTitleText) return;
+
+      topbarTitleText.textContent = (titleNode.textContent || '').trim();
+
+      if (topbarTitleIcon) {
+        topbarTitleIcon.innerHTML = '';
+
+        var sourceLogo = titleHeading.querySelector('.project-title-logo');
+        var sourceGlyph = titleHeading.querySelector('.project-title-icon');
+
+        if (sourceLogo) {
+          var iconImage = document.createElement('img');
+          iconImage.className = 'docs-topbar-scroll-title-logo';
+          iconImage.src = sourceLogo.getAttribute('src') || '';
+          iconImage.alt = '';
+          iconImage.setAttribute('aria-hidden', 'true');
+          topbarTitleIcon.appendChild(iconImage);
+        } else if (sourceGlyph) {
+          var iconGlyph = document.createElement('i');
+          iconGlyph.className = sourceGlyph.className + ' docs-topbar-scroll-title-glyph';
+          iconGlyph.setAttribute('aria-hidden', 'true');
+          topbarTitleIcon.appendChild(iconGlyph);
+        }
+      }
+
+      topbarTitle.classList.add('is-interactive');
+      topbarTitle.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+
+      var rafId = 0;
+      var revealStart = 0;
+      var revealEnd = 1;
+
+      function recalcRevealBounds() {
+        var sourceRect = titleNode.getBoundingClientRect();
+        var sourceHeight = titleNode.offsetHeight || sourceRect.height || 1;
+        var sourcePageTop = sourceRect.top + window.scrollY;
+        var topbarHeight = topbar.getBoundingClientRect().height || 0;
+        var revealWindow = Math.max(sourceHeight * 2.2, 1);
+        var revealDelay = Math.max(48, topbarHeight * 0.45);
+
+        revealEnd = sourcePageTop - topbarHeight;
+        revealStart = revealEnd - revealWindow;
+
+        // Keep the compact title hidden at initial page load, especially on short hero sections.
+        revealStart += revealDelay;
+        revealEnd += revealDelay;
+      }
+
+      function syncTitle() {
+        rafId = 0;
+        var revealRange = Math.max(1, revealEnd - revealStart);
+        var rawProgress = (window.scrollY - revealStart) / revealRange;
+        if (!Number.isFinite(rawProgress)) rawProgress = 0;
+        var progress = Math.max(0, Math.min(1, rawProgress));
+        var offsetY = (1 - progress) * 12;
+
+        topbarTitle.style.setProperty('opacity', progress.toFixed(3), 'important');
+        topbarTitle.style.transform = 'translate(-50%, calc(-50% + ' + offsetY.toFixed(2) + 'px))';
+      }
+
+      function scheduleSyncTitle() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(syncTitle);
+      }
+
+      function handleResizeOrOrientation() {
+        recalcRevealBounds();
+        scheduleSyncTitle();
+      }
+
+      recalcRevealBounds();
+      syncTitle();
+      window.addEventListener('scroll', scheduleSyncTitle, { passive: true });
+      window.addEventListener('resize', handleResizeOrOrientation);
+      window.addEventListener('orientationchange', handleResizeOrOrientation);
+    }
+
+    var sideNavController = initProjectSideNav();
+    var sidebarToggleController = initSidebarToggles();
+    initProjectStickyOffsets();
+    initProjectStickyTabRowState();
+    initProjectTopbarScrollTitle();
+
+    document.querySelectorAll('.project-detail-tabs').forEach(function (tablist) {
+      var tabs = Array.from(tablist.querySelectorAll('.project-detail-tab'));
+      var panels = tabs
+        .map(function (tab) {
+          var panelId = tab.getAttribute('aria-controls');
+          return panelId ? document.getElementById(panelId) : null;
+        })
+        .filter(Boolean);
+
+      if (!tabs.length || !panels.length) return;
+
+      function updateUrlForTab(target) {
+        try {
+          var url = new URL(window.location.href);
+          url.searchParams.set('tab', target);
+          url.hash = '';
+          history.replaceState(null, '', url.pathname + url.search + url.hash);
+        } catch (_err) {
+          // Ignore URL parsing failures and keep tab behavior functional.
+        }
+      }
+
+      function resolveInitialTab() {
+        var queryTarget = null;
+        var hashTarget = null;
+
+        try {
+          var queryParams = new URLSearchParams(window.location.search);
+          queryTarget = queryParams.get('tab');
+        } catch (_err) {
+          queryTarget = null;
+        }
+
+        var rawHash = (window.location.hash || '').replace(/^#/, '');
+        if (rawHash.indexOf('tab-') === 0) {
+          hashTarget = rawHash.replace(/^tab-/, '');
+        }
+
+        var requestedTarget = queryTarget || hashTarget;
+        if (!requestedTarget) return null;
+
+        return tabs.find(function (tab) {
+          return tab.getAttribute('data-project-tab-target') === requestedTarget;
+        }) || null;
+      }
+
+      function activateTab(nextTab, options) {
+        var shouldUpdateUrl = !options || options.updateUrl !== false;
+        var shouldResetScroll = !options || options.resetScroll !== false;
+        var target = nextTab.getAttribute('data-project-tab-target');
+        var shell = document.querySelector('.project-detail-shell');
+        var topbar = document.querySelector('.site-header');
+        var tabRow = document.querySelector('.project-titlebar-tabs-row');
+
+        if (shell) {
+          shell.classList.toggle('is-roadmap-focus', target === 'roadmap');
+        }
+
+        if (sidebarToggleController) {
+          sidebarToggleController.sync();
+        }
+
+        tabs.forEach(function (tab) {
+          var active = tab === nextTab;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        panels.forEach(function (panel) {
+          var active = panel.getAttribute('data-project-tab-panel') === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+
+        if (typeof window.renderProjectMermaidDiagrams === 'function') {
+          var activePanel = panels.find(function (panel) {
+            return panel.getAttribute('data-project-tab-panel') === target;
+          });
+          window.renderProjectMermaidDiagrams(activePanel || document);
+        }
+
+        if (shouldUpdateUrl) {
+          updateUrlForTab(target);
+        }
+
+        if (sideNavController) {
+          sideNavController.rebuild();
+        }
+
+        if (shouldResetScroll) {
+          window.requestAnimationFrame(function () {
+            var activePanel = document.querySelector('[data-project-tab-panel="' + target + '"]');
+            if (!activePanel) return;
+
+            var topbarHeight = topbar ? (topbar.getBoundingClientRect().height || 0) : 0;
+            var tabRowHeight = tabRow ? (tabRow.getBoundingClientRect().height || 0) : 0;
+            var panelTop = activePanel.getBoundingClientRect().top + window.scrollY;
+            var targetScrollTop = Math.max(0, panelTop - topbarHeight - tabRowHeight - 10);
+
+            window.scrollTo({ top: targetScrollTop, behavior: 'auto' });
+          });
+        }
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activateTab(tab);
+        });
+      });
+
+      var initialTab = resolveInitialTab();
+      if (initialTab) {
+        activateTab(initialTab, { updateUrl: false, resetScroll: false });
+      }
+    });
+
+    initScreenshotSlideshows();
+
+    (function initProjectMermaid() {
+      function getRenderableNodes(root) {
+        var scope = root || document;
+        return Array.from(scope.querySelectorAll('.project-diagram .mermaid')).filter(function (node) {
+          return !node.getAttribute('data-processed');
+        });
+      }
+
+      function resizeRoadmapMermaid(root) {
+        var scope = root || document;
+        var roadmapSvgs = scope.querySelectorAll('.project-roadmap-content .project-diagram .mermaid svg');
+        roadmapSvgs.forEach(function (svg) {
+          svg.style.width = 'auto';
+          svg.style.minWidth = '1120px';
+          svg.style.maxWidth = 'none';
+          svg.style.height = 'auto';
+        });
+      }
+
+      var allNodes = getRenderableNodes(document);
+      if (!allNodes.length) return;
+
+      var initialNodes = allNodes.filter(function (node) {
+        var panel = node.closest('[data-project-tab-panel]');
+        return !panel || !panel.hidden;
+      });
+
+      import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+        .then(function (module) {
+          var mermaid = module && module.default;
+          if (!mermaid) return;
+
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default',
+            themeVariables: document.documentElement.getAttribute('data-theme') === 'dark'
+              ? {
+                  primaryTextColor: '#ffffff',
+                  textColor: '#ffffff',
+                  actorTextColor: '#ffffff',
+                  labelTextColor: '#ffffff',
+                  noteTextColor: '#ffffff',
+                  loopTextColor: '#ffffff',
+                  signalTextColor: '#ffffff',
+                  lineColor: '#d3deea',
+                  signalColor: '#d3deea',
+                  actorBorder: '#d3deea',
+                  fontSize: '20px'
+                }
+              : {
+                  primaryTextColor: '#10233f',
+                  textColor: '#10233f',
+                  actorTextColor: '#10233f',
+                  labelTextColor: '#10233f',
+                  noteTextColor: '#10233f',
+                  loopTextColor: '#10233f',
+                  signalTextColor: '#10233f',
+                  lineColor: '#4b647d',
+                  signalColor: '#4b647d',
+                  actorBorder: '#4b647d',
+                  fontSize: '18px',
+                  fontWeight: 600
+                },
+            flowchart: { useMaxWidth: true, htmlLabels: true },
+            sequence: { useMaxWidth: true }
+          });
+
+          function renderMermaidDiagrams(root) {
+            var nodes = getRenderableNodes(root);
+            if (!nodes.length) {
+              resizeRoadmapMermaid(root);
+              return Promise.resolve();
+            }
+            return mermaid.run({ nodes: nodes }).then(function () {
+              resizeRoadmapMermaid(root);
+            });
+          }
+
+          window.renderProjectMermaidDiagrams = renderMermaidDiagrams;
+          if (!initialNodes.length) return Promise.resolve();
+          return renderMermaidDiagrams(document);
+        })
+        .catch(function () {
+          // If CDN loading fails, keep source text as a graceful fallback.
+        });
+    })();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectDetailPageInteractions, { once: true });
+  } else {
+    initProjectDetailPageInteractions();
+  }
+</script>
+
+        <footer class="global-footer">
+  <div class="global-footer-shell">
+    <nav class="site-footer-nav">
+      <span class="text-muted">
+        <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
+      </span>
+      <span class="site-footer-controls">
+        <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <input type="checkbox" id="darkSwitch" />
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Dark</span>
+        </label>
+        <div class="bg-tone-selector" role="group" aria-label="Background tone selector">
+          <button type="button" class="bg-tone-btn bg-tone-btn--neutral" data-bg-tone="neutral" data-tooltip="Neutral" aria-label="Set neutral background tone" title="Neutral"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--grayscale" data-bg-tone="grayscale" data-tooltip="Grayscale" aria-label="Set grayscale background tone" title="Grayscale"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--warm" data-bg-tone="warm" data-tooltip="Warm" aria-label="Set warm background tone" title="Warm"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--cool" data-bg-tone="cool" data-tooltip="Cool" aria-label="Set cool background tone" title="Cool"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--gol" data-bg-tone="gol" data-tooltip="Game of Life" aria-label="Set Game of Life background tone" title="Game of Life"></button>
+        </div>
+      </span>
+    </nav>
+  </div>
+  <script src="/js/dark-mode.js?v=20260704-bg-tones"></script>
+</footer>
+    </body>
+</html>

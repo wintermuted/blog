@@ -1,0 +1,145 @@
+/* Base document and element styles. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: var(--wm-font-sans);
+  color: var(--wm-color-text);
+  background:
+    radial-gradient(circle at top, rgb(42 74 138 / 8%), transparent 32rem),
+    linear-gradient(180deg, var(--wm-color-surface-muted) 0%, var(--wm-color-bg) 18rem);
+  line-height: 1.6;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+::selection {
+  background: var(--wm-color-accent-soft);
+}
+
+a {
+  color: var(--wm-color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--wm-color-link-underline);
+  text-underline-offset: 0.15em;
+  transition: text-decoration-color 0.15s ease, color 0.2s ease;
+}
+
+a:hover {
+  text-decoration-color: var(--wm-color-text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  color: var(--wm-color-text);
+  background: var(--wm-color-bg);
+  border: 1px solid var(--wm-color-border-strong);
+  border-radius: var(--wm-radius-xs);
+  padding: 0.7rem 0.85rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--wm-color-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--wm-color-accent) 12%, transparent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--wm-color-text-faint);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0;
+  color: var(--wm-color-text-secondary);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--wm-color-border);
+}
+
+th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wm-color-text-muted);
+}
+
+:not(pre) > code {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', Menlo, monospace;
+  font-size: 0.8em;
+  background: var(--wm-color-surface-strong);
+  color: var(--wm-color-accent);
+  padding: 0.15em 0.4em;
+  border-radius: var(--wm-radius-xs);
+  border: 1px solid var(--wm-color-border);
+}

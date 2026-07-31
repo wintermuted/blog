@@ -9,224 +9,364 @@
   <meta name="description" content="Jameson Nyeholt's weblog.
 ">
 
-  <!-- JS -->
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+  <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/wm-theme/tokens.css">
+  <link rel="stylesheet" href="/css/wm-theme/base.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/card.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/button.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/badge.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/side-nav.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/layout.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/tag.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/list.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/separator.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/code-block.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/gallery.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Lightbox2 for image galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
-  <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'imageFadeDuration': 200,
-      'fadeDuration': 200,
-      'wrapAround': true
-    })
-  </script>
-
-  <!-- CSS -->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS — site styles -->
 
   <link rel="stylesheet" href="/css/styles.css">
 
   <link rel="canonical" href="/projects/">
 
   <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/feed.xml">
+
+  <!-- Lightbox2 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
 </head>
 
-    <body>
+    <body class="">
+                
         
 
-<!-- Current: projects
-Current 1: projects -->
-
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-md sticky-top bg-light">
-            <a class="navbar-brand" href="/">
-                <img src="/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
-                jnyeholt
-            </a>
-            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                    data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                    
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="/weblog">Weblog</a>
-                        </li>
-                    
-                    <!-- 
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="/projects">Projects</a>
-                    </li>
-                     -->
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/wiki">Wiki</a>
-                        </li>
-                     -->
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/wiki/links">Links</a>
-                        </li>
-                     -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resume" target="_blank">CV</a>
-                    </li>
-                    
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <!-- <span>LinkedIN</span> -->
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/wintermuted" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <!-- <span>Github</span> -->
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
-
-        <br/>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <article class="post">
-        <div class="article-content">
-          <div class="row row-cols-1 row-cols-md-2">
-    
-    <div class="col mb-4">
-      <div class="card">
-        <img src="/assets/img/projects/game-of-life/game-of-life.png" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Game of Life</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Typescript web application.</h6>
-          <p class="card-text">An implementation of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a> in TypeScript.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link">
-            <i class="fas fa-laptop-code"></i>
-            Demo
-          </a>
-          <a href="https://github.com/wintermuted/game-of-life" class="card-link">
-            <i class="fab fa-github"></i>
-            Github
-          </a>
-        </div>
+<header class="site-header docs-topbar">
+  
+    <div class="docs-topbar-inner">
+      <div class="docs-topbar-brand">
+        <a href="/" class="docs-topbar-brand-link">
+          <img src="/logo.png" alt="" class="docs-topbar-brand-icon" width="20" height="20">
+          <h1>jnyeholt</h1>
+        </a>
       </div>
-    </div>
-
-    <div class="col mb-4">
-      <div class="card">
-        <!-- <div class="card-header">Trimet Arrivals</div> -->
-        <img src="/assets/img/projects/trimet-arrivals/stops.png" class="card-img-top" alt="..." />
-
-        <div class="card-body">
-          <h5 class="card-title">Trimet Arrivals</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Typescript / React.js web application.</h6>
-          <p class="card-text">
-            A dashboard for displaying arrivals at nearby Trimet Stops. 
-            Makes use of the Trimet API. Built with TypeScript, React, and Redux.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link">
-            <i class="fas fa-laptop-code"></i>
-            Demo
-          </a>
-          <a href="https://github.com/Super-Cascadia/trimet-arrivals" class="card-link"> 
-            <i class="fab fa-github"></i>
-            Github
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col mb-4">
-      <div class="card">
-        <div class="card-header">Gilded Rose React Env</div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Card title</h5> -->
-          <h6 class="card-subtitle mb-2 text-muted">Typescript / React.js web application</h6>
-          <p class="card-text">
-            A Create React App environment for the Gilded Rose Refactoring Kata. 
-            This was created to be used for technical interviews for Software Engineers to test React &amp; Refactoring skills.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="card-link">
-            <i class="fas fa-laptop-code"></i>
-            Demo
-          </a>
-          <a href="https://github.com/Software-Engineering-Guild/gilded-rose-react-env" class="card-link"> 
-            <i class="fab fa-github"></i>
-            Github
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col mb-4">
-      <div class="card">
-        <div class="card-header">Arduino Weather Station</div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Card title</h5> -->
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
+      <button type="button" class="docs-topbar-scroll-title" aria-label="Scroll to top">
+        <span class="docs-topbar-scroll-title-icon"></span>
+        <span class="docs-topbar-scroll-title-text"></span>
+      </button>
+      <nav class="docs-topbar-nav" aria-label="Main navigation">
+        <a class="docs-topbar-link-devdocs" href="/projects"
+          aria-current="page">Projects</a>
+        <a class="docs-topbar-link-devdocs" href="/weblog"
+          >Weblog</a>
+        <a class="docs-topbar-link-devdocs" href="/about"
+          >About</a>
+      </nav>
+      <div class="docs-topbar-actions">
+        <a class="docs-topbar-link-secondary" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a class="docs-topbar-link-secondary" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
       </div>
     </div>
   
+</header>
+
+        <main class="projects-layout projects-page body-content">
+  <div class="projects-layout-content">
+    <!--
+    <header class="view-header">
+      <h1>Projects</h1>
+    </header>
+    -->
+    <!-- <hr/> -->
+    <article class="post">
+      <div class="article-content">
+        <div class="projects-filter-bar" role="toolbar" aria-label="Project type filters">
+  <button type="button" class="projects-filter-button is-active" data-project-filter="all"><i class="fas fa-th-large" aria-hidden="true"></i>All</button>
+  <button type="button" class="projects-filter-button" data-project-filter="web-app"><i class="fas fa-globe-americas" aria-hidden="true"></i>Web Apps</button>
+  <button type="button" class="projects-filter-button" data-project-filter="game"><i class="fas fa-gamepad" aria-hidden="true"></i>Games</button>
+  <button type="button" class="projects-filter-button" data-project-filter="agent"><i class="fas fa-robot" aria-hidden="true"></i>Agent stuff</button>
+  <button type="button" class="projects-filter-button" data-project-filter="tooling"><i class="fas fa-tools" aria-hidden="true"></i>Tooling</button>
 </div>
 
-
+<section class="projects-grid" aria-label="Project list">
+    
+    <article class="project-card-item" data-project-types="web-app">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--game project-card-media--reveal">
+          <a href="/projects/game-of-life/" class="project-card-media-link" aria-label="View Game of Life project details">
+            <span class="project-card-media-reveal-default" aria-hidden="true">
+              <img src="/assets/img/projects/game-of-life/gol-mark.svg" class="project-card-media-reveal-icon" alt="" aria-hidden="true" />
+            </span>
+            <img src="/assets/img/projects/game-of-life/game-of-life-dark-demo.gif" class="project-card-image project-card-image--hover-reveal" alt="15-second animated Game of Life demo in dark mode" />
+          </a>
         </div>
-      </article>
-    </div>
-  </div>
-</div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="/projects/game-of-life/">Game of Life</a></h4>
+          <p class="project-card-subtitle text-muted">Typescript web application.</p>
+          <!-- <ul class="project-card-badges" aria-label="Game of Life project tags">
+            <li>Simulation</li>
+            <li>Canvas</li>
+            <li>TypeScript</li>
+            <li>React</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
 
-        <footer>
-  <div class="container global-footer">
-    <nav class="navbar navbar-light bg-light">
+    
+
+    <article class="project-card-item" data-project-types="agent">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--agent">
+          <a href="/projects/playdate-mcp/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View playdate-mcp project details">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+            <span>Agent</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="/projects/playdate-mcp/">playdate-mcp</a></h4>
+          <p class="project-card-subtitle text-muted">TypeScript MCP tooling server.</p>
+          <!-- <ul class="project-card-badges" aria-label="playdate-mcp project tags">
+            <li>MCP</li>
+            <li>TypeScript</li>
+            <li>Tooling</li>
+            <li>Playdate</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="agent">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--agent">
+          <a href="/projects/playdate-skills/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View playdate-skills project details">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+            <span>Agent</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="/projects/playdate-skills/">playdate-skills</a></h4>
+          <p class="project-card-subtitle text-muted">Agent skill library for Playdate SDK work.</p>
+          <!-- <ul class="project-card-badges" aria-label="playdate-skills project tags">
+            <li>AI Skills</li>
+            <li>Playdate</li>
+            <li>Docs</li>
+            <li>Smithery</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="tooling">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--tooling">
+          <a href="/projects/wm-asset-workflows/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View wm-asset-workflows project details">
+            <i class="fas fa-tools" aria-hidden="true"></i>
+            <span>Tooling</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="/projects/wm-asset-workflows/">wm-asset-workflows</a></h4>
+          <p class="project-card-subtitle text-muted">SVG-first asset pipeline.</p>
+          <!-- <ul class="project-card-badges" aria-label="wm-asset-workflows project tags">
+            <li>SVG</li>
+            <li>Automation</li>
+            <li>Playwright</li>
+            <li>Pillow</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card-item" data-project-types="tooling">
+      <div class="card project-card">
+        <div class="project-card-media project-card-media-placeholder project-card-media--tooling">
+          <a href="/projects/wintermuted-ui-theme/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View Wintermuted UI Theme project details">
+            <i class="fas fa-tools" aria-hidden="true"></i>
+            <span>Tooling</span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="project-card-title"><a href="/projects/wintermuted-ui-theme/">Wintermuted UI Theme</a></h4>
+          <p class="project-card-subtitle text-muted">Design System / CSS Components.</p>
+          <!-- <ul class="project-card-badges" aria-label="Wintermuted UI Theme project tags">
+            <li>Design System</li>
+            <li>Tokens</li>
+            <li>CSS</li>
+            <li>npm Package</li>
+          </ul> -->
+        </div>
+      </div>
+    </article>
+  
+  </section>
+
+<p class="projects-filter-empty text-muted" hidden="">No projects match the selected filter.</p>
+
+<script>
+  window.addEventListener('load', function () {
+    var buttons = Array.from(document.querySelectorAll('.projects-filter-button'));
+    var cards = Array.from(document.querySelectorAll('.project-card-item[data-project-types]'));
+    var emptyState = document.querySelector('.projects-filter-empty');
+    var grid = document.querySelector('.projects-grid');
+
+    if (!buttons.length || !cards.length || !grid) return;
+
+    function configureMediaHoverEffects() {
+      var mediaLinks = Array.from(document.querySelectorAll('.project-card-media-link'));
+
+      mediaLinks.forEach(function (link) {
+        var media = link.closest('.project-card-media');
+        var image = link.querySelector('.project-card-image');
+        var label = link.querySelector('span');
+
+        if (!media) return;
+
+        // Keep placeholder links and labels from underlining regardless of global anchor rules.
+        if (link.classList.contains('project-card-media-link--placeholder')) {
+          link.style.textDecoration = 'none';
+          if (label) {
+            label.style.textDecoration = 'none';
+          }
+        }
+
+        function applyHoverStyles() {
+          media.style.boxShadow = 'inset 0 0 0 999px rgba(15, 23, 42, 0.08)';
+          link.style.backgroundColor = 'rgba(15, 23, 42, 0.08)';
+
+          if (image) {
+            image.style.transform = 'scale(1.03)';
+            image.style.filter = 'brightness(1.06)';
+          }
+
+          if (label) {
+            label.style.textDecoration = 'none';
+          }
+          link.style.textDecoration = 'none';
+        }
+
+        function clearHoverStyles() {
+          media.style.boxShadow = '';
+          link.style.backgroundColor = '';
+
+          if (image) {
+            image.style.transform = '';
+            image.style.filter = '';
+          }
+
+          if (label) {
+            label.style.textDecoration = 'none';
+          }
+          link.style.textDecoration = 'none';
+        }
+
+        link.addEventListener('mouseenter', applyHoverStyles);
+        link.addEventListener('mouseleave', clearHoverStyles);
+        link.addEventListener('focus', applyHoverStyles);
+        link.addEventListener('blur', clearHoverStyles);
+      });
+    }
+
+    function syncGridColumnState() {
+      var templateColumns = window.getComputedStyle(grid).gridTemplateColumns || '';
+      var columnCount = templateColumns.split(' ').filter(Boolean).length;
+      grid.classList.toggle('projects-grid--four-up', columnCount === 4);
+    }
+
+    function applyFilter(filter) {
+      var visibleCount = 0;
+
+      buttons.forEach(function (button) {
+        var active = button.getAttribute('data-project-filter') === filter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      cards.forEach(function (card) {
+        var types = (card.getAttribute('data-project-types') || '')
+          .split(',')
+          .map(function (value) { return value.trim(); })
+          .filter(Boolean);
+
+        var matches = filter === 'all' || types.indexOf(filter) !== -1;
+        card.hidden = !matches;
+        if (matches) visibleCount += 1;
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount !== 0;
+      }
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        applyFilter(button.getAttribute('data-project-filter') || 'all');
+        syncGridColumnState();
+      });
+    });
+
+    applyFilter('all');
+    syncGridColumnState();
+    configureMediaHoverEffects();
+    window.addEventListener('resize', syncGridColumnState);
+  });
+</script>
+
+
+      </div>
+    </article>
+  </div>
+</main>
+
+        <footer class="global-footer">
+  <div class="global-footer-shell">
+    <nav class="site-footer-nav">
       <span class="text-muted">
         <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
       </span>
-      <ul class="navbar-nav">
-        <li class="nav-item custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-          <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-        </li>
-      </ul>
+      <span class="site-footer-controls">
+        <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <input type="checkbox" id="darkSwitch" />
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Dark</span>
+        </label>
+        <div class="bg-tone-selector" role="group" aria-label="Background tone selector">
+          <button type="button" class="bg-tone-btn bg-tone-btn--neutral" data-bg-tone="neutral" data-tooltip="Neutral" aria-label="Set neutral background tone" title="Neutral"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--grayscale" data-bg-tone="grayscale" data-tooltip="Grayscale" aria-label="Set grayscale background tone" title="Grayscale"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--warm" data-bg-tone="warm" data-tooltip="Warm" aria-label="Set warm background tone" title="Warm"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--cool" data-bg-tone="cool" data-tooltip="Cool" aria-label="Set cool background tone" title="Cool"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--gol" data-bg-tone="gol" data-tooltip="Game of Life" aria-label="Set Game of Life background tone" title="Game of Life"></button>
+        </div>
+      </span>
     </nav>
   </div>
-  <script src="/js/dark-mode.js"></script>
+  <script src="/js/dark-mode.js?v=20260704-bg-tones"></script>
 </footer>
     </body>
 </html>

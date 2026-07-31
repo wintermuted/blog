@@ -8,126 +8,97 @@
   <title>Functional Programming</title>
   <meta name="description" content="Contents  Introduction  Main Concepts          First Class Functions      Higher Order Functions (HOC)      Pure Functions      Recursion      Types        S...">
 
-  <!-- JS -->
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+  <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/wm-theme/tokens.css">
+  <link rel="stylesheet" href="/css/wm-theme/base.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/card.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/button.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/badge.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/side-nav.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/layout.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/tag.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/list.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/separator.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/code-block.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/gallery.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Lightbox2 for image galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
-  <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'imageFadeDuration': 200,
-      'fadeDuration': 200,
-      'wrapAround': true
-    })
-  </script>
-
-  <!-- CSS -->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS — site styles -->
 
   <link rel="stylesheet" href="/css/styles.css">
 
   <link rel="canonical" href="/software_development/functional-programming">
 
   <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/feed.xml">
+
+  <!-- Lightbox2 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
 </head>
 
-    <body>
+    <body class="">
+                
         
 
-<!-- Current: software_developmentfunctional-programming
-Current 1: software_development -->
-
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-md sticky-top bg-light">
-            <a class="navbar-brand" href="/">
-                <img src="/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
-                jnyeholt
-            </a>
-            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                    data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                    
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="/weblog">Weblog</a>
-                        </li>
-                    
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/projects">Projects</a>
-                        </li>
-                     -->
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/wiki">Wiki</a>
-                        </li>
-                     -->
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/wiki/links">Links</a>
-                        </li>
-                     -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resume" target="_blank">CV</a>
-                    </li>
-                    
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <!-- <span>LinkedIN</span> -->
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/wintermuted" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <!-- <span>Github</span> -->
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<header class="site-header docs-topbar">
+  
+    <div class="docs-topbar-inner">
+      <div class="docs-topbar-brand">
+        <a href="/" class="docs-topbar-brand-link">
+          <img src="/logo.png" alt="" class="docs-topbar-brand-icon" width="20" height="20">
+          <h1>jnyeholt</h1>
+        </a>
+      </div>
+      <button type="button" class="docs-topbar-scroll-title" aria-label="Scroll to top">
+        <span class="docs-topbar-scroll-title-icon"></span>
+        <span class="docs-topbar-scroll-title-text"></span>
+      </button>
+      <nav class="docs-topbar-nav" aria-label="Main navigation">
+        <a class="docs-topbar-link-devdocs" href="/projects"
+          >Projects</a>
+        <a class="docs-topbar-link-devdocs" href="/weblog"
+          >Weblog</a>
+        <a class="docs-topbar-link-devdocs" href="/about"
+          >About</a>
+      </nav>
+      <div class="docs-topbar-actions">
+        <a class="docs-topbar-link-secondary" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a class="docs-topbar-link-secondary" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
     </div>
+  
 </header>
 
-        <br/>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <header class="post-header">
-        <!-- <nav class="navbar-dark bg-dark" aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/wiki">Wiki</a></li>
-            <li class="breadcrumb-item"><a href="/wiki/software-engineering/">Software Engineering</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Functional Programming</li>
-          </ol>
-        </nav> -->
-        <h1 class="post-title">Functional Programming</h1>
-      </header>
-      <hr/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-9">
-      <article class="body-content post">
+        
+<main class="post-detail-layout body-content wiki-detail-layout">
+  <div class="post-detail-layout-content wiki-detail-layout-content">
+    <header class="post-detail-header">
+      <div class="post-titlebar-row">
+        <div class="post-titlebar-main">
+          <h1 class="article-title">
+            <i class="fas fa-wikipedia-w" aria-hidden="true"></i>
+            <span>Functional Programming</span>
+          </h1>
+        </div>
+      </div>
+      <hr class="project-title-divider" aria-hidden="true">
+    </header>
+
+    <div class="post-detail-grid wiki-detail-grid" style="display: grid; grid-template-columns: minmax(180px, 230px) minmax(0, 1fr) minmax(220px, 280px); gap: clamp(1.1rem, 2.4vw, 2.2rem); align-items: start;">
+      <nav class="post-side-nav wiki-side-nav" aria-label="Section navigation"></nav>
+
+      <article class="post post-detail-article wiki-detail-article">
         <div class="article-content">
           <h2 id="contents">Contents</h2>
 
@@ -322,52 +293,172 @@ Current 1: software_development -->
 
         </div>
       </article>
-    </div>
-    <div class="col-sm-12 col-md-3">
-      
-<aside class="sidebar">
-    <h4>Topic: programming</h4>
 
-    
-    <ul class="list-unstyled">
+      <div class="post-detail-sidebar">
+        <div class="post-detail-sidebar-card">
+          
+<aside class="sidebar">
         
-            <li>
-                <i class="fas fa-book"></i>
-                <a href="/building-software/ecmascript-tools">ECMAScript</a>
-            </li>
+            <h5 class="text-muted">Topic</h5>
+            <p class="text-muted" style="margin: 0 0 0.65rem;">
+                <i class="fas fa-archive" aria-hidden="true"></i>
+                <span>programming</span>
+            </p>
         
-            <li>
-                <i class="fas fa-book"></i>
-                <a href="/software_development/functional-programming">Functional Programming</a>
-            </li>
+
         
-            <li>
-                <i class="fas fa-book"></i>
-                <a href="/software_development/refactoring">Refactoring</a>
-            </li>
         
-    </ul>
+
+        
+        
+            <h5 class="text-muted">Related Pages</h5>
+            <ul class="list-unstyled">
+                
+                    <li>
+                        <small class="text-muted">
+                            <i class="fas fa-book" aria-hidden="true"></i>
+                            <a href="/building-software/ecmascript-tools">ECMAScript</a>
+                        </small>
+                    </li>
+                
+                    <li>
+                        <small class="text-muted">
+                            <i class="fas fa-book" aria-hidden="true"></i>
+                            <a href="/software_development/functional-programming">Functional Programming</a>
+                        </small>
+                    </li>
+                
+                    <li>
+                        <small class="text-muted">
+                            <i class="fas fa-book" aria-hidden="true"></i>
+                            <a href="/software_development/refactoring">Refactoring</a>
+                        </small>
+                    </li>
+                
+            </ul>
+        
 </aside>
 
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</main>
 
-        <footer>
-  <div class="container global-footer">
-    <nav class="navbar navbar-light bg-light">
+<script>
+  window.addEventListener('load', function () {
+    var grid = document.querySelector('.wiki-detail-grid');
+    var nav = document.querySelector('.wiki-side-nav');
+    var article = document.querySelector('.wiki-detail-article .article-content');
+    if (!grid || !nav || !article) return;
+
+    function slugifyHeading(text) {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+
+    var headings = Array.from(article.querySelectorAll('h2, h3'));
+    var ul = document.createElement('ul');
+    var idCounts = Object.create(null);
+
+    headings.forEach(function (heading) {
+      var text = (heading.textContent || '').trim();
+      if (!text) return;
+
+      var headingId = heading.id;
+      if (!headingId) {
+        var baseId = slugifyHeading(text) || 'section';
+        var count = (idCounts[baseId] || 0) + 1;
+        idCounts[baseId] = count;
+        headingId = count === 1 ? baseId : baseId + '-' + count;
+
+        while (document.getElementById(headingId)) {
+          count += 1;
+          idCounts[baseId] = count;
+          headingId = baseId + '-' + count;
+        }
+
+        heading.id = headingId;
+      }
+
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + headingId;
+      a.textContent = text;
+      a.addEventListener('click', function (event) {
+        event.preventDefault();
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#' + headingId);
+      });
+
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    if (!ul.children.length) {
+      var overviewId = article.id || 'wiki-overview';
+      article.id = overviewId;
+
+      var overviewLi = document.createElement('li');
+      var overviewLink = document.createElement('a');
+      overviewLink.href = '#' + overviewId;
+      overviewLink.textContent = 'Overview';
+      overviewLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#' + overviewId);
+      });
+      overviewLi.appendChild(overviewLink);
+      ul.appendChild(overviewLi);
+    }
+
+    nav.hidden = false;
+    nav.appendChild(ul);
+  });
+</script>
+
+        <footer class="global-footer">
+  <div class="global-footer-shell">
+    <nav class="site-footer-nav">
       <span class="text-muted">
         <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
       </span>
-      <ul class="navbar-nav">
-        <li class="nav-item custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-          <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-        </li>
-      </ul>
+      <span class="site-footer-controls">
+        <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <input type="checkbox" id="darkSwitch" />
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Dark</span>
+        </label>
+        <div class="bg-tone-selector" role="group" aria-label="Background tone selector">
+          <button type="button" class="bg-tone-btn bg-tone-btn--neutral" data-bg-tone="neutral" data-tooltip="Neutral" aria-label="Set neutral background tone" title="Neutral"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--grayscale" data-bg-tone="grayscale" data-tooltip="Grayscale" aria-label="Set grayscale background tone" title="Grayscale"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--warm" data-bg-tone="warm" data-tooltip="Warm" aria-label="Set warm background tone" title="Warm"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--cool" data-bg-tone="cool" data-tooltip="Cool" aria-label="Set cool background tone" title="Cool"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--gol" data-bg-tone="gol" data-tooltip="Game of Life" aria-label="Set Game of Life background tone" title="Game of Life"></button>
+        </div>
+      </span>
     </nav>
   </div>
-  <script src="/js/dark-mode.js"></script>
+  <script src="/js/dark-mode.js?v=20260704-bg-tones"></script>
 </footer>
     </body>
 </html>

@@ -8,143 +8,116 @@
   <title>I now work at Microsoft</title>
   <meta name="description" content="I now work at Microsoft where I am continuing as a Senior Software Engineering Manager, following it’s acquisition of Xandr, Inc from AT&amp;T">
 
-  <!-- JS -->
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+  <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/wm-theme/tokens.css">
+  <link rel="stylesheet" href="/css/wm-theme/base.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/card.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/button.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/badge.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/side-nav.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/layout.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/tag.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/list.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/separator.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/code-block.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/gallery.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Lightbox2 for image galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
-  <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'imageFadeDuration': 200,
-      'fadeDuration': 200,
-      'wrapAround': true
-    })
-  </script>
-
-  <!-- CSS -->
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.css" integrity="sha256-YQxBfLfP0/QyffXZNTDFES5IFXrxv+hYE9b2NK5TGcw=" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS — site styles -->
 
   <link rel="stylesheet" href="/css/styles.css">
 
   <link rel="canonical" href="/weblog/journal/2022/06/01/microsoft-acquires-xandr.html">
 
   <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/feed.xml">
+
+  <!-- Lightbox2 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
 </head>
 
-    <body>
+    <body class="">
+                
         
 
-<!-- Current: weblogjournal20220601microsoft-acquires-xandr.html
-Current 1: weblog -->
-
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-md sticky-top bg-light">
-            <a class="navbar-brand" href="/">
-                <img src="/logo.png" alt="" width="30" height="30" class="d-inline-block align-top">
-                jnyeholt
-            </a>
-            <button aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                    data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                    
-                    
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="/weblog">Weblog</a>
-                        </li>
-                    
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/projects">Projects</a>
-                        </li>
-                     -->
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/wiki">Wiki</a>
-                        </li>
-                     -->
-                    <!-- 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/wiki/links">Links</a>
-                        </li>
-                     -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resume" target="_blank">CV</a>
-                    </li>
-                    
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/jwnyeholt" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <!-- <span>LinkedIN</span> -->
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/wintermuted" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <!-- <span>Github</span> -->
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<header class="site-header docs-topbar">
+  
+    <div class="docs-topbar-inner">
+      <div class="docs-topbar-brand">
+        <a href="/" class="docs-topbar-brand-link">
+          <img src="/logo.png" alt="" class="docs-topbar-brand-icon" width="20" height="20">
+          <h1>jnyeholt</h1>
+        </a>
+      </div>
+      <button type="button" class="docs-topbar-scroll-title" aria-label="Scroll to top">
+        <span class="docs-topbar-scroll-title-icon"></span>
+        <span class="docs-topbar-scroll-title-text"></span>
+      </button>
+      <nav class="docs-topbar-nav" aria-label="Main navigation">
+        <a class="docs-topbar-link-devdocs" href="/projects"
+          >Projects</a>
+        <a class="docs-topbar-link-devdocs" href="/weblog"
+          aria-current="page">Weblog</a>
+        <a class="docs-topbar-link-devdocs" href="/about"
+          >About</a>
+      </nav>
+      <div class="docs-topbar-actions">
+        <a class="docs-topbar-link-secondary" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a class="docs-topbar-link-secondary" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
     </div>
+  
 </header>
 
-        </br>
-
-<div class="container post-body">
-    <div class="row"> 
-        <div class="col">
-            <h1 class="article-title" itemprop="name headline">I now work at Microsoft</h1>
-            <hr/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9 col-sm-12">
-            <!-- <section id="more-work">
-    
-
-    
-    <div class="float-left">
-        <a class="equalize" href="/weblog/camping/2024/10/04/snow-peak-way-2024.html" title="next Post: Snow Peak Way 2024">
-            <small class="text-muted">
-                <span> ← Newer : </span>
-                <span> Snow Peak Way 2024</span>
-            </small>
-        </a>
-    </div>
-
-
-    <div class="float-right">
-        <a class="equalize" href="/weblog/changelog/2022/02/22/changelog.html" title="Previous Post: Changelog: 22/02/2022">
-            <small class="text-muted">
-                <span> Changelog: 22/02/2022 </span>
-                <span> : Older →</span>
-            </small>
-        </a>
-    </div>
-</section>
-            <br />
-            <hr /> -->
-            <article class="body-content post" itemscope itemtype="http://schema.org/BlogPosting">
+        <main class="post-detail-layout body-content">
+    <div class="post-detail-layout-content post-body">
+        <header class="post-detail-header">
+            <div class="post-titlebar-row">
+                <div class="post-titlebar-main">
+                    <h1 class="article-title" itemprop="name headline">I now work at Microsoft</h1>
+                </div>
+                <div class="project-tab-menu" aria-label="Column toggles">
+                    <div class="project-tab-menu-group" role="group" aria-label="Post column visibility toggles">
+                        <button
+                            type="button"
+                            class="project-sidebar-toggle project-tab-menu-toggle"
+                            data-post-sidebar-toggle="left"
+                            aria-controls="post-side-nav"
+                            aria-expanded="true"
+                            aria-label="Collapse left column"
+                            title="Collapse left column"
+                        >
+                            <i class="fas fa-align-left" aria-hidden="true"></i>
+                        </button>
+                        <button
+                            type="button"
+                            class="project-sidebar-toggle project-tab-menu-toggle"
+                            data-post-sidebar-toggle="right"
+                            aria-controls="post-detail-sidebar"
+                            aria-expanded="true"
+                            aria-label="Collapse right column"
+                            title="Collapse right column"
+                        >
+                            <i class="fas fa-align-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="post-detail-grid">
+            <nav id="post-side-nav" class="post-side-nav" hidden aria-label="Section navigation"></nav>
+            <article class="post post-detail-article" itemscope itemtype="http://schema.org/BlogPosting">
                 <div class="article-content" itemprop="articleBody">
                     <p>I now work at Microsoft where I am continuing as a Senior Software Engineering Manager, following it’s acquisition of Xandr, Inc from AT&amp;T</p>
 
@@ -152,37 +125,15 @@ Current 1: weblog -->
 
 <p>The acquistion was earlier announced in December 2021 after I had just started paternity leave.  I am very excited at the outcome for me and my colleagues at Xandr following what seemed like a misadventure for several years at AT&amp;T.</p>
 
-<p><a data-lightbox="lightbox1" href="/assets/img/posts/2022/jun/microsoft/logo.png"><picture class="thumbnail"><source srcset="/generated/assets/img/posts/2022/jun/microsoft/logo-250-fd08a16d5.webp 1.0x, /generated/assets/img/posts/2022/jun/microsoft/logo-375.0-fd08a16d5.webp 1.5x, /generated/assets/img/posts/2022/jun/microsoft/logo-500-fd08a16d5.webp 2.0x" type="image/webp"><source srcset="/generated/assets/img/posts/2022/jun/microsoft/logo-250-c0981a687.png 1.0x, /generated/assets/img/posts/2022/jun/microsoft/logo-375.0-c0981a687.png 1.5x, /generated/assets/img/posts/2022/jun/microsoft/logo-500-c0981a687.png 2.0x" type="image/png"><img class="rounded" src="/generated/assets/img/posts/2022/jun/microsoft/logo-250-c0981a687.png"></picture></a></p>
+<p><a data-lightbox="lightbox1" href="/assets/img/posts/2022/jun/microsoft/logo-monochrome.svg">
+	<img class="rounded" src="/assets/img/posts/2022/jun/microsoft/logo-monochrome.svg" alt="Microsoft logo" />
+</a></p>
 
                 </div>
             </article>
-            <hr />
-            <section id="more-work">
-    
-
-    
-    <div class="float-left">
-        <a class="equalize" href="/weblog/camping/2024/10/04/snow-peak-way-2024.html" title="next Post: Snow Peak Way 2024">
-            <small class="text-muted">
-                <span> ← Newer : </span>
-                <span> Snow Peak Way 2024</span>
-            </small>
-        </a>
-    </div>
-
-
-    <div class="float-right">
-        <a class="equalize" href="/weblog/changelog/2022/02/22/changelog.html" title="Previous Post: Changelog: 22/02/2022">
-            <small class="text-muted">
-                <span> Changelog: 22/02/2022 </span>
-                <span> : Older →</span>
-            </small>
-        </a>
-    </div>
-</section>
-        </div>
-        <div class="col-md-3 col-sm-12">
-            <aside class="sidebar">
+            <div id="post-detail-sidebar" class="post-detail-sidebar">
+                <div class="post-detail-sidebar-card">
+                    <aside class="sidebar">
     <p>
         
             <small class="text-muted">
@@ -210,6 +161,18 @@ Current 1: weblog -->
             </a>
         </small>
         
+
+        
+        
+        
+        <br />
+        <small class="text-muted">
+            
+                <i class="fas fa-journal-whills"></i>
+            
+            <a href="/weblog/category/journal">journal</a>
+        </small>
+        
     </p>
     <hr />
     <!-- <nav aria-label="Page navigation example">
@@ -217,7 +180,7 @@ Current 1: weblog -->
 
   
   <div>
-      <a class="equalize" href="/weblog/camping/2024/10/04/snow-peak-way-2024.html" title="next Post: Snow Peak Way 2024">
+    <a class="btn btn-secondary-neutral btn-sm post-nav-btn" href="/weblog/camping/2024/10/04/snow-peak-way-2024.html" title="next Post: Snow Peak Way 2024">
           <div>
               <span> ← Newer : </span><br/>
               <span> Snow Peak Way 2024</span>
@@ -225,7 +188,7 @@ Current 1: weblog -->
       </a>
   </div>
   <div>
-      <a class="equalize" href="/weblog/changelog/2022/02/22/changelog.html" title="Previous Post: Changelog: 22/02/2022">
+    <a class="btn btn-secondary-neutral btn-sm post-nav-btn" href="/weblog/changelog/2022/02/22/changelog.html" title="Previous Post: Changelog: 22/02/2022">
           <div>
               <span> Changelog: 22/02/2022 </span><br/>
               <span> : Older →</span>
@@ -235,116 +198,309 @@ Current 1: weblog -->
 </nav>
 
     <hr /> -->
-    <h5 class="text-muted">Category</h5>
-    <ul class="list-unstyled">
+    <h5 class="text-muted"><i class="fas fa-tags"></i> Tags</h5>
+    <ul class="list-unstyled post-sidebar-tags" style="margin: 0; padding-left: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem;">
         
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-folder"></i>
-                    <a href="/weblog/category/journal">
-                        journal
-                    </a>
-                </small>
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/career-updates" style="color: var(--wm-color-text); text-decoration: none;">
+                    career updates
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/software-development" style="color: var(--wm-color-text); text-decoration: none;">
+                    software development
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/microsoft" style="color: var(--wm-color-text); text-decoration: none;">
+                    microsoft
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/software-engineering" style="color: var(--wm-color-text); text-decoration: none;">
+                    software engineering
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/xandr" style="color: var(--wm-color-text); text-decoration: none;">
+                    xandr
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/ad-tech" style="color: var(--wm-color-text); text-decoration: none;">
+                    ad tech
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/at-t" style="color: var(--wm-color-text); text-decoration: none;">
+                    at&t
+                </a>
+            </li>
+        
+            <li style="margin: 0; padding: 0.2rem 0.55rem; border: 1px solid var(--wm-color-border); border-radius: 999px; background: var(--wm-color-surface); font-size: 0.7rem; line-height: 1.35; color: var(--wm-color-text); white-space: nowrap;">
+                <a href="/weblog/tag/big-tech" style="color: var(--wm-color-text); text-decoration: none;">
+                    big tech
+                </a>
             </li>
         
     </ul>
-    <h5 class="text-muted">Tags</h5>
-    <ul class="list-unstyled">
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/career-updates">
-                        career updates
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/software-development">
-                        software development
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/microsoft">
-                        microsoft
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/software-engineering">
-                        software engineering
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/xandr">
-                        xandr
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/ad-tech">
-                        ad tech
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/at-t">
-                        at&t
-                    </a>
-                </small>
-            </li>
-        
-            <li>
-                <small class="text-muted">
-                    <i class="fas fa-tag"></i>
-                    <a href="/weblog/tag/big-tech">
-                        big tech
-                    </a>
-                </small>
-            </li>
-        
-    </ul>
-    <hr/>
 </aside>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="post-detail-nav">
+            <section id="more-work">
+    
+
+    
+    <div>
+        <a class="btn btn-secondary-neutral btn-sm post-nav-btn" href="/weblog/camping/2024/10/04/snow-peak-way-2024.html" title="next Post: Snow Peak Way 2024">
+            <small class="text-muted">
+                <span> ← Newer : </span>
+                <span> Snow Peak Way 2024</span>
+            </small>
+        </a>
+    </div>
+
+    <div>
+        <a class="btn btn-secondary-neutral btn-sm post-nav-btn" href="/weblog/changelog/2022/02/22/changelog.html" title="Previous Post: Changelog: 22/02/2022">
+            <small class="text-muted">
+                <span> Changelog: 22/02/2022 </span>
+                <span> : Older →</span>
+            </small>
+        </a>
+    </div>
+</section>
         </div>
     </div>
-</div>
+</main>
 
-        <footer>
-  <div class="container global-footer">
-    <nav class="navbar navbar-light bg-light">
+<script>
+    window.addEventListener('load', function () {
+        function initPostColumnToggles() {
+            var grid = document.querySelector('.post-detail-grid');
+            if (!grid) return;
+
+            function syncButtonState() {
+                var leftDesktopAvailable = window.matchMedia('(min-width: 1200px)').matches;
+                var leftCollapsed = grid.classList.contains('is-left-collapsed');
+                var rightCollapsed = grid.classList.contains('is-right-collapsed');
+                var buttons = Array.from(document.querySelectorAll('[data-post-sidebar-toggle]'));
+
+                buttons.forEach(function (button) {
+                    var side = button.getAttribute('data-post-sidebar-toggle');
+                    var expanded = side === 'left' ? !leftCollapsed : !rightCollapsed;
+
+                    if (side === 'left') {
+                        button.disabled = !leftDesktopAvailable;
+                        expanded = leftDesktopAvailable && !leftCollapsed;
+                        if (!leftDesktopAvailable) {
+                            button.setAttribute('aria-label', 'Left column toggles are available on desktop');
+                            button.setAttribute('title', 'Left column toggles are available on desktop');
+                        } else {
+                            button.setAttribute('aria-label', expanded ? 'Collapse left column' : 'Expand left column');
+                            button.setAttribute('title', expanded ? 'Collapse left column' : 'Expand left column');
+                        }
+                    } else {
+                        button.disabled = false;
+                        button.setAttribute('aria-label', expanded ? 'Collapse right column' : 'Expand right column');
+                        button.setAttribute('title', expanded ? 'Collapse right column' : 'Expand right column');
+                    }
+
+                    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                });
+            }
+
+            Array.from(document.querySelectorAll('[data-post-sidebar-toggle]')).forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var side = button.getAttribute('data-post-sidebar-toggle');
+                    if (side === 'left' && !window.matchMedia('(min-width: 1200px)').matches) return;
+
+                    if (side === 'left') {
+                        grid.classList.toggle('is-left-collapsed');
+                    }
+
+                    if (side === 'right') {
+                        grid.classList.toggle('is-right-collapsed');
+                    }
+
+                    syncButtonState();
+                });
+            });
+
+            window.addEventListener('resize', syncButtonState);
+            syncButtonState();
+        }
+
+        function initPostSideNav() {
+            var nav = document.getElementById('post-side-nav');
+            var article = document.querySelector('.post-detail-article .article-content');
+            if (!nav || !article) return;
+
+            function slugifyHeading(text) {
+                return text
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^a-z0-9\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+            }
+
+            var headings = Array.from(article.querySelectorAll('h2, h3'));
+
+            nav.hidden = false;
+            var ul = document.createElement('ul');
+            var idCounts = Object.create(null);
+
+            headings.forEach(function (heading) {
+                var text = (heading.textContent || '').trim();
+                if (!text) return;
+
+                var headingId = heading.id;
+                if (!headingId) {
+                    var baseId = slugifyHeading(text) || 'section';
+                    var count = (idCounts[baseId] || 0) + 1;
+                    idCounts[baseId] = count;
+                    headingId = count === 1 ? baseId : baseId + '-' + count;
+
+                    while (document.getElementById(headingId)) {
+                        count += 1;
+                        idCounts[baseId] = count;
+                        headingId = baseId + '-' + count;
+                    }
+
+                    heading.id = headingId;
+                }
+
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.href = '#' + headingId;
+                a.textContent = text;
+                a.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#' + headingId);
+                });
+
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            if (!ul.children.length) {
+                var overviewId = article.id || 'post-overview';
+                article.id = overviewId;
+
+                var overviewLi = document.createElement('li');
+                var overviewLink = document.createElement('a');
+                overviewLink.href = '#' + overviewId;
+                overviewLink.textContent = 'Overview';
+                overviewLink.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#' + overviewId);
+                });
+                overviewLi.appendChild(overviewLink);
+                ul.appendChild(overviewLi);
+                headings = [article];
+            }
+
+            nav.appendChild(ul);
+
+            var links = Array.from(nav.querySelectorAll('a'));
+            if (!links.length) return;
+
+            function applyLinkColor(link, isActive) {
+                link.style.setProperty('color', isActive ? 'var(--wm-color-text)' : 'var(--wm-color-text-muted)', 'important');
+                link.style.setProperty('text-decoration-color', isActive ? 'var(--wm-color-text)' : 'var(--wm-color-text-muted)', 'important');
+            }
+
+            links.forEach(function (link) {
+                applyLinkColor(link, false);
+            });
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+
+                    links.forEach(function (link) {
+                        var isActive = link.getAttribute('href') === '#' + entry.target.id;
+                        link.classList.toggle('active', isActive);
+                        applyLinkColor(link, isActive);
+                    });
+                });
+            }, { rootMargin: '-10% 0px -80% 0px' });
+
+            headings.forEach(function (heading) {
+                observer.observe(heading);
+            });
+
+            links[0].classList.add('active');
+            applyLinkColor(links[0], true);
+        }
+
+        function initPostSidebarTypography() {
+            var sidebar = document.querySelector('.post-detail-sidebar-card .sidebar');
+            if (!sidebar) return;
+
+            sidebar.style.setProperty('font-size', '0.7rem', 'important');
+
+            var textNodes = sidebar.querySelectorAll('p, a, time, h5, li, small, span');
+            textNodes.forEach(function (node) {
+                node.style.setProperty('font-size', '0.7rem', 'important');
+            });
+        }
+
+        initPostColumnToggles();
+        initPostSideNav();
+        initPostSidebarTypography();
+    });
+</script>
+
+        <footer class="global-footer">
+  <div class="global-footer-shell">
+    <nav class="site-footer-nav">
       <span class="text-muted">
         <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
       </span>
-      <ul class="navbar-nav">
-        <li class="nav-item custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-          <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-        </li>
-      </ul>
+      <span class="site-footer-controls">
+        <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <input type="checkbox" id="darkSwitch" />
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Dark</span>
+        </label>
+        <div class="bg-tone-selector" role="group" aria-label="Background tone selector">
+          <button type="button" class="bg-tone-btn bg-tone-btn--neutral" data-bg-tone="neutral" data-tooltip="Neutral" aria-label="Set neutral background tone" title="Neutral"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--grayscale" data-bg-tone="grayscale" data-tooltip="Grayscale" aria-label="Set grayscale background tone" title="Grayscale"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--warm" data-bg-tone="warm" data-tooltip="Warm" aria-label="Set warm background tone" title="Warm"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--cool" data-bg-tone="cool" data-tooltip="Cool" aria-label="Set cool background tone" title="Cool"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--gol" data-bg-tone="gol" data-tooltip="Game of Life" aria-label="Set Game of Life background tone" title="Game of Life"></button>
+        </div>
+      </span>
     </nav>
   </div>
-  <script src="/js/dark-mode.js"></script>
+  <script src="/js/dark-mode.js?v=20260704-bg-tones"></script>
 </footer>
     </body>
 </html>

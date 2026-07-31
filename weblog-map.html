@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Weblog | Jameson Nyeholt</title>
+  <meta name="description" content="Jameson Nyeholt's weblog.
+">
+
+  <!-- Match ui-theme docs font loading so token stack resolves consistently -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+  <!-- CSS — @wintermuted/ui-theme (vendored v0.18.0) -->
+
+  <link rel="stylesheet" href="/css/wm-theme/tokens.css">
+  <link rel="stylesheet" href="/css/wm-theme/base.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/card.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/button.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/badge.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/side-nav.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/layout.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/tag.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/list.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/separator.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/code-block.css">
+  <link rel="stylesheet" href="/css/wm-theme/components/gallery.css">
+
+  <!-- Lightbox2 for image galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+  <!-- CSS — site styles -->
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <link rel="canonical" href="/weblog-map">
+
+  <link rel="alternate" type="application/rss+xml" title="Jameson Nyeholt" href="/feed.xml">
+
+  <!-- Lightbox2 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/lightbox.min.js"></script>
+</head>
+
+    <body class="">
+                
+        
+
+<header class="site-header docs-topbar">
+  
+    <div class="docs-topbar-inner">
+      <div class="docs-topbar-brand">
+        <a href="/" class="docs-topbar-brand-link">
+          <img src="/logo.png" alt="" class="docs-topbar-brand-icon" width="20" height="20">
+          <h1>jnyeholt</h1>
+        </a>
+      </div>
+      <button type="button" class="docs-topbar-scroll-title" aria-label="Scroll to top">
+        <span class="docs-topbar-scroll-title-icon"></span>
+        <span class="docs-topbar-scroll-title-text"></span>
+      </button>
+      <nav class="docs-topbar-nav" aria-label="Main navigation">
+        <a class="docs-topbar-link-devdocs" href="/projects"
+          >Projects</a>
+        <a class="docs-topbar-link-devdocs" href="/weblog"
+          >Weblog</a>
+        <a class="docs-topbar-link-devdocs" href="/about"
+          >About</a>
+      </nav>
+      <div class="docs-topbar-actions">
+        <a class="docs-topbar-link-secondary" href="https://www.linkedin.com/in/jwnyeholt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a class="docs-topbar-link-secondary" href="https://github.com/wintermuted" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  
+</header>
+
+        <div class="weblog-layout" id="weblog-map">
+  <div class="weblog-layout-content">
+    <div class="row">
+      <div class="col-md-9 col-sm-12">
+        
+
+<div class="projects-filter-bar" role="tablist" aria-label="Weblog views">
+  <a class="projects-filter-button" href="/weblog" role="tab" aria-selected="false">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+    Simple
+  </a>
+  <a class="projects-filter-button" href="/weblog-by-year" role="tab" aria-selected="false">
+    <i class="fas fa-calendar" aria-hidden="true"></i>
+    By Year
+  </a>
+  <a class="projects-filter-button" href="/weblog-gallery" role="tab" aria-selected="false">
+    <i class="fas fa-images" aria-hidden="true"></i>
+    Magazine
+  </a>
+  <!--
+  <a class="projects-filter-button" href="/weblog-summary" role="tab" aria-selected="false">
+    <i class="fas fa-newspaper" aria-hidden="true"></i>
+    Summary
+  </a>
+  -->
+  <a class="projects-filter-button is-active" href="/weblog-map" role="tab" aria-selected="true">
+    <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+    Map
+  </a>
+</div>
+
+        
+
+        <section class="weblog-map-panel" aria-label="Post location map">
+          <div id="weblog-location-map" class="weblog-map-canvas"></div>
+          <p class="weblog-map-note text-muted">
+            Map pins are generated from post location metadata and a curated location coordinate list.
+          </p>
+        </section>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script>
+          (function () {
+            const mapElement = document.getElementById('weblog-location-map');
+            if (!mapElement || typeof L === 'undefined') {
+              return;
+            }
+
+            const mapPosts = [
+              
+              {
+                title: "Game of Life Dev Log: Rules and Diagnostics",
+                url: "/weblog/devlog/2026/06/11/game-of-life-devlog-rules-and-diagnostics.html",
+                location: "Portland, OR",
+                date: "11 Jun, 2026",
+                category: "devlog"
+              },
+              
+              {
+                title: "Game of Life Dev Log: Shareable URL State",
+                url: "/weblog/devlog/2026/05/18/game-of-life-devlog-url-share-state.html",
+                location: "Portland, OR",
+                date: "18 May, 2026",
+                category: "devlog"
+              },
+              
+              {
+                title: "Game of Life Dev Log: Pattern Workflow Improvements",
+                url: "/weblog/devlog/2026/04/26/game-of-life-devlog-pattern-workflow.html",
+                location: "Portland, OR",
+                date: "26 Apr, 2026",
+                category: "devlog"
+              },
+              
+              {
+                title: "Game of Life Dev Log: Tightening the Render Loop",
+                url: "/weblog/devlog/2026/04/07/game-of-life-devlog-render-loop.html",
+                location: "Portland, OR",
+                date: "7 Apr, 2026",
+                category: "devlog"
+              },
+              
+              {
+                title: "Snow Peak Way 2024",
+                url: "/weblog/camping/2024/10/04/snow-peak-way-2024.html",
+                location: "Long Beach, Washington",
+                date: "4 Oct, 2024",
+                category: "camping"
+              },
+              
+              {
+                title: "I now work at Microsoft",
+                url: "/weblog/journal/2022/06/01/microsoft-acquires-xandr.html",
+                location: "Portland, OR",
+                date: "1 Jun, 2022",
+                category: "journal"
+              },
+              
+              {
+                title: "Fall Mushroom Foraging in the Oregon Coastal Range",
+                url: "/weblog/foraging/2021/09/20/rachel-birthday-foraging.html",
+                location: "Tilamook National Forest, Oregon",
+                date: "20 Sep, 2021",
+                category: "foraging"
+              },
+              
+              {
+                title: "Arch Cape, Washington Hike",
+                url: "/weblog/hiking/2021/07/24/arch-cape-hike.html",
+                location: "Columbia River Gorge, WA",
+                date: "24 Jul, 2021",
+                category: "hiking"
+              },
+              
+              {
+                title: "Whalen Island Camping Summer '21",
+                url: "/weblog/camping/2021/06/18/whalen-island.html",
+                location: "Tillamook County, OR",
+                date: "18 Jun, 2021",
+                category: "camping"
+              },
+              
+              {
+                title: "The Suttle Lodge & Black Butte Hike",
+                url: "/weblog/hiking/2021/05/28/the-suttle-lodge.html",
+                location: "Sisters, OR",
+                date: "28 May, 2021",
+                category: "hiking"
+              },
+              
+              {
+                title: "Ramona Falls Hike",
+                url: "/weblog/hiking/2021/05/15/ramona-falls.html",
+                location: "Mt. Hood National Forest, OR",
+                date: "15 May, 2021",
+                category: "hiking"
+              },
+              
+              {
+                title: "Hamilton Mountain Hike",
+                url: "/weblog/hiking/2021/05/01/hamilton-mountain.html",
+                location: "Columbia River Gorge, WA",
+                date: "1 May, 2021",
+                category: "hiking"
+              },
+              
+              {
+                title: "The Oregon Garden",
+                url: "/weblog/hiking/2021/04/23/the-oregon-garden.html",
+                location: "Silverton, OR",
+                date: "23 Apr, 2021",
+                category: "hiking"
+              },
+              
+              {
+                title: "Lunar New Year & the Oregon Coast",
+                url: "/weblog/roadtrip/2021/02/20/a-quick-escape-from-portland.html",
+                location: "NW Oregon",
+                date: "20 Feb, 2021",
+                category: "roadtrip"
+              },
+              
+              {
+                title: "Whalen Island Camping Trip - Sep '20",
+                url: "/weblog/camping/2020/09/22/whalen-island.html",
+                location: "Tillamook County, Oregon",
+                date: "22 Sep, 2020",
+                category: "camping"
+              },
+              
+              {
+                title: "Tyron Creek State Park Hike",
+                url: "/weblog/hiking/2020/05/22/tyron-creek-hike.html",
+                location: "Tyron Creek State Park",
+                date: "22 May, 2020",
+                category: "hiking"
+              },
+              
+              {
+                title: "Joshua Tree National Park in Winter",
+                url: "/weblog/roadtrip/2019/12/29/joshua-tree-winter.html",
+                location: "Joshua Tree National Park, California",
+                date: "29 Dec, 2019",
+                category: "roadtrip"
+              },
+              
+              {
+                title: "Whalen Island Camping Trip - Sep '19",
+                url: "/weblog/camping/2019/09/22/whalen-island.html",
+                location: "Tillamook County, Oregon",
+                date: "22 Sep, 2019",
+                category: "camping"
+              },
+              
+              {
+                title: "Sea fishing in Southern Alaska",
+                url: "/weblog/travelogue/2019/07/29/alaska-fishing.html",
+                location: "Southern Alaska",
+                date: "29 Jul, 2019",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Trifecta 2019",
+                url: "/weblog/roadtrip/2019/06/21/trifecta-2019.html",
+                location: "Mt. Hood, Portland and Pacific City",
+                date: "21 Jun, 2019",
+                category: "roadtrip"
+              },
+              
+              {
+                title: "Intertidal Edibles Foraging at Ecola State Park",
+                url: "/weblog/foraging/2019/06/18/coastal-foraging-at-ecola-state-park.html",
+                location: "Ecola State Park",
+                date: "18 Jun, 2019",
+                category: "foraging"
+              },
+              
+              {
+                title: "Costa Rica: Santa Cruz",
+                url: "/weblog/travelogue/2019/04/11/costa-rica-santa-cruz.html",
+                location: "Costa Rica",
+                date: "11 Apr, 2019",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Costa Rica: Puntarenas, Monteverde",
+                url: "/weblog/travelogue/2019/04/08/costa-rica-monte-verde.html",
+                location: "Costa Rica",
+                date: "8 Apr, 2019",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Costa Rica: Tamarindo, Nicoya, Santa Teresa",
+                url: "/weblog/travelogue/2019/03/29/costa-rica-guanacaste.html",
+                location: "Costa Rica",
+                date: "29 Mar, 2019",
+                category: "travelogue"
+              },
+              
+              {
+                title: "I now work at Xandr, Inc.",
+                url: "/weblog/journal/2019/03/20/new-job-at-xandr.html",
+                location: "Portland, OR",
+                date: "20 Mar, 2019",
+                category: "journal"
+              },
+              
+              {
+                title: "Kaua'i 2018",
+                url: "/weblog/travelogue/2018/11/20/kauai-2018.html",
+                location: "Island of Kaua'i, Hawai'i",
+                date: "20 Nov, 2018",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Mushroom foraging with Friends in Tillamook National Forest",
+                url: "/weblog/foraging/2018/10/20/mushrooming-october-20.html",
+                location: "Tillamook National Forest",
+                date: "20 Oct, 2018",
+                category: "foraging"
+              },
+              
+              {
+                title: "Whalen Island Camping Trip - Sep '18",
+                url: "/weblog/camping/2018/09/23/whalen-island-2018.html",
+                location: "Tillamook County, Oregon",
+                date: "23 Sep, 2018",
+                category: "camping"
+              },
+              
+              {
+                title: "Ecola State Park Hiking",
+                url: "/weblog/hiking/2018/09/21/rachel-birthday-ecola-hiking.html",
+                location: "Ecola State Park",
+                date: "21 Sep, 2018",
+                category: "hiking"
+              },
+              
+              {
+                title: "Crabbing At Jetty Fishery",
+                url: "/weblog/foraging/2018/09/21/rachel-birthday-crabbing.html",
+                location: "Nehalem River Estuary",
+                date: "21 Sep, 2018",
+                category: "foraging"
+              },
+              
+              {
+                title: "Birthday Mushroom Foraging - Sep '18",
+                url: "/weblog/foraging/2018/09/20/rachel-birthday-foraging.html",
+                location: "Tillamook National Forest",
+                date: "20 Sep, 2018",
+                category: "foraging"
+              },
+              
+              {
+                title: "Central Oregon Camping: Painted Hills, John Day and Bend",
+                url: "/weblog/camping/2018/05/26/central-oregon-camping.html",
+                location: "John Day & Bend",
+                date: "26 May, 2018",
+                category: "camping"
+              },
+              
+              {
+                title: "Macau SAR, China 2018",
+                url: "/weblog/travelogue/2018/04/01/macau.html",
+                location: "Macau SAR, PRC",
+                date: "1 Apr, 2018",
+                category: "travelogue"
+              },
+              
+              {
+                title: "South Vietnam 2018",
+                url: "/weblog/travelogue/2018/03/26/vietnam.html",
+                location: "Vietnam",
+                date: "26 Mar, 2018",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Hong Kong SAR, China 2018",
+                url: "/weblog/travelogue/2018/03/22/hong-kong.html",
+                location: "Hong Kong SAR, PRC",
+                date: "22 Mar, 2018",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Norway: Oslo, Stavanger, Bergen & Oslo again",
+                url: "/weblog/travelogue/2017/10/01/norway.html",
+                location: "Norway",
+                date: "1 Oct, 2017",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Trip to Iceland",
+                url: "/weblog/travelogue/2017/10/01/iceland.html",
+                location: "Iceland",
+                date: "1 Oct, 2017",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Total Solar Eclipse in Oregon",
+                url: "/weblog/camping/2017/08/19/solar-eclipse-camping.html",
+                location: "Columbia River Gorge & Central Oregon",
+                date: "19 Aug, 2017",
+                category: "camping"
+              },
+              
+              {
+                title: "Alaska Kenai Peninsula Fishing 2017",
+                url: "/weblog/travelogue/2017/07/01/fishing-the-alaskan-kenai-peninsula.html",
+                location: "Kenai Peninsula, Alaska, USA",
+                date: "1 Jul, 2017",
+                category: "travelogue"
+              },
+              
+              {
+                title: "The Clean Coder - lightning book review",
+                url: "/weblog/talks/2017/02/04/clean-coder-slides0.html",
+                location: "Portland",
+                date: "4 Feb, 2017",
+                category: "talks"
+              },
+              
+              {
+                title: "Costs & challenges of pair-programming",
+                url: "/weblog/essay/2017/01/18/costs-of-pair-programming.html",
+                location: "Portland",
+                date: "18 Jan, 2017",
+                category: "essay"
+              },
+              
+              {
+                title: "Pair-programming at Jama Software",
+                url: "/weblog/essay/2017/01/04/pair-programming-at-jama-software.html",
+                location: "Portland",
+                date: "4 Jan, 2017",
+                category: "essay"
+              },
+              
+              {
+                title: "Winter Holiday Roadtrip to Southern California",
+                url: "/weblog/roadtrip/2016/12/22/winter-roadtrip-california.html",
+                location: "California",
+                date: "22 Dec, 2016",
+                category: "roadtrip"
+              },
+              
+              {
+                title: "Kaua'i 2016",
+                url: "/weblog/travelogue/2016/08/31/kauai-2016.html",
+                location: "Island of Kaua'i, Hawai'i",
+                date: "31 Aug, 2016",
+                category: "travelogue"
+              },
+              
+              {
+                title: "Camping at Whalen Island with Family",
+                url: "/weblog/camping/2016/07/03/camping-at-whalen-island-with-family.html",
+                location: "Whalen Island, Tillamook, Oregon",
+                date: "3 Jul, 2016",
+                category: "camping"
+              },
+              
+              {
+                title: "Camping at Timothy Lake",
+                url: "/weblog/camping/2016/06/04/timothy-lake-camping.html",
+                location: "Timothy Lake, Oregon",
+                date: "4 Jun, 2016",
+                category: "camping"
+              },
+              
+              {
+                title: "Lunar New Year in Southern California",
+                url: "/weblog/travelogue/2016/02/08/lunar-new-year.html",
+                location: "Timothy Lake, Oregon",
+                date: "8 Feb, 2016",
+                category: "travelogue"
+              },
+              
+              {
+                title: "I now work at Jama Software",
+                url: "/weblog/journal/2015/01/01/new-job-at-jama-software.html",
+                location: "Portland",
+                date: "1 Jan, 2015",
+                category: "journal"
+              },
+              
+              {
+                title: "I now work at Snapflow",
+                url: "/weblog/journal/2013/05/01/new-job-at-snapflow.html",
+                location: "Portland",
+                date: "1 May, 2013",
+                category: "journal"
+              }
+              
+            ];
+
+            const groupedByLocation = {};
+            mapPosts.forEach((post) => {
+              if (!groupedByLocation[post.location]) {
+                groupedByLocation[post.location] = [];
+              }
+              groupedByLocation[post.location].push(post);
+            });
+
+            const locationCoordinates = {
+              
+              "Columbia River Gorge & Central Oregon": { lat: 45.52, lon: -121.7 },
+              
+              "Columbia River Gorge, WA": { lat: 45.694, lon: -121.884 },
+              
+              "Costa Rica": { lat: 9.7489, lon: -83.7534 },
+              
+              "Ecola State Park": { lat: 45.9232, lon: -123.9685 },
+              
+              "Hong Kong SAR, PRC": { lat: 22.3193, lon: 114.1694 },
+              
+              "Iceland": { lat: 64.9631, lon: -19.0208 },
+              
+              "Island of Kaua'i, Hawai'i": { lat: 22.0964, lon: -159.5261 },
+              
+              "John Day & Bend": { lat: 44.3, lon: -120.8 },
+              
+              "Joshua Tree National Park, California": { lat: 33.8734, lon: -115.901 },
+              
+              "Kenai Peninsula, Alaska, USA": { lat: 60.5544, lon: -150.2615 },
+              
+              "Long Beach, Washington": { lat: 46.3523, lon: -124.053 },
+              
+              "Macau SAR, PRC": { lat: 22.1987, lon: 113.5439 },
+              
+              "Mt. Hood National Forest, OR": { lat: 45.3735, lon: -121.6959 },
+              
+              "Mt. Hood, Portland and Pacific City": { lat: 45.2, lon: -122.2 },
+              
+              "Nehalem River Estuary": { lat: 45.7234, lon: -123.9408 },
+              
+              "Norway": { lat: 60.472, lon: 8.4689 },
+              
+              "Portland, OR": { lat: 45.5152, lon: -122.6784 },
+              
+              "Silverton, OR": { lat: 45.0054, lon: -122.7834 },
+              
+              "Sisters, OR": { lat: 44.2909, lon: -121.5487 },
+              
+              "Southern Alaska": { lat: 59.5, lon: -149.5 },
+              
+              "Tilamook National Forest, Oregon": { lat: 45.4863, lon: -123.683 },
+              
+              "Tillamook County, OR": { lat: 45.4562, lon: -123.783 },
+              
+              "Tillamook County, Oregon": { lat: 45.4562, lon: -123.783 },
+              
+              "Tillamook National Forest": { lat: 45.4863, lon: -123.683 },
+              
+              "Tyron Creek State Park": { lat: 45.4432, lon: -122.7009 },
+              
+              "Vietnam": { lat: 14.0583, lon: 108.2772 },
+              
+              "California": { lat: 36.7783, lon: -119.4179 },
+              
+              "Timothy Lake, Oregon": { lat: 45.1042, lon: -121.7385 },
+              
+              "Whalen Island, Tillamook, Oregon": { lat: 45.7678, lon: -123.9576 }
+              
+            };
+
+            const map = L.map(mapElement, {
+              zoomControl: true,
+              scrollWheelZoom: true
+            }).setView([39.5, -98.35], 3);
+
+            const lightTileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 18,
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            });
+
+            const darkTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+              maxZoom: 19,
+              subdomains: 'abcd',
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            });
+
+            let activeTileLayer = null;
+            function isDarkMode() {
+              return document.body.getAttribute('data-theme') === 'dark';
+            }
+
+            function applyMapTheme() {
+              const targetLayer = isDarkMode() ? darkTileLayer : lightTileLayer;
+              if (activeTileLayer === targetLayer) {
+                return;
+              }
+
+              if (activeTileLayer) {
+                map.removeLayer(activeTileLayer);
+              }
+
+              targetLayer.addTo(map);
+              activeTileLayer = targetLayer;
+            }
+
+            function markerStyle() {
+              if (isDarkMode()) {
+                return {
+                  radius: 7,
+                  color: '#d8d8d8',
+                  weight: 2,
+                  fillColor: '#9f9f9f',
+                  fillOpacity: 0.9
+                };
+              }
+
+              return {
+                radius: 7,
+                color: '#5f5f5f',
+                weight: 2,
+                fillColor: '#9a9a9a',
+                fillOpacity: 0.9
+              };
+            }
+
+            const mapMarkers = [];
+
+            const markerBounds = [];
+            function escapeHtml(value) {
+              return String(value)
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#39;');
+            }
+
+            function popupHtml(locationName, postsAtLocation) {
+              const rows = postsAtLocation
+                .map((post) => {
+                  return '<li><a href="' + escapeHtml(post.url) + '">' + escapeHtml(post.title) + '</a><span class="weblog-map-popup-date"> (' + escapeHtml(post.date) + ')</span></li>';
+                })
+                .join('');
+
+              return '<div class="weblog-map-popup">'
+                + '<h4>' + escapeHtml(locationName) + '</h4>'
+                + '<ul>' + rows + '</ul>'
+                + '</div>';
+            }
+
+            function renderMarkers() {
+              const locations = Object.keys(groupedByLocation);
+              for (const locationName of locations) {
+                try {
+                  const coords = locationCoordinates[locationName];
+                  if (!coords || Number.isNaN(coords.lat) || Number.isNaN(coords.lon)) {
+                    continue;
+                  }
+
+                  const marker = L.circleMarker([coords.lat, coords.lon], markerStyle()).addTo(map);
+                  marker.bindPopup(popupHtml(locationName, groupedByLocation[locationName]));
+                  markerBounds.push([coords.lat, coords.lon]);
+                  mapMarkers.push(marker);
+                } catch (_e) {
+                  // Ignore individual marker failures so the rest of the map can render.
+                }
+              }
+
+              if (markerBounds.length > 0) {
+                map.fitBounds(markerBounds, { padding: [24, 24], maxZoom: 6 });
+              }
+            }
+
+            renderMarkers();
+
+            function syncMarkerTheme() {
+              const style = markerStyle();
+              mapMarkers.forEach((marker) => marker.setStyle(style));
+            }
+
+            function applyThemeToMap() {
+              applyMapTheme();
+              syncMarkerTheme();
+            }
+
+            applyThemeToMap();
+
+            const darkSwitch = document.getElementById('darkSwitch');
+            if (darkSwitch) {
+              darkSwitch.addEventListener('change', function () {
+                // dark-mode.js applies body[data-theme] right after this event.
+                setTimeout(applyThemeToMap, 0);
+              });
+            }
+
+            const bodyThemeObserver = new MutationObserver(applyThemeToMap);
+            bodyThemeObserver.observe(document.body, {
+              attributes: true,
+              attributeFilter: ['data-theme']
+            });
+          })();
+        </script>
+      </div>
+
+      <div class="col-md-3 col-sm-12">
+        
+
+<!-- Current: weblog-map
+Current 1: weblog-map
+Current 2: 
+Current 3:  -->
+
+<aside class="sidebar sidebar-weblog">
+    <!-- <h4>Categories</h4> -->
+    <ul class="list-unstyled" style="margin-top: 0; margin-bottom: 0; padding-left: 0;">
+        <!-- <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-rss-square"></i>
+                    <a href="/weblog">Weblog</a>
+                </small>
+            
+        </li>
+        <hr /> -->
+        <h4 class="text-muted" style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 0.45rem;">Work</h4>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-journal-whills"></i>
+                    <a href="/weblog/category/journal">Journal</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="/weblog/category/essay">Essays</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-chalkboard"></i>
+                    <a href="/weblog/category/talks">Talks</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-terminal"></i>
+                    <a href="/weblog/category/devlog">Dev Logs</a>
+                </small>
+            
+        </li>
+
+        <h4 class="text-muted" style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin: 0.95rem 0 0.45rem;">Adventures</h4>
+
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-passport"></i>
+                    <a href="/weblog/category/travelogue">Travelougue</a>
+                </small>
+            
+        </li>
+
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-car-side"></i>
+                    <a href="/weblog/category/roadtrip">Roadtrip</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-hiking"></i>
+                    <a href="/weblog/category/hiking">Hiking</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-leaf"></i>
+                    <a href="/weblog/category/foraging">Foraging</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-campground"></i>
+                    <a href="/weblog/category/camping">Camping</a>
+                </small>
+            
+        </li>
+
+        <h4 class="text-muted" style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin: 0.95rem 0 0.45rem;">Meta</h4>
+
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-tag"></i>
+                    <a href="/weblog/tags">Tags</a>
+                </small>
+            
+        </li>
+        <li>
+            
+                <small class="text-muted">
+                    <i class="fas fa-list-alt"></i>
+                    <a href="/weblog/category/changelog">Changelog</a>
+                </small>
+            
+        </li>
+    </ul>
+</aside>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <footer class="global-footer">
+  <div class="global-footer-shell">
+    <nav class="site-footer-nav">
+      <span class="text-muted">
+        <small>Proudly built in the <a href="/wiki/cascadia">Cascadia bioregion</a> with <a href="/about/website">open-source tools</a>.</small>
+      </span>
+      <span class="site-footer-controls">
+        <label class="dark-mode-toggle" for="darkSwitch" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <input type="checkbox" id="darkSwitch" />
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Dark</span>
+        </label>
+        <div class="bg-tone-selector" role="group" aria-label="Background tone selector">
+          <button type="button" class="bg-tone-btn bg-tone-btn--neutral" data-bg-tone="neutral" data-tooltip="Neutral" aria-label="Set neutral background tone" title="Neutral"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--grayscale" data-bg-tone="grayscale" data-tooltip="Grayscale" aria-label="Set grayscale background tone" title="Grayscale"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--warm" data-bg-tone="warm" data-tooltip="Warm" aria-label="Set warm background tone" title="Warm"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--cool" data-bg-tone="cool" data-tooltip="Cool" aria-label="Set cool background tone" title="Cool"></button>
+          <button type="button" class="bg-tone-btn bg-tone-btn--gol" data-bg-tone="gol" data-tooltip="Game of Life" aria-label="Set Game of Life background tone" title="Game of Life"></button>
+        </div>
+      </span>
+    </nav>
+  </div>
+  <script src="/js/dark-mode.js?v=20260704-bg-tones"></script>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,319 @@
+/* Button variants and sizes. */
+
+.btn,
+.wm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--wm-radius-xs);
+  background: var(--wm-color-surface-strong);
+  color: var(--wm-color-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn:hover,
+.wm-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled,
+.wm-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary,
+.wm-btn-primary {
+  background: var(--wm-color-accent-soft);
+  border-color: var(--wm-color-accent-border);
+  color: var(--wm-color-accent);
+}
+
+.btn-primary:hover,
+.wm-btn-primary:hover {
+  background: color-mix(in srgb, var(--wm-color-accent-soft) 68%, white);
+}
+
+.btn-secondary,
+.wm-btn-secondary,
+.btn-ghost,
+.wm-btn-ghost {
+  background: var(--wm-color-surface-strong);
+  border-color: var(--wm-color-border);
+  color: var(--wm-color-text-secondary);
+}
+
+.btn-primary-neutral,
+.wm-btn-primary-neutral {
+  background: var(--wm-color-surface-strong);
+  border-color: var(--wm-color-border-strong);
+  color: var(--wm-color-text);
+}
+
+.btn-primary-neutral:hover,
+.wm-btn-primary-neutral:hover {
+  background: var(--wm-color-surface-muted);
+}
+
+[data-theme="dark"] .btn-primary-neutral,
+[data-theme="dark"] .wm-btn-primary-neutral {
+  background: #fff;
+  border-color: #fff;
+  color: #0d0d0d;
+}
+
+[data-theme="dark"] .btn-primary-neutral:hover,
+[data-theme="dark"] .wm-btn-primary-neutral:hover {
+  background: #f2f2f2;
+  border-color: #f2f2f2;
+}
+
+.btn-secondary-neutral,
+.wm-btn-secondary-neutral {
+  background: transparent;
+  border-color: var(--wm-color-border);
+  color: var(--wm-color-text-secondary);
+}
+
+.btn-secondary-neutral:hover,
+.wm-btn-secondary-neutral:hover {
+  background: var(--wm-color-surface-strong);
+  color: var(--wm-color-text);
+}
+
+.btn-secondary:hover,
+.wm-btn-secondary:hover,
+.btn-ghost:hover,
+.wm-btn-ghost:hover {
+  background: var(--wm-color-surface-muted);
+}
+
+.btn-danger,
+.wm-btn-danger {
+  background: var(--wm-color-danger-soft);
+  border-color: var(--wm-color-danger-border);
+  color: var(--wm-color-danger);
+}
+
+.btn-danger:hover,
+.wm-btn-danger:hover {
+  background: color-mix(in srgb, var(--wm-color-danger-soft) 80%, white);
+}
+
+.btn-success,
+.wm-btn-success {
+  background: var(--wm-color-success-soft);
+  border-color: var(--wm-color-success-border);
+  color: var(--wm-color-success);
+}
+
+.btn-warning,
+.wm-btn-warning {
+  background: var(--wm-color-warning-soft);
+  border-color: var(--wm-color-warning-border);
+  color: var(--wm-color-warning);
+}
+
+.btn-sm,
+.wm-btn-sm {
+  min-height: unset;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+}
+
+.btn-link,
+.wm-btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--wm-color-accent);
+  font-size: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: unset;
+  letter-spacing: 0;
+  text-transform: none;
+  border-radius: 0;
+}
+
+.btn-link:hover,
+.wm-btn-link:hover {
+  color: color-mix(in srgb, var(--wm-color-accent) 82%, black);
+  background: none;
+  transform: none;
+}
+
+/**
+ * .btn-square / .wm-btn-square
+ * Shape modifier alias for explicitness in markup. Base buttons are already
+ * squared by default; this class keeps the rectangular treatment when teams
+ * prefer shape to be opt-in at call sites. Combine with any
+ * semantic variant (.btn-primary, .btn-secondary, etc.).
+ *
+ *   <button class="btn btn-primary btn-square">Start</button>
+ *   <button class="btn btn-secondary btn-square btn-sm">Next</button>
+ */
+.btn-square,
+.wm-btn-square {
+  border-radius: var(--wm-radius-xs);
+}
+
+/**
+ * .btn-pill / .wm-btn-pill
+ * Compact muted pill for UI chrome controls (theme toggle, view toggle, print).
+ * No action affordance — use for low-emphasis utility controls only.
+ */
+.btn-pill,
+.wm-btn-pill {
+  background: var(--wm-color-surface-strong);
+  border: 1px solid var(--wm-color-border);
+  border-radius: var(--wm-radius-pill);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--wm-color-text-muted);
+  line-height: 1;
+  min-height: unset;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-pill:hover,
+.wm-btn-pill:hover {
+  background: var(--wm-color-surface-muted);
+  color: var(--wm-color-text);
+}
+
+/**
+ * .btn-group / .wm-btn-group
+ * Connects a set of buttons into a single horizontal unit by collapsing
+ * internal borders and square-off the inner corners. Works with any
+ * semantic variant and the .btn-sm size modifier.
+ *
+ *   <div class="btn-group">
+ *     <button class="btn btn-secondary btn-sm">Left</button>
+ *     <button class="btn btn-secondary btn-sm">Middle</button>
+ *     <button class="btn btn-secondary btn-sm">Right</button>
+ *   </div>
+ */
+.btn-group,
+.wm-btn-group {
+  display: inline-flex;
+}
+
+.btn-group > .btn,
+.btn-group > .wm-btn,
+.wm-btn-group > .btn,
+.wm-btn-group > .wm-btn {
+  border-radius: 0;
+}
+
+.btn-group > .btn:first-child,
+.btn-group > .wm-btn:first-child,
+.wm-btn-group > .btn:first-child,
+.wm-btn-group > .wm-btn:first-child {
+  border-radius: var(--wm-radius-xs) 0 0 var(--wm-radius-xs);
+}
+
+.btn-group > .btn:last-child,
+.btn-group > .wm-btn:last-child,
+.wm-btn-group > .btn:last-child,
+.wm-btn-group > .wm-btn:last-child {
+  border-radius: 0 var(--wm-radius-xs) var(--wm-radius-xs) 0;
+}
+
+.btn-group > .btn:not(:first-child),
+.btn-group > .wm-btn:not(:first-child),
+.wm-btn-group > .btn:not(:first-child),
+.wm-btn-group > .wm-btn:not(:first-child) {
+  margin-left: -1px;
+}
+
+.btn-group > .btn:hover,
+.btn-group > .wm-btn:hover,
+.wm-btn-group > .btn:hover,
+.wm-btn-group > .wm-btn:hover {
+  position: relative;
+  z-index: 1;
+}
+
+/**
+ * .btn-expand / .wm-btn-expand
+ * Borderless disclosure / section-expansion trigger. Use for inline "Show
+ * more", "Show examples", expand-collapse controls where a full button
+ * treatment would be too heavy. Renders as a muted text row with a leading
+ * chevron that rotates when the [aria-expanded="true"] state is set.
+ *
+ *   <button class="btn btn-expand" aria-expanded="false">Show examples</button>
+ *   <button class="btn btn-expand" aria-expanded="true">Hide examples</button>
+ */
+.btn-expand,
+.wm-btn-expand {
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  min-height: unset;
+  gap: 0.3rem;
+  color: var(--wm-color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  border-radius: 0;
+  transition: color 0.15s ease;
+}
+
+.btn-expand::before,
+.wm-btn-expand::before {
+  content: '▶';
+  display: inline-block;
+  font-size: 0.6em;
+  transition: transform 0.2s ease;
+}
+
+.btn-expand[aria-expanded="true"]::before,
+.wm-btn-expand[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-expand:hover,
+.wm-btn-expand:hover {
+  color: var(--wm-color-text);
+  background: none;
+  transform: none;
+}
+
+.btn-expand:disabled,
+.wm-btn-expand:disabled {
+  color: var(--wm-color-text-muted);
+  opacity: 0.5;
+}

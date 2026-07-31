@@ -1,0 +1,17 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Personal weblog built with Jekyll",
+  "private": true,
+  "dependencies": {
+    "@wintermuted/ui-theme": "file:../wintermuted-ui-theme"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [
+    "jekyll",
+    "blog"
+  ],
+  "author": "Jameson Nyeholt",
+  "license": "MIT"
+}
