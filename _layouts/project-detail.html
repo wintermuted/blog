@@ -1173,7 +1173,15 @@ layout: default
           var mermaidPre = document.createElement('pre');
           mermaidPre.className = 'mermaid';
           mermaidPre.textContent = code.textContent;
-          pre.replaceWith(mermaidPre);
+
+          // If this Mermaid block came from a fenced code block, it will be wrapped in Rouge's
+          // `.highlight` container. Replace that wrapper so Mermaid isn't styled like a code sample.
+          var highlight = pre.parentElement;
+          if (highlight && highlight.classList && highlight.classList.contains('highlight')) {
+            highlight.replaceWith(mermaidPre);
+          } else {
+            pre.replaceWith(mermaidPre);
+          }
         });
       }
 
