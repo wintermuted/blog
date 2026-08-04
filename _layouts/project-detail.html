@@ -1161,9 +1161,36 @@ layout: default
     initScreenshotSlideshows();
 
     (function initProjectMermaid() {
+      function normalizeMermaidBlocks(root) {
+        var scope = root || document;
+        var codeBlocks = scope.querySelectorAll(
+          '.project-diagram pre > code.language-mermaid, .project-architecture-content pre > code.language-mermaid'
+        );
+        codeBlocks.forEach(function (code) {
+          var pre = code.parentElement;
+          if (!pre || pre.classList.contains('mermaid')) return;
+
+          var mermaidPre = document.createElement('pre');
+          mermaidPre.className = 'mermaid';
+          mermaidPre.textContent = code.textContent;
+
+          // If this Mermaid block came from a fenced code block, it will be wrapped in Rouge's
+          // `.highlight` container. Replace that wrapper so Mermaid isn't styled like a code sample.
+          var highlight = pre.parentElement;
+          if (highlight && highlight.classList && highlight.classList.contains('highlight')) {
+            highlight.replaceWith(mermaidPre);
+          } else {
+            pre.replaceWith(mermaidPre);
+          }
+        });
+      }
+
       function getRenderableNodes(root) {
         var scope = root || document;
-        return Array.from(scope.querySelectorAll('.project-diagram .mermaid')).filter(function (node) {
+        normalizeMermaidBlocks(scope);
+        return Array.from(
+          scope.querySelectorAll('.project-diagram .mermaid, .project-architecture-content .mermaid')
+        ).filter(function (node) {
           return !node.getAttribute('data-processed');
         });
       }
