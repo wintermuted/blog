@@ -570,6 +570,32 @@ body a:visited {
   padding-inline: 1.6rem !important;
 }
 
+.about-layout-content > h1 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.about-layout-content h2 {
+  margin: 1.35rem 0 0.75rem;
+  font-size: 1.12rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.about-layout-content h3 {
+  margin: 1.1rem 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.about-layout-content p {
+  margin: 0 0 0.9rem;
+  line-height: 1.55;
+}
+
 .about-page-columns {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);

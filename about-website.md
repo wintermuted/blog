@@ -4,22 +4,21 @@ title: About > About this website
 permalink: /about/website
 --- 
 
-<p class="lead">
-I maintain this website as a personal & professional weblog and wiki.  
-</p>
+<p class="lead">This website is built with <a href="https://en.wikipedia.org/wiki/Open_source">open source</a> libraries, frameworks, and dependencies.</p>
 
-Topics I focus on are software engineering practice, and outdoor recreation within the Pacific Northwest.  
+## Frameworks and Libraries
+- [Jekyll](https://jekyllrb.com) for static-site generation.
+- [Minima](https://github.com/jekyll/minima) as the base Jekyll theme.
+- [@wintermuted/ui-theme](https://github.com/wintermuted/ui-theme) for the design system foundation.
+- [Font Awesome](https://fontawesome.com) for icon assets.
 
-I no longer maintain any personal social media profiles, and find a lot of comfort in a nostalgia for earlier days of the internet where weblogs were more abundant.  This website given me an opportunity to return to my roots by hand coding.
+## Runtime and Dependency Ecosystem
+- [Ruby](https://www.ruby-lang.org/en/) as the runtime used by Jekyll.
+- Bundler-managed Ruby gems including: [jekyll-feed](https://github.com/jekyll/jekyll-feed), [jekyll-timeago](https://github.com/markets/jekyll-timeago), [jekyll-archives](https://github.com/jekyll/jekyll-archives), [jekyll_picture_tag](https://github.com/rbuchberger/jekyll_picture_tag), and [jekyll-autoprefixer](https://github.com/vwochnik/jekyll-autoprefixer).
 
-## Stack
-
-This website is built using [open source](https://en.wikipedia.org/wiki/Open_source) tools.  
-
-**Source**: The source code is publically available on [GitHub](https://github.com/wintermuted/blog).  
-**Hosting**: The compiled output is hosted via [Netlify](https://www.netlify.com).
-
-**Tools**
-- This site is built using [Jekyll](https://jekyllrb.com), a static website generator written in [Ruby](https://www.ruby-lang.org/en/).
-- The layout and styling of this website are based on [@wintermuted/ui-theme](https://github.com/wintermuted/ui-theme) with blog-specific customizations.
-- The icon assets of this website are sourced from [Font Awesome](https://fontawesome.com)
+## CI/CD Architecture
+- [GitHub Actions](https://github.com/features/actions) orchestrates build and deployment workflows.
+- Pushes to `master` trigger the production workflow (`.github/workflows/deploy.yml`).
+- The production workflow builds the site with Jekyll, including image-processing dependencies for `jekyll_picture_tag`, then deploys `_site/` to [Netlify](https://www.netlify.com) using the `nwtgck/actions-netlify` action.
+- Pull requests trigger a separate preview workflow (`.github/workflows/deploy-pr-preview.yml`) that publishes an isolated Netlify preview URL for validation before merge.
+- Concurrency controls ensure only one production deployment runs at a time.
