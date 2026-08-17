@@ -117,20 +117,22 @@
       </div>
     </article>
 
-    <article class="project-card-item" data-project-types="tooling">
+    <article class="project-card-item" data-project-types="web-app">
       <div class="card project-card">
-        <div class="project-card-media project-card-media-placeholder project-card-media--tooling">
-          <a href="{{ site.baseurl }}/projects/wm-asset-workflows/" class="project-card-media-link project-card-media-link--placeholder" aria-label="View wm-asset-workflows project details">
-            <i class="fas fa-tools" aria-hidden="true"></i>
-            <span>Tooling</span>
+        <div class="project-card-media project-card-media-placeholder project-card-media--web-app project-card-media--reveal">
+          <a href="{{ site.baseurl }}/projects/agentic-icon-builder/" class="project-card-media-link" aria-label="View Agentic Icon Builder project details">
+            <span class="project-card-media-reveal-default" aria-hidden="true">
+              <img src="{{ site.baseurl }}/assets/img/projects/agentic-icon-builder/agentic-icon-builder-mark.svg" class="project-card-media-reveal-icon" alt="" aria-hidden="true">
+            </span>
+            <img src="{{ site.baseurl }}/assets/img/projects/agentic-icon-builder/agentic-icon-builder-demo.gif" class="project-card-image project-card-image--hover-reveal" alt="Agentic Icon Builder app interface showing the asset editor and canvas">
           </a>
         </div>
         <div class="card-body">
-          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/wm-asset-workflows/">wm-asset-workflows</a></h4>
-          <p class="project-card-subtitle text-muted">SVG-first asset pipeline.</p>
-          <!-- <ul class="project-card-badges" aria-label="wm-asset-workflows project tags">
+          <h4 class="project-card-title"><a href="{{ site.baseurl }}/projects/agentic-icon-builder/">Agentic Icon Builder</a></h4>
+          <p class="project-card-subtitle text-muted">Agentic SVG icon design workspace.</p>
+          <!-- <ul class="project-card-badges" aria-label="Agentic Icon Builder project tags">
             <li>SVG</li>
-            <li>Automation</li>
+            <li>Agentic</li>
             <li>Playwright</li>
             <li>Pillow</li>
           </ul> -->
@@ -190,6 +192,16 @@
     var grid = document.querySelector('.projects-grid');
 
     if (!buttons.length || !cards.length || !grid) return;
+
+    cards
+      .sort(function (a, b) {
+        var titleA = a.querySelector('.project-card-title').textContent.trim();
+        var titleB = b.querySelector('.project-card-title').textContent.trim();
+        return titleA.localeCompare(titleB, undefined, { sensitivity: 'base' });
+      })
+      .forEach(function (card) {
+        grid.appendChild(card);
+      });
 
     function configureMediaHoverEffects() {
       var mediaLinks = Array.from(document.querySelectorAll('.project-card-media-link'));
@@ -290,6 +302,5 @@
     window.addEventListener('resize', syncGridColumnState);
   });
 </script>
-
 
 
