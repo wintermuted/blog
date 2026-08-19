@@ -165,9 +165,12 @@
 
     <article class="project-card-item" data-project-types="tooling">
       <div class="card project-card">
-        <div class="project-card-media project-card-media-placeholder project-card-media--tooling">
+        <div class="project-card-media project-card-media-placeholder project-card-media--tooling project-card-media--reveal">
           <a href="{{ site.baseurl }}/projects/jsonresume-theme-wintermuted/" class="project-card-media-link" aria-label="View jsonresume-theme-wintermuted project details">
-            <img src="{{ site.baseurl }}/assets/img/projects/jsonresume-theme-wintermuted/preview-summary.png" class="project-card-image" alt="jsonresume-theme-wintermuted preview showing the resume summary and experience sections">
+            <span class="project-card-media-reveal-default" aria-hidden="true">
+              <img src="{{ site.baseurl }}/assets/img/projects/jsonresume-theme-wintermuted/jsonresume-theme-wintermuted-mark.svg" class="project-card-media-reveal-icon" alt="" aria-hidden="true">
+            </span>
+            <img src="{{ site.baseurl }}/assets/img/projects/jsonresume-theme-wintermuted/preview-summary.png" class="project-card-image project-card-image--hover-reveal" alt="jsonresume-theme-wintermuted preview showing the resume summary and experience sections">
           </a>
         </div>
         <div class="card-body">
@@ -305,5 +308,4 @@
     window.addEventListener('resize', syncGridColumnState);
   });
 </script>
-
 
