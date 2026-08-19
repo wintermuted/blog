@@ -2,6 +2,7 @@
 layout: project-detail
 title: jsonresume-theme-wintermuted
 permalink: /projects/jsonresume-theme-wintermuted/
+header_logo: /assets/img/projects/jsonresume-theme-wintermuted/jsonresume-theme-wintermuted-mark.svg
 tagline: Custom JSON Resume theme for a polished CV experience
 status: Active
 role: Designer and Engineer

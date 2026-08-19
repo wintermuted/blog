@@ -2,6 +2,7 @@
 layout: project-detail
 title: Agentic Icon Builder
 permalink: /projects/agentic-icon-builder/
+header_logo: /assets/img/projects/agentic-icon-builder/agentic-icon-builder-mark-v2.svg
 tagline: Agentic workspace for designing, inspecting, and exporting SVG icon systems
 status: Active
 role: Workflow designer and engineer

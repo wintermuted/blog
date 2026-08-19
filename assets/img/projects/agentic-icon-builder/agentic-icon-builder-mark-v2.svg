@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="28" fill="#141414"/>
+  <rect x="4" y="4" width="120" height="120" rx="24" stroke="#2E2E2E" stroke-width="2"/>
+
+  <!-- Artboard canvas with sparse guide dashes -->
+  <rect x="28" y="28" width="72" height="72" rx="8" fill="#1F1F1F"/>
+  <rect x="28" y="28" width="72" height="72" rx="8" stroke="#5A5A5A" stroke-width="3" stroke-dasharray="14 10"/>
+
+  <!-- Lucide Sparkles (primary star only) - scaled 3.3, centered at (64, 64) -->
+  <g transform="translate(24.4, 24.4) scale(3.3)"
+     fill="none" stroke="#FAFAFA" stroke-width="1.9"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
+  </g>
+
+  <!-- Corner selection handles stepped through the gray ramp -->
+  <rect x="21" y="21" width="14" height="14" rx="3.5" fill="#8A8A8A"/>
+  <rect x="93" y="21" width="14" height="14" rx="3.5" fill="#A8A8A8"/>
+  <rect x="21" y="93" width="14" height="14" rx="3.5" fill="#6B6B6B"/>
+  <rect x="93" y="93" width="14" height="14" rx="3.5" fill="#FAFAFA"/>
+</svg>
