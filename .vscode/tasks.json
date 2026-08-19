@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install dependencies",
+      "type": "shell",
+      "command": "ridk enable && bundle install",
+      "inAgents": true,
+      "runOptions": {
+        "runOn": "worktreeCreated"
+      }
+    },
+    {
+      "label": "Start Jekyll development server",
+      "type": "shell",
+      "command": "$env:RUBY_DLL_PATH = Split-Path -Parent (Get-Command vips -ErrorAction Stop).Source; ridk enable; bundle exec jekyll serve --livereload",
+      "inAgents": true
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 layout: project-detail
 title: Wintermuted UI Theme
 permalink: /projects/wintermuted-ui-theme/
+header_logo: /assets/img/projects/wintermuted-ui-theme/wm-ui-theme-mark.svg
 tagline: Shared design tokens and component styles for consistent UI
 status: Active
 role: Designer and Engineer

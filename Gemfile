@@ -15,7 +15,12 @@ gem "jekyll", "~> 4.0"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.0"
 gem 'jekyll-autoprefixer'
-gem "mini_racer"
+# libv8-node ships no x64-mingw-ucrt binary and cannot build on Windows, so skip
+# installing mini_racer there. install_if keeps it in the lockfile for every other
+# platform, which matters because CI installs with frozen mode enabled.
+install_if -> { !Gem.win_platform? } do
+  gem "mini_racer"
+end
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -23,5 +28,5 @@ group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.15.1"
    gem 'jekyll-timeago', '~> 0.13.1'
    gem 'jekyll-archives'
-   gem 'jekyll_picture_tag', '~> 2.0.3'
+   gem 'jekyll_picture_tag', '~> 2.1.3'
 end
