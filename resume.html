@@ -2859,7 +2859,7 @@ pre.code-block {
 }
 
 /* =========================================================
-   jsonresume-theme-local
+  jsonresume-theme-wintermuted
    Design language: OpenAI — clean, editorial, light/dark
    ========================================================= */
 
@@ -2883,6 +2883,16 @@ pre.code-block {
   --color-toggle-bg: #f0f0f0;
   --color-toggle-hover: #e0e0e0;
   --tile-bg: var(--wm-color-surface-strong, #efefef);
+
+  /* Layout sizing */
+  --resume-max-width: 980px;
+  --resume-body-padding: 0 2rem 3rem;
+  --resume-layout-gap: 2rem;
+  --resume-side-nav-width: 140px;
+  --section-label-font-size: 0.7rem;
+  --section-label-font-weight: 500;
+  --section-label-line-height: 1.6;
+  --section-label-letter-spacing: 0.06em;
 }
 
 [data-theme="dark"] {
@@ -3001,11 +3011,18 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
-  max-width: 980px;
+  max-width: var(--resume-max-width);
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: var(--resume-body-padding);
   font-weight: 400;
   transition: color 0.2s ease, background 0.2s ease;
+}
+
+[data-layout-mode="full"] {
+  --resume-max-width: none;
+  --resume-body-padding: 0 clamp(1.25rem, 2.8vw, 2.75rem) 2.2rem;
+  --resume-layout-gap: clamp(2rem, 2.6vw, 3rem);
+  --resume-side-nav-width: clamp(210px, 20vw, 300px);
 }
 
 a {
@@ -3042,10 +3059,11 @@ h1 {
 }
 
 h2 {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: var(--section-label-font-size);
+  font-weight: var(--section-label-font-weight);
+  line-height: var(--section-label-line-height);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--section-label-letter-spacing);
   color: var(--color-text);
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 0.5rem;
@@ -3054,7 +3072,7 @@ h2 {
   top: var(--sticky-header-h, 0px);
   background: var(--tile-bg);
   z-index: 10;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   margin-top: 0;
 }
 
@@ -3064,7 +3082,7 @@ h2::before {
   left: 0;
   right: 0;
   bottom: 100%;
-  height: 3rem;
+  height: 0;
   background: inherit;
 }
 
@@ -3133,10 +3151,9 @@ p {
 }
 
 .header {
-  --t: 0; /* scroll progress 0 (full) to 1 (compact) */
-  margin-bottom: calc(2.5rem * (1 - var(--t)));
-  padding-top: calc(1.3rem * var(--t));
-  padding-bottom: calc(1.5rem - 0.2rem * var(--t));
+  margin-bottom: 1.1rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
@@ -3144,32 +3161,43 @@ p {
   z-index: 20;
 }
 
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  text-align: left;
+}
+
 .header-name h1 {
-  margin: 0 0 0.15rem;
-  font-size: calc(2rem - 1rem * var(--t));
-  letter-spacing: calc(-0.025em + 0.085em * var(--t));
-  line-height: calc(1.2 - 0.1 * var(--t));
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.01em;
+  line-height: 1.16;
 }
 
 .header-name .label {
   color: var(--color-text-muted);
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  margin: 0 0 calc(1rem * (1 - var(--t)));
-  max-height: calc(3rem * (1 - var(--t)));
-  opacity: calc(1 - var(--t));
-  overflow: hidden;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .header-contact {
   display: flex;
   flex-wrap: wrap;
-  gap: calc(0.35rem * (1 - var(--t))) calc(1.25rem * (1 - var(--t)));
+  justify-content: flex-start;
+  margin-top: 0.7rem;
+  gap: 0.2rem 1rem;
   font-size: 0.85rem;
   color: var(--color-text-muted);
-  max-height: calc(5rem * (1 - var(--t)));
-  opacity: calc(1 - var(--t));
-  overflow: hidden;
 }
 
 .header-contact span {
@@ -3193,6 +3221,10 @@ p {
   font-size: 0.9rem;
   line-height: 1.65;
   max-width: 65ch;
+}
+
+#summary > p {
+  max-width: none;
 }
 
 /* --- Role / Entry Headers --- */
@@ -3407,6 +3439,32 @@ ul.role-projects-list li a.project-ref:hover {
   line-height: 1.6;
 }
 
+.projects-subheading {
+  margin: 1.35rem 0 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+#projects > .projects-subheading:first-of-type {
+  margin-top: 0.5rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
+#projects > h2[data-subsection]::after,
+#experience > h2[data-subsection]::after {
+  content: " / " attr(data-subsection);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
 .position {
   font-style: normal;
   font-size: 0.88rem;
@@ -3434,7 +3492,7 @@ ul.role-projects-list li a.project-ref:hover {
 /* --- Layout with Side Navigation --- */
 .layout {
   display: flex;
-  gap: 2rem;
+  gap: var(--resume-layout-gap);
   align-items: flex-start;
 }
 
@@ -3443,11 +3501,32 @@ ul.role-projects-list li a.project-ref:hover {
   min-width: 0;
 }
 
+.contact-section {
+  margin-top: 2.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-section h2 {
+  margin-bottom: 0.65rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  font-size: 0.9rem;
+}
+
+.contact-links a {
+  color: var(--color-text);
+}
+
 .side-nav {
   position: sticky;
   top: var(--sticky-header-h, 2rem);
   flex-shrink: 0;
-  width: 140px;
+  width: var(--resume-side-nav-width);
   max-height: calc(100vh - var(--sticky-header-h, 2rem) - 2rem);
   overflow-y: auto;
 }
@@ -3462,18 +3541,89 @@ ul.role-projects-list li a.project-ref:hover {
   margin-bottom: 0.1rem;
 }
 
+.side-nav-group {
+  margin-bottom: 0.18rem;
+}
+
+.side-nav-group.has-children > a {
+  position: relative;
+  padding-right: 1.1rem;
+}
+
+.side-nav-group.has-children > a::after {
+  content: "▾";
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  color: var(--color-text-faint);
+  font-size: 0.62rem;
+  line-height: 1;
+  transition: transform 0.16s ease, color 0.16s ease;
+}
+
+.side-nav-group.has-children.is-expanded > a::after {
+  transform: translateY(-50%) rotate(0deg);
+  color: var(--color-text-muted);
+}
+
+.side-nav ul.side-nav-sublist {
+  display: none;
+  margin: 0.08rem 0 0.45rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.side-nav ul.side-nav-sublist::before {
+  content: "";
+  position: absolute;
+  left: 0.32rem;
+  top: 0.18rem;
+  bottom: 0.18rem;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.side-nav-group.is-expanded > .side-nav-sublist {
+  display: block;
+}
+
+.side-nav-subitem {
+  margin-bottom: 0.08rem;
+}
+
+.side-nav-subgroup-label {
+  margin: 0.4rem 0 0.15rem;
+  padding: 0.08rem 0.6rem;
+  font-size: 0.54rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-faint);
+}
+
+.side-nav-subgroup-label:first-child {
+  margin-top: 0.02rem;
+}
+
 .side-nav a {
   display: block;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.7rem;
-  font-weight: 500;
+  padding: 0.5rem 0.6rem;
+  font-size: var(--section-label-font-size);
+  font-weight: var(--section-label-font-weight);
+  line-height: var(--section-label-line-height);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--section-label-letter-spacing);
   color: var(--color-text-muted);
   text-decoration: none;
   border-left: 2px solid transparent;
   border-radius: 0 3px 3px 0;
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.side-nav > ul > .side-nav-group > a {
+  position: relative;
+  top: -2px;
 }
 
 .side-nav a:hover {
@@ -3482,6 +3632,29 @@ ul.role-projects-list li a.project-ref:hover {
 }
 
 .side-nav a.active {
+  color: var(--color-text);
+  border-left-color: var(--color-text);
+  background: var(--color-tag-bg);
+}
+
+.side-nav a.side-nav-sublink {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.66rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--color-text-faint);
+  border-left: 2px solid var(--color-border);
+  border-radius: 0 3px 3px 0;
+}
+
+.side-nav a.side-nav-sublink:hover {
+  color: var(--color-text-muted);
+  border-left-color: var(--color-text-faint);
+  background: var(--color-tag-bg);
+}
+
+.side-nav a.side-nav-sublink.active {
   color: var(--color-text);
   border-left-color: var(--color-text);
   background: var(--color-tag-bg);
@@ -3503,12 +3676,43 @@ ul.role-projects-list li a.project-ref:hover {
   border-right-color: var(--color-text);
 }
 
+[data-nav="right"] .side-nav ul.side-nav-sublist {
+  padding-left: 0;
+  padding-right: 0.9rem;
+}
+
+[data-nav="right"] .side-nav ul.side-nav-sublist::before {
+  left: auto;
+  right: 0.32rem;
+}
+
+[data-nav="right"] .side-nav a.side-nav-sublink {
+  border-left: none;
+  border-right: 2px solid var(--color-border);
+  border-radius: 3px 0 0 3px;
+  text-align: right;
+}
+
+[data-nav="right"] .side-nav-subgroup-label {
+  text-align: right;
+}
+
+[data-nav="right"] .side-nav a.side-nav-sublink.active {
+  border-right-color: var(--color-text);
+}
+
+[data-nav="right"] .side-nav-group.has-children > a {
+  padding-right: 0.6rem;
+  padding-left: 1.1rem;
+}
+
+[data-nav="right"] .side-nav-group.has-children > a::after {
+  right: auto;
+  left: 0.45rem;
+}
+
 /* --- Theme Toggle --- */
 .theme-toggle {
-  position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
-  z-index: 100;
   background: var(--color-toggle-bg);
   border: 1px solid var(--color-border);
   border-radius: 100px;
@@ -3542,11 +3746,11 @@ ul.role-projects-list li a.project-ref:hover {
 
 /* --- View Toggle (Detailed / Summary) --- */
 .controls {
-  position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
-  z-index: 100;
+  grid-column: 2;
+  justify-self: end;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.5rem;
   align-items: center;
 }
@@ -3557,7 +3761,8 @@ ul.role-projects-list li a.project-ref:hover {
 
 .print-btn,
 .view-toggle,
-.nav-pos-toggle {
+.nav-pos-toggle,
+.layout-mode-toggle {
   background: var(--color-toggle-bg);
   border: 1px solid var(--color-border);
   border-radius: 100px;
@@ -3573,9 +3778,21 @@ ul.role-projects-list li a.project-ref:hover {
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+.control-icon {
+  display: inline-block;
+  margin-right: 0.35rem;
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.control-label {
+  display: inline-block;
+}
+
 .print-btn:hover,
 .view-toggle:hover,
-.nav-pos-toggle:hover {
+.nav-pos-toggle:hover,
+.layout-mode-toggle:hover {
   background: var(--color-toggle-hover);
   color: var(--color-text);
 }
@@ -3655,10 +3872,23 @@ ul.role-projects-list li a.project-ref:hover {
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: none;
+  box-shadow: none;
   background: var(--color-tag-bg);
+  display: flex;
+  flex-direction: column;
   transition: box-shadow 0.2s ease, transform 0.15s ease;
   cursor: pointer;
+}
+
+.project-screenshot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .project-screenshot:hover {
@@ -3674,8 +3904,6 @@ ul.role-projects-list li a.project-ref:hover {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
   transition: opacity 0.2s ease;
 }
 
@@ -3689,14 +3917,26 @@ ul.role-projects-list li a.project-ref:hover {
 
 /* --- Project Mermaid Diagrams (inside .project-gallery grid) --- */
 .project-diagram {
+  position: relative;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: none;
+  box-shadow: none;
   background: var(--color-tag-bg);
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s ease, transform 0.15s ease;
   cursor: pointer;
+}
+
+.project-diagram::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .project-diagram:hover {
@@ -3826,15 +4066,17 @@ ul.role-projects-list li a.project-ref:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
-  font-size: 2.5rem;
-  line-height: 3rem;
+  font-size: 0;
+  line-height: 0;
   width: 3rem;
   height: 3rem;
   padding: 0;
-  text-align: center;
   border-radius: 50%;
   cursor: pointer;
   opacity: 0.7;
@@ -3859,6 +4101,24 @@ ul.role-projects-list li a.project-ref:hover {
 
 .lightbox-next {
   right: 1.25rem;
+}
+
+.lightbox-nav-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-top: 2.4px solid currentColor;
+  border-right: 2.4px solid currentColor;
+  display: block;
+}
+
+.lightbox-nav-icon--prev {
+  transform: translateX(-0.045rem) rotate(-135deg);
+  margin-left: 0;
+}
+
+.lightbox-nav-icon--next {
+  transform: translateX(0.045rem) rotate(45deg);
+  margin-right: 0;
 }
 
 .lightbox-caption {
@@ -4064,9 +4324,28 @@ ul.role-projects-list li a.project-ref:hover {
     padding: 1.5rem 1rem;
   }
 
+  [data-layout-mode="full"] {
+    --resume-body-padding: 0 1rem 1.5rem;
+  }
+
   .header-contact {
     flex-direction: column;
     gap: 0.2rem;
+  }
+
+  .header-top {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .header-name,
+  .controls {
+    grid-column: 1;
+    justify-self: center;
+  }
+
+  .controls {
+    justify-content: center;
   }
 
   .role-header {
@@ -4080,27 +4359,41 @@ ul.role-projects-list li a.project-ref:hover {
   .project-gallery {
     grid-template-columns: 1fr 1fr;
   }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
 }
 </style>
   </head>
   <body>
     <div class="tile-bg" aria-hidden="true"></div>
     <button class="gol-btn" id="gol-btn" type="button">Play the game?</button>
-    <div class="controls">
-      <button class="print-btn" aria-label="Print resume" type="button" onclick="window.print()">&#9113; Print</button>
-      <button class="view-toggle" aria-label="Toggle view" type="button">Summary</button>
-      <button class="nav-pos-toggle" aria-label="Toggle nav position" type="button">Nav &#8594;</button>
-      <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
-        <span class="icon-moon">&#9790;</span>
-        <span class="icon-sun">&#9788;</span>
-      </button>
-    </div>
 
     <div class="header-sentinel" aria-hidden="true"></div>
     <header class="header">
-      <div class="header-name">
-        <h1>Jameson Nyeholt</h1>
-        <p class="label">Principal Software Engineer</p>
+      <div class="header-top">
+        <div class="header-name">
+          <h1>Jameson Nyeholt</h1>
+          <p class="label">Principal Software Engineer</p>
+        </div>
+        <div class="controls">
+          <button class="print-btn" aria-label="Print resume" type="button" onclick="window.print()">&#9113; Print</button>
+          <button class="view-toggle" aria-label="Toggle view" type="button">
+            <span class="control-icon" aria-hidden="true">&#9776;</span>
+            <span class="control-label">Summary</span>
+          </button>
+          <button class="nav-pos-toggle" aria-label="Toggle nav position" type="button">Nav &#8594;</button>
+          <button class="layout-mode-toggle" aria-label="Toggle layout width" type="button">
+            <span class="control-icon" aria-hidden="true">&#x26F6;</span>
+            <span class="control-label">Full Width</span>
+          </button>
+          <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
+            <span class="icon-moon">&#9790;</span>
+            <span class="icon-sun">&#9788;</span>
+          </button>
+        </div>
       </div>
       <div class="header-contact">
         <span><a href="mailto:jnyeholt@hey.com">jnyeholt@hey.com</a></span>
@@ -4132,7 +4425,7 @@ ul.role-projects-list li a.project-ref:hover {
               
             </div>
         
-            <div class="work-role" id="role-principal-software-engineer">
+            <div class="work-role" id="role-microsoft-principal-software-engineer-0">
               <div class="role-header">
                 <h4>Principal Software Engineer</h4>
                 <span class="date">
@@ -4145,7 +4438,7 @@ ul.role-projects-list li a.project-ref:hover {
               <p class="role-summary role-summary--short">Senior IC architecting full-stack systems for the Monetize SSP &amp; Ad Server platform, designing layered solutions from React component libraries and state management through REST/GraphQL APIs to CI/CD infrastructure.</p>
               <p class="role-summary role-summary--full">Architect and senior IC on a 10-engineer team building the Monetize SSP &amp; Ad Server platform. I design layered systems end-to-end — from React component libraries and state management through REST/GraphQL APIs to CI/CD pipelines — making deliberate data-structure and architecture trade-offs that keep the codebase extensible as new product surfaces ship.</p>
         
-              <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 6 projects · 16 skills</span></button>
+              <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 7 projects · 18 skills</span></button>
               <div class="detail-content">
               <ul class="highlights">
                 <li>Designed and built the <a href="#project-deal-monitoring-ui" class="project-ref">Deal Monitoring UI</a> end-to-end: chose react-window for virtualized rendering with Fluent 2 accessibility (sentinel rows for screen readers), implemented URL-synced filter state enabling deep links and shareable views, and structured the codebase into 30 composable packages — giving account managers real-time visibility into deal health and reducing escalation response time.</li>
@@ -4153,8 +4446,9 @@ ul.role-projects-list li a.project-ref:hover {
                 <li>Built a data-adapter layer that maps heterogeneous REST and GraphQL responses into a unified schema with deterministic multi-field sorting, server-side filtering, and batch loading — enabling product surfaces to onboard new data sources without UI-layer changes.</li>
                 <li>Architected the <a href="#project-unified-reporting-ui" class="project-ref">Unified Reporting UI</a> — a greenfield data-visualization product — designing the frontend component tree, data-fetching layer, and caching strategy for revenue and performance dashboards that give enterprise publishers actionable spend and yield insights.</li>
                 <li>Prototyped an AI-powered Copilot Chat integration for the Reporting UI, using LLM-driven natural-language queries against advertising performance data to lower the barrier for non-technical users to access analytics.</li>
-                <li>Designed and implemented a REST API for bulk migration of Deal objects from V1 to V2, handling complex data-integrity scenarios across active campaign objects in PHP/MariaDB — unblocking the platform deprecation timeline for thousands of live deals.</li>
-                <li>Migrated monorepo CI/CD from Bitbucket/Concourse to Azure DevOps/Azure Pipelines, introducing parallelized builds with directed dependency graphs and caching that cut average pipeline time by 40% across all team PRs.</li>
+                <li>Designed and implemented a bidirectional REST API for bulk migration of Deal objects between V1 and V2 in PHP/MariaDB, supporting 1-50 deals per request with transactional rollback, profile duplication, auction-type-aware pricing strategy mapping, and budget interval recomputation across active campaigns -- unblocking the platform deprecation timeline for thousands of live deals while preserving a safe rollback path.</li>
+                <li>Migrated monorepo CI/CD from Bitbucket/Concourse to Azure DevOps/Azure Pipelines, introducing parallelized builds with directed dependency graphs and caching that reduced average pipeline time by ~50% across all team PRs.</li>
+                <li>Leading the migration of 100 applications across 16 repositories from on-prem Kubernetes to Azure Kubernetes Service (AKS): designed a dual-deploy architecture where a single CI build pushes to both container registries and a centralized release pipeline manages AKS deployments with approval gates and rollback support — then built 12 Copilot prompt files and a dedicated migration agent that automate Dockerfile, Helm chart, and pipeline generation, reducing per-app migration effort from days to under an hour.</li>
                 <li>Grew the monorepo from isolated repositories into a cohesive package ecosystem, defining governance, contribution standards, and documentation that support ~56 engineers and serve as the organization's reference architecture.</li>
                 <li>Drive architectural alignment across the platform through design reviews, technical proposals, and cross-team pairing — mentoring senior engineers on system design and establishing patterns that teams adopt independently.</li>
               </ul>
@@ -4162,12 +4456,13 @@ ul.role-projects-list li a.project-ref:hover {
               <div class="role-projects">
                 <span class="role-projects-label">Key Projects</span>
                 <ul class="role-projects-list">
-                  <li><a href="#project-deal-monitoring-ui" class="project-ref">Deal Monitoring UI</a></li>
-                  <li><a href="#project-datatableview-component-library" class="project-ref">DataTableView Component Library</a></li>
-                  <li><a href="#project-unified-reporting-ui" class="project-ref">Unified Reporting UI</a></li>
+                  <li><a href="#project-aks-migration-platform" class="project-ref">AKS Migration Platform</a></li>
                   <li><a href="#project-reporting-copilot-chat-integration" class="project-ref">Reporting Copilot Chat Integration</a></li>
-                  <li><a href="#project-ci-cd-pipeline-performance" class="project-ref">CI/CD Pipeline Performance</a></li>
+                  <li><a href="#project-datatableview-component-library" class="project-ref">DataTableView Component Library</a></li>
+                  <li><a href="#project-deal-monitoring-ui" class="project-ref">Deal Monitoring UI</a></li>
                   <li><a href="#project-v1-to-v2-deal-migration-api" class="project-ref">V1 to V2 Deal Migration API</a></li>
+                  <li><a href="#project-unified-reporting-ui" class="project-ref">Unified Reporting UI</a></li>
+                  <li><a href="#project-ci-cd-pipeline-performance" class="project-ref">CI/CD Pipeline Performance</a></li>
                 </ul>
               </div>
         
@@ -4185,6 +4480,8 @@ ul.role-projects-list li a.project-ref:hover {
                   <li>REST APIs</li>
                   <li>Microservices</li>
                   <li>Kubernetes</li>
+                  <li>Azure Kubernetes Service</li>
+                  <li>Helm</li>
                   <li>Azure DevOps</li>
                   <li>Docker</li>
                   <li>Monorepos</li>
@@ -4194,7 +4491,7 @@ ul.role-projects-list li a.project-ref:hover {
               </div>
               </div>
             </div>
-            <div class="work-role" id="role-senior-software-engineering-manager">
+            <div class="work-role" id="role-microsoft-senior-software-engineering-manager-1">
               <div class="role-header">
                 <h4>Senior Software Engineering Manager</h4>
                 <span class="date">
@@ -4210,9 +4507,7 @@ ul.role-projects-list li a.project-ref:hover {
               <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 13 skills</span></button>
               <div class="detail-content">
               <ul class="highlights">
-                <li>Reduced page load time by 50% on the Sellers Monitoring detail page by refactoring API usage to batch and lazily load data, eliminating redundant network round trips and directly improving daily workflows for account management teams.</li>
-                <li>Expanded Grafana dashboard instrumentation with latency and error-rate signals, establishing the observability baseline that enabled proactive regression detection across the UI platform.</li>
-                <li>Architected proof-of-concept implementations for new product features, de-risking technical feasibility before committing team capacity — shaping the roadmap through rapid prototyping.</li>
+                <li>Reduced page load time by 50% on the Sellers Monitoring detail page by refactoring API data-fetching to batch and lazily load data, and expanded Grafana dashboard instrumentation with latency and error-rate signals — establishing the observability baseline that enabled proactive regression detection across the platform.</li>
                 <li>Served as technical lead for a cross-functional V-Team focused on platform reliability during the Xandr-to-Microsoft transition, defining coding standards, migration strategy, and codebase stewardship that preserved delivery velocity through organizational change.</li>
               </ul>
         
@@ -4249,7 +4544,7 @@ ul.role-projects-list li a.project-ref:hover {
               
             </div>
         
-            <div class="work-role" id="role-senior-software-engineer-team-lead">
+            <div class="work-role" id="role-xandr-senior-software-engineer-team-lead-0">
               <div class="role-header">
                 <h4>Senior Software Engineer, Team Lead</h4>
                 <span class="date">
@@ -4267,8 +4562,7 @@ ul.role-projects-list li a.project-ref:hover {
               <ul class="highlights">
                 <li>Designed and built the Sellers Monitoring Workflow UI from the ground up — a full-stack application for monitoring advertising inventory health across Line Items, Deals, Insertion Orders, and Advertisers. Owned architecture decisions including data model design, API integration patterns, and component structure.</li>
                 <li>Refactored a multi-application codebase into a monorepo architecture, enabling code sharing through shared packages and reducing duplication across services.</li>
-                <li>Interviewed, hired, and onboarded engineers; promoted two engineers to the next career level through mentorship and growth-oriented project assignments.</li>
-                <li>Mentored junior engineers through pairing, code reviews, and architectural design sessions.</li>
+                <li>Interviewed, hired, and onboarded engineers; promoted two engineers to the next career level through mentorship, pairing, code reviews, and growth-oriented project assignments.</li>
               </ul>
         
         
@@ -4299,7 +4593,7 @@ ul.role-projects-list li a.project-ref:hover {
               </div>
               </div>
             </div>
-            <div class="work-role" id="role-software-engineer-ii">
+            <div class="work-role" id="role-xandr-software-engineer-ii-1">
               <div class="role-header">
                 <h4>Software Engineer II</h4>
                 <span class="date">
@@ -4319,7 +4613,6 @@ ul.role-projects-list li a.project-ref:hover {
                 <li>Pioneered monorepo architecture using Lerna.js, designing the package structure and dependency graph that enabled code sharing between previously isolated applications.</li>
                 <li>Partnered with the Build &amp; Delivery team to design and implement monorepo-aware CI/CD features in the internal Concourse pipeline framework.</li>
                 <li>Built new features enabling publishers to monitor and analyze advertising inventory performance through data-rich UI dashboards.</li>
-                <li>Mentored junior engineers and interns through pairing and code reviews.</li>
               </ul>
         
         
@@ -4362,7 +4655,7 @@ ul.role-projects-list li a.project-ref:hover {
               
             </div>
         
-            <div class="work-role" id="role-senior-software-engineer">
+            <div class="work-role" id="role-jama-software-senior-software-engineer-0">
               <div class="role-header">
                 <h4>Senior Software Engineer</h4>
                 <span class="date">
@@ -4411,7 +4704,7 @@ ul.role-projects-list li a.project-ref:hover {
               </div>
               </div>
             </div>
-            <div class="work-role" id="role-software-engineer-ii">
+            <div class="work-role" id="role-jama-software-software-engineer-ii-1">
               <div class="role-header">
                 <h4>Software Engineer II</h4>
                 <span class="date">
@@ -4431,7 +4724,6 @@ ul.role-projects-list li a.project-ref:hover {
                 <li>Built internal dashboards measuring build health and code quality, giving the team visibility into CI pipeline reliability and code coverage trends.</li>
                 <li>Served as Scrum Master, leading sprint planning, backlog grooming, and standups.</li>
                 <li>Active participant in the Front End Guild, establishing frontend standards and driving technology adoption decisions.</li>
-                <li>Mentored junior engineers and interns through code reviews and pairing sessions.</li>
               </ul>
         
         
@@ -4471,7 +4763,7 @@ ul.role-projects-list li a.project-ref:hover {
               
             </div>
         
-            <div class="work-role" id="role-software-engineer">
+            <div class="work-role" id="role-snapflow-software-engineer-0">
               <div class="role-header">
                 <h4>Software Engineer</h4>
                 <span class="date">
@@ -4524,7 +4816,7 @@ ul.role-projects-list li a.project-ref:hover {
               
             </div>
         
-            <div class="work-role" id="role-front-end-developer">
+            <div class="work-role" id="role-10th-degree-front-end-developer-0">
               <div class="role-header">
                 <h4>Front End Developer</h4>
                 <span class="date">
@@ -4570,7 +4862,7 @@ ul.role-projects-list li a.project-ref:hover {
               
             </div>
         
-            <div class="work-role" id="role-web-developer">
+            <div class="work-role" id="role-contract-web-developer-web-developer-0">
               <div class="role-header">
                 <h4>Web Developer</h4>
                 <span class="date">
@@ -4605,6 +4897,925 @@ ul.role-projects-list li a.project-ref:hover {
           
         
         </section>
+        <section class="section" id="projects">
+          <h2>Projects</h2>
+        
+          <h3 class="projects-subheading">Work-Related Projects</h3>
+          <div class="project-entry" id="project-aks-migration-platform">
+            <div class="role-header">
+              <h4>
+                AKS Migration Platform
+              </h4>
+              <span class="date">
+                Jan 2026
+                
+              </span>
+            </div>
+        
+            <p>Leading the migration of 100 applications across 16 repositories from on-prem Kubernetes (Ankh/Rubix) to Azure Kubernetes Service (AKS), using a dual-deploy architecture and Copilot-powered automation to reduce per-app migration effort from days to under an hour.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 2 gallery items · 9 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          Code[&quot;Source Code&quot;] --&gt; Build[&quot;Build + Test&quot;]
+          Build --&gt; Docker[&quot;Docker Build&quot;]
+          Docker --&gt; Push1[&quot;Push to Invest ACR\n(on-prem)&quot;]
+          Docker --&gt; Push2[&quot;Push to Monetize ACR\n(AKS)&quot;]
+          Push1 --&gt; OnPrem[&quot;On-Prem K8s\n(Ankh/Rubix)&quot;]
+          Push2 --&gt; RP[&quot;Centralized Release Pipeline&quot;]
+          RP --&gt; Approve[&quot;Approval Gates&quot;]
+          Approve --&gt; Deploy[&quot;Deploy to AKS Staging&quot;]
+          Deploy -.-&gt; Rollback[&quot;Rollback Support&quot;]</pre>
+                  <figcaption>Dual-Deploy Architecture</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TD
+          Agent[&quot;@aks-migration Agent\n(orchestrator)&quot;] --&gt; P1
+          subgraph Plan[&quot;Phase 1: Planning&quot;]
+            P1[&quot;plan-generator\nScan repo · Categorize apps\nGenerate per-app checklists&quot;]
+          end
+          P1 --&gt; P2
+          subgraph Artifacts[&quot;Phase 2: Artifact Generation&quot;]
+            P2[&quot;dockerfile-builder\nRegistry swap transform&quot;] --&gt; P3[&quot;helm-chart-builder\nDeployment · Service · ConfigMap\nMapping · Ingress templates&quot;]
+          end
+          P3 --&gt; P4
+          subgraph Validate[&quot;Phase 3: Validation&quot;]
+            P4[&quot;app-validation\n10-check automated lint\nhelm lint · helm template&quot;]
+          end
+          P4 --&gt; P5
+          subgraph Pipeline[&quot;Phase 4: Pipeline &amp; Release&quot;]
+            P5[&quot;build-push-register\nDual ACR push · ADO pipeline&quot;] --&gt; P6[&quot;release-pipeline-onboard\nCentralized deploy entry&quot;]
+          end
+          P6 --&gt; P7
+          subgraph Route[&quot;Phase 5: Routing &amp; Verification&quot;]
+            P7[&quot;ambassador-routing-builder\nDatacenter-conditional rules\nams3+staging → AKS&quot;] --&gt; P8[&quot;deployment-verify\nPod status · Ingress · Health&quot;]
+          end
+          P8 --&gt; P9
+          subgraph Prod[&quot;Phase 6: Production&quot;]
+            P9[&quot;production-promote\nProd values · Sunset on-prem&quot;]
+          end
+          P4 -.-&gt; T1
+          P8 -.-&gt; T1
+          subgraph Track[&quot;Cross-Cutting&quot;]
+            T1[&quot;status-updater\nTracker sync&quot;] --&gt; T2[&quot;consistency-check\nCross-file validation&quot;]
+            T3[&quot;mission-status-update\nSprint reporting · ADO fields&quot;]
+          end
+          P9 -.-&gt; T3</pre>
+                  <figcaption>Copilot Prompt Lifecycle</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Designed a dual-deploy architecture where a single CI build pushes to both ACR registries (on-prem Invest ACR and AKS Monetize ACR), with a centralized release pipeline managing staging deployments with approval gates and rollback support.</li>
+                <li>Engineered a 12-prompt automation toolkit organized into lifecycle phases: plan-generator scans a repo and categorizes apps; dockerfile-builder and helm-chart-builder read existing on-prem artifacts and transform them to AKS conventions (generating deployment, service, config-map, mapping, and ingress templates); app-validation runs a 10-check automated lint (Chart.yaml, namespace templating, image references, Ambassador v3alpha1, helm lint/template); build-push-register integrates dual ACR push and registers per-app AKS pipelines in ADO.</li>
+                <li>Built release-pipeline-onboard, ambassador-routing-builder, deployment-verify, and production-promote prompts that automate the later lifecycle: adding apps to the centralized release pipeline, configuring datacenter-conditional ambassador routing (ams3+staging routes to AKS, others to on-prem), verifying pod/ingress health, and creating production values with on-prem sunset.</li>
+                <li>Designed a dedicated @aks-migration Copilot agent that orchestrates the 12 prompts end-to-end — the agent is sprint-aware (flags status update deadlines), has Azure DevOps MCP, Kubernetes/AKS MCP, and ACR tool access, and includes cross-cutting prompts for tracker sync, cross-file consistency validation, and automated mission status reporting to ADO.</li>
+                <li>Created a machine-parseable cross-repo migration tracker (8-column per-app milestone ledger) covering 100 apps with team-level dashboards and 4-wave phasing (UI Apps, Node APIs, Complex APIs, Infrastructure).</li>
+                <li>Delivered FY26 capacity planning for all 6 Kubernetes namespaces with 25% headroom buffers, and established mission-driven sprint reporting with automated ADO status updates across 7 milestones.</li>
+                <li>3 apps deployed to AKS staging and browser-verified (reporting-ui, forecasting-ui, changelog-ui); 6 apps with complete migration artifacts; 12 actively in progress.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>Azure Kubernetes Service</li>
+                <li>Docker</li>
+                <li>Helm</li>
+                <li>Azure Pipelines</li>
+                <li>CI/CD</li>
+                <li>GitHub Copilot</li>
+                <li>Prompt Engineering</li>
+                <li>Azure Container Registry</li>
+                <li>Infrastructure Migration</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-reporting-copilot-chat-integration">
+            <div class="role-header">
+              <h4>
+                Reporting Copilot Chat Integration
+              </h4>
+              <span class="date">
+                Jun 2025
+                
+              </span>
+            </div>
+        
+            <p>AI-powered chat interface enabling natural-language queries against advertising performance data within the Reporting UI, using LLM integration to translate user questions into structured data queries.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 2 gallery items · 6 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/copilot-chat-prompt.png" alt="Copilot Chat prompt interface" loading="lazy" />
+                  <figcaption>Natural-language query input</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/copilot-chat-response.png" alt="Copilot Chat response rendering" loading="lazy" />
+                  <figcaption>Structured data response with formatted output</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Prototyped the end-to-end flow: user prompt → LLM intent parsing → structured API query → formatted response rendering.</li>
+                <li>Designed the prompt engineering approach and context-window management for domain-specific ad performance data.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>LLM Integration</li>
+                <li>AI/ML</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Natural Language Processing</li>
+                <li>API Design</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-datatableview-component-library">
+            <div class="role-header">
+              <h4>
+                DataTableView Component Library
+              </h4>
+              <span class="date">
+                Feb 2025
+                 &ndash; Sep 2025
+              </span>
+            </div>
+        
+            <p>Reusable component library extending Fluent 2 tables with virtualization, column/sort/filter management, and query-parameter routing. Designed as a composable API that teams adopt without learning internal implementation details.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 3 gallery items · 7 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph Config[&quot;App Configuration&quot;]
+            CS[&quot;Column Schema&quot;]
+            FS[&quot;Filter Schema&quot;]
+            Thunk[&quot;Fetch Thunk&quot;]
+            Slots[&quot;Slot Implementations&quot;]
+            Defaults[&quot;Defaults + Storage Key&quot;]
+          end
+          subgraph DTV[&quot;DataTableView Orchestrator&quot;]
+            subgraph Ctx[&quot;Context Providers&quot;]
+              ViewCtx[&quot;DataTableViewContext&lt;br/&gt;layout · captions · sizing&quot;]
+              SchemaCtx[&quot;SchemaContext&lt;br/&gt;columns · filters&quot;]
+              FilterCtx[&quot;FilterDataSource&lt;br/&gt;selected filters · URL sync&quot;]
+              DataCtx[&quot;ServerDataSource&lt;br/&gt;fetch · cache · pagination&quot;]
+            end
+            subgraph Layout[&quot;Slot-Based Layout&quot;]
+              T[&quot;titleSlot&quot;]
+              AT[&quot;aboveTableSlot&quot;]
+              TB2[&quot;gridToolbarSlot&quot;]
+              Grid[&quot;Virtualized Grid&lt;br/&gt;react-window + Fluent 2&lt;br/&gt;+ sentinel rows (a11y)&quot;]
+              FT[&quot;footerSlot&quot;]
+              DD[&quot;detailDrawerSlot&quot;]
+              FD[&quot;filterDrawerSlot&quot;]
+              CM[&quot;columnManagerSlot&quot;]
+            end
+          end
+          subgraph State[&quot;State Layer&quot;]
+            URL[&quot;URL Query Params&lt;br/&gt;(shareable links)&quot;]
+            LS[&quot;localStorage&lt;br/&gt;(column order · preferences)&quot;]
+          end
+          subgraph API[&quot;Data Layer&quot;]
+            REST[&quot;REST / GraphQL APIs&quot;]
+          end
+          CS &amp; FS --&gt; SchemaCtx
+          Thunk --&gt; DataCtx
+          Slots --&gt; Layout
+          Defaults --&gt; ViewCtx
+          FilterCtx &lt;--&gt; URL
+          ViewCtx &lt;--&gt; LS
+          DataCtx --&gt; REST
+          DataCtx --&gt; Grid</pre>
+                  <figcaption>Component Architecture</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          DTV[&quot;data-table-view&lt;br/&gt;(orchestrator)&quot;]
+          subgraph Ctx[&quot;Context Providers&quot;]
+            PV[&quot;provider-data-table-view&quot;]
+            PS[&quot;provider-data-table-view-schema&quot;]
+            PF[&quot;provider-data-filter&quot;]
+            PD[&quot;provider-data-source&quot;]
+          end
+          subgraph GridLayer[&quot;Table + Grid Rendering&quot;]
+            DT[&quot;data-table&quot;]
+            DG[&quot;data-grid&quot;]
+            Cells[&quot;data-table-cells&quot;]
+            CellsH[&quot;data-table-cells-header&quot;]
+            ColBuild[&quot;data-table-column-builder&quot;]
+          end
+          subgraph Controls[&quot;Controls + Layout&quot;]
+            TB2[&quot;data-table-toolbar&quot;]
+            TBA[&quot;data-table-toolbar-actions&quot;]
+            ColMgr[&quot;data-table-column-manager&quot;]
+            FT[&quot;data-table-footer&quot;]
+            TabList[&quot;data-table-header-tablist&quot;]
+          end
+          subgraph Panels[&quot;Drawers&quot;]
+            DR[&quot;data-table-drawer&quot;]
+            DRB[&quot;data-table-drawer-bulk-actions&quot;]
+          end
+          subgraph Shared[&quot;Shared&quot;]
+            CFG[&quot;data-table-config&quot;]
+            CMN[&quot;data-table-common&quot;]
+          end
+          subgraph Utils[&quot;Utilities&quot;]
+            URL[&quot;util-data-table-url-params&quot;]
+            UTL[&quot;util-data-table-utils&quot;]
+          end
+          DTV --&gt; Ctx
+          Ctx --&gt; GridLayer &amp; Controls &amp; Panels
+          GridLayer &amp; Controls &amp; Panels --&gt; Shared
+          Shared --&gt; Utils</pre>
+                  <figcaption>Package Map (21 packages)</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph LR
+          A[&quot;Deal Monitoring&lt;br/&gt;4 engineers x 6 months&lt;br/&gt;1 screen + framework&quot;] -- &quot;Reusable&lt;br/&gt;Framework&quot; --&gt; B[&quot;SMW Migration&lt;br/&gt;2 engineers x 3 months&lt;br/&gt;3 screens&quot;]
+          B -- &quot;AI Prompts +&lt;br/&gt;Framework&quot; --&gt; C[&quot;Next Surface&lt;br/&gt;1 engineer x 1-2 sprints&lt;br/&gt;1 screen&quot;]</pre>
+                  <figcaption>Adoption ROI Timeline</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Designed the public component API for cross-team consumption — typed props, composition patterns, and escape hatches for custom cell renderers.</li>
+                <li>Integrated react-window with Fluent 2 DetailsList without sacrificing accessibility, using sentinel rows and ARIA attributes for screen reader compatibility.</li>
+                <li>Built reusable hooks for URL-synced filters, column persistence via browser storage, and configurable pagination.</li>
+                <li>Adopted by 3 teams across 6+ product surfaces (Deal Monitoring, Inventory Manager, Sellers Monitoring workflows).</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Fluent UI</li>
+                <li>react-window</li>
+                <li>Component API Design</li>
+                <li>Accessibility</li>
+                <li>Performance Optimization</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-deal-monitoring-ui">
+            <div class="role-header">
+              <h4>
+                Deal Monitoring UI
+              </h4>
+              <span class="date">
+                Jan 2025
+                 &ndash; Oct 2025
+              </span>
+            </div>
+        
+            <p>Full-stack data-rich monitoring application replacing a legacy surface. Architected around virtualized rendering, config-driven columns, URL-synced state, and a 30-package modular codebase with clear separation of UI components, state management, configuration, and shared types.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 6 gallery items · 8 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/deal-monitoring-table-view.png" alt="Deal Monitoring table view with virtualized rows" loading="lazy" />
+                  <figcaption>Virtualized table view with Fluent 2 components</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/deal-monitoring-filters.png" alt="Deal Monitoring filter panel" loading="lazy" />
+                  <figcaption>URL-synced filter panel with saved views</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/deal-monitoring-detail.jpg" alt="Deal Monitoring detail view" loading="lazy" />
+                  <figcaption>Deal detail overlay</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph Browser[&quot;User Browser&quot;]
+            SPA[&quot;React SPA&quot;]
+          end
+          subgraph Edge[&quot;Edge / Routing&quot;]
+            LB[&quot;Load Balancer&quot;] --&gt; Amb[&quot;Ambassador Ingress&quot;]
+          end
+          subgraph K8s[&quot;Kubernetes Cluster&quot;]
+            subgraph NS[&quot;sellers namespace&quot;]
+              Pod1[&quot;Pod: deal-monitoring-ui\nNode.js 20 + Hapi.js&quot;]
+              Pod2[&quot;Pod: replica&quot;]
+            end
+            Ingress[&quot;K8s Ingress&quot;] --&gt; SVC[&quot;ClusterIP Service\nport 5001 / 5002&quot;]
+          end
+          subgraph APIs[&quot;Backend Services&quot;]
+            REST[&quot;Monetize REST API&quot;]
+            GQL[&quot;GraphQL API&quot;]
+            RR[&quot;Rapid Reports API&quot;]
+            CL[&quot;Change Log API&quot;]
+          end
+          SPA --&gt; LB
+          Amb --&gt; Ingress
+          SVC --&gt; Pod1 &amp; Pod2
+          SPA --&gt; REST &amp; GQL &amp; RR &amp; CL</pre>
+                  <figcaption>Runtime Deployment Architecture</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph L1[&quot;Layer 1: URL Parameters (source of truth)&quot;]
+            Filters[&quot;Active Filters&quot;]
+            Sort[&quot;Sort Order&quot;]
+            Page[&quot;Pagination&quot;]
+            DateRange[&quot;Date Range&quot;]
+            Tab[&quot;Active Tab&quot;]
+          end
+          subgraph L2[&quot;Layer 2: localStorage (preferences)&quot;]
+            ColOrder[&quot;Column Order&quot;]
+            ColVis[&quot;Column Visibility&quot;]
+            PageSize[&quot;Page Size&quot;]
+            SavedFilters[&quot;Last-Used Filters&quot;]
+          end
+          subgraph L3[&quot;Layer 3: React Context (runtime)&quot;]
+            ViewCtx[&quot;DataTableViewContext&quot;]
+            SchemaCtx[&quot;SchemaContext&quot;]
+            FilterCtx[&quot;FilterDataSource&quot;]
+            DataCtx[&quot;ServerDataSource&quot;]
+          end
+          subgraph L4[&quot;Layer 4: Component State (ephemeral)&quot;]
+            Drawer[&quot;Drawer open/close&quot;]
+            Form[&quot;Form inputs&quot;]
+            Selection[&quot;Row selection&quot;]
+          end
+          Filters &amp; Sort &amp; Page &amp; DateRange &amp; Tab &lt;--&gt;|useURLParams| FilterCtx
+          ColOrder &amp; ColVis &amp; PageSize &amp; SavedFilters &lt;--&gt;|useLocalStorage| SchemaCtx &amp; ViewCtx
+          FilterCtx --&gt;|trigger fetch| DataCtx
+          DataCtx --&gt;|provide data| Drawer &amp; Form &amp; Selection</pre>
+                  <figcaption>State Management Architecture</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph Routes[&quot;Top-Level Routes&quot;]
+            Deals[&quot;/deals&quot;]
+            IO[&quot;/insertion-orders&quot;]
+            LI[&quot;/line-items&quot;]
+          end
+          subgraph DealPage[&quot;Deal Monitoring Page&quot;]
+            Tabs[&quot;Tab Navigation\nAll | My Deals | Flagged&quot;]
+            Grid[&quot;Virtualized Deal Grid&quot;]
+            Toolbar[&quot;Toolbar\nFilters | Columns | Export&quot;]
+          end
+          subgraph Detail[&quot;Inline Detail Drawer&quot;]
+            Overview[&quot;Overview Tab&quot;]
+            Perf[&quot;Performance Tab&quot;]
+            LineItems[&quot;Line Items Tab&quot;]
+            History[&quot;Change History Tab&quot;]
+            Troubleshoot[&quot;Troubleshooting Tab&quot;]
+          end
+          Deals --&gt; Tabs --&gt; Grid
+          Deals --&gt; Toolbar
+          Grid --&gt;|Click row| Detail
+          LineItems --&gt;|Drill down| LI
+          Overview --&gt;|Navigate| IO
+          Overview --&gt;|Navigate| Deals</pre>
+                  <figcaption>Page Navigation and Drill-Down</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Chose react-window for virtualized table rendering with Fluent 2 accessibility, using sentinel rows for screen readers instead of sacrificing a11y for performance.</li>
+                <li>Designed URL-synced filter state using custom React hooks, enabling deep links and shareable saved views without coupling to a global store.</li>
+                <li>Built a data-adapter layer mapping REST/GraphQL responses into a unified schema with deterministic multi-field sorting and server-side filtering under variable API latency.</li>
+                <li>Released to GA October 2025, retiring the legacy surface. Adopted as the architectural template for subsequent monitoring migrations.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Fluent UI</li>
+                <li>react-window</li>
+                <li>System Design</li>
+                <li>REST APIs</li>
+                <li>GraphQL</li>
+                <li>Monorepo</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-v1-to-v2-deal-migration-api">
+            <div class="role-header">
+              <h4>
+                V1 to V2 Deal Migration API
+              </h4>
+              <span class="date">
+                Jan 2024
+                
+              </span>
+            </div>
+        
+            <p>Bidirectional REST API for bulk migration of Deal objects between V1 and V2 in PHP/MariaDB, supporting 1-50 deals per request with transactional rollback, profile duplication, pricing strategy mapping, and budget interval recomputation across active campaigns.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 3 gallery items · 6 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph fwd[&quot;V1 → V2 Migration&quot;]
+            R1[&quot;POST /v1-to-v2\n(1-50 deals)&quot;] --&gt; V1[&quot;Validate advertiser\ninsertion order, deals&quot;]
+            V1 --&gt; FP[&quot;Resolve + duplicate\nprofile&quot;]
+            FP --&gt; S2[&quot;Set version &#x3D; 2\nis_migrated &#x3D; true&quot;]
+            S2 --&gt; LI[&quot;Create line item\n(pricing, budget, ads)&quot;]
+            LI --&gt; Act[&quot;Activate line item&quot;]
+            LI -.-&gt;|Failure| RB[&quot;Rollback to V1\nRestore profile&quot;]
+          end
+          Act -.-&gt;|&quot;Rollback via&quot;| R2
+          subgraph rev[&quot;V2 → V1 Rollback&quot;]
+            R2[&quot;POST /v2-to-v1\n(deal_ids)&quot;] --&gt; V2[&quot;Validate deals\n(V2, is_migrated)&quot;]
+            V2 --&gt; FL[&quot;Fetch line item\nDuplicate LI profile&quot;]
+            FL --&gt; Assoc[&quot;Re-associate\nprofile to deal&quot;]
+            Assoc --&gt; Del[&quot;Delete line item\n+ LI profile&quot;]
+            Del --&gt; S1[&quot;Set version &#x3D; 1\nis_migrated &#x3D; false&quot;]
+          end</pre>
+                  <figcaption>Bidirectional Migration Flow</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TD
+          Start[&quot;Resolve profile&quot;] --&gt; CheckDeal{&quot;deal.profile_id\nset?&quot;}
+          CheckDeal --&gt;|Yes| UseProfile[&quot;Use deal profile&quot;]
+          CheckDeal --&gt;|No| CheckPkg{&quot;deal.package_id\nset?&quot;}
+          CheckPkg --&gt;|Yes| FetchPkg[&quot;Fetch package\nuse package.profile_id&quot;]
+          CheckPkg --&gt;|No| NullProfile[&quot;No profile&quot;]
+          UseProfile --&gt; Duplicate[&quot;Duplicate profile\n(advertiser-scoped)&quot;]
+          FetchPkg --&gt; Duplicate
+          Duplicate --&gt; Attach[&quot;Attach to line item&quot;]
+          Duplicate --&gt; Cleanup{&quot;From package?&quot;}
+          Cleanup --&gt;|No| Delete[&quot;Delete original&quot;]
+          Cleanup --&gt;|Yes| Keep[&quot;Keep shared&quot;]</pre>
+                  <figcaption>Profile Resolution Chain</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TD
+          Deal[&quot;Deal auction_type&quot;] --&gt; Fixed{&quot;Fixed Price?&quot;}
+          Fixed --&gt;|Yes| CPM[&quot;revenue_type &#x3D; CPM\nrevenue_value &#x3D; ask_price&quot;]
+          Fixed --&gt;|No| Floor{&quot;use_deal_floor?&quot;}
+          Floor --&gt;|Yes| VCPM_Floor[&quot;revenue_type &#x3D; VCPM\nmin_revenue &#x3D; ask_price&quot;]
+          Floor --&gt;|No| VCPM_Market[&quot;revenue_type &#x3D; VCPM\nmin_revenue &#x3D; null&quot;]</pre>
+                  <figcaption>Pricing Strategy Mapping</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Designed and implemented both migration endpoints end-to-end as sole owner: V1-to-V2 forward migration with line item creation, and V2-to-V1 rollback with line item cleanup.</li>
+                <li>Built a profile resolution chain that resolves targeting profiles from the deal or its package, duplicates them scoped to the advertiser, and cleans up originals — with different cleanup rules for deal-owned vs package-shared profiles.</li>
+                <li>Implemented auction-type-aware pricing strategy mapping: Fixed Price to CPM, Standard with floor to VCPM with minimum, Standard without floor to VCPM without minimum.</li>
+                <li>Resolved 6+ data-integrity edge cases across 7 PRs (Sep 2024 - Feb 2025): currency mismatches, profile duplication on rollback, budget interval start date recomputation, and deal reuse-over-duplicate strategy.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>PHP</li>
+                <li>REST API</li>
+                <li>MariaDB</li>
+                <li>Data Migration</li>
+                <li>API Design</li>
+                <li>Transactional Rollback</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-unified-reporting-ui">
+            <div class="role-header">
+              <h4>
+                Unified Reporting UI
+              </h4>
+              <span class="date">
+                Jun 2023
+                
+              </span>
+            </div>
+        
+            <p>Greenfield data-visualization product enabling enterprise publishers to view revenue and performance data through a single interface, replacing fragmented legacy reporting surfaces.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 5 gallery items · 6 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/reporting-dashboard.png" alt="Unified Reporting dashboard" loading="lazy" />
+                  <figcaption>Revenue and performance data dashboard</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/reporting-drilldown.jpg" alt="Unified Reporting drill-down view" loading="lazy" />
+                  <figcaption>Filter drill-down with aggregation</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph Platform[&quot;Monetize Platform (Browser)&quot;]
+            Shell[&quot;Core UI Service\n(Navigation Shell)&quot;]
+            ReportApp[&quot;app-reporting-ui\n(React 18 SPA)&quot;]
+            CopilotSidebar[&quot;Copilot Sidebar&quot;]
+            EventBus[&quot;window.__monetizeEventBus__\n(Pub/Sub)&quot;]
+          end
+          User([&quot;Publisher / Analyst&quot;])
+          DataEngAPI[&quot;Monetize Reporting API\n(Data Engineering)&quot;]
+          LegacyAPI[&quot;Legacy Report API\n(Xandr)&quot;]
+          CopilotAgent[&quot;Copilot Agent\n(Report Building)&quot;]
+          FeatureFlags[&quot;Feature Flag Service\n(Floodgate)&quot;]
+          Telemetry[&quot;Instrumentation\n(APM / Telemetry)&quot;]
+          User --&gt; Shell
+          Shell --&gt; ReportApp
+          ReportApp &lt;--&gt;|&quot;REST&quot;| DataEngAPI
+          ReportApp &lt;--&gt;|&quot;REST&quot;| LegacyAPI
+          ReportApp --&gt;|&quot;telemetry events&quot;| Telemetry
+          ReportApp --&gt;|&quot;evaluate flags&quot;| FeatureFlags
+          ReportApp &lt;--&gt;|&quot;publish / subscribe&quot;| EventBus
+          EventBus &lt;--&gt; CopilotSidebar
+          CopilotSidebar &lt;--&gt; CopilotAgent</pre>
+                  <figcaption>System Context</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TB
+          subgraph Pages[&quot;Pages (Route-Level)&quot;]
+            RC[&quot;ReportCenter\n(report listing hub)&quot;]
+            RR[&quot;ReportResults\n(builder &amp; results)&quot;]
+            RCT[&quot;ReportCreateTypes\n(legacy type picker)&quot;]
+            YA[&quot;YAReporting\n(Yahoo Auction)&quot;]
+          end
+          subgraph Components[&quot;UI Components (24+)&quot;]
+            FieldSel[&quot;FieldsSelection\n(dimension/metric tree)&quot;]
+            FilterPanel[&quot;Filters Panel&quot;]
+            DataGrid[&quot;Fluent DataGrid\n(virtualized)&quot;]
+            DateRange[&quot;DateRangePicker&quot;]
+            CopilotBanner[&quot;LazyCopilotChatBanner\n(Suspense code-split)&quot;]
+          end
+          subgraph State[&quot;State Management (Redux Toolkit)&quot;]
+            URLSync[&quot;connected-react-router\n(URL &lt;-&gt; Redux sync)&quot;]
+            Slices[&quot;15+ Redux Slices\nreport_data, catalog, fields,\nfilters, time_intervals, ...&quot;]
+            Selectors[&quot;Typed Selectors&quot;]
+          end
+          subgraph Async[&quot;Async Layer (Redux Thunks)&quot;]
+            RunReport[&quot;runReport (orchestrator)&quot;]
+            FetchCatalog[&quot;fetchReportCatalog&quot;]
+            FetchStatus[&quot;fetchReportStatus (polling)&quot;]
+          end
+          subgraph API[&quot;API Clients (@msa-mui)&quot;]
+            PAPI[&quot;mw-papi-api&quot;]
+            APICommon[&quot;api-monetize-reporting-common&quot;]
+            MWRequest[&quot;mw-request (HTTP wrapper)&quot;]
+          end
+          subgraph Backend[&quot;Backend Services&quot;]
+            DataEng[&quot;Monetize Reporting API&quot;]
+            LegacyBE[&quot;Legacy Xandr API&quot;]
+          end
+          RC &amp; RR &amp; RCT &amp; YA --&gt; FieldSel &amp; FilterPanel &amp; DataGrid &amp; DateRange
+          RC --&gt; CopilotBanner
+          FieldSel &amp; FilterPanel &amp; DateRange --&gt; URLSync
+          URLSync --&gt; Slices
+          Selectors --&gt; RC &amp; RR &amp; RCT &amp; YA
+          Slices --&gt; RunReport &amp; FetchCatalog &amp; FetchStatus
+          RunReport &amp; FetchCatalog &amp; FetchStatus --&gt; PAPI
+          PAPI --&gt; APICommon
+          PAPI --&gt; MWRequest
+          MWRequest --&gt; DataEng &amp; LegacyBE</pre>
+                  <figcaption>Layered Architecture</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph LR
+          subgraph Application
+            App[&quot;app-reporting-ui&quot;]
+          end
+          subgraph APIPkgs[&quot;API Packages&quot;]
+            PAPI[&quot;mw-papi-api&quot;]
+            APICommon[&quot;api-monetize-\nreporting-common&quot;]
+            APIMon[&quot;api-monetize&quot;]
+            MWReq[&quot;mw-request&quot;]
+          end
+          subgraph CompPkgs[&quot;Component Packages&quot;]
+            DTV[&quot;component-fluent-\ndata-table-*&quot;]
+            CopilotBnr[&quot;component-fluent-\ncopilot-chat-banner&quot;]
+            MWComp[&quot;mw-components&quot;]
+          end
+          subgraph UtilPkgs[&quot;Utility Packages&quot;]
+            UtilReports[&quot;mw-util-reports&quot;]
+            UtilFF[&quot;util-monetize-\nfeature-flags&quot;]
+            UtilConfig[&quot;util-monetize-config&quot;]
+            UtilInstr[&quot;util-instrumentation&quot;]
+            CopilotReact[&quot;copilot-react&quot;]
+          end
+          App --&gt; PAPI &amp; APIMon &amp; MWReq
+          App --&gt; DTV &amp; CopilotBnr &amp; MWComp
+          App --&gt; UtilReports &amp; UtilFF &amp; UtilConfig &amp; UtilInstr &amp; CopilotReact
+          PAPI --&gt; APICommon &amp; MWReq
+          CopilotBnr --&gt; CopilotReact</pre>
+                  <figcaption>Monorepo Package Map</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Designed the frontend architecture: component tree, data-fetching layer, caching strategy, and state management patterns for complex filter/drill-down interactions.</li>
+                <li>Built the initial implementation and scaled to a four-engineer squad, establishing code patterns and review standards.</li>
+                <li>Designed the API contract between frontend and data engineering teams, choosing pagination, filtering, and aggregation patterns that balance UX responsiveness with backend query cost.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Data Visualization</li>
+                <li>System Design</li>
+                <li>REST APIs</li>
+                <li>Fluent UI</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-ci-cd-pipeline-performance">
+            <div class="role-header">
+              <h4>
+                CI/CD Pipeline Performance
+              </h4>
+              <span class="date">
+                Mar 2023
+                
+              </span>
+            </div>
+        
+            <p>Migrated monorepo CI/CD infrastructure from Bitbucket/Concourse to Azure DevOps/Azure Pipelines, redesigning the build strategy around directed dependency graphs, parallelized stages, and intelligent caching.</p>
+        
+            <div class="role-projects">
+              <span class="role-projects-label">Relevant Positions</span>
+              <ul class="role-projects-list">
+                <li><a href="#role-microsoft-principal-software-engineer-0" class="project-ref">Principal Software Engineer (Microsoft)</a></li>
+              </ul>
+            </div>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 3 gallery items · 6 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/pipeline-dag.png" alt="CI/CD pipeline dependency graph" loading="lazy" />
+                  <figcaption>Directed dependency graph for selective builds</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/pipeline-metrics.jpg" alt="Pipeline build metrics" loading="lazy" />
+                  <figcaption>Build time reduction metrics</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph LR
+          Commit[&quot;Git Commit&quot;] --&gt; Detect[&quot;Change Detection&quot;]
+          Detect --&gt; |changed| BuildA[&quot;Package A Build&quot;]
+          Detect --&gt; |changed| BuildB[&quot;Package B Build&quot;]
+          Detect --&gt; |unchanged| Skip[&quot;Skip&quot;]
+          BuildA --&gt; DockerA[&quot;Docker Build A&quot;]
+          BuildB --&gt; DockerB[&quot;Docker Build B&quot;]
+          DockerA --&gt; Deploy[&quot;Stage Deploy&quot;]
+          DockerB --&gt; Deploy</pre>
+                  <figcaption>Pipeline Architecture</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Designed the pipeline architecture using directed dependency graphs so only affected packages build on each commit, significantly reducing average build time.</li>
+                <li>Implemented parallelized build stages and layer caching for Docker images, improving feedback loop speed for ~56 engineers.</li>
+                <li>Established contribution standards, pipeline templates, and documentation enabling teams to self-service new package CI/CD setup.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>Azure Pipelines</li>
+                <li>CI/CD</li>
+                <li>Docker</li>
+                <li>Monorepo</li>
+                <li>DevOps</li>
+                <li>Build Optimization</li>
+              </ul>
+            </div>
+          </div>
+        
+          <h3 class="projects-subheading">Open Source Projects</h3>
+          <div class="project-entry" id="project-game-of-life">
+            <div class="role-header">
+              <h4>
+                <a href="https://github.com/wintermuted/game-of-life">Game of Life</a>
+              </h4>
+              <span class="date">
+                Jan 2026
+                
+              </span>
+            </div>
+        
+            <p>Interactive implementation of Conway&#x27;s Game of Life with a modern React front end and TypeScript core logic designed for testability and performance.</p>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 5 gallery items · 6 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/confirmed-game-of-life.png?v&#x3D;20260729e" alt="Game of Life dark mode homepage" loading="lazy" />
+                  <figcaption>Dark mode homepage with featured simulation preview</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/game-of-life-select-dark.png?v&#x3D;20260729e" alt="Game of Life pattern selection in dark mode" loading="lazy" />
+                  <figcaption>Pattern selection workflow in dark mode</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/game-of-life-explore-dark.png?v&#x3D;20260729e" alt="Game of Life explore page in dark mode" loading="lazy" />
+                  <figcaption>Explore mode for browsing rules and patterns</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/game-of-life-play-dark.png?v&#x3D;20260729e" alt="Game of Life play mode in dark mode" loading="lazy" />
+                  <figcaption>Interactive play mode with live simulation controls</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TD
+          A[React App UI] --&gt; B[Interaction Layer]
+          B --&gt; C[Game Engine Core]
+          C --&gt; D[Rule Evaluation]
+          D --&gt; E[Next Generation Grid]
+          C --&gt; F[Pattern Library]
+          F --&gt; A</pre>
+                  <figcaption>Game of Life App Architecture</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Built core simulation logic as pure, reusable TypeScript modules separated from UI concerns.</li>
+                <li>Implemented an interactive React interface with pattern controls and responsive grid rendering.</li>
+                <li>Structured the project as an Nx workspace with package boundaries between app and core logic.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Game Development</li>
+                <li>Nx</li>
+                <li>Testing</li>
+                <li>Performance Optimization</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-wintermuted-ui-theme">
+            <div class="role-header">
+              <h4>
+                <a href="https://github.com/wintermuted/ui-theme">Wintermuted UI Theme</a>
+              </h4>
+              <span class="date">
+                Jan 2026
+                
+              </span>
+            </div>
+        
+            <p>Shared design-system package that provides reusable CSS tokens and component styles, plus a showcase site for visual documentation and testing.</p>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 5 gallery items · 6 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/ui-theme-home.png?v&#x3D;20260731d" alt="Wintermuted UI Theme showcase homepage" loading="lazy" />
+                  <figcaption>Showcase homepage for design system navigation</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/ui-theme-components.png?v&#x3D;20260731d" alt="Wintermuted UI Theme components index" loading="lazy" />
+                  <figcaption>Component index for quick browsing and discovery</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/ui-theme-buttons.png?v&#x3D;20260731d" alt="Wintermuted UI Theme button styles" loading="lazy" />
+                  <figcaption>Button style variants and usage examples</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/ui-theme-forms.png?v&#x3D;20260731d" alt="Wintermuted UI Theme form styles" loading="lazy" />
+                  <figcaption>Form components documented in the showcase</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TD
+          A[Design Tokens] --&gt; B[Base Styles]
+          B --&gt; C[Component Styles]
+          C --&gt; D[Package Exports]
+          D --&gt; E[Consumer Apps]
+          C --&gt; F[Showcase Documentation]</pre>
+                  <figcaption>UI Theme Package Architecture</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Built a reusable UI theme package with design tokens, base styles, and component-level CSS for consistent product styling.</li>
+                <li>Maintained a local showcase site to document components and validate visual behavior across usage patterns.</li>
+                <li>Structured exports and component organization for easy consumption across multiple projects.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>Design System</li>
+                <li>CSS</li>
+                <li>Component Library</li>
+                <li>Design Tokens</li>
+                <li>UI Theming</li>
+                <li>Documentation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-entry" id="project-personal-cv-jsonresume-theme-wintermuted">
+            <div class="role-header">
+              <h4>
+                <a href="https://github.com/wintermuted/cv">Personal CV (jsonresume-theme-wintermuted)</a>
+              </h4>
+              <span class="date">
+                May 2026
+                
+              </span>
+            </div>
+        
+            <p>Latest version of my personal CV rendered with the local jsonresume theme to provide a polished, project-rich presentation of professional experience.</p>
+        
+            <button class="expand-toggle" aria-label="Expand details" type="button">Show details<span class="toggle-meta"> · 5 gallery items · 5 skills</span></button>
+            <div class="detail-content">
+              <div class="project-gallery">
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/personal-cv-summary.png?v&#x3D;20260731b" alt="CV summary section" loading="lazy" />
+                  <figcaption>Summary section with compact overview and clean typography</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/personal-cv-experience.png?v&#x3D;20260731b" alt="CV experience timeline" loading="lazy" />
+                  <figcaption>Experience section with role chronology and highlights</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/personal-cv-projects.png?v&#x3D;20260731b" alt="CV projects section" loading="lazy" />
+                  <figcaption>Projects grouped by work-related and open-source categories</figcaption>
+                </figure>
+                <figure class="project-screenshot">
+                  <img src="assets/screenshots/personal-cv-skills.png?v&#x3D;20260731b" alt="CV skills section" loading="lazy" />
+                  <figcaption>Skills taxonomy tuned for fast recruiter scanning</figcaption>
+                </figure>
+                <figure class="project-diagram">
+                  <pre class="mermaid">graph TD
+          A[resume/source/resume.json] --&gt; B[resumed CLI]
+          B --&gt; C[jsonresume-theme-wintermuted]
+          C --&gt; D[resume/exports/resume.html]
+          D --&gt; E[Feature-rich Resume Experience]</pre>
+                  <figcaption>Resume Generation Architecture</figcaption>
+                </figure>
+              </div>
+        
+              <ul class="highlights">
+                <li>Maintained resume/source/resume.json as the canonical source and rendered HTML output via npm run render.</li>
+                <li>Used the custom local theme to present experience, skills, and project artifacts with improved readability and visual structure.</li>
+                <li>Packaged CV content for direct sharing as a static HTML resume.</li>
+              </ul>
+        
+              <ul class="keywords">
+                <li>JSON Resume</li>
+                <li>Resume Engineering</li>
+                <li>Handlebars</li>
+                <li>HTML</li>
+                <li>Personal Branding</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Lightbox overlay for project screenshots -->
+        <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image preview">
+          <div class="lightbox-header" id="lightbox-header">
+            <span class="lightbox-project-name" id="lightbox-project-name"></span>
+            <span class="lightbox-project-date" id="lightbox-project-date"></span>
+          </div>
+          <button class="lightbox-close" aria-label="Close preview">&times;</button>
+          <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+            <span class="lightbox-nav-icon lightbox-nav-icon--prev" aria-hidden="true"></span>
+          </button>
+          <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+            <span class="lightbox-nav-icon lightbox-nav-icon--next" aria-hidden="true"></span>
+          </button>
+          <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+          <div class="lightbox-svg" id="lightbox-svg"></div>
+          <p class="lightbox-caption" id="lightbox-caption"></p>
+          <span class="lightbox-counter" id="lightbox-counter"></span>
+        </div>
         <section class="section" id="skills">
           <h2>Skills</h2>
           <div class="skills-grid">
@@ -4662,13 +5873,26 @@ ul.role-projects-list li a.project-ref:hover {
               <h4>Infrastructure &amp; CI/CD</h4>
               <ul class="keywords">
                 <li>Kubernetes</li>
+                <li>Azure Kubernetes Service</li>
                 <li>Docker</li>
                 <li>Helm</li>
                 <li>Azure Pipelines</li>
+                <li>Azure Container Registry</li>
                 <li>Concourse CI</li>
                 <li>Spinnaker</li>
                 <li>Artifactory</li>
                 <li>Prometheus</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h4>AI &amp; Agentic Tooling</h4>
+              <ul class="keywords">
+                <li>GitHub Copilot</li>
+                <li>Prompt Engineering</li>
+                <li>Copilot Agents</li>
+                <li>Copilot Prompt Files</li>
+                <li>LLM Integration</li>
+                <li>MCP Tool Orchestration</li>
               </ul>
             </div>
             <div class="skill-category">
@@ -4686,312 +5910,6 @@ ul.role-projects-list li a.project-ref:hover {
             </div>
           </div>
         </section>
-        <section class="section" id="projects">
-          <h2>Projects</h2>
-          <div class="project-entry" id="project-personal-cv-jsonresume-theme-local">
-            <div class="role-header">
-              <h4>
-                <a href="https://github.com/wintermuted/cv">Personal CV (jsonresume-theme-local)</a>
-              </h4>
-              <span class="date">
-                May 2026
-                
-              </span>
-            </div>
-            <p>Latest version of my personal CV rendered with the local jsonresume theme to provide a polished, project-rich presentation of professional experience.</p>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Maintained resume/source/resume.json as the canonical source and rendered HTML output via npm run render.</li>
-              <li>Used the custom local theme to present experience, skills, and project artifacts with improved readability and visual structure.</li>
-              <li>Packaged CV content for direct sharing as a static HTML resume.</li>
-            </ul>
-            <ul class="keywords">
-              <li>JSON Resume</li>
-              <li>Resume Engineering</li>
-              <li>Handlebars</li>
-              <li>HTML</li>
-              <li>Personal Branding</li>
-            </ul>
-            </div>
-          </div>
-          <div class="project-entry" id="project-deal-monitoring-ui">
-            <div class="role-header">
-              <h4>
-                Deal Monitoring UI
-              </h4>
-              <span class="date">
-                Jan 2025
-                 &ndash; Oct 2025
-              </span>
-            </div>
-            <p>Full-stack data-rich monitoring application replacing a legacy surface. Architected around virtualized rendering, config-driven columns, URL-synced state, and a 30-package modular codebase with clear separation of UI components, state management, configuration, and shared types.</p>
-            <div class="project-gallery">
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/deal-monitoring-table-view.png" alt="Deal Monitoring table view with virtualized rows" loading="lazy" />
-                <figcaption>Virtualized table view with Fluent 2 components</figcaption>
-              </figure>
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/deal-monitoring-filters.png" alt="Deal Monitoring filter panel" loading="lazy" />
-                <figcaption>URL-synced filter panel with saved views</figcaption>
-              </figure>
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/deal-monitoring-detail.jpg" alt="Deal Monitoring detail view" loading="lazy" />
-                <figcaption>Deal detail overlay</figcaption>
-              </figure>
-            </div>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Chose react-window for virtualized table rendering with Fluent 2 accessibility, using sentinel rows for screen readers instead of sacrificing a11y for performance.</li>
-              <li>Designed URL-synced filter state using custom React hooks, enabling deep links and shareable saved views without coupling to a global store.</li>
-              <li>Built a data-adapter layer mapping REST/GraphQL responses into a unified schema with deterministic multi-field sorting and server-side filtering under variable API latency.</li>
-              <li>Released to GA October 2025, retiring the legacy surface. Adopted as the architectural template for subsequent monitoring migrations.</li>
-            </ul>
-            <ul class="keywords">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Fluent UI</li>
-              <li>react-window</li>
-              <li>System Design</li>
-              <li>REST APIs</li>
-              <li>GraphQL</li>
-              <li>Monorepo</li>
-            </ul>
-            </div>
-          </div>
-          <div class="project-entry" id="project-datatableview-component-library">
-            <div class="role-header">
-              <h4>
-                DataTableView Component Library
-              </h4>
-              <span class="date">
-                Feb 2025
-                 &ndash; Sep 2025
-              </span>
-            </div>
-            <p>Reusable component library extending Fluent 2 tables with virtualization, column/sort/filter management, and query-parameter routing. Designed as a composable API that teams adopt without learning internal implementation details.</p>
-            <div class="project-gallery">
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/datatableview-api-surface.png" alt="DataTableView component API surface" loading="lazy" />
-                <figcaption>Public API with typed props and composition patterns</figcaption>
-              </figure>
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/datatableview-virtualized.png" alt="DataTableView virtualized rendering" loading="lazy" />
-                <figcaption>Virtualized rows with Fluent 2 accessibility</figcaption>
-              </figure>
-            </div>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Designed the public component API for cross-team consumption — typed props, composition patterns, and escape hatches for custom cell renderers.</li>
-              <li>Integrated react-window with Fluent 2 DetailsList without sacrificing accessibility, using sentinel rows and ARIA attributes for screen reader compatibility.</li>
-              <li>Built reusable hooks for URL-synced filters, column persistence via browser storage, and configurable pagination.</li>
-              <li>Adopted by 3 teams across 6+ product surfaces (Deal Monitoring, Inventory Manager, Sellers Monitoring workflows).</li>
-            </ul>
-            <ul class="keywords">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Fluent UI</li>
-              <li>react-window</li>
-              <li>Component API Design</li>
-              <li>Accessibility</li>
-              <li>Performance Optimization</li>
-            </ul>
-            </div>
-          </div>
-          <div class="project-entry" id="project-unified-reporting-ui">
-            <div class="role-header">
-              <h4>
-                Unified Reporting UI
-              </h4>
-              <span class="date">
-                Jun 2023
-                
-              </span>
-            </div>
-            <p>Greenfield data-visualization product enabling enterprise publishers to view revenue and performance data through a single interface, replacing fragmented legacy reporting surfaces.</p>
-            <div class="project-gallery">
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/reporting-dashboard.png" alt="Unified Reporting dashboard" loading="lazy" />
-                <figcaption>Revenue and performance data dashboard</figcaption>
-              </figure>
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/reporting-drilldown.jpg" alt="Unified Reporting drill-down view" loading="lazy" />
-                <figcaption>Filter drill-down with aggregation</figcaption>
-              </figure>
-            </div>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Designed the frontend architecture: component tree, data-fetching layer, caching strategy, and state management patterns for complex filter/drill-down interactions.</li>
-              <li>Built the initial implementation and scaled to a four-engineer squad, establishing code patterns and review standards.</li>
-              <li>Designed the API contract between frontend and data engineering teams, choosing pagination, filtering, and aggregation patterns that balance UX responsiveness with backend query cost.</li>
-            </ul>
-            <ul class="keywords">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Data Visualization</li>
-              <li>System Design</li>
-              <li>REST APIs</li>
-              <li>Fluent UI</li>
-            </ul>
-            </div>
-          </div>
-          <div class="project-entry" id="project-reporting-copilot-chat-integration">
-            <div class="role-header">
-              <h4>
-                Reporting Copilot Chat Integration
-              </h4>
-              <span class="date">
-                Jun 2025
-                
-              </span>
-            </div>
-            <p>AI-powered chat interface enabling natural-language queries against advertising performance data within the Reporting UI, using LLM integration to translate user questions into structured data queries.</p>
-            <div class="project-gallery">
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/copilot-chat-prompt.png" alt="Copilot Chat prompt interface" loading="lazy" />
-                <figcaption>Natural-language query input</figcaption>
-              </figure>
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/copilot-chat-response.png" alt="Copilot Chat response rendering" loading="lazy" />
-                <figcaption>Structured data response with formatted output</figcaption>
-              </figure>
-            </div>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Prototyped the end-to-end flow: user prompt → LLM intent parsing → structured API query → formatted response rendering.</li>
-              <li>Designed the prompt engineering approach and context-window management for domain-specific ad performance data.</li>
-            </ul>
-            <ul class="keywords">
-              <li>LLM Integration</li>
-              <li>AI/ML</li>
-              <li>TypeScript</li>
-              <li>React</li>
-              <li>Natural Language Processing</li>
-              <li>API Design</li>
-            </ul>
-            </div>
-          </div>
-          <div class="project-entry" id="project-ci-cd-pipeline-performance">
-            <div class="role-header">
-              <h4>
-                CI/CD Pipeline Performance
-              </h4>
-              <span class="date">
-                Mar 2023
-                
-              </span>
-            </div>
-            <p>Migrated monorepo CI/CD infrastructure from Bitbucket/Concourse to Azure DevOps/Azure Pipelines, redesigning the build strategy around directed dependency graphs, parallelized stages, and intelligent caching.</p>
-            <div class="project-gallery">
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/pipeline-dag.png" alt="CI/CD pipeline dependency graph" loading="lazy" />
-                <figcaption>Directed dependency graph for selective builds</figcaption>
-              </figure>
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/pipeline-metrics.jpg" alt="Pipeline build metrics" loading="lazy" />
-                <figcaption>Build time reduction metrics</figcaption>
-              </figure>
-              <figure class="project-diagram">
-                <pre class="mermaid">graph LR
-          Commit[&quot;Git Commit&quot;] --&gt; Detect[&quot;Change Detection&quot;]
-          Detect --&gt; |changed| BuildA[&quot;Package A Build&quot;]
-          Detect --&gt; |changed| BuildB[&quot;Package B Build&quot;]
-          Detect --&gt; |unchanged| Skip[&quot;Skip&quot;]
-          BuildA --&gt; DockerA[&quot;Docker Build A&quot;]
-          BuildB --&gt; DockerB[&quot;Docker Build B&quot;]
-          DockerA --&gt; Deploy[&quot;Stage Deploy&quot;]
-          DockerB --&gt; Deploy</pre>
-                <figcaption>Pipeline Architecture</figcaption>
-              </figure>
-            </div>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Designed the pipeline architecture using directed dependency graphs so only affected packages build on each commit, significantly reducing average build time.</li>
-              <li>Implemented parallelized build stages and layer caching for Docker images, improving feedback loop speed for ~56 engineers.</li>
-              <li>Established contribution standards, pipeline templates, and documentation enabling teams to self-service new package CI/CD setup.</li>
-            </ul>
-            <ul class="keywords">
-              <li>Azure Pipelines</li>
-              <li>CI/CD</li>
-              <li>Docker</li>
-              <li>Monorepo</li>
-              <li>DevOps</li>
-              <li>Build Optimization</li>
-            </ul>
-            </div>
-          </div>
-          <div class="project-entry" id="project-v1-to-v2-deal-migration-api">
-            <div class="role-header">
-              <h4>
-                V1 to V2 Deal Migration API
-              </h4>
-              <span class="date">
-                Jan 2024
-                
-              </span>
-            </div>
-            <p>REST API supporting bulk migration of Deal objects from V1 to V2 for customers&#x27; active campaigns, handling complex data-integrity scenarios across live campaign objects.</p>
-            <div class="project-gallery">
-              <figure class="project-screenshot">
-                <img src="../../assets/screenshots/migration-api-flow.png" alt="Deal Migration API flow diagram" loading="lazy" />
-                <figcaption>End-to-end migration and rollback flow</figcaption>
-              </figure>
-              <figure class="project-diagram">
-                <pre class="mermaid">sequenceDiagram
-          participant Client
-          participant API
-          participant Validator
-          participant DB as MariaDB
-          Client-&gt;&gt;API: POST /migrate (batch)
-          API-&gt;&gt;Validator: Validate V1 deals
-          Validator--&gt;&gt;API: Validation result
-          alt Valid
-            API-&gt;&gt;DB: Begin transaction
-            API-&gt;&gt;DB: Map V1 → V2 schema
-            API-&gt;&gt;DB: Write V2 records
-            API-&gt;&gt;DB: Commit
-            API--&gt;&gt;Client: 200 Migration complete
-          else Invalid
-            API--&gt;&gt;Client: 422 Validation errors
-          end</pre>
-                <figcaption>Migration Flow</figcaption>
-              </figure>
-            </div>
-            <button class="expand-toggle" aria-label="Expand details" type="button">Show details</button>
-            <div class="detail-content">
-            <ul class="highlights">
-              <li>Designed and implemented the API end-to-end as sole owner, covering schema mapping, validation, error handling, and rollback logic.</li>
-              <li>Handled edge cases around active campaigns: concurrent modifications, partial migration states, and backward-compatible data access.</li>
-            </ul>
-            <ul class="keywords">
-              <li>PHP</li>
-              <li>REST API</li>
-              <li>MariaDB</li>
-              <li>Data Migration</li>
-              <li>API Design</li>
-            </ul>
-            </div>
-          </div>
-        </section>
-        <!-- Lightbox overlay for project screenshots -->
-        <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image preview">
-          <div class="lightbox-header" id="lightbox-header">
-            <span class="lightbox-project-name" id="lightbox-project-name"></span>
-            <span class="lightbox-project-date" id="lightbox-project-date"></span>
-          </div>
-          <button class="lightbox-close" aria-label="Close preview">&times;</button>
-          <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#8249;</button>
-          <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#8250;</button>
-          <img class="lightbox-img" id="lightbox-img" src="" alt="" />
-          <div class="lightbox-svg" id="lightbox-svg"></div>
-          <p class="lightbox-caption" id="lightbox-caption"></p>
-          <span class="lightbox-counter" id="lightbox-counter"></span>
-        </div>
         <section class="section" id="education">
           <h2>Education</h2>
           <div class="education-entry" id="education-core77-third-wave-design-conference">
@@ -5284,6 +6202,15 @@ ul.role-projects-list li a.project-ref:hover {
       </main>
     </div>
 
+    <section class="contact-section" aria-label="Contact information">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:jnyeholt@hey.com">jnyeholt@hey.com</a>
+        <a href="https://www.github.com/wintermuted">Github</a>
+        <a href="https://www.linkedin.com/in/jwnyeholt">LinkedIn</a>
+      </div>
+    </section>
+
     <script>
       (function () {
         var html = document.documentElement;
@@ -5305,12 +6232,17 @@ ul.role-projects-list li a.project-ref:hover {
         /* --- Detailed / Summary view --- */
         var viewBtn = document.querySelector('.view-toggle');
         var storedView = localStorage.getItem('view');
-        if (storedView) {
-          html.setAttribute('data-view', storedView);
-        }
+        html.setAttribute('data-view', storedView || 'summary');
         function updateViewLabel() {
           var current = html.getAttribute('data-view');
-          viewBtn.textContent = current === 'summary' ? 'Detailed' : 'Summary';
+          var nextLabel = current === 'summary' ? 'Detailed' : 'Summary';
+          var nextIcon = current === 'summary' ? '&#9638;' : '&#9776;';
+          viewBtn.innerHTML =
+            '<span class="control-icon" aria-hidden="true">' +
+            nextIcon +
+            '</span><span class="control-label">' +
+            nextLabel +
+            '</span>';
         }
         updateViewLabel();
         viewBtn.addEventListener('click', function () {
@@ -5337,6 +6269,12 @@ ul.role-projects-list li a.project-ref:hover {
             var isExpanded = content.classList.toggle('expanded');
             btn.classList.toggle('expanded', isExpanded);
             btn.firstChild.textContent = isExpanded ? 'Hide details' : 'Show details';
+
+            // Mermaid diagrams inside collapsed detail blocks render at tiny sizes
+            // if initialized while hidden. Render them when the block is expanded.
+            if (isExpanded && typeof window.renderMermaidIn === 'function') {
+              window.renderMermaidIn(content);
+            }
           });
         });
 
@@ -5358,72 +6296,418 @@ ul.role-projects-list li a.project-ref:hover {
           updateNavPosLabel();
         });
 
+        /* --- Layout Width Toggle (Focused / Full Width) --- */
+        var layoutModeBtn = document.querySelector('.layout-mode-toggle');
+        var storedLayoutMode = localStorage.getItem('layout-mode');
+        html.setAttribute('data-layout-mode', storedLayoutMode || 'full');
+        function updateLayoutModeLabel() {
+          var current = html.getAttribute('data-layout-mode');
+          var nextLabel = current === 'full' ? 'Focused' : 'Full Width';
+          var nextIcon = current === 'full' ? '&#9636;' : '&#x26F6;';
+          layoutModeBtn.innerHTML =
+            '<span class="control-icon" aria-hidden="true">' +
+            nextIcon +
+            '</span><span class="control-label">' +
+            nextLabel +
+            '</span>';
+        }
+        updateLayoutModeLabel();
+        layoutModeBtn.addEventListener('click', function () {
+          var next = html.getAttribute('data-layout-mode') === 'full' ? 'focused' : 'full';
+          html.setAttribute('data-layout-mode', next);
+          localStorage.setItem('layout-mode', next);
+          updateLayoutModeLabel();
+        });
+
         /* --- Side Navigation --- */
         (function () {
           var nav = document.getElementById('side-nav');
           var sections = document.querySelectorAll('main .section[id]');
           if (!nav || !sections.length) return;
 
+          var EXPANDABLE_SECTION_IDS = {
+            experience: true,
+            projects: true
+          };
+
+          var sectionListItems = {};
+          var sectionLinks = {};
+          var subItemLinks = [];
+          var experienceSection = document.getElementById('experience');
+          var experienceHeading = experienceSection ? experienceSection.querySelector('h2') : null;
+          var experienceEntryCompanyById = {};
+          var projectsSection = document.getElementById('projects');
+          var projectsHeading = projectsSection ? projectsSection.querySelector('h2') : null;
+          var projectsEntrySubsectionById = {};
+
+          function setExperienceDockedCompany(label) {
+            if (!experienceHeading) return;
+
+            var normalized = (label || '').trim();
+            if (normalized) {
+              experienceHeading.setAttribute('data-subsection', normalized);
+            } else {
+              experienceHeading.removeAttribute('data-subsection');
+            }
+          }
+
+          function assignExperienceCompanyMap() {
+            if (!experienceSection) return;
+
+            var workGroups = Array.from(experienceSection.querySelectorAll('.work-group[id]'));
+            workGroups.forEach(function (group) {
+              var heading = group.querySelector('.work-company h3');
+              var companyLabel = heading ? heading.textContent.trim() : '';
+              if (!companyLabel) return;
+
+              experienceEntryCompanyById[group.id] = companyLabel;
+              Array.from(group.querySelectorAll('.work-role[id]')).forEach(function (role) {
+                experienceEntryCompanyById[role.id] = companyLabel;
+              });
+            });
+          }
+
+          function compactProjectsSubsectionLabel(rawLabel) {
+            if (!rawLabel) return '';
+            return rawLabel
+              .replace(/\s+projects$/i, '')
+              .replace(/-/g, ' ')
+              .trim();
+          }
+
+          function setProjectsDockedSubsection(label) {
+            if (!projectsHeading) return;
+
+            var normalized = (label || '').trim();
+            if (normalized) {
+              projectsHeading.setAttribute('data-subsection', normalized);
+            } else {
+              projectsHeading.removeAttribute('data-subsection');
+            }
+          }
+
+          function assignProjectsSubsectionMap() {
+            if (!projectsSection) return;
+
+            var subgroupHeadings = Array.from(projectsSection.querySelectorAll('.projects-subheading'));
+            if (!subgroupHeadings.length) return;
+
+            subgroupHeadings.forEach(function (heading) {
+              var label = compactProjectsSubsectionLabel(heading.textContent.trim()) || heading.textContent.trim();
+              var node = heading.nextElementSibling;
+
+              while (node && !(node.classList && node.classList.contains('projects-subheading'))) {
+                if (node.classList && node.classList.contains('project-entry') && node.id) {
+                  projectsEntrySubsectionById[node.id] = label;
+                }
+                node = node.nextElementSibling;
+              }
+            });
+          }
+
+          assignExperienceCompanyMap();
+          assignProjectsSubsectionMap();
+
+          function getSectionSubItems(sectionId) {
+            if (sectionId === 'experience') {
+              return Array.from(document.querySelectorAll('.work-group[id]')).map(function (entry) {
+                var heading = entry.querySelector('.work-company h3');
+                return {
+                  type: 'link',
+                  id: entry.id,
+                  label: heading ? heading.textContent.trim() : entry.id
+                };
+              });
+            }
+
+            if (sectionId === 'projects') {
+              var projectsSection = document.getElementById('projects');
+              if (!projectsSection) return [];
+
+              var subgroupHeadings = Array.from(projectsSection.querySelectorAll('.projects-subheading'));
+              if (!subgroupHeadings.length) {
+                return Array.from(projectsSection.querySelectorAll('.project-entry[id]')).map(function (entry) {
+                  var entryHeading = entry.querySelector('.role-header h4');
+                  return {
+                    type: 'link',
+                    id: entry.id,
+                    label: entryHeading ? entryHeading.textContent.trim() : entry.id
+                  };
+                });
+              }
+
+              var items = [];
+              subgroupHeadings.forEach(function (heading) {
+                var rawLabel = heading.textContent.trim();
+                var compactLabel = compactProjectsSubsectionLabel(rawLabel);
+
+                items.push({
+                  type: 'group-label',
+                  label: compactLabel || rawLabel
+                });
+
+                var node = heading.nextElementSibling;
+                while (node && !(node.classList && node.classList.contains('projects-subheading'))) {
+                  if (node.classList && node.classList.contains('project-entry') && node.id) {
+                    var entryTitle = node.querySelector('.role-header h4');
+                    items.push({
+                      type: 'link',
+                      id: node.id,
+                      label: entryTitle ? entryTitle.textContent.trim() : node.id
+                    });
+                  }
+                  node = node.nextElementSibling;
+                }
+              });
+
+              return items;
+            }
+
+            return [];
+          }
+
+          function setExpandedSection(sectionId, expanded) {
+            var li = sectionListItems[sectionId];
+            if (!li) return;
+            li.classList.toggle('is-expanded', expanded);
+          }
+
+          function setActiveSection(sectionId) {
+            Object.keys(sectionLinks).forEach(function (id) {
+              var link = sectionLinks[id];
+              link.classList.toggle('active', id === sectionId);
+
+              if (EXPANDABLE_SECTION_IDS[id]) {
+                setExpandedSection(id, id === sectionId);
+              }
+            });
+          }
+
+          function setActiveSubItem(activeId) {
+            subItemLinks.forEach(function (entry) {
+              entry.link.classList.toggle('active', entry.id === activeId);
+              if (entry.id === activeId) {
+                setExpandedSection(entry.sectionId, true);
+                setActiveSection(entry.sectionId);
+
+                if (entry.sectionId === 'projects') {
+                  setProjectsDockedSubsection(projectsEntrySubsectionById[entry.id] || '');
+                }
+
+                if (entry.sectionId === 'experience') {
+                  setExperienceDockedCompany(experienceEntryCompanyById[entry.id] || '');
+                }
+              }
+            });
+          }
+
           // Build nav links from rendered sections
           var ul = document.createElement('ul');
           sections.forEach(function (section) {
             var h2 = section.querySelector('h2');
             if (!h2) return;
+
             var li = document.createElement('li');
+            li.className = 'side-nav-group';
+            sectionListItems[section.id] = li;
+
             var a = document.createElement('a');
             a.href = '#' + section.id;
             a.textContent = h2.textContent;
+            sectionLinks[section.id] = a;
             a.addEventListener('click', function (e) {
               e.preventDefault();
               section.scrollIntoView({ behavior: 'smooth', block: 'start' });
               history.replaceState(null, '', '#' + section.id);
+
+              setActiveSection(section.id);
+              setActiveSubItem('');
+              if (EXPANDABLE_SECTION_IDS[section.id]) {
+                setExpandedSection(section.id, true);
+              }
             });
             li.appendChild(a);
+
+            if (EXPANDABLE_SECTION_IDS[section.id]) {
+              var subItems = getSectionSubItems(section.id);
+              if (subItems.length) {
+                li.classList.add('has-children');
+                var subList = document.createElement('ul');
+                subList.className = 'side-nav-sublist';
+
+                subItems.forEach(function (subItem) {
+                  if (subItem.type === 'group-label') {
+                    var labelLi = document.createElement('li');
+                    labelLi.className = 'side-nav-subgroup-label';
+                    labelLi.textContent = subItem.label;
+                    subList.appendChild(labelLi);
+                    return;
+                  }
+
+                  var subLi = document.createElement('li');
+                  subLi.className = 'side-nav-subitem';
+
+                  var subLink = document.createElement('a');
+                  subLink.href = '#' + subItem.id;
+                  subLink.textContent = subItem.label;
+                  subLink.className = 'side-nav-sublink';
+
+                  subLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var target = document.getElementById(subItem.id);
+                    if (!target) return;
+
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', '#' + subItem.id);
+
+                    setExpandedSection(section.id, true);
+                    setActiveSection(section.id);
+                    setActiveSubItem(subItem.id);
+                  });
+
+                  subLi.appendChild(subLink);
+                  subList.appendChild(subLi);
+
+                  subItemLinks.push({
+                    id: subItem.id,
+                    sectionId: section.id,
+                    link: subLink
+                  });
+                });
+
+                li.appendChild(subList);
+              }
+            }
+
             ul.appendChild(li);
           });
           nav.appendChild(ul);
 
           // Scroll spy: highlight active section
-          var links = nav.querySelectorAll('a');
-          var observer = new IntersectionObserver(function (entries) {
+          var sectionObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
               if (entry.isIntersecting) {
-                links.forEach(function (link) {
-                  link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-                });
+                setActiveSection(entry.target.id);
+                setActiveSubItem('');
+
+                if (entry.target.id !== 'projects') {
+                  setProjectsDockedSubsection('');
+                }
+
+                if (entry.target.id !== 'experience') {
+                  setExperienceDockedCompany('');
+                }
               }
             });
           }, { rootMargin: '-10% 0px -80% 0px' });
 
           sections.forEach(function (section) {
-            observer.observe(section);
+            sectionObserver.observe(section);
           });
+
+          // Sub-item scroll spy for Experience and Projects entries.
+          if (subItemLinks.length) {
+            var subItemObserver = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  setActiveSubItem(entry.target.id);
+                }
+              });
+            }, { rootMargin: '-18% 0px -72% 0px' });
+
+            subItemLinks.forEach(function (entry) {
+              var target = document.getElementById(entry.id);
+              if (target) {
+                subItemObserver.observe(target);
+              }
+            });
+          }
+
+          // Experience role-level scroll spy to keep sticky company breadcrumb current.
+          if (experienceSection && experienceHeading) {
+            var experienceRoleObserver = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  setExperienceDockedCompany(experienceEntryCompanyById[entry.target.id] || '');
+                }
+              });
+            }, { rootMargin: '-18% 0px -72% 0px' });
+
+            Array.from(experienceSection.querySelectorAll('.work-role[id]')).forEach(function (role) {
+              experienceRoleObserver.observe(role);
+            });
+          }
+
+          // Projects subgroup scroll spy for breadcrumb-style docked title.
+          if (projectsSection && projectsHeading) {
+            var projectsSubheadingObserver = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  var label = compactProjectsSubsectionLabel(entry.target.textContent.trim()) || entry.target.textContent.trim();
+                  setProjectsDockedSubsection(label);
+                }
+              });
+            }, { rootMargin: '-16% 0px -78% 0px' });
+
+            Array.from(projectsSection.querySelectorAll('.projects-subheading')).forEach(function (heading) {
+              projectsSubheadingObserver.observe(heading);
+            });
+          }
+
+          // Initialize active state from URL hash when possible.
+          var hash = window.location.hash ? window.location.hash.slice(1) : '';
+          if (hash) {
+            var matchedSub = subItemLinks.find(function (entry) { return entry.id === hash; });
+            if (matchedSub) {
+              setExpandedSection(matchedSub.sectionId, true);
+              setActiveSection(matchedSub.sectionId);
+              setActiveSubItem(matchedSub.id);
+
+              if (matchedSub.sectionId === 'projects') {
+                setProjectsDockedSubsection(projectsEntrySubsectionById[matchedSub.id] || '');
+              }
+
+              if (matchedSub.sectionId === 'experience') {
+                setExperienceDockedCompany(experienceEntryCompanyById[matchedSub.id] || '');
+              }
+
+              return;
+            }
+
+            if (sectionLinks[hash]) {
+              setActiveSection(hash);
+              setActiveSubItem('');
+              if (EXPANDABLE_SECTION_IDS[hash]) {
+                setExpandedSection(hash, true);
+              }
+              return;
+            }
+          }
+
+          setActiveSection('summary');
+          setActiveSubItem('');
+          setExpandedSection('experience', false);
+          setExpandedSection('projects', false);
+          setExperienceDockedCompany('');
+          setProjectsDockedSubsection('');
         })();
 
-        /* --- Scroll-driven Compact Header --- */
+        /* --- Sticky Header Height Sync --- */
         (function () {
           var header = document.querySelector('.header');
           if (!header) return;
 
-          // Distance (px) over which the header fully compresses
-          var SCROLL_RANGE = 120;
-          var ticking = false;
-
-          function onScroll() {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(function () {
-              var t = Math.min(1, Math.max(0, window.scrollY / SCROLL_RANGE));
-              header.style.setProperty('--t', t);
-              document.documentElement.style.setProperty(
-                '--sticky-header-h', header.offsetHeight + 'px'
-              );
-              ticking = false;
-            });
+          function syncStickyHeaderHeight() {
+            document.documentElement.style.setProperty(
+              '--sticky-header-h',
+              header.offsetHeight + 'px'
+            );
           }
 
-          window.addEventListener('scroll', onScroll, { passive: true });
-          onScroll();
+          window.addEventListener('resize', syncStickyHeaderHeight);
+          window.addEventListener('orientationchange', syncStickyHeaderHeight);
+
+          syncStickyHeaderHeight();
         })();
 
         /* --- Heading Anchor Links --- */
@@ -5721,6 +7005,15 @@ ul.role-projects-list li a.project-ref:hover {
         var projectName = document.getElementById('lightbox-project-name');
         var projectDate = document.getElementById('lightbox-project-date');
 
+        function getHeadingTextWithoutAnchor(heading) {
+          if (!heading) return '';
+          var clone = heading.cloneNode(true);
+          clone.querySelectorAll('.heading-anchor').forEach(function (anchor) {
+            anchor.remove();
+          });
+          return clone.textContent.trim();
+        }
+
         // Build ordered list of all gallery items (screenshots + diagrams)
         var items = [];
         var itemProjects = []; // parallel array: { name, date } per item
@@ -5730,7 +7023,7 @@ ul.role-projects-list li a.project-ref:hover {
           var date = '';
           if (entry) {
             var h4 = entry.querySelector('h4');
-            if (h4) name = h4.textContent.trim();
+            if (h4) name = getHeadingTextWithoutAnchor(h4);
             var dateEl = entry.querySelector('.role-header .date');
             if (dateEl) date = dateEl.textContent.trim();
           }
@@ -5830,11 +7123,31 @@ ul.role-projects-list li a.project-ref:hover {
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
       mermaid.initialize({
-        startOnLoad: true,
+        startOnLoad: false,
         theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default',
         flowchart: { useMaxWidth: true, htmlLabels: true },
         sequence: { useMaxWidth: true }
       });
+
+      window.renderMermaidIn = async function (root) {
+        var scope = root || document;
+        var nodes = Array.from(scope.querySelectorAll('.mermaid')).filter(function (el) {
+          return el.offsetParent !== null && !el.dataset.mermaidRendered;
+        });
+
+        if (!nodes.length) return;
+
+        try {
+          await mermaid.run({ nodes: nodes });
+          nodes.forEach(function (el) {
+            el.dataset.mermaidRendered = 'true';
+          });
+        } catch (err) {
+          console.error('Mermaid render error:', err);
+        }
+      };
+
+      window.renderMermaidIn(document);
     </script>
   </body>
 </html>
