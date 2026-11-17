@@ -1,0 +1,32 @@
+name: Validate portfolio without deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'jnyeholt-microsoft-resume-professional-portfolio'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Verify importer
+        run: |
+          node --test test/import-resume.test.mjs
+          node scripts/import-resume.mjs verify --allow-pending
+      - name: Install image dependencies
+        run: sudo apt-get update && sudo apt-get install -y libvips-tools libvips-dev liblcms2-dev libopenjp2-7-dev libpng-dev libwebp-dev libheif-dev imagemagick libjxl-dev libpoppler-glib-dev
+      - name: Build and verify site
+        run: |
+          bundle exec jekyll build
+          node scripts/check-site.mjs
+        env:
+          JEKYLL_ENV: production

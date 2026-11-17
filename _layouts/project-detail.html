@@ -1,6 +1,21 @@
 ---
 layout: default
 ---
+{% if page.case_study %}
+<main class="projects-layout projects-page project-detail-page body-content">
+  <div class="projects-layout-content">
+    <header class="view-header">
+      <h1>{{ page.title | escape }}</h1>
+      <p>{{ page.tagline | escape }}</p>
+      <p><strong>Role:</strong> {{ page.role | escape }} · <strong>Status:</strong> {{ page.status | escape }} · <strong>When:</strong> {{ page.timeline | escape }}</p>
+    </header>
+    <article class="article-content">
+      {{ content }}
+      <p><a href="{{ site.baseurl }}/projects/">All projects</a> · <a href="{{ site.baseurl }}/resume">Resume</a></p>
+    </article>
+  </div>
+</main>
+{% else %}
 {% assign tab_id_prefix = page.url | slugify %}
 {% assign detail_sections = content | split: '<h2' %}
 {% assign has_architecture_tab = false %}
@@ -1282,3 +1297,4 @@ layout: default
     initProjectDetailPageInteractions();
   }
 </script>
+{% endif %}

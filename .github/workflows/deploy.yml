@@ -36,6 +36,9 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for proper git operations
 
+      - name: Verify reviewed resume bundle
+        run: node scripts/import-resume.mjs verify
+
       # Step 2: Set up Ruby environment
       # Installs Ruby and sets up bundler with automatic gem caching
       - name: Set up Ruby
@@ -80,6 +83,9 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production  # Set environment to production for optimizations
+
+      - name: Verify published routes
+        run: node scripts/check-site.mjs
 
       # Step 6: Verify production Netlify credentials
       - name: Check Netlify auth token
