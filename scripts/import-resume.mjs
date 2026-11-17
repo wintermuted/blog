@@ -8,6 +8,11 @@ const files = ['resume.public.json', 'resume.fragment.html', 'resume.html', 'res
 const bundleNames = ['manifest.json', ...files].sort();
 const hash = data => createHash('sha256').update(data).digest('hex');
 const fail = message => { throw new Error(message); };
+const allowedKeys = (value, keys, label) => {
+  if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !keys.includes(key))) {
+    fail(`Invalid or non-public fields in ${label}`);
+  }
+};
 
 export function validateBundle(dir, expected = {}) {
   const entries = readdirSync(dir).sort();
@@ -31,10 +36,25 @@ export function validateBundle(dir, expected = {}) {
   if (projection.schemaVersion !== 1 || projection.profile !== 'general' || !projection.basics ||
       !Array.isArray(projection.work) || !Array.isArray(projection.education) ||
       !Array.isArray(projection.skills) || !Array.isArray(projection.projects)) fail('Invalid public resume projection');
+  allowedKeys(projection, ['schemaVersion', 'profile', 'basics', 'work', 'education', 'skills', 'projects'], 'projection');
+  allowedKeys(projection.basics, ['name', 'label', 'email', 'phone', 'location', 'url', 'profiles', 'summary'], 'basics');
+  if (projection.basics.profiles !== undefined) {
+    if (!Array.isArray(projection.basics.profiles)) fail('Invalid public profiles');
+    for (const profile of projection.basics.profiles) allowedKeys(profile, ['network', 'url'], 'profile');
+  }
+  for (const work of projection.work) {
+    allowedKeys(work, ['id', 'name', 'position', 'startDate', 'endDate', 'summary', 'highlights'], 'work');
+    if (!Array.isArray(work.highlights)) fail('Invalid work highlights');
+    for (const highlight of work.highlights) allowedKeys(highlight, ['id', 'text', 'projectUrl'], 'highlight');
+  }
+  for (const item of projection.education) allowedKeys(item, ['institution', 'studyType', 'area', 'startDate', 'endDate'], 'education');
+  for (const skill of projection.skills) allowedKeys(skill, ['name', 'keywords'], 'skill');
+  for (const project of projection.projects) allowedKeys(project, ['id', 'name', 'url', 'summary'], 'project');
   const fragment = content['resume.fragment.html'].toString('utf8').trim();
   const html = content['resume.html'].toString('utf8');
   if (!/^<article\s+class="compact-resume"/.test(fragment) || !fragment.endsWith('</article>') || !html.includes(fragment)) fail('Browser HTML does not contain the compact resume fragment');
-  if (/<\s*(script|iframe|object|embed|form|base)\b|\son[a-z]+\s*=|(?:href|src)\s*=\s*["']\s*javascript:|{%|{{/i.test(fragment)) fail('Unsafe active content or template syntax in fragment');
+  if (/<\s*(script|iframe|object|embed|form|base)\b|\son[a-z]+\s*=|(?:href|src)\s*=\s*["']\s*javascript:|{%|{{/i.test(fragment) ||
+      /<\s*(script|iframe|object|embed|form|base)\b|\son[a-z]+\s*=|(?:href|src)\s*=\s*["']\s*javascript:/i.test(html)) fail('Unsafe active content or template syntax in resume HTML');
   if (!content['resume.pdf'].subarray(0, 5).equals(Buffer.from('%PDF-'))) fail('Invalid PDF header');
   return manifest;
 }

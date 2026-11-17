@@ -74,3 +74,20 @@ test('rejects a mismatched browser fragment and active content even when checksu
     assert.throws(() => validateBundle(source), /Unsafe active content/);
   } finally { rmSync(temp, { recursive: true }); }
 });
+
+test('rejects private projection fields even when their checksum matches', () => {
+  const temp = mkdtempSync(join(tmpdir(), 'resume-test-'));
+  try {
+    const source = join(temp, 'source');
+    fixture(source);
+    const manifestPath = join(source, 'manifest.json');
+    const manifest = JSON.parse(readFileSync(manifestPath));
+    const projection = JSON.parse(readFileSync(join(source, 'resume.public.json')));
+    projection.privateEvidence = 'not for publication';
+    const text = JSON.stringify(projection);
+    writeFileSync(join(source, 'resume.public.json'), text);
+    manifest.files['resume.public.json'] = digest(text);
+    writeFileSync(manifestPath, JSON.stringify(manifest));
+    assert.throws(() => validateBundle(source), /non-public fields/);
+  } finally { rmSync(temp, { recursive: true }); }
+});
