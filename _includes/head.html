@@ -4,7 +4,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% assign page_description = page.description | default: page.tagline | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% if page.case_study %}
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:type" content="article">
+  {% endif %}
 
   <!-- Match ui-theme docs font loading so token stack resolves consistently -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

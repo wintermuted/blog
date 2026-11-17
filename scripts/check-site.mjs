@@ -6,7 +6,9 @@ const read = path => readFileSync(join(site, path), 'utf8');
 const requireText = (text, needle, label) => {
   if (!text.includes(needle)) throw new Error(`${label}: missing ${needle}`);
 };
-const resume = read('resume');
+const resumePath = ['resume.html', 'resume/index.html'].find(path => existsSync(join(site, path)));
+if (!resumePath) throw new Error('Missing generated resume page');
+const resume = read(resumePath);
 const projectSlugs = ['aks-migration', 'datatableview', 'ci-cd-performance'];
 for (const slug of projectSlugs) {
   if (!existsSync(join(site, 'projects', slug, 'index.html'))) throw new Error(`Missing project: ${slug}`);
