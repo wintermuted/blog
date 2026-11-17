@@ -79,7 +79,8 @@ jobs:
             libheif-dev \
             imagemagick \
             libjxl-dev \
-            libpoppler-glib-dev
+            libpoppler-glib-dev \
+            poppler-utils
 
       # Step 5: Build Jekyll site for PR preview
       # Build without baseurl since Netlify serves from root
@@ -89,7 +90,9 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Verify preview routes
-        run: node scripts/check-site.mjs
+        run: |
+          node scripts/check-site.mjs
+          node scripts/check-resume-print.mjs
 
       # Step 6: Deploy to Netlify
       # Uses the official Netlify CLI to deploy

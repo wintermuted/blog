@@ -74,7 +74,8 @@ jobs:
             libheif-dev \
             imagemagick \
             libjxl-dev \
-            libpoppler-glib-dev
+            libpoppler-glib-dev \
+            poppler-utils
 
       # Step 5: Build the Jekyll site
       # Generates the static site in the _site directory
@@ -85,7 +86,9 @@ jobs:
           JEKYLL_ENV: production  # Set environment to production for optimizations
 
       - name: Verify published routes
-        run: node scripts/check-site.mjs
+        run: |
+          node scripts/check-site.mjs
+          node scripts/check-resume-print.mjs
 
       # Step 6: Verify production Netlify credentials
       - name: Check Netlify auth token

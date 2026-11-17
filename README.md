@@ -97,10 +97,13 @@ import leaves the previously approved bundle intact. The website reads only
 the public bundle, not the CV master or private evidence; `/resume.pdf` is
 generated from the same bundle as the embedded HTML. Publication still requires
 human review of claims, privacy, PDF pagination and desktop/mobile previews.
+Bundle files are stored without Git line-ending conversion so their checksums
+remain valid across platforms.
 
 Without a bundle, the resume page says it is pending and does not offer a PDF.
 Preview validation accepts that state; production deployment requires a valid
-bundle. The `Validate portfolio without deployment` workflow builds and checks
+bundle. CI prints the built resume page and checks its page count and text.
+The `Validate portfolio without deployment` workflow builds and checks
 the site without publishing it. It can also be started manually for a branch.
 Never use an old rich resume export to fill a missing compact bundle.
 
