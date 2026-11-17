@@ -1409,6 +1409,34 @@ h3.post_title {
 
 /* ── Gallery overlay ─────────────────────────────────────────────────────── */
 
+.projects-index-section > h2 {
+  margin: 2rem 0 0.85rem;
+  font-size: 1.25rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.case-study .view-header,
+.case-study .article-content {
+  max-width: 76ch;
+}
+
+.case-study .article-content h2 {
+  margin: 2rem 0 0.6rem;
+  font-size: 1.25rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.case-study .article-content p {
+  margin: 0 0 1rem;
+}
+
+.case-study .article-content a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .projects-filter-bar {
   display: flex;
   flex-wrap: wrap;

@@ -12,7 +12,11 @@ if (!existsSync('resume-bundle')) {
 const root = resolve('_site');
 const resume = ['resume.html', 'resume/index.html'].find(path => existsSync(join(root, path)));
 if (!resume) throw new Error('Missing built resume page');
-const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.woff2': 'font/woff2' };
+const mime = {
+  '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.woff2': 'font/woff2',
+  '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif', '.webp': 'image/webp'
+};
 const server = createServer((request, response) => {
   const pathname = new URL(request.url, 'http://localhost').pathname;
   const relative = pathname === '/resume' ? resume : decodeURIComponent(pathname).replace(/^\/+/, '');

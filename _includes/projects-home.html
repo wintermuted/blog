@@ -1,4 +1,4 @@
-<section aria-labelledby="professional-projects-heading">
+<section class="projects-index-section" aria-labelledby="professional-projects-heading">
   <h2 id="professional-projects-heading">Professional work</h2>
   <div class="projects-grid">
     {% assign featured_projects = site.pages | where: 'case_study', true | sort: 'featured_order' %}
@@ -16,7 +16,7 @@
   </div>
 </section>
 
-<section aria-labelledby="personal-projects-heading">
+<section class="projects-index-section" aria-labelledby="personal-projects-heading">
 <h2 id="personal-projects-heading">Open source and personal projects</h2>
 <div class="projects-filter-bar" role="toolbar" aria-label="Project type filters">
   <button type="button" class="projects-filter-button is-active" data-project-filter="all"><i class="fas fa-th-large" aria-hidden="true"></i>All</button>
