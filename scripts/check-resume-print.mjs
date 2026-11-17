@@ -1,5 +1,5 @@
 import { spawn, execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { extname, join, resolve, sep } from 'node:path';
@@ -29,20 +29,39 @@ const server = createServer((request, response) => {
   }
 });
 const temp = mkdtempSync(join(tmpdir(), 'site-resume-print-'));
+const review = resolve('review-output');
+mkdirSync(review, { recursive: true });
 try {
   await new Promise(resolveListen => server.listen(0, '127.0.0.1', resolveListen));
   const url = `http://127.0.0.1:${server.address().port}/resume`;
-  const output = join(temp, 'resume.pdf');
-  await new Promise((resolvePrint, reject) => {
-    const chrome = spawn('google-chrome', [
-      '--headless', '--disable-gpu', '--no-sandbox', '--disable-background-networking',
-      '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost',
-      `--user-data-dir=${join(temp, 'chrome')}`, '--no-pdf-header-footer',
-      '--virtual-time-budget=3000', `--print-to-pdf=${output}`, url
-    ], { stdio: 'ignore' });
-    chrome.on('error', reject);
-    chrome.on('exit', code => code === 0 ? resolvePrint() : reject(new Error(`Chrome print failed: ${code}`)));
-  });
+  const output = join(review, 'site-resume-print.pdf');
+  async function capture(name, flags, expected) {
+    let diagnostics = '';
+    const code = await new Promise((resolveCapture, reject) => {
+      const chrome = spawn('google-chrome', [
+        '--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage',
+        '--disable-background-networking', '--no-first-run',
+        '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost',
+        `--user-data-dir=${join(temp, name)}`, '--virtual-time-budget=3000', ...flags, url
+      ], { stdio: ['ignore', 'pipe', 'pipe'] });
+      chrome.stdout.on('data', data => { diagnostics += data.toString(); });
+      chrome.stderr.on('data', data => { diagnostics += data.toString(); });
+      chrome.on('error', reject);
+      chrome.on('exit', resolveCapture);
+    });
+    if (code !== 0 || !existsSync(expected)) {
+      throw new Error(`Chrome ${name} failed (exit ${code}, output ${existsSync(expected) ? 'present' : 'missing'}):\n${diagnostics.slice(-12000)}`);
+    }
+  }
+  const failures = [];
+  for (const [name, flags, expected] of [
+    ['print', ['--no-pdf-header-footer', `--print-to-pdf=${output}`], output],
+    ['desktop', ['--window-size=1440,1000', `--screenshot=${join(review, 'resume-desktop.png')}`], join(review, 'resume-desktop.png')],
+    ['mobile', ['--window-size=390,844', `--screenshot=${join(review, 'resume-mobile.png')}`], join(review, 'resume-mobile.png')]
+  ]) {
+    try { await capture(name, flags, expected); } catch (error) { failures.push(error.message); }
+  }
+  if (failures.length) throw new Error(failures.join('\n'));
   const info = execFileSync('pdfinfo', [output], { encoding: 'utf8' });
   const count = Number(info.match(/^Pages:\s+(\d+)/m)?.[1]);
   if (count !== 2) throw new Error(`Built site resume printed ${count || 'an unknown number of'} pages; expected 2`);

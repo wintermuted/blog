@@ -66,3 +66,4 @@ exclude:
  - netlify.toml
  - scripts
  - test
+ - review-output
