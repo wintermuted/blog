@@ -9,6 +9,7 @@ module Jekyll
   class ResumePdfGenerator < Generator
     def generate(site)
       path = File.join(site.source, "resume-bundle", "resume.pdf")
+      site.config["resume_bundle_ready"] = File.file?(File.join(site.source, "resume-bundle", "manifest.json"))
       return unless File.file?(path)
 
       site.static_files << ResumePdf.new(site, site.source, "resume-bundle", "resume.pdf")

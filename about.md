@@ -29,8 +29,7 @@ permalink: /about/
 				<p>Across my nearly 15 year career I've had the opportunity to lead projects, teams, and develop internal frameworks that have saved both IC's and the business valuable engineering time.  </p>
 				<p>
 					Read my <a href="{{ site.baseurl }}/resume">resume</a> and explore my <a href="{{ site.baseurl }}/projects/">project work</a>.
-					{% assign bundle_manifest = site.static_files | where: 'relative_path', '/resume-bundle/manifest.json' | first %}
-					{% if bundle_manifest %}<a href="{{ site.baseurl }}/resume.pdf">Download the resume PDF</a>.{% endif %}
+					{% if site.resume_bundle_ready %}<a href="{{ site.baseurl }}/resume.pdf">Download the resume PDF</a>.{% endif %}
 				</p>
 			</section>
 		</div>

@@ -24,13 +24,26 @@ jobs:
           node scripts/import-resume.mjs verify --allow-pending
       - name: Install image dependencies
         run: sudo apt-get update && sudo apt-get install -y libvips-tools libvips-dev liblcms2-dev libopenjp2-7-dev libpng-dev libwebp-dev libheif-dev imagemagick libjxl-dev libpoppler-glib-dev poppler-utils
-      - name: Build and verify site
-        run: |
-          bundle exec jekyll build
-          node scripts/check-site.mjs
-          node scripts/check-resume-print.mjs
+      - name: Restore generated images
+        id: image-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: _site/generated/
+          key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
+      - name: Build site
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+      - name: Cache generated images
+        if: steps.image-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: _site/generated/
+          key: ${{ steps.image-cache.outputs.cache-primary-key }}
+      - name: Verify built site and print
+        run: |
+          node scripts/check-site.mjs
+          node scripts/check-resume-print.mjs
       - name: Upload site for private review
         uses: actions/upload-artifact@v4
         with:

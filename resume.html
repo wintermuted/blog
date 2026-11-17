@@ -3,8 +3,7 @@ layout: default
 title: Resume
 permalink: /resume
 ---
-{% assign bundle_manifest = site.static_files | where: 'relative_path', '/resume-bundle/manifest.json' | first %}
-{% if bundle_manifest %}
+{% if site.resume_bundle_ready %}
 <style>
   @media print {
     .site-header, .global-footer, .resume-page > .projects-layout-content > .view-header, .resume-project-links { display: none !important; }
@@ -17,13 +16,13 @@ permalink: /resume
   <div class="projects-layout-content">
     <header class="view-header">
       <h1>Resume</h1>
-      {% if bundle_manifest %}
+      {% if site.resume_bundle_ready %}
       <p><a href="{{ site.baseurl }}/resume.pdf">Download resume PDF</a> · <a href="{{ site.baseurl }}/projects/">Explore the portfolio</a></p>
       {% else %}
       <p>The compact resume and its matching PDF are awaiting a reviewed publication bundle. In the meantime, explore the <a href="{{ site.baseurl }}/projects/">portfolio</a>.</p>
       {% endif %}
     </header>
-    {% if bundle_manifest %}
+    {% if site.resume_bundle_ready %}
       {% include_relative resume-bundle/resume.fragment.html %}
     {% endif %}
     <section class="article-content resume-project-links" aria-labelledby="resume-project-links">
