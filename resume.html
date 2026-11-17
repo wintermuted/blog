@@ -4,7 +4,16 @@ title: Resume
 permalink: /resume
 ---
 {% assign bundle_manifest = site.static_files | where: 'relative_path', '/resume-bundle/manifest.json' | first %}
-<main class="projects-layout body-content">
+{% if bundle_manifest %}
+<style>
+  @media print {
+    .site-header, .global-footer, .resume-page > .projects-layout-content > .view-header, .resume-project-links { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; }
+    .resume-page, .resume-page .projects-layout-content { display: block !important; width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  }
+</style>
+{% endif %}
+<main class="projects-layout body-content resume-page">
   <div class="projects-layout-content">
     <header class="view-header">
       <h1>Resume</h1>
@@ -17,7 +26,7 @@ permalink: /resume
     {% if bundle_manifest %}
       {% include_relative resume-bundle/resume.fragment.html %}
     {% endif %}
-    <section class="article-content" aria-labelledby="resume-project-links">
+    <section class="article-content resume-project-links" aria-labelledby="resume-project-links">
       <h2 id="resume-project-links">Project links</h2>
       <p>Links from the previous resume now lead to these project pages where available.</p>
       <ul>
