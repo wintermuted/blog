@@ -11,9 +11,50 @@ if (!resumePath) throw new Error('Missing generated resume page');
 const resume = read(resumePath);
 const projectSlugs = ['aks-migration', 'datatableview', 'ci-cd-performance'];
 const projectIndex = read('projects/index.html');
+const portfolioVisuals = {
+  'aks-migration': ['aks-migration-workflow'],
+  datatableview: ['datatableview-redacted-table.png', 'datatableview-redacted-filters.png', 'datatableview-architecture'],
+  'ci-cd-performance': ['ci-cd-selective-builds']
+};
+const privateSourceScreenshots = [
+  'personal-cv-experience.png', 'personal-cv-projects.png', 'personal-cv-skills.png', 'personal-cv-summary.png',
+  'copilot-chat-prompt.png', 'copilot-chat-response.png', 'deal-monitoring-detail.jpg',
+  'deal-monitoring-filters.png', 'deal-monitoring-table-view.png', 'pipeline-dag.png', 'pipeline-metrics.jpg',
+  'reporting-dashboard.png', 'reporting-drilldown.jpg'
+];
 for (const slug of projectSlugs) {
   requireText(resume, `/projects/${slug}/`, 'resume');
   requireText(projectIndex, `/projects/${slug}/`, 'projects index');
+}
+for (const [slug, visuals] of Object.entries(portfolioVisuals)) {
+  const project = read(`projects/${slug}/index.html`);
+  for (const visual of visuals) requireText(project, visual, `${slug} visual`);
+}
+for (const [slug, markers] of Object.entries({
+  datatableview: [
+    'alt="Application table with the original customer and deal records removed."',
+    'alt="Filter drawer with no customer records or active selections shown."',
+    'all original record values and identifiers are redacted',
+    'the original background table and active selection are removed'
+  ],
+  'aks-migration': ['internal systems and routing are omitted'],
+  'ci-cd-performance': ['internal pipeline details and run metrics are omitted']
+})) {
+  const project = read(`projects/${slug}/index.html`);
+  for (const marker of markers) requireText(project, marker, `${slug} visual description`);
+}
+for (const filename of privateSourceScreenshots) {
+  if (existsSync(join(site, 'assets', 'screenshots', filename))) {
+    throw new Error(`Sensitive source screenshot was included in the site: ${filename}`);
+  }
+}
+if (!existsSync(join(site, 'assets', 'screenshots', 'game-of-life-select-dark.png'))) {
+  throw new Error('Open-source project screenshots should remain available');
+}
+for (const filename of ['datatableview-redacted-table.png', 'datatableview-redacted-filters.png']) {
+  if (!existsSync(join(site, 'assets', 'img', 'portfolio', filename))) {
+    throw new Error(`Missing sanitized portfolio visual: ${filename}`);
+  }
 }
 for (const slug of [...projectSlugs, 'game-of-life']) {
   const project = read(`projects/${slug}/index.html`);

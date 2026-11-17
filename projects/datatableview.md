@@ -8,6 +8,13 @@ tagline: A reusable foundation for data-heavy application screens.
 role: Framework author and initial application engineer
 status: Implemented and reused
 timeline: 2025
+screenshots:
+  - src: /assets/img/portfolio/datatableview-redacted-table.png
+    alt: Application table with the original customer and deal records removed.
+    caption: Table layout and controls; all original record values and identifiers are redacted.
+  - src: /assets/img/portfolio/datatableview-redacted-filters.png
+    alt: Filter drawer with no customer records or active selections shown.
+    caption: Filter options; the original background table and active selection are removed.
 project_links:
   - label: All projects
     url: /projects/
@@ -32,3 +39,14 @@ Large datasets also required attention to keyboard and screen-reader access. The
 The first application exercised the framework in a real product context, and subsequent reuse by other engineers demonstrated that it could support additional screens. This is a concrete adoption result, not a measured like-for-like productivity comparison. Accessibility and performance remain qualities to verify in each consuming application.
 
 Explore [other projects]({{ site.baseurl }}/projects/).
+
+## Architecture
+
+<figure id="datatableview-architecture" class="project-diagram project-diagram--compact">
+  <pre class="mermaid">flowchart LR
+    Config["Application configuration<br/>Columns · filters · data source"] --> DTV["DataTableView<br/>Composable shared behavior"]
+    DTV --> Grid["Virtualized table<br/>Sorting · filtering · column management"]
+    State["URL-synchronized state"] <-->|"shareable view"| DTV
+    DTV --> A11y["Keyboard and screen reader access"]</pre>
+  <figcaption>High-level component responsibilities and shareable state; implementation details are omitted.</figcaption>
+</figure>

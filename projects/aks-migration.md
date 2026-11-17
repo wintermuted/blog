@@ -32,3 +32,15 @@ I built an assisted workflow to examine existing application configurations and 
 The workflow checks generated configuration and deployment artifacts before engineers review them. Deployment verification and approval gates are part of the migration process. These checks reduce repetitive work, but do not replace application-specific testing or operational judgment. The scope describes the migration target, not completed production rollout; no current deployment count is claimed here.
 
 Read more about [pipeline performance]({{ site.baseurl }}/projects/ci-cd-performance/).
+
+## Architecture
+
+<figure id="aks-migration-workflow" class="project-diagram project-diagram--compact">
+  <pre class="mermaid">flowchart LR
+    Source["Existing application configuration"] --> Workflow["Copilot-assisted workflow"]
+    Workflow --> Artifacts["Migration artifacts"]
+    Artifacts --> Checks["Automated configuration checks"]
+    Checks --> Review["Engineer review"]
+    Review --> Release["Deployment verification and approval gates"]</pre>
+  <figcaption>Migration workflow at a high level; internal systems and routing are omitted.</figcaption>
+</figure>

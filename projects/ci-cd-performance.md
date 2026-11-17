@@ -32,3 +32,15 @@ Selective execution and caching reduce unnecessary work, but require accurate de
 The before-and-after Main Stage observations provide a directional comparison of the feedback loop. They do not establish an end-to-end pipeline timing or a controlled benchmark, and the precise observation window is unavailable. Pipeline checks remain responsible for validating the relevant change.
 
 Read about the related [AKS migration]({{ site.baseurl }}/projects/aks-migration/).
+
+## Architecture
+
+<figure id="ci-cd-selective-builds" class="project-diagram project-diagram--compact">
+  <pre class="mermaid">flowchart LR
+    Change["Source change"] --> Graph["Dependency-aware selection"]
+    Graph --> Affected["Affected packages"]
+    Affected --> Parallel["Parallel build and validation work"]
+    Parallel --> Feedback["Validated change feedback"]
+    Cache["Reusable build cache"] -.-> Parallel</pre>
+  <figcaption>Selective package work, parallel execution, and caching; internal pipeline details and run metrics are omitted.</figcaption>
+</figure>
