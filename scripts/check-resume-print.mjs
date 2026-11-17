@@ -41,7 +41,7 @@ try {
       const chrome = spawn('google-chrome', [
         '--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage',
         '--disable-background-networking', '--no-first-run',
-        '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost',
+        '--no-proxy-server', '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost, EXCLUDE 127.0.0.1',
         `--user-data-dir=${join(temp, name)}`, '--virtual-time-budget=3000', ...flags, url
       ], { stdio: ['ignore', 'pipe', 'pipe'] });
       chrome.stdout.on('data', data => { diagnostics += data.toString(); });
