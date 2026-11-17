@@ -30,3 +30,9 @@ jobs:
           node scripts/check-site.mjs
         env:
           JEKYLL_ENV: production
+      - name: Upload site for private review
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-site-review
+          path: _site/
+          retention-days: 7

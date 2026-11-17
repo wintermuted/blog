@@ -21,6 +21,7 @@ export function validateBundle(dir, expected = {}) {
     if (!lstatSync(join(dir, name)).isFile()) fail(`Bundle entry is not a regular file: ${name}`);
   }
   const manifest = JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8'));
+  allowedKeys(manifest, ['schemaVersion', 'profile', 'sourceRevision', 'profileSha256', 'files'], 'manifest');
   if (manifest.schemaVersion !== 1 || manifest.profile !== 'general' ||
       !/^[a-f0-9]{40}$/.test(manifest.sourceRevision) ||
       !/^[a-f0-9]{64}$/.test(manifest.profileSha256)) fail('Invalid manifest identity');

@@ -91,3 +91,16 @@ test('rejects private projection fields even when their checksum matches', () =>
     assert.throws(() => validateBundle(source), /non-public fields/);
   } finally { rmSync(temp, { recursive: true }); }
 });
+
+test('rejects extra manifest fields', () => {
+  const temp = mkdtempSync(join(tmpdir(), 'resume-test-'));
+  try {
+    const source = join(temp, 'source');
+    fixture(source);
+    const manifestPath = join(source, 'manifest.json');
+    const manifest = JSON.parse(readFileSync(manifestPath));
+    manifest.privateEvidence = 'not for publication';
+    writeFileSync(manifestPath, JSON.stringify(manifest));
+    assert.throws(() => validateBundle(source), /non-public fields in manifest/);
+  } finally { rmSync(temp, { recursive: true }); }
+});
