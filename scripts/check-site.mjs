@@ -63,12 +63,11 @@ for (const slug of [...projectSlugs, 'game-of-life']) {
     requireText(project, marker, slug);
   }
   const tabs = Array.from(project.matchAll(/data-project-tab-target="([^"]+)"/g), match => match[1]);
-  if (slug === 'game-of-life') {
-    if (tabs.join(',') !== 'details,architecture,roadmap,devlog') {
-      throw new Error(`${slug}: unexpected project tabs: ${tabs.join(', ')}`);
-    }
-  } else {
-    if (tabs.length) throw new Error(`${slug}: unexpected project tabs: ${tabs.join(', ')}`);
+  const expectedTabs = slug === 'game-of-life' ? 'details,architecture,roadmap,devlog' : 'details,architecture';
+  if (tabs.join(',') !== expectedTabs) {
+    throw new Error(`${slug}: expected project tabs ${expectedTabs}, found ${tabs.join(', ')}`);
+  }
+  if (slug !== 'game-of-life') {
     const sidebar = project.match(/<aside id="project-detail-sidebar"[^>]*>([\s\S]*?)<\/aside>/)?.[1] ?? '';
     for (const marker of ['<strong>Role:</strong>', '<strong>Status:</strong>', '<strong>Timeline:</strong>',
       'href="/projects/"', 'href="/resume"']) {
