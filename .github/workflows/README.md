@@ -4,6 +4,9 @@ This directory contains GitHub Actions workflows for building and deploying the 
 
 ## Workflows
 
+### validate-portfolio.yml
+Builds and checks the portfolio on the resume and project-detail review branches. It uploads the generated site and screenshots as Actions artifacts without deploying to Netlify.
+
 ### deploy.yml
 Builds and deploys the Jekyll site to the production Netlify site when changes are pushed to the master branch.
 

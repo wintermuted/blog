@@ -10,10 +10,31 @@ const resumePath = ['resume.html', 'resume/index.html'].find(path => existsSync(
 if (!resumePath) throw new Error('Missing generated resume page');
 const resume = read(resumePath);
 const projectSlugs = ['aks-migration', 'datatableview', 'ci-cd-performance'];
+const projectIndex = read('projects/index.html');
 for (const slug of projectSlugs) {
-  if (!existsSync(join(site, 'projects', slug, 'index.html'))) throw new Error(`Missing project: ${slug}`);
   requireText(resume, `/projects/${slug}/`, 'resume');
-  requireText(read('projects/index.html'), `/projects/${slug}/`, 'projects index');
+  requireText(projectIndex, `/projects/${slug}/`, 'projects index');
+}
+for (const slug of [...projectSlugs, 'game-of-life']) {
+  const project = read(`projects/${slug}/index.html`);
+  for (const marker of ['class="project-titlebar-main"', 'class="project-detail-shell"',
+    'id="project-side-nav"', 'class="project-detail-main"', 'id="project-detail-sidebar"']) {
+    requireText(project, marker, slug);
+  }
+  const tabs = Array.from(project.matchAll(/data-project-tab-target="([^"]+)"/g), match => match[1]);
+  if (slug === 'game-of-life') {
+    if (tabs.join(',') !== 'details,architecture,roadmap,devlog') {
+      throw new Error(`${slug}: unexpected project tabs: ${tabs.join(', ')}`);
+    }
+  } else {
+    if (tabs.length) throw new Error(`${slug}: unexpected project tabs: ${tabs.join(', ')}`);
+    const sidebar = project.match(/<aside id="project-detail-sidebar"[^>]*>([\s\S]*?)<\/aside>/)?.[1] ?? '';
+    for (const marker of ['<strong>Role:</strong>', '<strong>Status:</strong>', '<strong>Timeline:</strong>',
+      'href="/projects/"', 'href="/resume"']) {
+      requireText(sidebar, marker, `${slug} sidebar`);
+    }
+    requireText(project, 'Validation and outcome</h2>', slug);
+  }
 }
 for (const anchor of ['aks-migration-platform', 'reporting-copilot-chat-integration', 'datatableview-component-library',
   'deal-monitoring-ui', 'v1-to-v2-deal-migration-api', 'unified-reporting-ui', 'ci-cd-pipeline-performance',
@@ -30,4 +51,4 @@ if (existsSync('resume-bundle')) {
   if (existsSync(join(site, 'resume.pdf'))) throw new Error('Pending bundle must not publish a PDF');
   requireText(resume, 'awaiting a reviewed publication bundle', 'pending resume');
 }
-console.log('Site resume and portfolio routes verified.');
+console.log('Site resume, portfolio routes, and shared project layouts verified.');

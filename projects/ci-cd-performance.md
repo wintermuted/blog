@@ -8,6 +8,11 @@ tagline: Shorter feedback loops through selective builds and parallel work.
 role: Pipeline architect and engineer
 status: Implemented
 timeline: 2023 onward
+project_links:
+  - label: All projects
+    url: /projects/
+  - label: Resume
+    url: /resume
 ---
 
 Documented Main Stage timings improved from approximately 15–18 minutes to 5–8 minutes. This comparison concerns that stage, not the entire pipeline; the exact measurement window is not known.

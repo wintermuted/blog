@@ -8,6 +8,11 @@ tagline: A reusable foundation for data-heavy application screens.
 role: Framework author and initial application engineer
 status: Implemented and reused
 timeline: 2025
+project_links:
+  - label: All projects
+    url: /projects/
+  - label: Resume
+    url: /resume
 ---
 
 I created DataTableView and its first application; other engineers subsequently used the framework to build three more screens. The investment moved common table behavior into a reusable foundation rather than asking each screen to recreate it.

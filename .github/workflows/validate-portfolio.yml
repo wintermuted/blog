@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - 'jnyeholt-microsoft-resume-professional-portfolio'
+      - 'jnyeholt-microsoft-unify-project-detail-views'
 
 permissions:
   contents: read

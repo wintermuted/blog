@@ -8,6 +8,11 @@ tagline: A practical migration path for applications with a fixed decommission d
 role: Principal software engineer and individual contributor
 status: In progress
 timeline: 2026–present
+project_links:
+  - label: All projects
+    url: /projects/
+  - label: Resume
+    url: /resume
 ---
 
 The migration spans approximately 100 applications across 16 repositories. I helped shape the platform approach and built Copilot-assisted workflows for the repetitive work; the migration remains in progress.
