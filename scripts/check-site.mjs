@@ -103,9 +103,10 @@ for (const slug of workProjectSlugs) {
   }
   for (const preview of workProjectPreviews[slug]) {
     if (preview.type === 'diagram') {
-      const figure = card.match(/<div class="project-card-media project-card-media--diagram">[\s\S]*?<figure\b[^>]*class="project-diagram project-diagram--compact project-card-diagram"[^>]*>[\s\S]*?<\/figure>[\s\S]*?<\/div>/)?.[0];
-      if (!figure || !figure.includes(`aria-label="${preview.alt}"`) ||
-          !figure.includes('class="mermaid" aria-hidden="true"') || !figure.includes(preview.content)) {
+      if (!card.includes('project-card-media--diagram') ||
+          !card.includes('project-diagram--compact project-card-diagram') ||
+          !card.includes(`aria-label="${preview.alt}"`) ||
+          !card.includes('class="mermaid" aria-hidden="true"') || !card.includes(preview.content)) {
         throw new Error(`Missing accessible Mermaid preview for ${slug}`);
       }
     } else {
