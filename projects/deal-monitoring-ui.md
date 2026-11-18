@@ -12,6 +12,9 @@ timeline: 2025
 project_links:
   - label: DataTableView
     url: /projects/datatableview/
+preview_images:
+  - src: /assets/img/portfolio/deal-monitoring-preview.svg
+    alt: High-level monitoring table diagram showing configuration, shareable view state, virtualized rows, and accessible navigation.
 ---
 
 I led architecture and delivery of a new deal-monitoring experience, growing the work from an initial spike into a four-engineer effort. Its configurable, virtualized tables were designed as a reusable foundation for other monitoring surfaces.

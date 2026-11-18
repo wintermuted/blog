@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title description">
+  <title id="title">Selective CI/CD workflow</title>
+  <desc id="description">A source change selects affected packages for parallel build and validation, with a reusable cache supporting the work.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4 0 8z" fill="#52788b"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#20313b}.node{fill:#fff;stroke:#b9c9d1;stroke-width:2}.accent{fill:#dcecf2;stroke:#82a8b8}.line{stroke:#52788b;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke:#5f8c79;stroke-width:3;fill:none;stroke-dasharray:7 6;marker-end:url(#arrow)}.label{font-size:17px;font-weight:600;text-anchor:middle}</style>
+  </defs>
+  <rect width="640" height="360" rx="14" fill="#edf2f4"/>
+  <path class="line" d="M148 142H168M304 142H324M460 142H480"/>
+  <rect class="node" x="24" y="94" width="124" height="96" rx="10"/>
+  <text class="label" x="86" y="136"><tspan x="86">Source</tspan><tspan x="86" dy="23">change</tspan></text>
+  <rect class="accent" x="168" y="94" width="136" height="96" rx="10"/>
+  <text class="label" x="236" y="136"><tspan x="236">Affected</tspan><tspan x="236" dy="23">packages</tspan></text>
+  <rect class="node" x="324" y="94" width="136" height="96" rx="10"/>
+  <text class="label" x="392" y="128"><tspan x="392">Parallel build</tspan><tspan x="392" dy="23">and validation</tspan></text>
+  <rect class="accent" x="480" y="94" width="136" height="96" rx="10"/>
+  <text class="label" x="548" y="136"><tspan x="548">Validated</tspan><tspan x="548" dy="23">feedback</tspan></text>
+  <path class="dash" d="M392 252V202"/>
+  <rect class="node" x="324" y="252" width="136" height="68" rx="10"/>
+  <text class="label" x="392" y="293">Reusable cache</text>
+</svg>

@@ -16,6 +16,11 @@ screenshots:
   - src: /assets/img/portfolio/datatableview-redacted-filters.png
     alt: Filter drawer with no customer records or active selections shown.
     caption: Filter options; the original background table and active selection are removed.
+preview_images:
+  - src: /assets/img/portfolio/datatableview-redacted-table.png
+    alt: Redacted DataTableView table with record names and values removed.
+  - src: /assets/img/portfolio/datatableview-redacted-filters.png
+    alt: Redacted DataTableView filter panel with customer and deal details removed.
 project_links:
   - label: All projects
     url: /projects/

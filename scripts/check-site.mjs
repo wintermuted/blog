@@ -37,6 +37,30 @@ const workProjectTitles = {
   'v1-to-v2-deal-migration-api': 'V1 to V2 Deal Migration API',
   'unified-reporting-ui': 'Unified Reporting UI'
 };
+const workProjectPreviews = {
+  'aks-migration': [
+    { src: '/assets/img/portfolio/aks-migration-preview.svg', alt: 'High-level AKS migration workflow' }
+  ],
+  datatableview: [
+    { src: '/assets/img/portfolio/datatableview-redacted-table.png', alt: 'Redacted DataTableView table' },
+    { src: '/assets/img/portfolio/datatableview-redacted-filters.png', alt: 'Redacted DataTableView filter panel' }
+  ],
+  'ci-cd-performance': [
+    { src: '/assets/img/portfolio/ci-cd-performance-preview.svg', alt: 'High-level CI/CD flow' }
+  ],
+  'deal-monitoring-ui': [
+    { src: '/assets/img/portfolio/deal-monitoring-preview.svg', alt: 'High-level monitoring table diagram' }
+  ],
+  'unified-reporting-ui': [
+    { src: '/assets/img/portfolio/unified-reporting-preview.svg', alt: 'High-level reporting flow' }
+  ],
+  'reporting-copilot-chat-integration': [
+    { src: '/assets/img/portfolio/reporting-copilot-preview.svg', alt: 'Prototype flow' }
+  ],
+  'v1-to-v2-deal-migration-api': [
+    { src: '/assets/img/portfolio/deal-migration-preview.svg', alt: 'High-level migration flow' }
+  ]
+};
 const projectIndex = read('projects/index.html');
 const portfolioVisuals = {
   'aks-migration': ['aks-migration-workflow'],
@@ -69,9 +93,32 @@ for (const slug of workProjectSlugs) {
   const project = read(`projects/${slug}/index.html`);
   requireText(project, `<span>${workProjectTitles[slug]}</span>`, `${slug} page title`);
   requireText(projectIndex, `href="/projects/${slug}/"`, 'projects index');
-  if (!professionalCards.some(card => card.includes(`href="/projects/${slug}/"`) &&
-      card.includes('class="project-card-title"'))) {
+  const card = professionalCards.find(candidate => candidate.includes(`href="/projects/${slug}/"`) &&
+      candidate.includes('class="project-card-title"'));
+  if (!card) {
     throw new Error(`Missing professional portfolio card: ${slug}`);
+  }
+  if (!card.includes('class="project-card-media project-card-media--preview')) {
+    throw new Error(`Missing professional card preview: ${slug}`);
+  }
+  const imageTags = Array.from(card.matchAll(/<img\b[^>]*>/g), match => match[0]);
+  for (const preview of workProjectPreviews[slug]) {
+    const image = imageTags.find(tag => tag.includes(`src="${preview.src}"`));
+    if (!image || !image.match(/\balt="([^"]+)"/)?.[1]?.includes(preview.alt)) {
+      throw new Error(`Missing accessible preview image for ${slug}: ${preview.src}`);
+    }
+    if (!image.includes('loading="lazy"') || !image.includes('decoding="async"') ||
+        !image.includes('width="640"') || !image.includes('height="360"')) {
+      throw new Error(`Preview image is missing responsive loading dimensions for ${slug}: ${preview.src}`);
+    }
+    if (!existsSync(join(site, preview.src.replace(/^\//, '')))) {
+      throw new Error(`Missing professional card preview asset for ${slug}: ${preview.src}`);
+    }
+    if (preview.src.endsWith('.svg')) {
+      const svg = read(preview.src.replace(/^\//, ''));
+      requireText(svg, '<title', `${slug} preview title`);
+      requireText(svg, '<desc', `${slug} preview description`);
+    }
   }
   const legacyLink = `<li id="project-${resumeProjectIds[slug]}"><a href="/projects/${slug}/">`;
   requireText(resume, legacyLink, 'resume project links');

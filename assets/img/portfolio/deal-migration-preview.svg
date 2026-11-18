@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title description">
+  <title id="title">Migration and recovery flow</title>
+  <desc id="description">A migration request is validated, transformed, verified, and completed, with a restore path when transformation fails.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4 0 8z" fill="#52788b"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#20313b}.node{fill:#fff;stroke:#b9c9d1;stroke-width:2}.accent{fill:#dcecf2;stroke:#82a8b8}.recovery{fill:#f4e7e2;stroke:#c99a88}.line{stroke:#52788b;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke:#9a6d5f;stroke-width:3;fill:none;stroke-dasharray:7 6;marker-end:url(#arrow)}.label{font-size:16px;font-weight:600;text-anchor:middle}</style>
+  </defs>
+  <rect width="640" height="360" rx="14" fill="#edf2f4"/>
+  <path class="line" d="M128 122H142M254 122H268M380 122H394M506 122H520"/>
+  <rect class="node" x="18" y="82" width="110" height="80" rx="10"/>
+  <text class="label" x="73" y="128">Request</text>
+  <rect class="accent" x="142" y="82" width="112" height="80" rx="10"/>
+  <text class="label" x="198" y="128">Validate</text>
+  <rect class="node" x="268" y="82" width="112" height="80" rx="10"/>
+  <text class="label" x="324" y="116"><tspan x="324">Transform</tspan><tspan x="324" dy="21">records</tspan></text>
+  <rect class="accent" x="394" y="82" width="112" height="80" rx="10"/>
+  <text class="label" x="450" y="128">Verify</text>
+  <rect class="node" x="520" y="82" width="104" height="80" rx="10"/>
+  <text class="label" x="572" y="128">Complete</text>
+  <path class="dash" d="M324 174V220M268 260H198V174"/>
+  <rect class="recovery" x="268" y="220" width="112" height="80" rx="10"/>
+  <text class="label" x="324" y="266"><tspan x="324">Failure:</tspan><tspan x="324" dy="21">restore</tspan></text>
+  <rect class="node" x="142" y="220" width="112" height="80" rx="10"/>
+  <text class="label" x="198" y="266"><tspan x="198">Prior</tspan><tspan x="198" dy="21">state</tspan></text>
+</svg>

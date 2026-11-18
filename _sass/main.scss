@@ -1596,6 +1596,32 @@ h3.post_title {
     transition: transform 0.18s ease, filter 0.18s ease;
   }
 
+  .project-card-media--preview {
+    background: #edf1f4;
+
+    .project-card-media-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card-image--primary {
+      object-fit: cover;
+    }
+  }
+
+  .project-card-media--preview-paired .project-card-image--secondary {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: 38%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 2px solid #fff;
+    border-radius: 0.2rem;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.24);
+  }
+
   .project-card-media--reveal {
     .project-card-media-link {
       position: relative;

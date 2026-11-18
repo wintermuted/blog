@@ -14,6 +14,9 @@ project_links:
     url: /projects/
   - label: Resume
     url: /resume
+preview_images:
+  - src: /assets/img/portfolio/ci-cd-performance-preview.svg
+    alt: High-level CI/CD flow from a source change through affected package selection and parallel checks to validated feedback, with a reusable cache.
 ---
 
 Documented Main Stage timings improved from approximately 15–18 minutes to 5–8 minutes. This comparison concerns that stage, not the entire pipeline; the exact measurement window is not known.

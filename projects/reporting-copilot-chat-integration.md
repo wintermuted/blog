@@ -12,6 +12,9 @@ timeline: 2025
 project_links:
   - label: Unified Reporting UI
     url: /projects/unified-reporting-ui/
+preview_images:
+  - src: /assets/img/portfolio/reporting-copilot-preview.svg
+    alt: Prototype flow from a natural-language request through interpretation and a structured query to a response for user review.
 ---
 
 I prototyped an end-to-end chat flow for asking questions about advertising performance data in the reporting experience. The prototype explored how a natural-language request could become a structured query and a formatted response; it is not presented as a completed production feature.

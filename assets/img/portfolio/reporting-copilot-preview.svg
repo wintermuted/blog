@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title description">
+  <title id="title">Reporting Copilot prototype flow</title>
+  <desc id="description">A prototype turns a natural-language request into an interpreted intent, a structured query, and a response for user review.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4 0 8z" fill="#52788b"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#20313b}.node{fill:#fff;stroke:#b9c9d1;stroke-width:2}.accent{fill:#e2e8f4;stroke:#93a5c9}.line{stroke:#52788b;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke:#6478a3;stroke-width:3;fill:none;stroke-dasharray:7 6;marker-end:url(#arrow)}.label{font-size:17px;font-weight:600;text-anchor:middle}</style>
+  </defs>
+  <rect width="640" height="360" rx="14" fill="#edf2f4"/>
+  <path class="line" d="M148 142H168M304 142H324M460 142H480"/>
+  <rect class="node" x="24" y="94" width="124" height="96" rx="10"/>
+  <text class="label" x="86" y="126"><tspan x="86">Natural-</tspan><tspan x="86" dy="23">language</tspan><tspan x="86" dy="23">request</tspan></text>
+  <rect class="accent" x="168" y="94" width="136" height="96" rx="10"/>
+  <text class="label" x="236" y="136"><tspan x="236">Interpret</tspan><tspan x="236" dy="23">intent</tspan></text>
+  <rect class="node" x="324" y="94" width="136" height="96" rx="10"/>
+  <text class="label" x="392" y="128"><tspan x="392">Structured</tspan><tspan x="392" dy="23">report query</tspan></text>
+  <rect class="accent" x="480" y="94" width="136" height="96" rx="10"/>
+  <text class="label" x="548" y="128"><tspan x="548">Formatted</tspan><tspan x="548" dy="23">response</tspan></text>
+  <path class="dash" d="M548 202V252"/>
+  <rect class="node" x="480" y="252" width="136" height="68" rx="10"/>
+  <text class="label" x="548" y="293">User review</text>
+</svg>

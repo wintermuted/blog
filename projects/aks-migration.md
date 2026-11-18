@@ -14,6 +14,9 @@ project_links:
     url: /projects/
   - label: Resume
     url: /resume
+preview_images:
+  - src: /assets/img/portfolio/aks-migration-preview.svg
+    alt: High-level AKS migration workflow from existing application configuration through assisted artifact checks and engineer review to deployment gates.
 ---
 
 The migration spans approximately 100 applications across 16 repositories. I helped shape the platform approach and built Copilot-assisted workflows for the repetitive work; the migration remains in progress.

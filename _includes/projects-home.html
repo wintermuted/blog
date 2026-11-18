@@ -12,6 +12,22 @@
     {% for project in featured_projects %}
       <article class="project-card-item" data-project-types="{{ project.work_category | escape }}">
         <div class="card project-card">
+          {% if project.preview_images %}
+            <div class="project-card-media project-card-media--preview{% if project.preview_images.size > 1 %} project-card-media--preview-paired{% endif %}">
+              <a href="{{ project.url | relative_url }}" class="project-card-media-link">
+                {% for preview in project.preview_images %}
+                  <img
+                    src="{{ site.baseurl }}{{ preview.src }}"
+                    class="project-card-image{% if forloop.first %} project-card-image--primary{% else %} project-card-image--secondary{% endif %}"
+                    alt="{{ preview.alt | escape }}"
+                    loading="lazy"
+                    decoding="async"
+                    width="640"
+                    height="360">
+                {% endfor %}
+              </a>
+            </div>
+          {% endif %}
           <div class="card-body">
             <h3 class="project-card-title"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h3>
             <p class="project-card-subtitle">{{ project.tagline | escape }}</p>
