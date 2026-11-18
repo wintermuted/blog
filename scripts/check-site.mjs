@@ -39,26 +39,26 @@ const workProjectTitles = {
 };
 const workProjectPreviews = {
   'aks-migration': [
-    { type: 'diagram', alt: 'High-level AKS migration workflow', content: 'Copilot-assisted workflow' }
+    { type: 'diagram', alt: 'High-level AKS migration workflow from existing application configuration through assisted artifact checks and engineer review to deployment gates.', content: 'Copilot-assisted workflow' }
   ],
   datatableview: [
     { type: 'image', src: '/assets/img/portfolio/datatableview-redacted-table.png', alt: 'Redacted DataTableView table' },
     { type: 'image', src: '/assets/img/portfolio/datatableview-redacted-filters.png', alt: 'Redacted DataTableView filter panel' }
   ],
   'ci-cd-performance': [
-    { type: 'diagram', alt: 'Selective CI/CD flow', content: 'Dependency-aware selection' }
+    { type: 'diagram', alt: 'Selective CI/CD flow from a source change through dependency-aware package selection and parallel validation, with a reusable cache.', content: 'Dependency-aware selection' }
   ],
   'deal-monitoring-ui': [
-    { type: 'diagram', alt: 'High-level monitoring table flow', content: 'Virtualized row rendering' }
+    { type: 'diagram', alt: 'High-level monitoring table flow showing configuration, shareable view state, virtualized rows, and accessible navigation.', content: 'Virtualized row rendering' }
   ],
   'unified-reporting-ui': [
-    { type: 'diagram', alt: 'High-level reporting flow', content: 'Explore visual results' }
+    { type: 'diagram', alt: 'High-level reporting flow from report configuration to data, visual results, and drill-down exploration.', content: 'Explore visual results' }
   ],
   'reporting-copilot-chat-integration': [
-    { type: 'diagram', alt: 'Prototype flow', content: 'Structured report query' }
+    { type: 'diagram', alt: 'Prototype flow from a natural-language request through interpretation and a structured query to a response for user review.', content: 'Structured report query' }
   ],
   'v1-to-v2-deal-migration-api': [
-    { type: 'diagram', alt: 'High-level migration flow', content: 'Restore prior state' }
+    { type: 'diagram', alt: 'High-level migration flow with validation, transformation, verification, completion, and a recovery path.', content: 'Restore prior state' }
   ]
 };
 const projectIndex = read('projects/index.html');
