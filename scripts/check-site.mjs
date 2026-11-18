@@ -9,12 +9,43 @@ const requireText = (text, needle, label) => {
 const resumePath = ['resume.html', 'resume/index.html'].find(path => existsSync(join(site, path)));
 if (!resumePath) throw new Error('Missing generated resume page');
 const resume = read(resumePath);
-const projectSlugs = ['aks-migration', 'datatableview', 'ci-cd-performance'];
+const workProjectSlugs = [
+  'aks-migration',
+  'datatableview',
+  'ci-cd-performance',
+  'reporting-copilot-chat-integration',
+  'deal-monitoring-ui',
+  'v1-to-v2-deal-migration-api',
+  'unified-reporting-ui'
+];
+const personalProjectSlugs = ['game-of-life', 'wintermuted-ui-theme', 'jsonresume-theme-wintermuted'];
+const resumeProjectIds = {
+  'aks-migration': 'aks-migration-platform',
+  datatableview: 'datatableview-component-library',
+  'ci-cd-performance': 'ci-cd-pipeline-performance',
+  'reporting-copilot-chat-integration': 'reporting-copilot-chat-integration',
+  'deal-monitoring-ui': 'deal-monitoring-ui',
+  'v1-to-v2-deal-migration-api': 'v1-to-v2-deal-migration-api',
+  'unified-reporting-ui': 'unified-reporting-ui'
+};
+const workProjectTitles = {
+  'aks-migration': 'Copilot-assisted AKS migration',
+  datatableview: 'DataTableView',
+  'ci-cd-performance': 'CI/CD pipeline performance',
+  'reporting-copilot-chat-integration': 'Reporting Copilot Chat Integration',
+  'deal-monitoring-ui': 'Deal Monitoring UI',
+  'v1-to-v2-deal-migration-api': 'V1 to V2 Deal Migration API',
+  'unified-reporting-ui': 'Unified Reporting UI'
+};
 const projectIndex = read('projects/index.html');
 const portfolioVisuals = {
   'aks-migration': ['aks-migration-workflow'],
   datatableview: ['datatableview-redacted-table.png', 'datatableview-redacted-filters.png', 'datatableview-architecture'],
-  'ci-cd-performance': ['ci-cd-selective-builds']
+  'ci-cd-performance': ['ci-cd-selective-builds'],
+  'deal-monitoring-ui': ['deal-monitoring-architecture'],
+  'unified-reporting-ui': ['unified-reporting-architecture'],
+  'reporting-copilot-chat-integration': ['reporting-copilot-prototype-flow'],
+  'v1-to-v2-deal-migration-api': ['deal-migration-flow']
 };
 const privateSourceScreenshots = [
   'personal-cv-experience.png', 'personal-cv-projects.png', 'personal-cv-skills.png', 'personal-cv-summary.png',
@@ -22,14 +53,43 @@ const privateSourceScreenshots = [
   'deal-monitoring-filters.png', 'deal-monitoring-table-view.png', 'pipeline-dag.png', 'pipeline-metrics.jpg',
   'reporting-dashboard.png', 'reporting-drilldown.jpg'
 ];
-for (const slug of projectSlugs) {
-  requireText(resume, `/projects/${slug}/`, 'resume');
-  requireText(projectIndex, `/projects/${slug}/`, 'projects index');
+const professionalSection = projectIndex.match(
+  /<section class="projects-index-section" aria-labelledby="professional-projects-heading">([\s\S]*?)<\/section>/
+)?.[1];
+if (!professionalSection) throw new Error('Missing professional work portfolio section');
+const professionalCards = Array.from(
+  professionalSection.matchAll(/<article class="project-card-item">([\s\S]*?)<\/article>/g),
+  match => match[1]
+);
+if (professionalCards.length !== workProjectSlugs.length) {
+  throw new Error(`Expected ${workProjectSlugs.length} professional work cards, found ${professionalCards.length}`);
+}
+for (const slug of workProjectSlugs) {
+  if (!existsSync(join(site, 'projects', slug, 'index.html'))) throw new Error(`Missing work project: ${slug}`);
+  const project = read(`projects/${slug}/index.html`);
+  requireText(project, `<span>${workProjectTitles[slug]}</span>`, `${slug} page title`);
+  requireText(projectIndex, `href="/projects/${slug}/"`, 'projects index');
+  if (!professionalCards.some(card => card.includes(`href="/projects/${slug}/"`) &&
+      card.includes('class="project-card-title"'))) {
+    throw new Error(`Missing professional portfolio card: ${slug}`);
+  }
+  const legacyLink = `<li id="project-${resumeProjectIds[slug]}"><a href="/projects/${slug}/">`;
+  requireText(resume, legacyLink, 'resume project links');
+}
+for (const slug of personalProjectSlugs) {
+  if (!existsSync(join(site, 'projects', slug, 'index.html'))) throw new Error(`Missing personal project: ${slug}`);
+  requireText(projectIndex, `href="/projects/${slug}/"`, 'projects index');
+}
+if (/case study not yet available/i.test(resume)) {
+  throw new Error('Resume still contains an unavailable case-study placeholder');
 }
 for (const [slug, visuals] of Object.entries(portfolioVisuals)) {
   const project = read(`projects/${slug}/index.html`);
   for (const visual of visuals) requireText(project, visual, `${slug} visual`);
 }
+const copilotPrototype = read('projects/reporting-copilot-chat-integration/index.html');
+requireText(copilotPrototype, '<strong>Status:</strong> Prototype', 'Reporting Copilot project status');
+requireText(copilotPrototype, 'not presented as a completed production feature', 'Reporting Copilot prototype scope');
 for (const [slug, markers] of Object.entries({
   datatableview: [
     'alt="Application table with the original customer and deal records removed."',
@@ -56,7 +116,7 @@ for (const filename of ['datatableview-redacted-table.png', 'datatableview-redac
     throw new Error(`Missing sanitized portfolio visual: ${filename}`);
   }
 }
-for (const slug of [...projectSlugs, 'game-of-life']) {
+for (const slug of [...workProjectSlugs, 'game-of-life']) {
   const project = read(`projects/${slug}/index.html`);
   for (const marker of ['class="project-titlebar-main"', 'class="project-detail-shell"',
     'id="project-side-nav"', 'class="project-detail-main"', 'id="project-detail-sidebar"']) {
@@ -67,10 +127,9 @@ for (const slug of [...projectSlugs, 'game-of-life']) {
   if (tabs.join(',') !== expectedTabs) {
     throw new Error(`${slug}: expected project tabs ${expectedTabs}, found ${tabs.join(', ')}`);
   }
-  if (slug !== 'game-of-life') {
+  if (workProjectSlugs.includes(slug)) {
     const sidebar = project.match(/<aside id="project-detail-sidebar"[^>]*>([\s\S]*?)<\/aside>/)?.[1] ?? '';
-    for (const marker of ['<strong>Role:</strong>', '<strong>Status:</strong>', '<strong>Timeline:</strong>',
-      'href="/projects/"', 'href="/resume"']) {
+    for (const marker of ['<strong>Role:</strong>', '<strong>Status:</strong>', '<strong>Timeline:</strong>']) {
       requireText(sidebar, marker, `${slug} sidebar`);
     }
     requireText(project, 'Validation and outcome</h2>', slug);
