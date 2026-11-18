@@ -4,6 +4,7 @@ title: Reporting Copilot Chat Integration
 permalink: /projects/reporting-copilot-chat-integration/
 case_study: true
 featured_order: 6
+work_category: ai-prototype
 tagline: A prototype for exploring natural-language report requests.
 role: Innovation lead
 status: Prototype

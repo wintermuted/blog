@@ -4,6 +4,7 @@ title: CI/CD pipeline performance
 permalink: /projects/ci-cd-performance/
 case_study: true
 featured_order: 3
+work_category: platform-delivery
 tagline: Shorter feedback loops through selective builds and parallel work.
 role: Pipeline architect and engineer
 status: Implemented

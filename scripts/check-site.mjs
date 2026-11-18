@@ -54,11 +54,11 @@ const privateSourceScreenshots = [
   'reporting-dashboard.png', 'reporting-drilldown.jpg'
 ];
 const professionalSection = projectIndex.match(
-  /<section class="projects-index-section" aria-labelledby="professional-projects-heading">([\s\S]*?)<\/section>/
+  /<section\b[^>]*aria-labelledby="professional-projects-heading"[^>]*>([\s\S]*?)<\/section>/
 )?.[1];
 if (!professionalSection) throw new Error('Missing professional work portfolio section');
 const professionalCards = Array.from(
-  professionalSection.matchAll(/<article class="project-card-item">([\s\S]*?)<\/article>/g),
+  professionalSection.matchAll(/<article class="project-card-item"[^>]*>([\s\S]*?)<\/article>/g),
   match => match[1]
 );
 if (professionalCards.length !== workProjectSlugs.length) {

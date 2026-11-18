@@ -4,6 +4,7 @@ title: Deal Monitoring UI
 permalink: /projects/deal-monitoring-ui/
 case_study: true
 featured_order: 4
+work_category: product-ui
 tagline: A data-rich monitoring experience with fast, shareable table views.
 role: Technical lead and architect
 status: Released

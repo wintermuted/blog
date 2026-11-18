@@ -4,6 +4,7 @@ title: Unified Reporting UI
 permalink: /projects/unified-reporting-ui/
 case_study: true
 featured_order: 5
+work_category: product-ui
 tagline: A single reporting experience for revenue and performance insights.
 role: Technical lead and architect
 status: Shipped

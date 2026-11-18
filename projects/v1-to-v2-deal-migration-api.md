@@ -4,6 +4,7 @@ title: V1 to V2 Deal Migration API
 permalink: /projects/v1-to-v2-deal-migration-api/
 case_study: true
 featured_order: 7
+work_category: apis-integrations
 tagline: Bidirectional migration with safeguards for data integrity.
 role: API owner
 status: Completed

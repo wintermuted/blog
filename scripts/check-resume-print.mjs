@@ -17,8 +17,56 @@ const mime = {
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
   '.gif': 'image/gif', '.webp': 'image/webp'
 };
+
+function verifyProjectFilters() {
+  const check = (condition, message) => {
+    if (!condition) throw new Error(message);
+  };
+  const visibleProjects = section => Array.from(section.querySelectorAll('.project-card-item'))
+    .filter(card => card.getClientRects().length > 0)
+    .map(card => card.querySelector('.project-card-title a').pathname.split('/')[2]);
+  const work = document.querySelector('[aria-labelledby="professional-projects-heading"]');
+  const personal = document.querySelector('[aria-labelledby="personal-projects-heading"]');
+  const group = work.querySelector('[role="group"][aria-label="Professional work filters"]');
+  const buttons = Array.from(group.querySelectorAll('button'));
+  const all = ['aks-migration', 'datatableview', 'ci-cd-performance', 'deal-monitoring-ui',
+    'unified-reporting-ui', 'reporting-copilot-chat-integration', 'v1-to-v2-deal-migration-api'];
+  const cases = [
+    ['All', all],
+    ['Product UI', ['datatableview', 'deal-monitoring-ui', 'unified-reporting-ui']],
+    ['Platform & delivery', ['aks-migration', 'ci-cd-performance']],
+    ['APIs & integrations', ['v1-to-v2-deal-migration-api']],
+    ['AI prototype', ['reporting-copilot-chat-integration']]
+  ];
+  check(buttons.length === cases.length, 'Expected five professional filter buttons');
+  check(JSON.stringify(visibleProjects(work)) === JSON.stringify(all), 'All work cards should start visible in featured order');
+  check(buttons[0].getAttribute('aria-pressed') === 'true' &&
+    buttons.slice(1).every(button => button.getAttribute('aria-pressed') === 'false'), 'All should start selected');
+  const personalInitial = visibleProjects(personal);
+  for (const index of [1, 2, 3, 4, 0]) {
+    const [label, projects] = cases[index];
+    const button = buttons[index];
+    check(button.textContent.trim() === label && button.type === 'button' && button.tabIndex === 0 &&
+      button.getAttribute('aria-controls') === 'professional-projects-grid', `Invalid ${label} control`);
+    button.focus();
+    check(document.activeElement === button, `${label} cannot receive keyboard focus`);
+    button.click();
+    check(buttons.every(candidate => candidate.getAttribute('aria-pressed') === String(candidate === button)),
+      `Incorrect selected state for ${label}`);
+    check(JSON.stringify(visibleProjects(work)) === JSON.stringify(projects), `Incorrect cards or order for ${label}`);
+    check(JSON.stringify(visibleProjects(personal)) === JSON.stringify(personalInitial),
+      `${label} changed the personal project list`);
+  }
+  buttons[1].click();
+  personal.querySelector('[data-project-filter="tooling"]').click();
+  check(JSON.stringify(visibleProjects(personal)) === JSON.stringify(['jsonresume-theme-wintermuted', 'wintermuted-ui-theme']),
+    'Personal tooling filter stopped working');
+  check(buttons[1].getAttribute('aria-pressed') === 'true' &&
+    JSON.stringify(visibleProjects(work)) === JSON.stringify(cases[1][1]), 'Personal filter changed the work filter');
+}
+
 const server = createServer((request, response) => {
-  const pathname = new URL(request.url, 'http://localhost').pathname;
+  const { pathname, searchParams } = new URL(request.url, 'http://localhost');
   const relative = pathname === '/resume' ? resume : decodeURIComponent(pathname).replace(/^\/+/, '');
   let path = resolve(root, relative);
   if (existsSync(path) && statSync(path).isDirectory()) path = join(path, 'index.html');
@@ -27,7 +75,19 @@ const server = createServer((request, response) => {
     return;
   }
   try {
-    const data = readFileSync(path);
+    let data = readFileSync(path);
+    if (pathname === '/projects/' && searchParams.has('verify-filters')) {
+      data = data.toString('utf8').replace('</body>', `<script>
+        window.addEventListener('load', function () {
+          try {
+            (${verifyProjectFilters.toString()})();
+            document.body.setAttribute('data-filter-check', 'passed');
+          } catch (error) {
+            document.body.setAttribute('data-filter-check', error.message);
+          }
+        });
+      </script></body>`);
+    }
     response.writeHead(200, { 'Content-Type': mime[extname(path)] || 'application/octet-stream' }).end(data);
   } catch {
     response.writeHead(404).end();
@@ -42,6 +102,7 @@ try {
   const output = join(review, 'site-resume-print.pdf');
   async function capture(name, flags, expected, target = url) {
     let diagnostics = '';
+    let stdout = '';
     const code = await new Promise((resolveCapture, reject) => {
       const chrome = spawn('google-chrome', [
         '--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage',
@@ -49,18 +110,23 @@ try {
         '--no-proxy-server', '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost, EXCLUDE 127.0.0.1',
         `--user-data-dir=${join(temp, name)}`, '--virtual-time-budget=3000', ...flags, target
       ], { stdio: ['ignore', 'pipe', 'pipe'] });
-      chrome.stdout.on('data', data => { diagnostics += data.toString(); });
+      chrome.stdout.on('data', data => { stdout += data.toString(); });
       chrome.stderr.on('data', data => { diagnostics += data.toString(); });
       chrome.on('error', reject);
       chrome.on('exit', resolveCapture);
     });
-    if (code !== 0 || !existsSync(expected)) {
-      throw new Error(`Chrome ${name} failed (exit ${code}, output ${existsSync(expected) ? 'present' : 'missing'}):\n${diagnostics.slice(-12000)}`);
+    if (code !== 0 || (expected && !existsSync(expected))) {
+      throw new Error(`Chrome ${name} failed (exit ${code}):\n${diagnostics.slice(-12000)}`);
     }
+    return stdout;
   }
   const failures = [];
   const projectUrl = `http://127.0.0.1:${server.address().port}/projects/`;
   const studyUrl = `http://127.0.0.1:${server.address().port}/projects/aks-migration/`;
+  const filterDom = await capture('project-filters', ['--dump-dom'], null, `${projectUrl}?verify-filters`);
+  const filterResult = filterDom.match(/<body\b[^>]*\bdata-filter-check="([^"]*)"/)?.[1];
+  if (filterResult !== 'passed') throw new Error(`Professional project filter check failed: ${filterResult ?? 'no result'}`);
+  console.log('Professional project filters preserve featured order and stay independent of personal filters.');
   const captures = [
     ['print', ['--no-pdf-header-footer', `--print-to-pdf=${output}`], output]
   ];

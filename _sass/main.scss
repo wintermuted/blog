@@ -1461,6 +1461,16 @@ h3.post_title {
   font-size: 0.9rem;
 }
 
+.projects-filter-bar[hidden],
+.projects-grid .project-card-item[hidden] {
+  display: none;
+}
+
+#professional-projects-heading + .projects-filter-bar .projects-filter-button:focus-visible {
+  outline: 2px solid var(--wm-color-text);
+  outline-offset: 2px;
+}
+
 #projects,
 .projects-grid {
   display: grid;

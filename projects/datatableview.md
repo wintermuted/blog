@@ -4,6 +4,7 @@ title: DataTableView
 permalink: /projects/datatableview/
 case_study: true
 featured_order: 2
+work_category: product-ui
 tagline: A reusable foundation for data-heavy application screens.
 role: Framework author and initial application engineer
 status: Implemented and reused

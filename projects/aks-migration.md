@@ -4,6 +4,7 @@ title: Copilot-assisted AKS migration
 permalink: /projects/aks-migration/
 case_study: true
 featured_order: 1
+work_category: platform-delivery
 tagline: A practical migration path for applications with a fixed decommission deadline.
 role: Principal software engineer and individual contributor
 status: In progress
