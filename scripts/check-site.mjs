@@ -39,26 +39,26 @@ const workProjectTitles = {
 };
 const workProjectPreviews = {
   'aks-migration': [
-    { src: '/assets/img/portfolio/aks-migration-preview.svg', alt: 'High-level AKS migration workflow' }
+    { type: 'diagram', alt: 'High-level AKS migration workflow', content: 'Copilot-assisted workflow' }
   ],
   datatableview: [
-    { src: '/assets/img/portfolio/datatableview-redacted-table.png', alt: 'Redacted DataTableView table' },
-    { src: '/assets/img/portfolio/datatableview-redacted-filters.png', alt: 'Redacted DataTableView filter panel' }
+    { type: 'image', src: '/assets/img/portfolio/datatableview-redacted-table.png', alt: 'Redacted DataTableView table' },
+    { type: 'image', src: '/assets/img/portfolio/datatableview-redacted-filters.png', alt: 'Redacted DataTableView filter panel' }
   ],
   'ci-cd-performance': [
-    { src: '/assets/img/portfolio/ci-cd-performance-preview.svg', alt: 'High-level CI/CD flow' }
+    { type: 'diagram', alt: 'Selective CI/CD flow', content: 'Dependency-aware selection' }
   ],
   'deal-monitoring-ui': [
-    { src: '/assets/img/portfolio/deal-monitoring-preview.svg', alt: 'High-level monitoring table diagram' }
+    { type: 'diagram', alt: 'High-level monitoring table flow', content: 'Virtualized row rendering' }
   ],
   'unified-reporting-ui': [
-    { src: '/assets/img/portfolio/unified-reporting-preview.svg', alt: 'High-level reporting flow' }
+    { type: 'diagram', alt: 'High-level reporting flow', content: 'Explore visual results' }
   ],
   'reporting-copilot-chat-integration': [
-    { src: '/assets/img/portfolio/reporting-copilot-preview.svg', alt: 'Prototype flow' }
+    { type: 'diagram', alt: 'Prototype flow', content: 'Structured report query' }
   ],
   'v1-to-v2-deal-migration-api': [
-    { src: '/assets/img/portfolio/deal-migration-preview.svg', alt: 'High-level migration flow' }
+    { type: 'diagram', alt: 'High-level migration flow', content: 'Restore prior state' }
   ]
 };
 const projectIndex = read('projects/index.html');
@@ -98,26 +98,32 @@ for (const slug of workProjectSlugs) {
   if (!card) {
     throw new Error(`Missing professional portfolio card: ${slug}`);
   }
-  if (!card.includes('class="project-card-media project-card-media--preview')) {
-    throw new Error(`Missing professional card preview: ${slug}`);
+  if (!card.includes('class="card project-card"')) {
+    throw new Error(`Missing professional card container: ${slug}`);
   }
-  const imageTags = Array.from(card.matchAll(/<img\b[^>]*>/g), match => match[0]);
   for (const preview of workProjectPreviews[slug]) {
-    const image = imageTags.find(tag => tag.includes(`src="${preview.src}"`));
-    if (!image || !image.match(/\balt="([^"]+)"/)?.[1]?.includes(preview.alt)) {
-      throw new Error(`Missing accessible preview image for ${slug}: ${preview.src}`);
-    }
-    if (!image.includes('loading="lazy"') || !image.includes('decoding="async"') ||
-        !image.includes('width="640"') || !image.includes('height="360"')) {
-      throw new Error(`Preview image is missing responsive loading dimensions for ${slug}: ${preview.src}`);
-    }
-    if (!existsSync(join(site, preview.src.replace(/^\//, '')))) {
-      throw new Error(`Missing professional card preview asset for ${slug}: ${preview.src}`);
-    }
-    if (preview.src.endsWith('.svg')) {
-      const svg = read(preview.src.replace(/^\//, ''));
-      requireText(svg, '<title', `${slug} preview title`);
-      requireText(svg, '<desc', `${slug} preview description`);
+    if (preview.type === 'diagram') {
+      const figure = card.match(/<div class="project-card-media project-card-media--diagram">[\s\S]*?<figure\b[^>]*class="project-diagram project-diagram--compact project-card-diagram"[^>]*>[\s\S]*?<\/figure>[\s\S]*?<\/div>/)?.[0];
+      if (!figure || !figure.includes(`aria-label="${preview.alt}"`) ||
+          !figure.includes('class="mermaid" aria-hidden="true"') || !figure.includes(preview.content)) {
+        throw new Error(`Missing accessible Mermaid preview for ${slug}`);
+      }
+    } else {
+      if (!card.includes('class="project-card-media project-card-media--preview project-card-media--preview-paired"')) {
+        throw new Error(`Redacted DataTableView previews are not paired: ${slug}`);
+      }
+      const imageTags = Array.from(card.matchAll(/<img\b[^>]*>/g), match => match[0]);
+      const image = imageTags.find(tag => tag.includes(`src="${preview.src}"`));
+      if (!image || !image.match(/\balt="([^"]+)"/)?.[1]?.includes(preview.alt)) {
+        throw new Error(`Missing accessible preview image for ${slug}: ${preview.src}`);
+      }
+      if (!image.includes('loading="lazy"') || !image.includes('decoding="async"') ||
+          !image.includes('width="640"') || !image.includes('height="360"')) {
+        throw new Error(`Preview image is missing responsive loading dimensions for ${slug}: ${preview.src}`);
+      }
+      if (!existsSync(join(site, preview.src.replace(/^\//, '')))) {
+        throw new Error(`Missing professional card preview asset for ${slug}: ${preview.src}`);
+      }
     }
   }
   const legacyLink = `<li id="project-${resumeProjectIds[slug]}"><a href="/projects/${slug}/">`;

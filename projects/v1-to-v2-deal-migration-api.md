@@ -12,9 +12,16 @@ timeline: 2024–2025
 project_links:
   - label: Deal Monitoring UI
     url: /projects/deal-monitoring-ui/
-preview_images:
-  - src: /assets/img/portfolio/deal-migration-preview.svg
-    alt: High-level migration flow with validation, transformation, verification, completion, and a recovery path.
+preview_alt: High-level migration flow with validation, transformation, verification, completion, and a recovery path.
+preview_diagram: |
+  flowchart LR
+    Request["Migration request"] --> Validate["Validate records"]
+    Validate --> Transform["Transform deal and related data"]
+    Transform --> Verify["Verify result"]
+    Verify --> Complete["Complete migration"]
+    Transform -.-> Failure["Failure"]
+    Failure --> Restore["Restore prior state"]
+    Restore --> Verify
 ---
 
 I designed and implemented a bidirectional REST API to migrate deal records between legacy and newer data models. The work paired forward migration with a rollback path and safeguards for related data.

@@ -1609,6 +1609,29 @@ h3.post_title {
     }
   }
 
+  .project-card-diagram {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--wm-color-surface-muted);
+
+    .mermaid {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      padding: 0.4rem;
+      aspect-ratio: auto;
+    }
+
+    .mermaid svg {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
   .project-card-media--preview-paired .project-card-image--secondary {
     position: absolute;
     right: 0.75rem;

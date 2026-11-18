@@ -12,9 +12,13 @@ timeline: 2025
 project_links:
   - label: DataTableView
     url: /projects/datatableview/
-preview_images:
-  - src: /assets/img/portfolio/deal-monitoring-preview.svg
-    alt: High-level monitoring table diagram showing configuration, shareable view state, virtualized rows, and accessible navigation.
+preview_alt: High-level monitoring table flow showing configuration, shareable view state, virtualized rows, and accessible navigation.
+preview_diagram: |
+  flowchart LR
+    Config["Table configuration"] --> View["Monitoring table"]
+    State["Shareable view state"] <--> View
+    View --> Render["Virtualized row rendering"]
+    View --> Access["Keyboard and screen reader access"]
 ---
 
 I led architecture and delivery of a new deal-monitoring experience, growing the work from an initial spike into a four-engineer effort. Its configurable, virtualized tables were designed as a reusable foundation for other monitoring surfaces.

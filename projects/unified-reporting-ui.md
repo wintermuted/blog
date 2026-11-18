@@ -12,9 +12,14 @@ timeline: 2023–2025
 project_links:
   - label: Reporting Copilot prototype
     url: /projects/reporting-copilot-chat-integration/
-preview_images:
-  - src: /assets/img/portfolio/unified-reporting-preview.svg
-    alt: High-level reporting flow from report configuration to data, visual results, and drill-down exploration.
+preview_alt: High-level reporting flow from report configuration to data, visual results, and drill-down exploration.
+preview_diagram: |
+  flowchart LR
+    User["Report author"] --> Configure["Choose fields and filters"]
+    Configure --> Query["Fetch report data"]
+    Query --> Results["Explore visual results"]
+    Results --> Drilldown["Filter and drill down"]
+    Drilldown --> Configure
 ---
 
 I architected and helped deliver a unified reporting product that brought revenue and performance insights into one interface. I designed the frontend structure and data workflow from mockup through production, then helped establish patterns as the work grew to a multi-engineer team.
