@@ -103,11 +103,16 @@ for (const slug of workProjectSlugs) {
   }
   for (const preview of workProjectPreviews[slug]) {
     if (preview.type === 'diagram') {
-      if (!card.includes('project-card-media--diagram') ||
-          !card.includes('project-diagram--compact project-card-diagram') ||
-          !card.includes(`aria-label="${preview.alt}"`) ||
-          !card.includes('class="mermaid" aria-hidden="true"') || !card.includes(preview.content)) {
-        throw new Error(`Missing accessible Mermaid preview for ${slug}`);
+      const requiredMarkers = [
+        ['diagram media', 'project-card-media--diagram'],
+        ['detail diagram style', 'project-diagram--compact project-card-diagram'],
+        ['accessible label', `aria-label="${preview.alt}"`],
+        ['Mermaid source block', 'class="mermaid" aria-hidden="true"'],
+        ['diagram content', preview.content]
+      ];
+      const missingMarkers = requiredMarkers.filter(([, marker]) => !card.includes(marker)).map(([name]) => name);
+      if (missingMarkers.length) {
+        throw new Error(`Missing ${missingMarkers.join(', ')} in ${slug} preview card: ${card.slice(0, 1800)}`);
       }
     } else {
       if (!card.includes('class="project-card-media project-card-media--preview project-card-media--preview-paired"')) {
