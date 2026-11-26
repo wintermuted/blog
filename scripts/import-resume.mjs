@@ -2,12 +2,35 @@ import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parse, parseFragment } from 'parse5';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const files = ['resume.public.json', 'resume.fragment.html', 'resume.html', 'resume.pdf'];
 const bundleNames = ['manifest.json', ...files].sort();
 const hash = data => createHash('sha256').update(data).digest('hex');
 const fail = message => { throw new Error(message); };
+const allowedSchemes = new Set(['http:', 'https:', 'mailto:', 'tel:']);
+const urlAttributes = new Set(['href', 'xlink:href', 'src', 'action', 'formaction', 'poster', 'background', 'cite',
+  'data', 'longdesc', 'usemap', 'profile', 'manifest']);
+const unsafeElements = new Set(['script', 'iframe', 'object', 'embed', 'form', 'base']);
+
+function validateHtml(tree) {
+  if (unsafeElements.has(tree.tagName)) fail('Unsafe active content in resume HTML');
+  for (const attribute of tree.attrs || []) {
+    if (/^on/i.test(attribute.name) || ['srcdoc', 'srcset', 'imagesrcset', 'ping', 'archive'].includes(attribute.name) ||
+        (tree.tagName === 'meta' && attribute.name === 'http-equiv' && attribute.value.trim().toLowerCase() === 'refresh')) {
+      fail('Unsafe active content in resume HTML');
+    }
+    if (urlAttributes.has(attribute.name)) {
+      let url;
+      try { url = new URL(attribute.value, 'https://resume.invalid/'); }
+      catch { fail('Invalid URL in resume HTML'); }
+      if (!allowedSchemes.has(url.protocol)) fail('Unsafe URL scheme in resume HTML');
+    }
+  }
+  for (const child of tree.childNodes || []) validateHtml(child);
+  if (tree.content) validateHtml(tree.content);
+}
 const allowedKeys = (value, keys, label) => {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !keys.includes(key))) {
     fail(`Invalid or non-public fields in ${label}`);
@@ -54,8 +77,9 @@ export function validateBundle(dir, expected = {}) {
   const fragment = content['resume.fragment.html'].toString('utf8').trim();
   const html = content['resume.html'].toString('utf8');
   if (!/^<article\s+class="compact-resume"/.test(fragment) || !fragment.endsWith('</article>') || !html.includes(fragment)) fail('Browser HTML does not contain the compact resume fragment');
-  if (/<\s*(script|iframe|object|embed|form|base)\b|\son[a-z]+\s*=|(?:href|src)\s*=\s*["']\s*javascript:|{%|{{/i.test(fragment) ||
-      /<\s*(script|iframe|object|embed|form|base)\b|\son[a-z]+\s*=|(?:href|src)\s*=\s*["']\s*javascript:/i.test(html)) fail('Unsafe active content or template syntax in resume HTML');
+  if (/{%|{{/.test(fragment)) fail('Unsafe template syntax in resume HTML');
+  validateHtml(parseFragment(fragment));
+  validateHtml(parse(html));
   if (!content['resume.pdf'].subarray(0, 5).equals(Buffer.from('%PDF-'))) fail('Invalid PDF header');
   return manifest;
 }

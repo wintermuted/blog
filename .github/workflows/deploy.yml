@@ -36,6 +36,9 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for proper git operations
 
+      - name: Install resume validation dependencies
+        run: npm ci --prefix scripts --ignore-scripts
+
       - name: Verify reviewed resume bundle
         run: node scripts/import-resume.mjs verify
 

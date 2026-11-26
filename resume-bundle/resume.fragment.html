@@ -3,6 +3,13 @@
 .compact-resume {
   --compact-ink: #0d0d0d;
   --compact-accent: #2a4a8a;
+  --wm-color-text: var(--compact-ink);
+  --wm-color-text-secondary: var(--compact-ink);
+  --wm-color-text-muted: #353535;
+  --site-link-color: var(--compact-accent);
+  --site-link-hover-color: var(--compact-accent);
+  --site-link-visited-color: var(--compact-accent);
+  --site-link-underline: var(--compact-accent);
   box-sizing: border-box;
   max-width: 7.3in;
   margin: 2rem auto;
@@ -41,6 +48,8 @@
     padding: 0;
     font-size: 10.5pt;
     line-height: 1.28;
+    --compact-ink: #000;
+    --compact-accent: #000;
     color: #000;
   }
   .compact-resume h2 { margin-top: 0.65rem; }

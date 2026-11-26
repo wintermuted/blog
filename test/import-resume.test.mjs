@@ -92,6 +92,51 @@ test('rejects private projection fields even when their checksum matches', () =>
   } finally { rmSync(temp, { recursive: true }); }
 });
 
+test('validates decoded URL schemes in both HTML files even when checksums match', () => {
+  const temp = mkdtempSync(join(tmpdir(), 'resume-test-'));
+  try {
+    const source = join(temp, 'source');
+    fixture(source);
+    const manifestPath = join(source, 'manifest.json');
+    const manifest = JSON.parse(readFileSync(manifestPath));
+    const update = (name, text) => {
+      writeFileSync(join(source, name), text);
+      manifest.files[name] = digest(text);
+      writeFileSync(manifestPath, JSON.stringify(manifest));
+    };
+    const unsafe = [
+      'href=javascript:alert(1)',
+      'href="jav&#x61;script:alert(1)"',
+      'href="java&Tab;script:alert(1)"',
+      'href="&#10;JaVaScRiPt:alert(1)"',
+      'href="data:text/html,example"',
+      'href="vbscript:example"',
+      'href="file:///example"',
+      'src=javascript:alert(1)',
+      'xlink:href="jav&#97;script:alert(1)"'
+    ];
+    for (const attribute of [...unsafe, 'href=/projects/aks-migration/', 'href="https://example.org/?a=1&amp;b=2"',
+      'href="mailto:example@example.org"', 'href="tel:+15555550100"', 'href="#experience"']) {
+      const fragment = `<article class="compact-resume"><a ${attribute}>Example</a></article>`;
+      update('resume.fragment.html', fragment);
+      update('resume.html', `<!doctype html><html><body>${fragment}</body></html>`);
+      if (unsafe.includes(attribute)) {
+        assert.throws(() => validateBundle(source), /Unsafe URL scheme/, `fragment: ${attribute}`);
+      } else {
+        assert.doesNotThrow(() => validateBundle(source), attribute);
+      }
+      const safeFragment = '<article class="compact-resume"><h1>Example</h1></article>';
+      update('resume.fragment.html', safeFragment);
+      update('resume.html', `<!doctype html><html><body>${safeFragment}<svg><a ${attribute}>Example</a></svg></body></html>`);
+      if (unsafe.includes(attribute)) {
+        assert.throws(() => validateBundle(source), /Unsafe URL scheme/, `standalone: ${attribute}`);
+      } else {
+        assert.doesNotThrow(() => validateBundle(source), attribute);
+      }
+    }
+  } finally { rmSync(temp, { recursive: true }); }
+});
+
 test('rejects extra manifest fields', () => {
   const temp = mkdtempSync(join(tmpdir(), 'resume-test-'));
   try {

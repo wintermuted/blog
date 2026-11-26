@@ -4,14 +4,10 @@ import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { extname, join, resolve, sep } from 'node:path';
 
-if (!existsSync('resume-bundle')) {
-  console.log('Resume bundle is pending; print check skipped.');
-  process.exit(0);
-}
-
+const hasBundle = existsSync('resume-bundle');
 const root = resolve('_site');
 const resume = ['resume.html', 'resume/index.html'].find(path => existsSync(join(root, path)));
-if (!resume) throw new Error('Missing built resume page');
+if (hasBundle && !resume) throw new Error('Missing built resume page');
 const mime = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.woff2': 'font/woff2',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
@@ -65,6 +61,29 @@ function verifyProjectFilters() {
     JSON.stringify(visibleProjects(work)) === JSON.stringify(cases[1][1]), 'Personal filter changed the work filter');
 }
 
+function verifyResumeColors(theme) {
+  document.documentElement.dataset.theme = theme;
+  document.body.dataset.theme = theme;
+  document.body.classList.add('bg-tone-neutral');
+  const article = document.querySelector('.compact-resume');
+  if (!article) throw new Error('Missing compact resume');
+  const luminance = color => {
+    const channels = color.match(/[\d.]+/g).slice(0, 3).map(Number).map(value => {
+      const channel = value / 255;
+      return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+    });
+    return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+  };
+  const background = getComputedStyle(article).backgroundColor;
+  if (background !== 'rgb(255, 255, 255)') throw new Error('Resume must retain its white background');
+  for (const element of article.querySelectorAll('p, a')) {
+    const color = getComputedStyle(element).color;
+    const contrast = (Math.max(luminance(color), luminance(background)) + 0.05) /
+      (Math.min(luminance(color), luminance(background)) + 0.05);
+    if (contrast < 4.5) throw new Error(`${theme} resume ${element.tagName} contrast is ${contrast.toFixed(2)}:1`);
+  }
+}
+
 const server = createServer((request, response) => {
   const { pathname, searchParams } = new URL(request.url, 'http://localhost');
   const relative = pathname === '/resume' ? resume : decodeURIComponent(pathname).replace(/^\/+/, '');
@@ -88,6 +107,19 @@ const server = createServer((request, response) => {
         });
       </script></body>`);
     }
+    if (pathname === '/resume' && searchParams.has('verify-colors')) {
+      const theme = searchParams.get('theme') === 'dark' ? 'dark' : 'light';
+      data = data.toString('utf8').replace('</body>', `<script>
+        window.addEventListener('load', function () {
+          try {
+            (${verifyResumeColors.toString()})(${JSON.stringify(theme)});
+            document.body.setAttribute('data-resume-color-check', 'passed');
+          } catch (error) {
+            document.body.setAttribute('data-resume-color-check', error.message);
+          }
+        });
+      </script></body>`);
+    }
     response.writeHead(200, { 'Content-Type': mime[extname(path)] || 'application/octet-stream' }).end(data);
   } catch {
     response.writeHead(404).end();
@@ -104,7 +136,7 @@ try {
     let diagnostics = '';
     let stdout = '';
     const code = await new Promise((resolveCapture, reject) => {
-      const chrome = spawn('google-chrome', [
+      const chrome = spawn(process.env.CHROME_BIN || 'google-chrome', [
         '--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage',
         '--disable-background-networking', '--no-first-run',
         '--no-proxy-server', '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost, EXCLUDE 127.0.0.1',
@@ -127,12 +159,23 @@ try {
   const filterResult = filterDom.match(/<body\b[^>]*\bdata-filter-check="([^"]*)"/)?.[1];
   if (filterResult !== 'passed') throw new Error(`Professional project filter check failed: ${filterResult ?? 'no result'}`);
   console.log('Professional project filters preserve featured order and stay independent of personal filters.');
-  const captures = [
-    ['print', ['--no-pdf-header-footer', `--print-to-pdf=${output}`], output]
-  ];
+  const captures = [];
+  if (hasBundle) {
+    for (const theme of ['light', 'dark']) {
+      const colorDom = await capture(`resume-colors-${theme}`, ['--dump-dom'], null, `${url}?verify-colors&theme=${theme}`);
+      const colorResult = colorDom.match(/<body\b[^>]*\bdata-resume-color-check="([^"]*)"/)?.[1];
+      if (colorResult !== 'passed') throw new Error(`Resume color check failed: ${colorResult ?? 'no result'}`);
+    }
+    captures.push(['print', ['--no-pdf-header-footer', `--print-to-pdf=${output}`], output, `${url}?verify-colors&theme=dark`]);
+    if (process.argv.includes('--captures')) captures.push(
+      ['desktop', ['--window-size=1440,1000', `--screenshot=${join(review, 'resume-desktop.png')}`], join(review, 'resume-desktop.png')],
+      ['mobile', ['--window-size=390,844', `--screenshot=${join(review, 'resume-mobile.png')}`], join(review, 'resume-mobile.png')],
+      ['dark', ['--window-size=1440,1000', `--screenshot=${join(review, 'resume-dark.png')}`], join(review, 'resume-dark.png'), `${url}?verify-colors&theme=dark`]
+    );
+  } else {
+    console.log('Resume bundle is pending; print check skipped.');
+  }
   if (process.argv.includes('--captures')) captures.push(
-    ['desktop', ['--window-size=1440,1000', `--screenshot=${join(review, 'resume-desktop.png')}`], join(review, 'resume-desktop.png')],
-    ['mobile', ['--window-size=390,844', `--screenshot=${join(review, 'resume-mobile.png')}`], join(review, 'resume-mobile.png')],
     ['projects-desktop', ['--window-size=1440,1000', `--screenshot=${join(review, 'projects-desktop.png')}`], join(review, 'projects-desktop.png'), projectUrl],
     ['projects-mobile', ['--window-size=390,844', `--screenshot=${join(review, 'projects-mobile.png')}`], join(review, 'projects-mobile.png'), projectUrl],
     ['case-study-desktop', ['--window-size=1440,1000', `--screenshot=${join(review, 'case-study-desktop.png')}`], join(review, 'case-study-desktop.png'), studyUrl],
@@ -142,17 +185,19 @@ try {
     try { await capture(name, flags, expected, target); } catch (error) { failures.push(error.message); }
   }
   if (failures.length) throw new Error(failures.join('\n'));
-  const info = execFileSync('pdfinfo', [output], { encoding: 'utf8' });
-  const count = Number(info.match(/^Pages:\s+(\d+)/m)?.[1]);
-  if (count !== 2) throw new Error(`Built site resume printed ${count || 'an unknown number of'} pages; expected 2`);
-  const text = execFileSync('pdftotext', ['-layout', output, '-'], { encoding: 'utf8' });
-  for (const phrase of ['Jameson Nyeholt', 'Microsoft', 'DataTableView']) {
-    if (!text.includes(phrase)) throw new Error(`Printed resume is missing ${phrase}`);
+  if (hasBundle) {
+    const info = execFileSync('pdfinfo', [output], { encoding: 'utf8' });
+    const count = Number(info.match(/^Pages:\s+(\d+)/m)?.[1]);
+    if (count !== 2) throw new Error(`Built site resume printed ${count || 'an unknown number of'} pages; expected 2`);
+    const text = execFileSync('pdftotext', ['-layout', output, '-'], { encoding: 'utf8' });
+    for (const phrase of ['Jameson Nyeholt', 'Microsoft', 'DataTableView']) {
+      if (!text.includes(phrase)) throw new Error(`Printed resume is missing ${phrase}`);
+    }
+    for (const phrase of ['Download resume PDF', 'Project links', 'Proudly built']) {
+      if (text.includes(phrase)) throw new Error(`Site chrome appeared in print: ${phrase}`);
+    }
+    console.log('Built site resume prints to two pages without site chrome, with readable light/dark theme colors.');
   }
-  for (const phrase of ['Download resume PDF', 'Project links', 'Proudly built']) {
-    if (text.includes(phrase)) throw new Error(`Site chrome appeared in print: ${phrase}`);
-  }
-  console.log('Built site resume prints to two pages without site chrome.');
 } finally {
   server.close();
   rmSync(temp, { recursive: true, force: true });

@@ -91,9 +91,17 @@ source revision and profile checksum from the reviewed manifest:
 node scripts/import-resume.mjs import <bundle-directory> --source-revision <40-hex-revision> --profile-sha256 <64-hex-profile-checksum>
 ```
 
+Install the importer's HTML parser dependency before importing or verifying:
+
+```powershell
+npm ci --prefix scripts --ignore-scripts
+```
+
 The importer checks the allowlist, identity, checksums and paired HTML before
-replacing `resume-bundle/`. Commit the reviewed result as one change. A rejected
-import leaves the previously approved bundle intact. The website reads only
+replacing `resume-bundle/`. Commit the reviewed result as one change. HTML
+validation rejects decoded URL schemes outside HTTP, HTTPS, mailto and
+tel (relative links are allowed), as well as active elements and event handlers.
+An unsuccessful import leaves the previously approved bundle intact. The website reads only
 the public bundle, not the CV master or private evidence; `/resume.pdf` is
 generated from the same bundle as the embedded HTML. Publication still requires
 human review of claims, privacy, PDF pagination and desktop/mobile previews.
@@ -103,6 +111,8 @@ remain valid across platforms.
 Without a bundle, the resume page says it is pending and does not offer a PDF.
 Preview validation accepts that state; production deployment requires a valid
 bundle. CI prints the built resume page and checks its page count and text.
+Project filter checks run even when the resume bundle is pending. Resume colors
+stay isolated from the site theme on screen and in print.
 The `Validate portfolio without deployment` workflow builds and checks
 the site without publishing it. It can also be started manually for a branch.
 Never use an old rich resume export to fill a missing compact bundle.

@@ -19,6 +19,8 @@ jobs:
         with:
           ruby-version: '3.2'
           bundler-cache: true
+      - name: Install resume validation dependencies
+        run: npm ci --prefix scripts --ignore-scripts
       - name: Verify importer
         run: |
           node --test test/import-resume.test.mjs
@@ -45,6 +47,13 @@ jobs:
         run: |
           node scripts/check-site.mjs
           node scripts/check-resume-print.mjs --captures
+      - name: Verify project filters with a pending resume bundle
+        run: |
+          pending=$(mktemp -d)
+          trap 'rm -rf "$pending"' EXIT
+          ln -s "$GITHUB_WORKSPACE/_site" "$pending/_site"
+          cd "$pending"
+          node "$GITHUB_WORKSPACE/scripts/check-resume-print.mjs"
       - name: Upload site for private review
         if: always()
         uses: actions/upload-artifact@v4

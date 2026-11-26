@@ -42,6 +42,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install resume validation dependencies
+        run: npm ci --prefix scripts --ignore-scripts
+
       - name: Verify resume bundle or pending state
         run: node scripts/import-resume.mjs verify --allow-pending
 
