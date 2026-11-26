@@ -1,0 +1,19 @@
+instructions: |
+  Follow .github/copilot-instructions.md for blog content and styling conventions.
+  Use the Ruby version in .ruby-version and run Jekyll through Bundler.
+  Leave lint, typecheck, and production build validation to CI.
+  Do not commit generated output in _site, generated, or Jekyll cache directories.
+
+scripts:
+  - name: Setup
+    command: bundle install
+    triggers:
+      - session.create
+  - name: Preview
+    command: bundle exec jekyll serve --livereload
+
+server_ready_pattern: 'Server address:\s+(https?://\S+)'
+auto_open_in_browser: true
+
+automation:
+  remote_control: false
