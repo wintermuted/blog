@@ -50,6 +50,9 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      - name: Test GitHub app scripts
+        run: ruby test/github-app-scripts-test.rb
+
       # Step 3: Cache generated images
       # Jekyll Picture Tag generates optimized images in the '_site/generated/' directory
       # Cache this directory to avoid regenerating images on every build
