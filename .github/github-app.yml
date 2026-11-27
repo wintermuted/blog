@@ -6,11 +6,11 @@ instructions: |
 
 scripts:
   - name: Setup
-    command: bundle install
+    command: ruby scripts/github-app-setup.rb
     triggers:
       - session.create
   - name: Preview
-    command: bundle exec jekyll serve --livereload
+    command: ruby scripts/github-app-preview.rb
 
 server_ready_pattern: 'Server address:\s+(https?://\S+)'
 auto_open_in_browser: true

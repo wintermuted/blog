@@ -64,3 +64,5 @@ include:
 
 exclude:
  - netlify.toml
+ - scripts
+ - test
