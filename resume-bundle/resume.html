@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Jameson Nyeholt - Resume</title></head><body><article class="compact-resume" aria-label="Resume">
+<style>/* Print-first typography, using the existing theme's neutral palette and accent. */
+.compact-resume {
+  --compact-ink: #0d0d0d;
+  --compact-accent: #2a4a8a;
+  --wm-color-text: var(--compact-ink);
+  --wm-color-text-secondary: var(--compact-ink);
+  --wm-color-text-muted: #353535;
+  --site-link-color: var(--compact-accent);
+  --site-link-hover-color: var(--compact-accent);
+  --site-link-visited-color: var(--compact-accent);
+  --site-link-underline: var(--compact-accent);
+  box-sizing: border-box;
+  max-width: 7.3in;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: var(--compact-ink);
+  background: #fff;
+  font: 11pt/1.3 Arial, "Helvetica Neue", sans-serif;
+  overflow-wrap: break-word;
+}
+.compact-resume * { box-sizing: border-box; }
+.compact-resume h1 { margin: 0; font-size: 23pt; line-height: 1.1; }
+.compact-resume .compact-title { margin-top: 0.25rem; font-size: 13pt; font-weight: 700; }
+.compact-resume h2 {
+  margin: 1rem 0 0.35rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 12pt;
+}
+.compact-resume h3 { margin: 0; font-size: 11pt; line-height: 1.3; }
+.compact-resume p { margin: 0.3rem 0; }
+.compact-resume .compact-identity p { margin: 0.15rem 0; }
+.compact-resume .compact-summary { margin: 0.8rem 0; }
+.compact-resume .compact-role { margin-top: 0.7rem; }
+.compact-resume .compact-dates { margin-top: 0.05rem; color: #353535; }
+.compact-resume ul { padding-left: 1.1rem; margin: 0.3rem 0 0; }
+.compact-resume li { margin: 0.3rem 0; }
+.compact-resume a { color: var(--compact-accent); text-decoration: underline; text-underline-offset: 0.12em; }
+.compact-resume a:hover { text-decoration-thickness: 2px; }
+.compact-resume a:focus-visible { outline: 2px solid var(--compact-accent); outline-offset: 3px; }
+.compact-resume .compact-portfolio { margin-top: 0.8rem; }
+@page { size: Letter; margin: 0.6in; }
+@media print {
+  .compact-resume {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    font-size: 10.5pt;
+    line-height: 1.28;
+    --compact-ink: #000;
+    --compact-accent: #000;
+    color: #000;
+  }
+  .compact-resume h2 { margin-top: 0.65rem; }
+  .compact-resume h3 { font-size: 10.5pt; }
+  .compact-resume .compact-role { margin-top: 0.5rem; }
+  .compact-resume li { margin: 0.22rem 0; }
+  .compact-resume header, .compact-resume h2 { break-inside: avoid; break-after: avoid; }
+  .compact-resume .compact-lead { break-after: avoid; }
+  .compact-resume li { break-inside: avoid; }
+  .compact-resume p { orphans: 2; widows: 2; }
+  .compact-resume a { color: #000; }
+}
+</style>
+<header class="compact-identity"><h1>Jameson Nyeholt</h1><p class="compact-title">Principal Software Engineer</p>
+<p>Portland, Oregon | <a href="mailto:jnyeholt@hey.com">jnyeholt@hey.com</a> | (909) 753-9621</p>
+<p><a href="https://www.jnyeholt.dev">www.jnyeholt.dev</a> | <a href="https://www.github.com/wintermuted">github.com/wintermuted</a> | <a href="https://www.linkedin.com/in/jwnyeholt">linkedin.com/in/jwnyeholt</a></p></header>
+<p class="compact-summary">Hands-on Principal Software Engineer building enterprise web products and the shared platforms behind them. Connects React and TypeScript interfaces, API design, reusable component systems and delivery infrastructure. Leads through architecture, implementation, cross-team collaboration and mentorship, with prior engineering-management experience.</p>
+<section aria-labelledby="compact-experience"><h2 id="compact-experience">Experience</h2><section class="compact-role" aria-labelledby="microsoft-principal">
+<header><h3 id="microsoft-principal">Microsoft - Principal Software Engineer</h3>
+<p class="compact-dates"><time datetime="2023-03-01">2023-03</time> - Present</p></header>
+<p class="compact-lead">Principal IC embedded in an 11-person Microsoft Advertising team building the Monetize SSP and Ad Server platform. Partners with Product, UX and Data Engineering from discovery through delivery; leads technical decisions without direct reports.</p><ul><li>Leading an ongoing AKS migration spanning 100 applications across 16 repositories. Built Copilot prompts and a migration agent to generate Dockerfiles, Helm charts and pipeline changes, with artifact validation, approval gates and rollback support. Adapted the design to one cluster per region to meet a decommission deadline and partner commitments. <a href="https://www.jnyeholt.dev/projects/aks-migration/">Case study</a></li>
+<li>Authored the DataTableView framework and its first application, combining virtualized Fluent 2 tables, accessible rendering, configurable columns and URL-synced filters. Other engineers reused the framework for three subsequent screens, reducing duplicated implementation. <a href="https://www.jnyeholt.dev/projects/datatableview/">Case study</a></li>
+<li>Migrated monorepo CI/CD from Bitbucket/Concourse to Azure Pipelines. Introduced dependency-graph-based selective execution, parallel jobs and caching; documented Main Stage timings improved from roughly 15-18 minutes to 5-8 minutes. <a href="https://www.jnyeholt.dev/projects/ci-cd-performance/">Case study</a></li>
+<li>Designed and built the Deal Monitoring UI, released to general availability in October 2025. Integrated REST and GraphQL data behind a consistent adapter layer, with deterministic sorting, server-side filtering and shareable views; established an architectural template for later monitoring migrations.</li>
+<li>Owned a bidirectional PHP/MariaDB REST API for bulk Deal migration. Implemented transactional rollback, targeting-profile duplication and pricing-strategy mapping, resolving data-integrity edge cases while preserving a safe reverse-migration path.</li>
+<li>Established package contribution standards, design reviews and documentation so teams could extend shared foundations independently. Paired with senior engineers on system design and practical trade-offs across UI, API and delivery layers.</li></ul></section>
+<section class="compact-role" aria-labelledby="microsoft-manager">
+<header><h3 id="microsoft-manager">Microsoft - Senior Software Engineering Manager</h3>
+<p class="compact-dates"><time datetime="2022-06-01">2022-06</time> - <time datetime="2023-02-28">2023-02</time></p></header>
+<p class="compact-lead">Managed up to five direct reports and led platform resilience and delivery through the Xandr acquisition transition before moving to the Principal IC track.</p><ul><li>Served as technical lead for a cross-functional reliability group, aligning coding standards, migration strategy and codebase stewardship. Improved data-fetching patterns and latency/error instrumentation to support regression investigation.</li></ul></section>
+<section class="compact-role" aria-labelledby="xandr-lead">
+<header><h3 id="xandr-lead">Xandr - Senior Software Engineer, Team Lead</h3>
+<p class="compact-dates"><time datetime="2020-07-01">2020-07</time> - <time datetime="2022-05-31">2022-05</time></p></header>
+<p class="compact-lead">Combined hands-on architecture and delivery with technical leadership for the Monetize platform.</p><ul><li>Built the Sellers Monitoring Workflow UI from the ground up for advertising-inventory troubleshooting. Owned data modeling, API integration and component architecture in partnership with Product, UX and Data Engineering.</li>
+<li>Interviewed, hired and onboarded engineers; supported two promotions through mentorship, pairing, code reviews and growth-oriented project assignments.</li></ul></section>
+<section class="compact-role" aria-labelledby="xandr-engineer">
+<header><h3 id="xandr-engineer">Xandr - Software Engineer II</h3>
+<p class="compact-dates"><time datetime="2019-03-01">2019-03</time> - <time datetime="2020-06-30">2020-06</time></p></header>
+<p class="compact-lead">Built data-rich publisher dashboards and foundational improvements for the Monetize platform.</p><ul><li>Introduced TypeScript patterns and migration guidance, and pioneered a Lerna monorepo for sharing packages across applications. Partnered with Build and Delivery engineers on monorepo-aware Concourse CI/CD.</li></ul></section>
+<section class="compact-role" aria-labelledby="jama-senior">
+<header><h3 id="jama-senior">Jama Software - Senior Software Engineer</h3>
+<p class="compact-dates"><time datetime="2018-04-01">2018-04</time> - <time datetime="2019-02-28">2019-02</time></p></header>
+<p class="compact-lead">Delivered full-stack features across Java/Spring APIs and React interfaces for enterprise requirements management.</p><ul><li>Embedded with the acquired Notion.io team to integrate Jama Analyze with Jama Connect, designing and implementing cross-system data flows for enterprise analytics.</li></ul></section>
+<section class="compact-role" aria-labelledby="jama-engineer">
+<header><h3 id="jama-engineer">Jama Software - Software Engineer II</h3>
+<p class="compact-dates"><time datetime="2015-01-01">2015-01</time> - <time datetime="2018-03-31">2018-03</time></p></header>
+<p>Built Java/JavaScript workflows for data management and testing, plus build-health dashboards.</p></section>
+<section class="compact-role" aria-labelledby="snapflow">
+<header><h3 id="snapflow">Snapflow - Software Engineer</h3>
+<p class="compact-dates"><time datetime="2013-04-01">2013-04</time> - <time datetime="2014-12-31">2014-12</time></p></header>
+<p>Built Angular.js interfaces for a REST-backed workflow service and supported technical hiring.</p></section>
+<section class="compact-role" aria-labelledby="tenth-degree">
+<header><h3 id="tenth-degree">10th Degree - Front End Developer</h3>
+<p class="compact-dates"><time datetime="2012-06-01">2012-06</time> - <time datetime="2013-03-31">2013-03</time></p></header>
+<p>Developed search-optimized dealership and agency-client websites with maintainable frontend code.</p></section>
+<section class="compact-role" aria-labelledby="freelance">
+<header><h3 id="freelance">Contract Web Developer - Web Developer</h3>
+<p class="compact-dates"><time datetime="2007-06-01">2007-06</time> - <time datetime="2012-05-31">2012-05</time></p></header>
+<p>Freelance web development for small businesses and non-profits during undergraduate studies.</p></section></section>
+<section aria-labelledby="compact-education"><h2 id="compact-education">Education</h2><p>California State University, Long Beach - Bachelor of Arts, Honors, Political Science (2012-05)</p></section>
+<section aria-labelledby="compact-skills"><h2 id="compact-skills">Selected skills</h2><p><strong>Product engineering:</strong> TypeScript, JavaScript, React.js, Node.js, PHP, Java, GraphQL</p>
+<p><strong>Platforms and delivery:</strong> Kubernetes, Azure Kubernetes Service, Docker, Helm, Azure Pipelines, Monorepos, GitHub Copilot</p></section>
+<p class="compact-portfolio">Selected project case studies: <a href="https://www.jnyeholt.dev/projects/aks-migration/">AKS Migration Platform</a> | <a href="https://www.jnyeholt.dev/projects/datatableview/">DataTableView Component Library</a> | <a href="https://www.jnyeholt.dev/projects/ci-cd-performance/">CI/CD Pipeline Performance</a>.</p>
+</article></body></html>

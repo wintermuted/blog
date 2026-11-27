@@ -1,3 +1,55 @@
+<section class="projects-index-section" aria-labelledby="professional-projects-heading" data-project-filters>
+  <h2 id="professional-projects-heading">Professional work</h2>
+  <div class="projects-filter-bar" role="group" aria-label="Professional work filters" hidden>
+    <button type="button" class="projects-filter-button is-active" data-project-filter="all" aria-pressed="true" aria-controls="professional-projects-grid"><i class="fas fa-th-large" aria-hidden="true"></i>All</button>
+    <button type="button" class="projects-filter-button" data-project-filter="product-ui" aria-pressed="false" aria-controls="professional-projects-grid"><i class="fas fa-columns" aria-hidden="true"></i>Product UI</button>
+    <button type="button" class="projects-filter-button" data-project-filter="platform-delivery" aria-pressed="false" aria-controls="professional-projects-grid"><i class="fas fa-tools" aria-hidden="true"></i>Platform &amp; delivery</button>
+    <button type="button" class="projects-filter-button" data-project-filter="apis-integrations" aria-pressed="false" aria-controls="professional-projects-grid"><i class="fas fa-code" aria-hidden="true"></i>APIs &amp; integrations</button>
+    <button type="button" class="projects-filter-button" data-project-filter="ai-prototype" aria-pressed="false" aria-controls="professional-projects-grid"><i class="fas fa-robot" aria-hidden="true"></i>AI prototype</button>
+  </div>
+  <div id="professional-projects-grid" class="projects-grid">
+    {% assign featured_projects = site.pages | where: 'case_study', true | sort: 'featured_order' %}
+    {% for project in featured_projects %}
+      <article class="project-card-item" data-project-types="{{ project.work_category | escape }}">
+        <div class="card project-card">
+          {% if project.preview_diagram %}
+            <div class="project-card-media project-card-media--diagram">
+              <a href="{{ project.url | relative_url }}" class="project-card-media-link" aria-label="View {{ project.title | escape }} project details">
+                <figure class="project-diagram project-diagram--compact project-card-diagram" role="img" aria-label="{{ project.preview_alt | escape }}">
+                  <pre class="mermaid" aria-hidden="true">{{ project.preview_diagram | escape }}</pre>
+                </figure>
+              </a>
+            </div>
+          {% elsif project.preview_images %}
+            <div class="project-card-media project-card-media--preview{% if project.preview_images.size > 1 %} project-card-media--preview-paired{% endif %}">
+              <a href="{{ project.url | relative_url }}" class="project-card-media-link">
+                {% for preview in project.preview_images %}
+                  <img
+                    src="{{ site.baseurl }}{{ preview.src }}"
+                    class="project-card-image{% if forloop.first %} project-card-image--primary{% else %} project-card-image--secondary{% endif %}"
+                    alt="{{ preview.alt | escape }}"
+                    loading="lazy"
+                    decoding="async"
+                    width="640"
+                    height="360">
+                {% endfor %}
+              </a>
+            </div>
+          {% endif %}
+          <div class="card-body">
+            <h3 class="project-card-title"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h3>
+            <p class="project-card-subtitle">{{ project.tagline | escape }}</p>
+            <p class="text-muted">{{ project.status | escape }} · {{ project.timeline | escape }}</p>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <p class="projects-filter-empty text-muted" hidden>No professional projects match the selected filter.</p>
+</section>
+
+<section class="projects-index-section" aria-labelledby="personal-projects-heading" data-project-filters data-sort-projects>
+<h2 id="personal-projects-heading">Open source and personal projects</h2>
 <div class="projects-filter-bar" role="toolbar" aria-label="Project type filters">
   <button type="button" class="projects-filter-button is-active" data-project-filter="all"><i class="fas fa-th-large" aria-hidden="true"></i>All</button>
   <button type="button" class="projects-filter-button" data-project-filter="web-app"><i class="fas fa-globe-americas" aria-hidden="true"></i>Web Apps</button>
@@ -189,28 +241,31 @@
   </section>
 
   <p class="projects-filter-empty text-muted" hidden>No projects match the selected filter.</p>
+</section>
 
 <script>
-  window.addEventListener('load', function () {
-    var buttons = Array.from(document.querySelectorAll('.projects-filter-button'));
-    var cards = Array.from(document.querySelectorAll('.project-card-item[data-project-types]'));
-    var emptyState = document.querySelector('.projects-filter-empty');
-    var grid = document.querySelector('.projects-grid');
+  function configureProjectFilters(section) {
+    var filterBar = section.querySelector('.projects-filter-bar');
+    var grid = section.querySelector('.projects-grid');
+    if (!filterBar || !grid) return;
 
-    if (!buttons.length || !cards.length || !grid) return;
+    var buttons = Array.from(filterBar.querySelectorAll('.projects-filter-button'));
+    var cards = Array.from(grid.querySelectorAll('.project-card-item[data-project-types]'));
+    var emptyState = section.querySelector('.projects-filter-empty');
+    if (!buttons.length || !cards.length) return;
 
-    cards
-      .sort(function (a, b) {
+    if (section.hasAttribute('data-sort-projects')) {
+      cards.sort(function (a, b) {
         var titleA = a.querySelector('.project-card-title').textContent.trim();
         var titleB = b.querySelector('.project-card-title').textContent.trim();
         return titleA.localeCompare(titleB, undefined, { sensitivity: 'base' });
-      })
-      .forEach(function (card) {
+      }).forEach(function (card) {
         grid.appendChild(card);
       });
+    }
 
     function configureMediaHoverEffects() {
-      var mediaLinks = Array.from(document.querySelectorAll('.project-card-media-link'));
+      var mediaLinks = Array.from(grid.querySelectorAll('.project-card-media-link'));
 
       mediaLinks.forEach(function (link) {
         var media = link.closest('.project-card-media');
@@ -303,9 +358,55 @@
     });
 
     applyFilter('all');
+    filterBar.hidden = false;
     syncGridColumnState();
     configureMediaHoverEffects();
     window.addEventListener('resize', syncGridColumnState);
+  }
+
+  window.addEventListener('load', function () {
+    document.querySelectorAll('[data-project-filters]').forEach(configureProjectFilters);
+    renderProfessionalProjectDiagrams();
   });
+
+  function renderProfessionalProjectDiagrams() {
+    var diagrams = Array.from(document.querySelectorAll('.project-card-diagram .mermaid'));
+    if (!diagrams.length) return;
+
+    import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+      .then(function (module) {
+        var mermaid = module && module.default;
+        if (!mermaid) return;
+
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: 'loose',
+          theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default',
+          themeVariables: document.documentElement.getAttribute('data-theme') === 'dark'
+            ? {
+                primaryTextColor: '#ffffff',
+                textColor: '#ffffff',
+                actorTextColor: '#ffffff',
+                labelTextColor: '#ffffff',
+                lineColor: '#d3deea',
+                fontSize: '20px'
+              }
+            : {
+                primaryTextColor: '#10233f',
+                textColor: '#10233f',
+                actorTextColor: '#10233f',
+                labelTextColor: '#10233f',
+                lineColor: '#4b647d',
+                fontSize: '18px',
+                fontWeight: 600
+              },
+          flowchart: { useMaxWidth: true, htmlLabels: true }
+        });
+        return mermaid.run({ nodes: diagrams });
+      })
+      .catch(function () {
+        // Keep the readable Mermaid source as a fallback if the renderer is unavailable.
+      });
+  }
 </script>
 

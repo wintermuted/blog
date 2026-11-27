@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "profile": "general",
+  "sourceRevision": "de5d4efcc056b9605f98acf3e294c41526fa8d32",
+  "profileSha256": "d509a41d55feb9c77585aea1bd0e08e671b7c2b186e36c85769e40a59b13a2a7",
+  "files": {
+    "resume.public.json": "e0e3c72337739d0808a5c9d918c34d2ed42b9abbee5c1798f2ba9526ac121bc3",
+    "resume.fragment.html": "3ac37f487e2df4a643ef8930c5d2f36d04d83110c9a658fe07e8f1e28d6c8b56",
+    "resume.html": "3bf9846ac90b19a6e8b50b760348a719d068163e211b38ddd1f42fecb65bd68a",
+    "resume.pdf": "8affed599bf35634c58c573e18dd84bbaf232c6e123085a6b09c4989290dfb2c"
+  }
+}

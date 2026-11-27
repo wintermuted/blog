@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "profile": "general",
+  "basics": {
+    "name": "Jameson Nyeholt",
+    "label": "Principal Software Engineer",
+    "email": "jnyeholt@hey.com",
+    "phone": "(909) 753-9621",
+    "location": "Portland, Oregon",
+    "url": "https://www.jnyeholt.dev",
+    "profiles": [
+      {
+        "network": "Github",
+        "url": "https://www.github.com/wintermuted"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jwnyeholt"
+      }
+    ],
+    "summary": "Hands-on Principal Software Engineer building enterprise web products and the shared platforms behind them. Connects React and TypeScript interfaces, API design, reusable component systems and delivery infrastructure. Leads through architecture, implementation, cross-team collaboration and mentorship, with prior engineering-management experience."
+  },
+  "work": [
+    {
+      "id": "microsoft-principal",
+      "name": "Microsoft",
+      "position": "Principal Software Engineer",
+      "startDate": "2023-03-01",
+      "summary": "Principal IC embedded in an 11-person Microsoft Advertising team building the Monetize SSP and Ad Server platform. Partners with Product, UX and Data Engineering from discovery through delivery; leads technical decisions without direct reports.",
+      "highlights": [
+        {
+          "id": "aks-migration",
+          "text": "Leading an ongoing AKS migration spanning 100 applications across 16 repositories. Built Copilot prompts and a migration agent to generate Dockerfiles, Helm charts and pipeline changes, with artifact validation, approval gates and rollback support. Adapted the design to one cluster per region to meet a decommission deadline and partner commitments.",
+          "projectUrl": "https://www.jnyeholt.dev/projects/aks-migration/"
+        },
+        {
+          "id": "datatableview",
+          "text": "Authored the DataTableView framework and its first application, combining virtualized Fluent 2 tables, accessible rendering, configurable columns and URL-synced filters. Other engineers reused the framework for three subsequent screens, reducing duplicated implementation.",
+          "projectUrl": "https://www.jnyeholt.dev/projects/datatableview/"
+        },
+        {
+          "id": "ci-performance",
+          "text": "Migrated monorepo CI/CD from Bitbucket/Concourse to Azure Pipelines. Introduced dependency-graph-based selective execution, parallel jobs and caching; documented Main Stage timings improved from roughly 15-18 minutes to 5-8 minutes.",
+          "projectUrl": "https://www.jnyeholt.dev/projects/ci-cd-performance/"
+        },
+        {
+          "id": "deal-monitoring",
+          "text": "Designed and built the Deal Monitoring UI, released to general availability in October 2025. Integrated REST and GraphQL data behind a consistent adapter layer, with deterministic sorting, server-side filtering and shareable views; established an architectural template for later monitoring migrations."
+        },
+        {
+          "id": "deal-api",
+          "text": "Owned a bidirectional PHP/MariaDB REST API for bulk Deal migration. Implemented transactional rollback, targeting-profile duplication and pricing-strategy mapping, resolving data-integrity edge cases while preserving a safe reverse-migration path."
+        },
+        {
+          "id": "technical-leadership",
+          "text": "Established package contribution standards, design reviews and documentation so teams could extend shared foundations independently. Paired with senior engineers on system design and practical trade-offs across UI, API and delivery layers."
+        }
+      ]
+    },
+    {
+      "id": "microsoft-manager",
+      "name": "Microsoft",
+      "position": "Senior Software Engineering Manager",
+      "startDate": "2022-06-01",
+      "endDate": "2023-02-28",
+      "summary": "Managed up to five direct reports and led platform resilience and delivery through the Xandr acquisition transition before moving to the Principal IC track.",
+      "highlights": [
+        {
+          "id": "reliability",
+          "text": "Served as technical lead for a cross-functional reliability group, aligning coding standards, migration strategy and codebase stewardship. Improved data-fetching patterns and latency/error instrumentation to support regression investigation."
+        }
+      ]
+    },
+    {
+      "id": "xandr-lead",
+      "name": "Xandr",
+      "position": "Senior Software Engineer, Team Lead",
+      "startDate": "2020-07-01",
+      "endDate": "2022-05-31",
+      "summary": "Combined hands-on architecture and delivery with technical leadership for the Monetize platform.",
+      "highlights": [
+        {
+          "id": "sellers-monitoring",
+          "text": "Built the Sellers Monitoring Workflow UI from the ground up for advertising-inventory troubleshooting. Owned data modeling, API integration and component architecture in partnership with Product, UX and Data Engineering."
+        },
+        {
+          "id": "people-leadership",
+          "text": "Interviewed, hired and onboarded engineers; supported two promotions through mentorship, pairing, code reviews and growth-oriented project assignments."
+        }
+      ]
+    },
+    {
+      "id": "xandr-engineer",
+      "name": "Xandr",
+      "position": "Software Engineer II",
+      "startDate": "2019-03-01",
+      "endDate": "2020-06-30",
+      "summary": "Built data-rich publisher dashboards and foundational improvements for the Monetize platform.",
+      "highlights": [
+        {
+          "id": "typescript-monorepo",
+          "text": "Introduced TypeScript patterns and migration guidance, and pioneered a Lerna monorepo for sharing packages across applications. Partnered with Build and Delivery engineers on monorepo-aware Concourse CI/CD."
+        }
+      ]
+    },
+    {
+      "id": "jama-senior",
+      "name": "Jama Software",
+      "position": "Senior Software Engineer",
+      "startDate": "2018-04-01",
+      "endDate": "2019-02-28",
+      "summary": "Delivered full-stack features across Java/Spring APIs and React interfaces for enterprise requirements management.",
+      "highlights": [
+        {
+          "id": "jama-integration",
+          "text": "Embedded with the acquired Notion.io team to integrate Jama Analyze with Jama Connect, designing and implementing cross-system data flows for enterprise analytics."
+        }
+      ]
+    },
+    {
+      "id": "jama-engineer",
+      "name": "Jama Software",
+      "position": "Software Engineer II",
+      "startDate": "2015-01-01",
+      "endDate": "2018-03-31",
+      "summary": "Built Java/JavaScript workflows for data management and testing, plus build-health dashboards.",
+      "highlights": []
+    },
+    {
+      "id": "snapflow",
+      "name": "Snapflow",
+      "position": "Software Engineer",
+      "startDate": "2013-04-01",
+      "endDate": "2014-12-31",
+      "summary": "Built Angular.js interfaces for a REST-backed workflow service and supported technical hiring.",
+      "highlights": []
+    },
+    {
+      "id": "tenth-degree",
+      "name": "10th Degree",
+      "position": "Front End Developer",
+      "startDate": "2012-06-01",
+      "endDate": "2013-03-31",
+      "summary": "Developed search-optimized dealership and agency-client websites with maintainable frontend code.",
+      "highlights": []
+    },
+    {
+      "id": "freelance",
+      "name": "Contract Web Developer",
+      "position": "Web Developer",
+      "startDate": "2007-06-01",
+      "endDate": "2012-05-31",
+      "summary": "Freelance web development for small businesses and non-profits during undergraduate studies.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "California State University, Long Beach",
+      "studyType": "Bachelor of Arts, Honors",
+      "area": "Political Science",
+      "startDate": "2007-08-27",
+      "endDate": "2012-05-15"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Product engineering",
+      "keywords": [
+        "TypeScript",
+        "JavaScript",
+        "React.js",
+        "Node.js",
+        "PHP",
+        "Java",
+        "GraphQL"
+      ]
+    },
+    {
+      "name": "Platforms and delivery",
+      "keywords": [
+        "Kubernetes",
+        "Azure Kubernetes Service",
+        "Docker",
+        "Helm",
+        "Azure Pipelines",
+        "Monorepos",
+        "GitHub Copilot"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "aks-migration",
+      "name": "AKS Migration Platform",
+      "url": "https://www.jnyeholt.dev/projects/aks-migration/",
+      "summary": "Ongoing migration leadership, Copilot-assisted artifact generation and human validation across a 100-application, 16-repository scope; not a completed-rollout count."
+    },
+    {
+      "id": "datatableview",
+      "name": "DataTableView Component Library",
+      "url": "https://www.jnyeholt.dev/projects/datatableview/",
+      "summary": "A reusable table framework and first application authored by Jameson; other engineers built three subsequent screens using it. Reduced duplication, without a measured ROI claim."
+    },
+    {
+      "id": "ci-cd-performance",
+      "name": "CI/CD Pipeline Performance",
+      "url": "https://www.jnyeholt.dev/projects/ci-cd-performance/",
+      "summary": "Selective execution, parallelism and caching; documented approximate Main Stage timings of 15-18 minutes before and 5-8 after, with the exact comparison window unknown."
+    }
+  ]
+}

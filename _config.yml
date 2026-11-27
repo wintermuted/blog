@@ -64,3 +64,20 @@ include:
 
 exclude:
  - netlify.toml
+ - scripts
+ - test
+ - review-output
+ # Keep personal and internal work captures as private source material; only sanitized derivatives ship.
+ - assets/screenshots/personal-cv-experience.png
+ - assets/screenshots/personal-cv-projects.png
+ - assets/screenshots/personal-cv-skills.png
+ - assets/screenshots/personal-cv-summary.png
+ - assets/screenshots/copilot-chat-prompt.png
+ - assets/screenshots/copilot-chat-response.png
+ - assets/screenshots/deal-monitoring-detail.jpg
+ - assets/screenshots/deal-monitoring-filters.png
+ - assets/screenshots/deal-monitoring-table-view.png
+ - assets/screenshots/pipeline-dag.png
+ - assets/screenshots/pipeline-metrics.jpg
+ - assets/screenshots/reporting-dashboard.png
+ - assets/screenshots/reporting-drilldown.jpg

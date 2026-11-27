@@ -1,0 +1,74 @@
+name: Validate portfolio without deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'jnyeholt-microsoft-resume-professional-portfolio'
+      - 'jnyeholt-microsoft-unify-project-detail-views'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install resume validation dependencies
+        run: npm ci --prefix scripts --ignore-scripts
+      - name: Verify importer
+        run: |
+          node --test test/import-resume.test.mjs
+          node scripts/import-resume.mjs verify --allow-pending
+      - name: Install image dependencies
+        run: sudo apt-get update && sudo apt-get install -y libvips-tools libvips-dev liblcms2-dev libopenjp2-7-dev libpng-dev libwebp-dev libheif-dev imagemagick libjxl-dev libpoppler-glib-dev poppler-utils
+      - name: Restore generated images
+        id: image-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: _site/generated/
+          key: ${{ runner.os }}-generated-images-${{ hashFiles('assets/img/**', '_data/picture.yml') }}
+      - name: Build site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Cache generated images
+        if: steps.image-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: _site/generated/
+          key: ${{ steps.image-cache.outputs.cache-primary-key }}
+      - name: Verify built site and print
+        run: |
+          node scripts/check-site.mjs
+          node scripts/check-resume-print.mjs --captures
+      - name: Verify project filters with a pending resume bundle
+        run: |
+          pending=$(mktemp -d)
+          trap 'rm -rf "$pending"' EXIT
+          ln -s "$GITHUB_WORKSPACE/_site" "$pending/_site"
+          cd "$pending"
+          node "$GITHUB_WORKSPACE/scripts/check-resume-print.mjs"
+      - name: Upload site for private review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-site-review
+          path: |
+            _site/
+            review-output/
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Upload print and screenshots for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-preview-captures
+          path: review-output/
+          if-no-files-found: warn
+          retention-days: 7

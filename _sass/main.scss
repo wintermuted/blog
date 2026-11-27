@@ -1409,6 +1409,13 @@ h3.post_title {
 
 /* ── Gallery overlay ─────────────────────────────────────────────────────── */
 
+.projects-index-section > h2 {
+  margin: 2rem 0 0.85rem;
+  font-size: 1.25rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 .projects-filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -1452,6 +1459,16 @@ h3.post_title {
 .projects-filter-empty {
   margin: 1rem 0 0;
   font-size: 0.9rem;
+}
+
+.projects-filter-bar[hidden],
+.projects-grid .project-card-item[hidden] {
+  display: none;
+}
+
+#professional-projects-heading + .projects-filter-bar .projects-filter-button:focus-visible {
+  outline: 2px solid var(--wm-color-text);
+  outline-offset: 2px;
 }
 
 #projects,
@@ -1577,6 +1594,55 @@ h3.post_title {
     object-fit: cover;
     object-position: top center;
     transition: transform 0.18s ease, filter 0.18s ease;
+  }
+
+  .project-card-media--preview {
+    background: #edf1f4;
+
+    .project-card-media-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card-image--primary {
+      object-fit: cover;
+    }
+  }
+
+  .project-card-diagram {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--wm-color-surface-muted);
+
+    .mermaid {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      padding: 0.4rem;
+      aspect-ratio: auto;
+    }
+
+    .mermaid svg {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .project-card-media--preview-paired .project-card-image--secondary {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: 38%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 2px solid #fff;
+    border-radius: 0.2rem;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.24);
   }
 
   .project-card-media--reveal {

@@ -36,6 +36,12 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for proper git operations
 
+      - name: Install resume validation dependencies
+        run: npm ci --prefix scripts --ignore-scripts
+
+      - name: Verify reviewed resume bundle
+        run: node scripts/import-resume.mjs verify
+
       # Step 2: Set up Ruby environment
       # Installs Ruby and sets up bundler with automatic gem caching
       - name: Set up Ruby
@@ -71,7 +77,8 @@ jobs:
             libheif-dev \
             imagemagick \
             libjxl-dev \
-            libpoppler-glib-dev
+            libpoppler-glib-dev \
+            poppler-utils
 
       # Step 5: Build the Jekyll site
       # Generates the static site in the _site directory
@@ -80,6 +87,11 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production  # Set environment to production for optimizations
+
+      - name: Verify published routes
+        run: |
+          node scripts/check-site.mjs
+          node scripts/check-resume-print.mjs
 
       # Step 6: Verify production Netlify credentials
       - name: Check Netlify auth token

@@ -453,7 +453,7 @@ layout: default
                 {% assign link_label = item.label | downcase %}
                 {% assign link_url = item.url | downcase %}
                 <li>
-                  <a href="{{ item.url }}">
+                  <a href="{{ item.url | relative_url }}">
                     {% if link_url contains 'github.com' %}
                       <i class="fab fa-github" aria-hidden="true"></i>
                     {% elsif link_label contains 'demo' or link_label contains 'live' or link_label contains 'website' %}

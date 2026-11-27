@@ -28,7 +28,8 @@ permalink: /about/
 				</p>
 				<p>Across my nearly 15 year career I've had the opportunity to lead projects, teams, and develop internal frameworks that have saved both IC's and the business valuable engineering time.  </p>
 				<p>
-					Read my <a href="/resume" target="_blank" rel="noopener noreferrer">CV /resume</a>.
+					Read my <a href="{{ site.baseurl }}/resume">resume</a> and explore my <a href="{{ site.baseurl }}/projects/">project work</a>.
+					{% if site.resume_bundle_ready %}<a href="{{ site.baseurl }}/resume.pdf">Download the resume PDF</a>.{% endif %}
 				</p>
 			</section>
 		</div>

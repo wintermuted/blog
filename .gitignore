@@ -5,4 +5,5 @@ _site/
 /.jekyll-cache/
 vendor/
 .bundle/
+node_modules/
 generated/

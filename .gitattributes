@@ -1,0 +1,2 @@
+# The publication manifest hashes the exact bytes produced by CV CI.
+resume-bundle/* -text
