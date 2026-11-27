@@ -39,6 +39,26 @@ bundle exec jekyll serve --livereload
 
 If the site is not loading in a browser, make sure you are running `serve` (not only `build --watch`) and open `http://localhost:4000`.
 
+### GitHub Copilot App
+
+Repository settings and script commands live in `.github/github-app.yml`.
+Review and accept this configuration in the app before using it; edits made
+outside the app require acceptance again.
+
+- **Setup** runs `bundle install` automatically when a session is created.
+- **Preview** manually starts Jekyll with live reload. The app detects Jekyll's
+  server address and opens the preview in its integrated browser.
+
+Install the Ruby version specified in `.ruby-version` and Bundler before setup.
+Preview also requires Node.js for Autoprefixer on Windows, where `mini_racer` is
+not installed, and libvips for responsive image generation with
+`jekyll_picture_tag`. Setup installs gems only; it does not install system tools
+or the sibling `wintermuted-ui-theme` npm dependency, which the Jekyll workflow
+does not install either.
+
+Production builds remain in CI. Remote control is disabled, and there is no
+automatic archive-cleanup script.
+
 ### Building for Production
 
 ```bash
